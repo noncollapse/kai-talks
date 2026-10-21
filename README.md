@@ -1,13 +1,15 @@
 # Talks
 
+- **Large Language Models: Principles and Training Methods** — [Open talk](https://noncollapse.github.io/LLM_short_course/#/1) · [Source](talks/llm_short_course/)
+- **Can Tabular Foundation Models Amortize Statistical Inference? (TabCon)** — [Open talk](https://noncollapse.github.io/LLM_short_course/tabular_foundation_inference/) · [Source](talks/tabular_foundation_inference/) · Title and outline
+
+
+
+
+## Description
 Research talks and short courses by [Kai Ye](https://noncollapse.github.io/).
 Each talk has its own Slidev source, figures and optional Vue components. Node
 dependencies and development, build and export commands are shared at the root.
-
-## Talks
-
-- **Large Language Models: Principles and Training Methods** — [Open talk](https://noncollapse.github.io/LLM_short_course/#/1) · [Source](talks/llm_short_course/)
-- **Can Tabular Foundation Models Amortize Statistical Inference? (TabCon)** — [Open talk](https://noncollapse.github.io/LLM_short_course/tabular_foundation_inference/) · [Source](talks/tabular_foundation_inference/) · Title and outline
 
 
 
