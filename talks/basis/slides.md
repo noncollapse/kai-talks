@@ -2,7 +2,7 @@
 theme: default
 author: Kai Ye
 routerMode: hash
-transition: none
+transition: slide-left
 colorSchema: light
 fonts:
   provider: none
@@ -25,7 +25,6 @@ title: "BASIS: Batchwise Advantage Estimation from Single-Rollout Information Sh
   <p>Batchwise Advantage Estimation from Single-Rollout Information Sharing for LLM Reasoning</p>
   <p>Kai Ye</p>
   <p>Department of Statistics, LSE &amp; Stats-Powered AI Lab</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>1</p>
 </div>
@@ -58,7 +57,6 @@ title: "Roadmap"
   <p>Better than GRPO</p>
   <p>Shares inter-query information</p>
   <p>Lower baseline variance</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>2</p>
 </div>
@@ -77,7 +75,6 @@ title: "Background: Large Language Model reasoning and training"
   <p>Background</p>
   <p>METHOD DETAIL</p>
   <p>Large Language Model reasoning and training</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>3</p>
 </div>
@@ -116,7 +113,6 @@ title: "Background: Large Language Model reasoning"
   <p>y</p>
   <p>Reward</p>
   <p>r(x,y)</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>4</p>
 </div>
@@ -135,7 +131,6 @@ title: "Background: Reinforcement Learning"
   <p>Background</p>
   <p>METHOD DETAIL</p>
   <p>Reinforcement Learning</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>5</p>
 </div>
@@ -158,7 +153,6 @@ title: "Baseline 1"
   <p>Conditionally independent of Y and R given X</p>
   <p>Unbiased</p>
   <p>Reduce the variance of the estimator</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>6</p>
 </div>
@@ -177,7 +171,6 @@ title: "Baseline 2"
   <p>Baseline 2</p>
   <p>One sample is needed</p>
   <p>A separate value model is needed</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>7</p>
 </div>
@@ -196,7 +189,6 @@ title: "Baseline 3"
   <p>Baseline 3</p>
   <p>No separate value model is needed</p>
   <p>A group of sample is needed</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>8</p>
 </div>
@@ -235,7 +227,6 @@ title: "PPO versus GRPO"
   <p>GRPO</p>
   <p>Avoids value fitting by using within-prompt group statistics.</p>
   <p>But local group normalization becomes fragile when G is small.</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>9</p>
 </div>
@@ -265,7 +256,6 @@ title: "Core intuition"
   <p>x6</p>
   <p>BASIS uses the training-batch as a statistical neighborhood.</p>
   <p>METHOD DETAIL</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>10</p>
 </div>
@@ -283,7 +273,6 @@ title: "BASIS: Batchwise Advantage"
   <p>BASIS: Batchwise Advantage</p>
   <p>From local groups to batchwise information sharing</p>
   <p>The update rule remains familiar; the baseline estimator is what changes.</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>11</p>
 </div>
@@ -301,7 +290,6 @@ title: "Single-rollout effective (even using half time)"
   <p>THEORY</p>
   <p>Single-rollout effective (even using half time)</p>
   <p>Experiments</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>12</p>
 </div>
@@ -321,7 +309,6 @@ title: "Two key questions"
   <p>How can we define and quantify such shared information?</p>
   <p>METHOD DETAIL</p>
   <p>How can this information be used to help prompts learn from each other?</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>13</p>
 </div>
@@ -342,7 +329,6 @@ title: "Our Initial Goal"
   <p>𝐾𝑡𝑥𝑖,𝑥ℎ is a batch-dependent cross-prompt information borrowing coefficient, measuring how much the empirical reward statistic from prompt 𝑥ℎ contributes to the baseline estimate for prompt 𝑥𝑖at training step (𝑡)</p>
   <p>Find a good 𝐾𝑡𝑥𝑖,𝑥ℎ in :</p>
   <p>METHOD DETAIL</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>14</p>
 </div>
@@ -365,7 +351,6 @@ title: "Batchwise refinement: Proposition 1 (BLUE)"
   <p>Can be found has best linear unbiased estimator (BLUE)</p>
   <p>How can we get access to  𝜇𝑘 in our online training?</p>
   <p>METHOD DETAIL</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>15</p>
 </div>
@@ -393,7 +378,6 @@ title: "Offline prompt signal: Proposition 2 (Closed-form value)"
   <p>𝑉𝛽⋆𝑥’=sup𝜋𝔼𝑌∼𝜋⋅∣𝑥𝑟(𝑥,𝑦)−𝛽 KL 𝜋⋅∣𝑥∥𝜋ref⋅∣𝑥</p>
   <p>BAS</p>
   <p>METHOD DETAIL</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>16</p>
 </div>
@@ -420,7 +404,6 @@ title: "Online calibration: How to select beta during online training?"
   <p>β = 0</p>
   <p>(KL vanishes)</p>
   <p>Start</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>17</p>
 </div>
@@ -441,7 +424,6 @@ title: "Batchwise baseline"
   <p>V𝑖𝑡=𝑉𝛽𝑡𝑥𝑖 ℎ∈ℬ𝓉𝑉𝛽𝑡𝑥ℎ 𝜇ℎ𝑡𝑢∈ℬ𝓉𝑉𝛽𝑡𝑥𝑢2.</p>
   <p>Cross-prompt information borrowing coefficient:</p>
   <p>Baseline:</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>18</p>
 </div>
@@ -468,7 +450,6 @@ title: "Interpretation"
   <p>Rescale it to the difficulty level of 𝑥𝑖.</p>
   <p>Confidence weight</p>
   <p>Larger offline value signal has higher leverage</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>19</p>
 </div>
@@ -486,7 +467,6 @@ title: "Method overview"
   <p>Method overview</p>
   <p>7</p>
   <p>METHOD DETAIL</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>20</p>
 </div>
@@ -505,7 +485,6 @@ title: "Experiments"
   <p>BAS helps for two complementary reasons:</p>
   <p>lower variance</p>
   <p>better preservation of learning signal.</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>21</p>
 </div>
@@ -523,7 +502,6 @@ title: "Single-rollout effective (even using half time)"
   <p>THEORY</p>
   <p>Single-rollout effective (even using half time)</p>
   <p>Experiments</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>22</p>
 </div>
@@ -542,7 +520,6 @@ title: "BASIS is robust and informative"
   <p>BASIS is robust and informative</p>
   <p>GRPO have high variance when the question is medium and gradient collapse when question is easy or difficult</p>
   <p>Experiments</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>23</p>
 </div>
@@ -560,7 +537,6 @@ title: "BASIS is sample efficient and robust"
   <p>Experiments</p>
   <p>BASIS is sample efficient and robust</p>
   <p>BASIS has smaller MSE with single-rollout and robustness to within-batch reward heterogeneity</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>24</p>
 </div>
@@ -603,7 +579,6 @@ title: "Summary"
   <p>Use cases</p>
   <p>RLVR with verifiable rewards.</p>
   <p>Reasoning, mathematics, code, and other structured tasks.</p>
-  <p>狗熊会</p>
   <p>BASIS</p>
   <p>25</p>
 </div>

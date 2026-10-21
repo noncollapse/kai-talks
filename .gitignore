@@ -12,7 +12,6 @@ slidesStatLLM/
 backups/
 *.pdf
 *.pptx
-!talks/basis/source/bas.pptx
 
 # Logs
 logs/

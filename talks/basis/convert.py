@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild the web slides from the source PPTX and a PowerPoint-exported PDF."""
+"""Rebuild the web slides from a local PPTX and a PowerPoint-exported PDF."""
 
 import argparse
 import html
@@ -21,16 +21,53 @@ NS = {
 }
 
 
+def remove_footer_brand(path):
+    """Remove this deck's three-character footer from Poppler's SVG markup."""
+    svg = path.read_text()
+    removed = []
+
+    def clean_group(match):
+        group = ET.fromstring(match[0].replace('xlink:href', 'href'))
+        uses = list(group)
+        if (
+            group.get('fill') == 'rgb(53.726196%, 53.726196%, 53.726196%)'
+            and len(uses) == 3
+            and all(use.tag == 'use' for use in uses)
+        ):
+            xs = [float(use.get('x', '0')) for use in uses]
+            ys = [float(use.get('y', '0')) for use in uses]
+            if (
+                20 < xs[0] < 50 and 510 < ys[0] < 540
+                and all(abs(y - ys[0]) < 0.01 for y in ys)
+                and all(abs(xs[i + 1] - xs[i] - 12) < 0.01 for i in range(2))
+            ):
+                removed.append([use.get('href')[1:] for use in uses])
+                return ''
+        return match[0]
+
+    svg = re.sub(r'<g\b[^>]*>\s*(?:<use\b[^>]*/>\s*)+</g>\n?', clean_group, svg)
+    if len(removed) > 1:
+        raise ValueError(f'Ambiguous footer branding in {path.name}')
+    # Drop only glyph definitions that no other visible text uses.
+    for glyph in (removed[0] if removed else []):
+        if f'xlink:href="#{glyph}"' not in svg:
+            svg = re.sub(r'<g id="' + re.escape(glyph) + r'">.*?</g>\n?', '', svg, flags=re.DOTALL)
+    ET.fromstring(svg)
+    path.write_text(svg)
+    return len(removed)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('pdf', type=Path, help='Export all slides from PowerPoint as a PDF first.')
+    parser.add_argument('--pptx', required=True, type=Path, help='Local original PPTX; it is not published.')
     parser.add_argument('--pdftocairo', default='pdftocairo')
     parser.add_argument('--pdfinfo', default='pdfinfo')
     args = parser.parse_args()
     titles = json.loads((ROOT / 'slide-titles.json').read_text())
     metadata = json.loads((ROOT / 'talk.json').read_text())
 
-    with ZipFile(ROOT / 'source' / 'bas.pptx') as archive:
+    with ZipFile(args.pptx) as archive:
         presentation = ET.fromstring(archive.read('ppt/presentation.xml'))
         relationships = ET.fromstring(archive.read('ppt/_rels/presentation.xml.rels'))
         targets = {rel.attrib['Id']: rel.attrib['Target'] for rel in relationships}
@@ -56,19 +93,20 @@ def main():
                 args.pdftocairo, '-svg', '-f', str(index), '-l', str(index),
                 str(args.pdf.resolve()), str(temporary / filename),
             ], check=True)
+            remove_footer_brand(temporary / filename)
             # Check that conversion really produced a complete SVG before replacing assets.
             ET.parse(temporary / filename)
             paragraphs = [
                 ''.join(p.itertext()).strip()
                 for p in source.findall('.//a:p', NS)
             ]
-            paragraphs = [p for p in paragraphs if p]
+            paragraphs = [p for p in paragraphs if p and p != '狗熊会']
             body = '\n'.join(f'  <p>{html.escape(p)}</p>' for p in paragraphs)
             frontmatter = f'layout: none\nclass: bg-white\ntitle: {json.dumps(title)}\n'
             if index == 1:
                 frontmatter = (
                     'theme: default\nauthor: Kai Ye\nrouterMode: hash\n'
-                    'transition: none\ncolorSchema: light\n'
+                    'transition: slide-left\ncolorSchema: light\n'
                     'fonts:\n  provider: none\ndrawings:\n  persist: false\n'
                     f'aspectRatio: {width / height}\n'
                     'info: |\n  BASIS research talk, converted from the original PowerPoint.\n'
