@@ -1,203 +1,109 @@
-# Large Language Models (LLMs) - Principles and Training Guide
+# Talks
 
-A comprehensive short course covering the principles and training methods of Large Language Models, including Pre-training, Supervised Fine-tuning (SFT), Reinforcement Learning from Human Feedback (RLHF), and Reinforcement Learning from Verifiable Rewards (RLVR).
+Research talks and short courses by [Kai Ye](https://noncollapse.github.io/).
+Each talk has its own Slidev source, figures and optional Vue components. Node
+dependencies and development, build and export commands are shared at the root.
 
-🌐 **Live Slide**: [https://noncollapse.github.io/LLM_short_course/](https://noncollapse.github.io/LLM_short_course/)
+## Talks
 
-## ✨ Features
+- [Large Language Models: Principles and Training Methods](talks/llm_short_course/)
 
-- **Comprehensive Coverage**: From LLM foundations to advanced training techniques
-- **Visual Learning**: Rich diagrams and illustrations for complex concepts
-- **Responsive Design**: Optimized for both desktop and mobile viewing
+Run `npm run list` to see all talks available in your checkout, including local drafts.
 
-## 📚 Content Overview
+## Getting started
 
-1. **LLM Foundations**
-   - What are Large Language Models
-   - Tokenization and embeddings
-   - Transformer architecture
-
-2. **Pre-training**
-   - Language modeling objectives
-   - Training data and scale
-
-3. **Supervised Fine-tuning (SFT)**
-   - Task-specific adaptation
-   - SFT vs Pre-training comparison
-
-4. **Reinforcement Learning from Human Feedback (RLHF)**
-   - Why RLHF?
-   - Reward modeling
-   - InstructGPT methodology
-   - Human preference learning
-   - PPO (Proximal Policy Optimization)
-   - DPO (Direct Preference Optimization)
-
-5. **Reinforcement Learning from Verifiable Rewards (RLVR)**
-   - Why RLVR?
-   - GRPO (Group Relative Policy Optimization)
-   - GxPO variants overview
-
-6. **AI-Generated Content Detection**
-   - AI-generated text detection
-   - AI-generated image detection
-   - AI-generated audio detection
-   - AI-generated video detection
-
-7. **Advanced Topics**
-   - Challenges and future directions
-   - Safety and evaluation
-   - Open source ecosystem
-
-## 🚀 Quick Start
-
-### 🌐 Live Slides
-
-Visit the live presentation: [https://noncollapse.github.io/LLM_short_course/](https://noncollapse.github.io/LLM_short_course/)
-
-### 🔧 Want to Contribute or Deploy Locally?
-
-#### Step 1: Fork the Repository
-
-1. Navigate to [https://github.com/noncollapse/LLM_short_course](https://github.com/noncollapse/LLM_short_course)
-2. Click the **Fork** button in the top-right corner
-
-
-#### Step 2: Clone Your Fork
+Use Node.js 20 or newer, then install the locked dependencies:
 
 ```bash
-# Clone your forked repository
-git clone https://github.com/YOUR_USERNAME/LLM_short_course.git
-
-# Navigate to the project directory
-cd LLM_short_course
+npm ci
+npm run list
+npm run dev -- llm_short_course
 ```
 
-Replace `YOUR_USERNAME` with your GitHub username.
+Open the address printed by Slidev (normally `http://localhost:3030`). `npm run dev`
+without a name opens the LLM course. Additional Slidev options are forwarded:
 
-#### Step 3: Prerequisites
-
-Make sure you have the following installed:
-- Node.js >= 14 ([Download here](https://nodejs.org/))
-- npm (comes with Node.js) or yarn
-
-Check your installation:
 ```bash
-node --version
-npm --version
+npm run dev -- llm_short_course --port 3031 --open
+npm run export -- llm_short_course
 ```
 
-#### Step 4: Install Dependencies
+Export uses Slidev's defaults and writes into the talk's directory. PDF export
+requires Slidev's optional Playwright browser support.
 
-```bash
-npm install
+## Repository structure
+
+```text
+talks/
+  llm_short_course/
+    slides.md
+    talk.json
+    README.md
+    components/
+    public/figs/
+    global-bottom.vue
+scripts/
+  talks.mjs               # Discover, preview, build and export talks
+  index.html              # Shared archive page template
+package.json
+package-lock.json
+.github/workflows/deploy.yml
 ```
 
-This will install all required packages including Slidev, Vue.js, and other dependencies.
+## Adding a talk
 
-#### Step 5: Local Development
+1. Create `talks/<name>/slides.md`, using a lowercase directory name with underscores
+   or hyphens. Include the usual Slidev frontmatter, including `theme: default`.
+2. Add a `talk.json` with the title and description for the archive page:
 
-Start the development server:
+   ```json
+   {
+     "title": "Your talk title",
+     "description": "A short description.",
+     "draft": true
+   }
+   ```
+
+3. Put figures in `talks/<name>/public/figs/` and any custom components in
+   `talks/<name>/components/`. Reference figures as `/figs/<filename>` in Slidev.
+4. Preview with `npm run dev -- <name>`. No root configuration change is needed.
+5. When ready to publish, set `draft` to `false`, commit the talk, and add it to the
+   list in this README.
+
+`draft: true` excludes a talk from the default site build. It does **not** hide
+committed source files on GitHub. Keep private work untracked until it is ready
+to share; stage specific paths when committing other changes.
+
+## Building and deployment
 
 ```bash
-npm run dev
-```
-
-Then open [http://localhost:3030](http://localhost:3030) in your browser.
-
-The development server supports:
-- 🔥 Hot Module Replacement (HMR) - changes reflect instantly
-- 📝 Live editing of `slides.md`
-- 🎨 Real-time preview
-
-#### Step 6: Make Your Changes
-
-Edit `slides.md` to modify the presentation content. The file uses Markdown with extended Slidev syntax for slides, layouts, and components.
-
-
-
-#### Step 7: Build for Production (Optional)
-
-Test the production build locally:
-
-```bash
+# Build all non-draft talks and the archive page
 npm run build
+
+# Build just one talk and an index pointing to it
+npm run build -- llm_short_course
+
+# Include drafts in a local preview build
+npm run build -- --include-drafts
+
+# Build for a site hosted below a URL prefix
+BASE_PATH=/LLM_short_course/ npm run build
+
+# Serve the built site locally (use the default BASE_PATH=/ for this)
+python3 -m http.server 8080 --directory dist
 ```
 
-The built files will be in the `dist/` directory. 
+Each build replaces `dist/`, including any previously built drafts. The archive
+is at `dist/index.html`; each deck is at `dist/<name>/index.html`.
 
-#### Step 8: Commit and Push Your Changes
+GitHub Pages deploys on pushes to `main` or manual workflow runs. Set the repository's
+Pages source to **GitHub Actions**. The workflow obtains the URL prefix from Pages
+configuration, so the build is not tied to the current repository name.
 
+Existing links of the form `/#/slide` at the old course URL redirect to
+`llm_short_course/#/slide`. The site root now displays the talk archive.
 
+## Technology
 
-#### Step 9: Deploy with GitHub Pages (Optional)
-
-If you want to deploy your version to GitHub Pages:
-
-1. Go to your forked repository on GitHub
-2. Navigate to **Settings** → **Pages**
-3. Under **Source**, select: **GitHub Actions**
-4. The workflow in `.github/workflows/deploy.yml` will automatically handle deployment
-5. Your site will be available at: `https://YOUR_USERNAME.github.io/LLM_short_course/`
-
-#### Step 10: Create a Pull Request (Optional)
-
-If you want to contribute your changes back to the original repository:
-
-1. Go to your forked repository on GitHub
-2. Click **Pull requests** → **New pull request**
-3. Select the base repository: `noncollapse/LLM_short_course`
-4. Add a title and description for your changes
-5. Click **Create pull request**
-
-
-
-## 📁 Project Structure
-
-```
-llm_short_course/
-├── slides.md              # Main presentation content
-├── public/
-│   └── figs/              # Image assets served at /figs/*
-│       ├── InstructGPT.png
-│       ├── grpo.png
-│       ├── DPO.png
-│       └── ...
-├── package.json           # Dependencies and scripts
-├── .github/
-│   └── workflows/
-│       └── deploy.yml     # GitHub Actions deployment
-└── README.md
-```
-
-
-## 👤 Author
-
-**Kai Ye**
-
-- 🏠 Homepage: [https://noncollapse.github.io/](https://noncollapse.github.io/)
-- 🎓 Google Scholar: [Profile](https://scholar.google.com/citations?user=a7G8Yo8AAAAJ)
-- 🤗 Hugging Face: [@Kyleyee](https://huggingface.co/Kyleyee)
-
-## 🛠️ Technology Stack
-
-- **[Slidev](https://sli.dev/)** - Presentation framework powered by Vue.js and Vite
-- **[Vue.js](https://vuejs.org/)** - Progressive JavaScript framework
-- **[Vite](https://vitejs.dev/)** - Next-generation frontend tooling
-- **[UnoCSS](https://unocss.dev/)** - Instant on-demand atomic CSS engine
-- **[KaTeX](https://katex.org/)** - Fast math typesetting for the web
-- **[Shiki](https://shiki.matsu.io/)** - Beautiful syntax highlighter
-
-## 📖 Learn More
-
-- [Slidev Documentation](https://sli.dev/)
-- [Vue.js Guide](https://vuejs.org/guide/)
-- [Markdown Guide](https://www.markdownguide.org/)
-
-## 📝 License
-
-This project is for educational purposes.
-
-## 🙏 Acknowledgments
-
-Special thanks to the open source community and all the researchers whose work is referenced in this presentation.
+[Slidev](https://sli.dev/) provides Markdown slides, Vue components, KaTeX equations
+and interactive presentation controls. This repository is for educational purposes.

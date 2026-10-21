@@ -1,14 +1,19 @@
 {
-  "name": "llm-slidev-presentation",
+  "name": "talks",
   "version": "1.0.0",
-  "description": "Large Language Models Presentation with Slidev",
+  "description": "Talks and short courses by Kai Ye",
   "scripts": {
-    "dev": "slidev",
-    "build": "slidev build --base /LLM_short_course/ --download false",
-    "export": "slidev export"
+    "list": "node scripts/talks.mjs list",
+    "dev": "node scripts/talks.mjs dev",
+    "build": "node scripts/talks.mjs build",
+    "export": "node scripts/talks.mjs export"
   },
   "dependencies": {
     "@slidev/cli": "^0.49.0",
     "@slidev/theme-default": "latest"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=20"
   }
 }
