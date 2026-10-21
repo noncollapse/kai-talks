@@ -1,35 +1,32 @@
 # Can Tabular Foundation Models Amortize Statistical Inference?
 
-论文：[arXiv:2609.33114](https://arxiv.org/abs/2609.33114)
+[Open talk](https://noncollapse.github.io/kai-talks/tabular_foundation_inference/)
 
-作者：Kai Ye, Shijin Gong, Hongyi Zhou, Valentina Zangirolami, Chengchun Shi。
+## Abstract
 
-目前只有标题页和大纲，尚未撰写正文。
+Can a model learn to construct confidence intervals across datasets, reducing
+the need to repeat costly inference procedures for each new problem? This talk
+introduces TabCon, a system built on a tabular foundation model for amortizing
+statistical inference. It focuses on confidence intervals for regression
+functions, combining sparse expert routing with reinforcement learning to
+calibrate coverage. The discussion examines the balance between coverage,
+interval length and computational cost, and the scope of inference learned
+across problems.
 
-[直接打开 talk](https://noncollapse.github.io/kai-talks/tabular_foundation_inference/)
+## Contents
 
-## 大纲
+The current slides contain the title and outline for the following topics:
 
-1. 研究动机：为什么考虑跨数据集摊销统计推断的成本？
-2. 统计目标：回归函数的置信区间，以及它与预测区间的区别。
-3. 背景：表格基础模型、现有区间构造方法及其计算成本。
-4. TabCon：估计误差分布、专家模型与稀疏路由。
-5. 训练流程：预训练、监督微调与强化学习后训练。
-6. 实验安排：覆盖率、区间长度、推断时间与消融。
-7. 讨论：适用范围、局限与后续方向。
+1. Motivation: amortizing statistical inference across datasets
+2. Statistical target: confidence intervals for regression functions versus prediction intervals
+3. Background: tabular foundation models and uncertainty quantification
+4. TabCon: estimation-error distributions and sparse expert routing
+5. Training: pre-training, supervised fine-tuning and reinforcement learning
+6. Evaluation: coverage, interval length, inference time and ablations
+7. Discussion: scope, limitations and future directions
 
-## 本地预览
+## Paper
 
-在仓库根目录运行：
-
-```bash
-npm run dev -- tabular_foundation_inference
-```
-
-仅构建这个 talk：
-
-```bash
-npm run build -- tabular_foundation_inference
-```
-
-后续图片放在 `public/figs/`，在 slides 中使用 `/figs/<filename>` 引用。
+Kai Ye, Shijin Gong, Hongyi Zhou, Valentina Zangirolami and Chengchun Shi.
+[Can Tabular Foundation Models Amortize Statistical Inference?](https://arxiv.org/abs/2609.33114)
+arXiv:2609.33114, 2026.
