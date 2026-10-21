@@ -9,47 +9,7 @@ dependencies and development, build and export commands are shared at the root.
 - **Large Language Models: Principles and Training Methods** — [Open talk](https://noncollapse.github.io/LLM_short_course/#/1) · [Source](talks/llm_short_course/)
 - **Can Tabular Foundation Models Amortize Statistical Inference? (TabCon)** — [Open talk](https://noncollapse.github.io/LLM_short_course/tabular_foundation_inference/) · [Source](talks/tabular_foundation_inference/) · Title and outline
 
-Run `npm run list` to see all talks available in your checkout, including local drafts.
 
-## Getting started
-
-Use Node.js 20 or newer, then install the locked dependencies:
-
-```bash
-npm ci
-npm run list
-npm run dev -- llm_short_course
-```
-
-Open the address printed by Slidev (normally `http://localhost:3030`). `npm run dev`
-without a name opens the LLM course. Additional Slidev options are forwarded:
-
-```bash
-npm run dev -- llm_short_course --port 3031 --open
-npm run export -- llm_short_course
-```
-
-Export uses Slidev's defaults and writes into the talk's directory. PDF export
-requires Slidev's optional Playwright browser support.
-
-## Repository structure
-
-```text
-talks/
-  llm_short_course/
-    slides.md
-    talk.json
-    README.md
-    components/
-    public/figs/
-    global-bottom.vue
-scripts/
-  talks.mjs               # Discover, preview, build and export talks
-  index.html              # Shared archive page template
-package.json
-package-lock.json
-.github/workflows/deploy.yml
-```
 
 ## Adding a talk
 
@@ -104,7 +64,4 @@ configuration, so the build is not tied to the current repository name.
 Existing links of the form `/#/slide` at the old course URL redirect to
 `llm_short_course/#/slide`. The site root now displays the talk archive.
 
-## Technology
 
-[Slidev](https://sli.dev/) provides Markdown slides, Vue components, KaTeX equations
-and interactive presentation controls. This repository is for educational purposes.
