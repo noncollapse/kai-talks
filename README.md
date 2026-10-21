@@ -6,7 +6,7 @@ dependencies and development, build and export commands are shared at the root.
 
 ## Talks
 
-- **Large Language Models: Principles and Training Methods** — [Open talk](https://noncollapse.github.io/LLM_short_course/llm_short_course/) · [Source](talks/llm_short_course/)
+- **Large Language Models: Principles and Training Methods** — [Open talk](https://noncollapse.github.io/LLM_short_course/#/1) · [Source](talks/llm_short_course/)
 
 Run `npm run list` to see all talks available in your checkout, including local drafts.
 
