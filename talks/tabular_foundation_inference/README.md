@@ -1,6 +1,6 @@
 # Can Tabular Foundation Models Amortize Statistical Inference?
 
-[Open talk](https://noncollapse.github.io/kai-talks/tabular_foundation_inference/)
+[Open talk slides](https://noncollapse.github.io/kai-talks/tabular_foundation_inference/)
 
 ## Abstract
 

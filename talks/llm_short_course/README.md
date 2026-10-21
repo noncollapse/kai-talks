@@ -2,7 +2,7 @@
 
 Chengchun Shi · Kai Ye · Shijin Gong
 
-[Open talk](https://noncollapse.github.io/kai-talks/llm_short_course/)
+[Open talk slides](https://noncollapse.github.io/kai-talks/llm_short_course/)
 
 ## Abstract
 

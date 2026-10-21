@@ -1,6 +1,6 @@
 # BASIS: Batchwise Advantage Estimation from Single-Rollout Information Sharing for LLM Reasoning
 
-[Open talk](https://noncollapse.github.io/kai-talks/basis/)
+[Open talk slides](https://noncollapse.github.io/kai-talks/basis/)
 
 ## Abstract
 
