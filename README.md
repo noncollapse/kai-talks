@@ -6,7 +6,7 @@ dependencies and development, build and export commands are shared at the root.
 
 ## Talks
 
-- [Large Language Models: Principles and Training Methods](talks/llm_short_course/)
+- **Large Language Models: Principles and Training Methods** — [Open talk](https://noncollapse.github.io/LLM_short_course/llm_short_course/) · [Source](talks/llm_short_course/)
 
 Run `npm run list` to see all talks available in your checkout, including local drafts.
 
@@ -67,8 +67,8 @@ package-lock.json
 3. Put figures in `talks/<name>/public/figs/` and any custom components in
    `talks/<name>/components/`. Reference figures as `/figs/<filename>` in Slidev.
 4. Preview with `npm run dev -- <name>`. No root configuration change is needed.
-5. When ready to publish, set `draft` to `false`, commit the talk, and add it to the
-   list in this README.
+5. When ready to publish, set `draft` to `false`, commit the talk, and add its source
+   and live slide links to the list in this README.
 
 `draft: true` excludes a talk from the default site build. It does **not** hide
 committed source files on GitHub. Keep private work untracked until it is ready
