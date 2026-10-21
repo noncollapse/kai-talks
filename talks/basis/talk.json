@@ -1,0 +1,5 @@
+{
+  "title": "BASIS: Batchwise Advantage Estimation from Single-Rollout Information Sharing for LLM Reasoning",
+  "description": "A 25-slide research talk on cross-prompt information sharing for single-rollout advantage estimation.",
+  "draft": false
+}

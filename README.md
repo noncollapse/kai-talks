@@ -1,17 +1,16 @@
-# Talks
+# Kai’s talks
 
-- **Large Language Models: Principles and Training Methods** — [Open talk](https://noncollapse.github.io/LLM_short_course/#/1) · [Source](talks/llm_short_course/)
-- **Can Tabular Foundation Models Amortize Statistical Inference? (TabCon)** — [Open talk](https://noncollapse.github.io/LLM_short_course/tabular_foundation_inference/) · [Source](talks/tabular_foundation_inference/) · Title and outline
+- **Large Language Models: Principles and Training Methods** — [Open talk](https://noncollapse.github.io/kai-talks/llm_short_course/) · [Source](talks/llm_short_course/)
+- **Can Tabular Foundation Models Amortize Statistical Inference? (TabCon)** — [Open talk](https://noncollapse.github.io/kai-talks/tabular_foundation_inference/) · [Source](talks/tabular_foundation_inference/) · Title and outline
+- **BASIS: Batchwise Advantage Estimation from Single-Rollout Information Sharing for LLM Reasoning** — [Open talk](https://noncollapse.github.io/kai-talks/basis/) · [Source](talks/basis/) · 25 slides converted from PowerPoint
 
-
-
+[Browse all talks](https://noncollapse.github.io/kai-talks/)
 
 ## Description
+
 Research talks and short courses by [Kai Ye](https://noncollapse.github.io/).
 Each talk has its own Slidev source, figures and optional Vue components. Node
 dependencies and development, build and export commands are shared at the root.
-
-
 
 ## Adding a talk
 
@@ -50,7 +49,7 @@ npm run build -- llm_short_course
 npm run build -- --include-drafts
 
 # Build for a site hosted below a URL prefix
-BASE_PATH=/LLM_short_course/ npm run build
+BASE_PATH=/kai-talks/ npm run build
 
 # Serve the built site locally (use the default BASE_PATH=/ for this)
 python3 -m http.server 8080 --directory dist
@@ -63,7 +62,7 @@ GitHub Pages deploys on pushes to `main` or manual workflow runs. Set the reposi
 Pages source to **GitHub Actions**. The workflow obtains the URL prefix from Pages
 configuration, so the build is not tied to the current repository name.
 
-Existing links of the form `/#/slide` at the old course URL redirect to
-`llm_short_course/#/slide`. The site root now displays the talk archive.
-
-
+Links of the form `/#/slide` at the site root redirect to `llm_short_course/#/slide`.
+The site root displays the talk archive. After the repository rename, published
+talks use the `/kai-talks/` URL prefix; GitHub Pages does not redirect the former
+`/LLM_short_course/` URLs.

@@ -6,7 +6,7 @@
 
 目前只有标题页和大纲，尚未撰写正文。
 
-[直接打开 talk](https://noncollapse.github.io/LLM_short_course/tabular_foundation_inference/)
+[直接打开 talk](https://noncollapse.github.io/kai-talks/tabular_foundation_inference/)
 
 ## 大纲
 
