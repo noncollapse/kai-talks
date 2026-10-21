@@ -7,6 +7,7 @@ dependencies and development, build and export commands are shared at the root.
 ## Talks
 
 - **Large Language Models: Principles and Training Methods** — [Open talk](https://noncollapse.github.io/LLM_short_course/#/1) · [Source](talks/llm_short_course/)
+- **Can Tabular Foundation Models Amortize Statistical Inference? (TabCon)** — [Open talk](https://noncollapse.github.io/LLM_short_course/tabular_foundation_inference/) · [Source](talks/tabular_foundation_inference/) · Title and outline
 
 Run `npm run list` to see all talks available in your checkout, including local drafts.
 
