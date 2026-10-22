@@ -4,6 +4,16 @@
   "label": "LLM short course",
   "kind": "Short course",
   "topics": ["Transformers", "RLHF", "Reasoning"],
+  "appearances": [
+    {
+      "venue": "4th Conference on Machine Learning and Statistics (MLSTAT)",
+      "detail": "Southwestern University of Finance and Economics · Chengdu, China"
+    },
+    {
+      "venue": "University of Warwick",
+      "detail": "Guest lecturer · Doctoral course"
+    }
+  ],
   "order": 10,
   "draft": false
 }

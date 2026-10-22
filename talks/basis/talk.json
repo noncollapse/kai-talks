@@ -5,6 +5,13 @@
   "kind": "Research talk",
   "topics": ["LLM reasoning", "Advantage estimation"],
   "paper": "https://arxiv.org/abs/2605.27293",
+  "appearances": [
+    {
+      "venue": "Gouxionghui Online Seminar",
+      "detail": "Invited talk · Online",
+      "recording": "https://www.bilibili.com/video/BV1Juey6yEHG/"
+    }
+  ],
   "order": 30,
   "draft": false
 }

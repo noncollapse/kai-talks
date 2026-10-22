@@ -96,6 +96,16 @@
     .topics { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 15px; padding: 0; margin: 22px 0 29px; font-size: 10px; color: #97a2af; }
     .topics li { display: flex; align-items: center; gap: 7px; }
     .topics li::before { content: ""; width: 3px; height: 3px; border-radius: 50%; background: var(--accent); opacity: .7; }
+    .appearances { border-top: 1px solid var(--line); padding-top: 20px; margin-bottom: 26px; }
+    .appearances-label { margin: 0 0 15px; color: var(--accent); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+    .appearance-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 17px; }
+    .appearance-list > li { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 12px; }
+    .appearance-copy { min-width: 0; }
+    .appearance-venue { display: block; color: #d0d6dc; font-size: 13px; line-height: 1.6; }
+    .appearance-detail { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; line-height: 1.65; }
+    .recording-link { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 8px 10px; border: 1px solid #ffffff24; border-radius: 4px; color: var(--accent); font-size: 11px; white-space: nowrap; transition: background .2s, border-color .2s; }
+    .recording-link:hover { background: #ffffff08; border-color: var(--accent); }
+    .recording-link span:first-child { font-size: 8px; }
     .card-links { display: flex; align-items: center; justify-content: space-between; gap: 18px; border-top: 1px solid var(--line); padding-top: 21px; margin-top: auto; }
     .open-talk { font-size: 12px; font-weight: 600; display: flex; gap: 14px; align-items: center; }
     .open-talk span { color: var(--accent); font-size: 20px; transition: transform .2s; }
@@ -121,6 +131,8 @@
       .card-links { gap: 12px; flex-wrap: wrap; }
       .card-meta { gap: 8px; }
       .card-meta > span:nth-child(2)::before { margin-right: 8px; }
+      .appearance-list > li { grid-template-columns: 1fr; gap: 8px; }
+      .recording-link { justify-self: start; min-height: 40px; }
     }
     @media (max-width: 700px) {
       .wrap { width: calc(100% - 40px); }

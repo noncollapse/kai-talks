@@ -5,6 +5,17 @@
   "kind": "Research talk",
   "topics": ["Preference optimization", "Variance reduction"],
   "paper": "https://arxiv.org/abs/2504.03784",
+  "appearances": [
+    {
+      "venue": "Gouxionghui Online Seminar",
+      "detail": "Invited talk · Online",
+      "recording": "https://www.bilibili.com/video/BV17oMQzyEcC/"
+    },
+    {
+      "venue": "Annual Conference of the Chinese Statistical Association of Young Scholars",
+      "detail": "Invited talk · China"
+    }
+  ],
   "order": 40,
   "draft": false
 }
