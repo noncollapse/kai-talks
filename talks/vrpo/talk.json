@@ -1,0 +1,5 @@
+{
+  "title": "VRPO: Robust Reinforcement Learning from Human Feedback for Large Language Models Fine-Tuning",
+  "description": "A research talk on variance-reduced preference optimization and robustness to misspecified human preference models.",
+  "draft": false
+}
