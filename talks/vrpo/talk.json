@@ -1,5 +1,10 @@
 {
   "title": "VRPO: Robust Reinforcement Learning from Human Feedback for Large Language Models Fine-Tuning",
-  "description": "A research talk on variance-reduced preference optimization and robustness to misspecified human preference models.",
+  "description": "VRPO uses an auxiliary preference model to reduce variance in reward and policy estimation when the primary preference model is misspecified. The talk develops the method from RLHF and DPO, then examines sentiment, summarization and dialogue experiments.",
+  "label": "VRPO",
+  "kind": "Research talk",
+  "topics": ["Preference optimization", "Variance reduction"],
+  "paper": "https://arxiv.org/abs/2504.03784",
+  "order": 40,
   "draft": false
 }

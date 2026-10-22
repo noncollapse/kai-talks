@@ -6,6 +6,7 @@
     "list": "node scripts/talks.mjs list",
     "dev": "node scripts/talks.mjs dev",
     "build": "node scripts/talks.mjs build",
+    "build:index": "node scripts/talks.mjs index",
     "export": "node scripts/talks.mjs export"
   },
   "dependencies": {

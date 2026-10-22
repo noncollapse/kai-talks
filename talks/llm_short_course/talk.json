@@ -1,5 +1,9 @@
 {
   "title": "Large Language Models: Principles and Training Methods",
-  "description": "A short course on transformer foundations, pre-training, supervised fine-tuning, preference optimization and reasoning.",
+  "description": "How language models are built and trained: Transformer foundations, pre-training, supervised fine-tuning and preference optimization, followed by inference-time reasoning and reinforcement learning with verifiable rewards.",
+  "label": "LLM short course",
+  "kind": "Short course",
+  "topics": ["Transformers", "RLHF", "Reasoning"],
+  "order": 10,
   "draft": false
 }

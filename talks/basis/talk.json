@@ -1,5 +1,10 @@
 {
   "title": "BASIS: Batchwise Advantage Estimation from Single-Rollout Information Sharing for LLM Reasoning",
-  "description": "A 25-slide research talk on cross-prompt information sharing for single-rollout advantage estimation.",
+  "description": "BASIS estimates advantage baselines by sharing reward information across prompts in a training batch. It combines an offline value signal with online calibration to support LLM reasoning with one rollout per prompt.",
+  "label": "BASIS",
+  "kind": "Research talk",
+  "topics": ["LLM reasoning", "Advantage estimation"],
+  "paper": "https://arxiv.org/abs/2605.27293",
+  "order": 30,
   "draft": false
 }
