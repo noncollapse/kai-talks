@@ -15,15 +15,17 @@ across problems.
 
 ## Contents
 
-The current slides contain the title and outline for the following topics:
-
-1. Motivation: amortizing statistical inference across datasets
-2. Statistical target: confidence intervals for regression functions versus prediction intervals
-3. Background: tabular foundation models and uncertainty quantification
-4. TabCon: estimation-error distributions and sparse expert routing
-5. Training: pre-training, supervised fine-tuning and reinforcement learning
-6. Evaluation: coverage, interval length, inference time and ablations
-7. Discussion: scope, limitations and future directions
+1. PFNs: learning a prediction procedure across datasets
+2. From predictive distributions to prediction intervals
+3. Two questions: a future outcome and the underlying average
+4. Why confidence intervals matter, with interactive illustrations
+5. TabCon architecture: frozen embeddings, residual MLPs and task-level routing
+6. Global and specialist head training: error distributions, coverage regimes and KL anchoring
+7. Router SFT: supervised learning of the residual mixture
+8. Router RL: Top-2 actions, RLOO and verifiable interval-quality rewards
+9. Trainable versus frozen parameters across the training stages
+10. Evidence: Standard ID/OOD, stress tests and semi-synthetic benchmarks
+11. Coverage, interval length, inference time and summary
 
 ## Paper
 

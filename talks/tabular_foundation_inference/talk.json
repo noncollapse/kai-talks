@@ -1,8 +1,8 @@
 {
   "title": "Can Tabular Foundation Models Amortize Statistical Inference?",
-  "description": "TabCon learns to construct confidence intervals for regression functions across datasets. The talk outline introduces estimation-error distributions, sparse expert routing and reinforcement learning for interval calibration.",
+  "description": "From PFNs and predictive uncertainty to confidence intervals for regression functions. This talk explains TabCon's residual heads, attention-based routing, supervised training and reinforcement learning, with interactive illustrations of coverage, interval length and computation.",
   "label": "TabCon",
-  "kind": "Talk outline",
+  "kind": "Research talk",
   "topics": ["Statistical inference", "Foundation models"],
   "paper": "https://arxiv.org/abs/2609.33114",
   "order": 20,
