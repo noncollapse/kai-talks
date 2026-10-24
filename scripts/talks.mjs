@@ -13,8 +13,8 @@ function discoverTalks() {
   return readdirSync(join(root, 'talks'), { withFileTypes: true })
     .filter(entry => entry.isDirectory() && existsSync(join(root, 'talks', entry.name, 'slides.md')))
     .map(({ name: slug }) => {
-      if (!/^[a-z0-9][a-z0-9_-]*$/.test(slug))
-        throw new Error(`Use lowercase letters, numbers, underscores or hyphens for talk directories: ${slug}`)
+      if (!/^[A-Za-z0-9][A-Za-z0-9_-]*$/.test(slug))
+        throw new Error(`Use letters, numbers, underscores or hyphens for talk directories: ${slug}`)
       const directory = join(root, 'talks', slug)
       const metadataPath = join(directory, 'talk.json')
       const metadata = existsSync(metadataPath) ? JSON.parse(readFileSync(metadataPath, 'utf8')) : {}
