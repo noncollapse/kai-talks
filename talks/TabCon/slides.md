@@ -343,10 +343,10 @@ class: detail-slide
 # Choose two experts, then mix their distributions
 
 <RouterWeights />
-<div class="source"><a href="https://arxiv.org/html/2609.33114v1#A2.SS1">Ye et al., Appendix B.1</a>. Distributions and weights are illustrative. Top-2 routing is used for RL actions and deployment.</div>
+<div class="source"><a href="https://arxiv.org/html/2609.33114v1#A2.SS1">Ye et al., Appendix B.1</a>. Distributions and weights are illustrative. Top-2 routing is used in SFT, RL and deployment.</div>
 
 <!--
-The router's scores are transformed into mixing weights, the two largest weights are retained, and these are renormalized to sum to one. The example selects Global and Expansion with weights 0.35 and 0.65. Global is not required to be one of the selected experts. The stacked histogram shows actual binwise mixing of two normalized illustrative distributions: blue is the weighted Global contribution and purple is the weighted Expansion contribution. On the second click, read the mixture's 2.5% and 97.5% quantiles and combine them with the fixed point estimate to construct the nominal 95% confidence interval. Quantiles are extracted after mixing; the heads' endpoints are not averaged. The same task-level weights apply to every query point, while each query has its own residual distributions. SFT uses a dense mixture; the sparse selection shown here describes deployment and RL actions.
+The router's scores are transformed into mixing weights, the two largest weights are retained, and these are renormalized to sum to one. The example selects Global and Expansion with weights 0.35 and 0.65. Global is not required to be one of the selected experts. The stacked histogram shows actual binwise mixing of two normalized illustrative distributions: blue is the weighted Global contribution and purple is the weighted Expansion contribution. On the second click, read the mixture's 2.5% and 97.5% quantiles and combine them with the fixed point estimate to construct the nominal 95% confidence interval. Quantiles are extracted after mixing; the heads' endpoints are not averaged. The same task-level weights apply to every query point, while each query has its own residual distributions. The final model uses Top-2 during both SFT and RL. In SFT, a straight-through estimator supplies a dense-softmax proxy gradient while the forward mixture stays sparse. RL samples Top-2 routing actions; deployment uses the selected pair deterministically.
 -->
 
 ---
@@ -361,7 +361,7 @@ class: detail-slide
 <div class="training-stages">
 <section><span>01</span><h3>Global</h3><p>Learn estimation errors across the training task family.</p><b>Update θ<sub>G</sub></b><small>50,000 synthetic datasets</small></section>
 <section v-click="1"><span>02</span><h3>Specialists</h3><p>Clone Global; specialize using its coverage profile.</p><b>Update θ<sub>E</sub>, θ<sub>S</sub></b><small>Regime-based supervision</small></section>
-<section v-click="2"><span>03</span><h3>Router SFT</h3><p>Fit a dense mixture to the observed training errors.</p><b>Update ψ only</b><small>50,000 additional datasets</small></section>
+<section v-click="2"><span>03</span><h3>Router SFT</h3><p>Fit a Top-2 mixture with straight-through gradients.</p><b>Update ψ only</b><small>50,000 additional datasets</small></section>
 <section v-click="3"><span>04</span><h3>Router RL</h3><p>Reward sparse mixtures that produce better intervals.</p><b>Update ψ only</b><small>100,000 additional datasets</small></section>
 </div>
 <div class="detail-message">The TabPFN backbone and point predictor remain frozen throughout.</div>
@@ -428,15 +428,17 @@ class: detail-slide
 
 <div class="eyebrow">Stage 03 · Router SFT</div>
 
-# Train the router by scoring the mixture
+# SFT: Top-2 forward, straight-through backward
 
 <RouterSFT />
-<div class="source"><a href="https://arxiv.org/html/2609.33114v1#S4">Section 4, Eqs. 5–6</a>; <a href="https://arxiv.org/html/2609.33114v1#A3.SS3">Appendix C.3</a>. Paper's dense SFT formulation illustrated. Backbone and all three heads stay frozen.</div>
+<div class="source">Final-model training implementation, verified against the selected SFT checkpoint. Weights are illustrative; the backbone and all three heads stay frozen.</div>
 
 <!--
-Read the diagram as a forward pass followed by a backward pass. The three frozen heads provide error-bin probabilities. Query embeddings from the frozen TabPFN backbone feed the trainable router. On the first click, the router's dense weights mix all three distributions, and the known simulated estimation error supplies NLL plus CRPS supervision. The stacked bars are the actual weighted contributions of the three normalized illustrative distributions; the dashed vertical line marks one realized error. On the second click, the purple return path shows backpropagation through the mixing weights into the router. Only router parameters change; no gradients update the backbone or residual heads. A correct-expert class label is never required. Weights 0.25, 0.60, 0.15 are illustrative outputs, not measurements or an optimization trajectory. One query's distribution is drawn for clarity, while all queries in the task contribute to the loss through shared task-level weights. The final routing layer starts with zero weights and biases, so initial logits are zero and initial dense weights are uniform. The learned attention queries start from N(0,h^-1). Reported SFT uses 50,000 additional datasets, eta_3=1, lr 1e-4, weight decay 1e-4, accumulation four tasks, clip norm 1, 5% warm-up then cosine decay. Query counts cycle through 64,128,256,256. SFT does not enforce sparsity; RL then evaluates strict Top-2 actions.
+The final model's SFT already uses Top-2 routing. This slide follows the original training implementation, not the dense-SFT description in arXiv v1. Local verification on 2026-10-24: release_audit/20261024/lineage_recheck/sft_live_recheck.json records top_k=2 and straight_through_topk=true in the selected 40,000-step SFT checkpoint; its hash matches the initializer recorded by the final RL run. All 2,501 saved SFT training records have exactly two positive mixture weights. The historical source hashes independently match historical_source_check.json: core.py 49f259d7d5f6bdf673b099f69fe0e766d16090c9de54e0a40afecd3f4e2c3779; train.py dbf16d842d26bc4ceca398e25088f999268bef92d9b51d8c7d3ed976260b9d7c.
 
-Implementation distinction checked on 2026-10-24: this diagram illustrates the dense SFT formulation in arXiv v1 Section 4. The saved release_audit/20261017/checkpoints/router_sft/router_config.json instead reports top_k=2 and straight_through_topk=true, and the local configs/training/sft.json also selects Top-2. Thus the SFT objective alone does not enforce sparsity, but the actual SFT implementation can and does impose it through its gate. Do not claim SFT intrinsically requires dense routing.
+Read the diagram as a forward pass followed by a backward pass. Frozen TabPFN query embeddings feed a trainable task router. The three frozen residual heads are all evaluated during SFT. On click one, retain the two largest softmax weights, set the third to zero, and renormalize. The example's Global / Expansion / Shrinkage softmax weights are 0.25 / 0.60 / 0.15; its mixture weights are 0.25/0.85, 0.60/0.85, and zero (rounded to 0.29 / 0.71 / 0). The histogram uses the unrounded weights and has only two contributions. The pair is selected anew for each task; any pair can be selected, including Expansion + Shrinkage. All queries of a task share the pair and its weights, while each query has its own residual distributions. The known simulated estimation errors supervise the mixture using NLL + CRPS (CRPS weight 1 in this run). There are no correct-expert labels.
+
+On click two, the return path shows the straight-through update to the router only. The exact gate is weights = dense_weights + (sparse_weights - dense_weights).detach(). Forward values equal the sparse Top-2 weights. Backward differentiation uses the dense-softmax proxy Jacobian; this is an approximate gradient, not the true derivative of discrete selection and not an assertion that the forward loss used a dense mixture. All three routing scores can change, allowing a different pair to be selected later. No gradients update the backbone or frozen experts. The final router layer is initialized to zero, so initial logits tie and the first pair follows torch.topk's tie handling. The illustrative weights are learned-output examples, not initial values.
 -->
 
 ---
@@ -446,16 +448,15 @@ class: detail-slide
 
 <div class="eyebrow">Why post-training?</div>
 
-# Why add sparse routing and RL?
+# Why RL after Top-2 SFT?
 
 <WhyRouterRL />
-<div class="source"><a href="https://arxiv.org/html/2609.33114v1#S4">Ye et al., Section 4</a>. Schematic weights and interval. Top-2 can select any pair. Only selected residual heads execute; the shared backbone still runs.</div>
-
+<div class="source"><a href="https://arxiv.org/html/2609.33114v1#S4">Section 4</a>: interval-focused RL objectives. Both training stages use Top-2 in the verified final-model implementation. Diagrams are illustrative.</div>
 
 <!--
-Two separate design motivations connect supervised distribution fitting to the next RL stage. First, dense softmax routing gives every expert positive weight. Expansion and Shrinkage are specialized for different coverage regimes, so including both is not automatically useful. Top-2 permits a more selective mixture; the example drops Shrinkage and renormalizes 0.25/0.60 to approximately 0.29/0.71. Any expert pair may be selected, including Expansion together with Shrinkage. Neither specialist is a deterministic width scaler, and combining them is not mathematically invalid. In the checked embedding-only deployment path, src/tabcon/evaluation/common.py runs the router before evaluating only selected heads, reducing residual-head computation from three to two. This is not a measured end-to-end speedup: the shared TabPFN backbone still runs.
+SFT and RL share a Top-2 task router and the same frozen backbone and residual experts. RL continues from the SFT checkpoint; it does not introduce sparsity. SFT learns from simulated estimation errors with NLL + CRPS and a straight-through gradient estimator. These losses assess the full error distribution, but do not directly optimize the coverage probability and length of the derived confidence intervals.
 
-Second, NLL and CRPS assess the learned estimation-error distribution but do not directly optimize the coverage probability and length of its confidence intervals. RL can score the final intervals against simulator truth, penalizing undercoverage and encouraging useful precision. It optimizes empirical training rewards, not a universal coverage guarantee. Sparsity comes from the Top-2 gate, while RL supplies the interval-focused objective; neither mathematically requires the other. The paper presents a dense SFT formulation, but the saved SFT checkpoint and current SFT config already impose Top-2 with a straight-through gradient estimator. The objective mismatch is therefore the central RL motivation even for that sparse SFT implementation. Reveal sparse selection on the first click, then interval rewards and the final takeaway on the second.
+On click one, reveal the RL stage: sample Top-2 routing actions, construct the resulting intervals, score their coverage and length against simulator truth, and update the router with RLOO. The interval sketches illustrate coverage and width, not measured before/after results. On click two, reveal the central motivation: align training with how the final intervals are evaluated. RL optimizes empirical rewards and does not give a universal coverage guarantee. Any expert pair is allowed; mixing Expansion and Shrinkage is not inherently invalid. Avoid attributing lower head-computation cost to the switch from SFT to RL: SFT already has two nonzero mixture weights, and its training loop computes all three frozen expert outputs.
 -->
 
 ---

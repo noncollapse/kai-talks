@@ -21,7 +21,7 @@ across problems.
 4. Why confidence intervals matter, with interactive illustrations
 5. TabCon architecture: frozen embeddings, residual MLPs and task-level routing
 6. Global and specialist head training: error distributions, coverage regimes and KL anchoring
-7. Router SFT: supervised learning of the residual mixture
+7. Router SFT: Top-2 residual mixtures with straight-through gradients
 8. Router RL: Top-2 actions, RLOO and verifiable interval-quality rewards
 9. Trainable versus frozen parameters across the training stages
 10. Evidence: Standard ID/OOD, stress tests and semi-synthetic benchmarks
