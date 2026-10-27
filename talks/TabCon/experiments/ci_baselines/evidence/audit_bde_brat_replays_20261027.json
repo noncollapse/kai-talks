@@ -1,0 +1,210 @@
+[
+  {
+    "method": "bratp",
+    "task": "near_constant__029",
+    "n": 9,
+    "p": 130,
+    "exact_standardized_mean_and_weight_norms": true,
+    "sigma2": 0.014490268435603233,
+    "training_mse_first": 10.422199960994549,
+    "training_mse_min": 0.012502099218321069,
+    "training_mse_last": 0.012881824001375086,
+    "training_mse_max": 21.189422515876497,
+    "training_mse_at_checkpoints": {
+      "1": 10.422199960994549,
+      "18": 0.020338588693356308,
+      "36": 0.013823053795243739,
+      "70": 0.012881824001375086
+    },
+    "max_abs_training_prediction_any_round": 6.856287956237793,
+    "all_tree_values_finite": true,
+    "all_training_rounds_finite": true,
+    "residual_mean": -0.001259123484817098,
+    "max_abs_train_residual": 0.16208472537289542,
+    "warnings": [
+      "ParallelBooster tree capacity is capped before max_leaf_nodes=64: subsample_rate and min_samples_leaf allow at most about 2 leaves per tree. Increasing max_leaf_nodes alone is unlikely to change the fit."
+    ],
+    "seconds": 0.28608953999355435
+  },
+  {
+    "method": "bratp",
+    "task": "categorical_missing__099",
+    "n": 95,
+    "p": 409,
+    "exact_standardized_mean_and_weight_norms": true,
+    "sigma2": 0.0077893323957002715,
+    "training_mse_first": 8.673120269942356,
+    "training_mse_min": 0.00706492878192597,
+    "training_mse_last": 0.00772189014189365,
+    "training_mse_max": 16.039312875961905,
+    "training_mse_at_checkpoints": {
+      "1": 8.673120269942356,
+      "18": 0.01820375434504261,
+      "36": 0.008173233164511393,
+      "70": 0.00772189014189365
+    },
+    "max_abs_training_prediction_any_round": 9.816999932005999,
+    "all_tree_values_finite": true,
+    "all_training_rounds_finite": true,
+    "residual_mean": -0.0038145404414825597,
+    "max_abs_train_residual": 0.3108839665469869,
+    "warnings": [
+      "ParallelBooster tree capacity is capped before max_leaf_nodes=64: subsample_rate and min_samples_leaf allow at most about 19 leaves per tree. Increasing max_leaf_nodes alone is unlikely to change the fit."
+    ],
+    "seconds": 3.773269532015547
+  },
+  {
+    "method": "bratp",
+    "task": "high_noise__053",
+    "n": 976,
+    "p": 48,
+    "exact_standardized_mean_and_weight_norms": true,
+    "sigma2": 0.035197450511279406,
+    "training_mse_first": 10.273070576755808,
+    "training_mse_min": 0.03511567816482737,
+    "training_mse_last": 0.035161429380823006,
+    "training_mse_max": 31.986363216151663,
+    "training_mse_at_checkpoints": {
+      "1": 10.273070576755808,
+      "18": 0.044513271698430064,
+      "36": 0.03992335671780436,
+      "70": 0.035161429380823006
+    },
+    "max_abs_training_prediction_any_round": 18.04834129773533,
+    "all_tree_values_finite": true,
+    "all_training_rounds_finite": true,
+    "residual_mean": -0.00020452660702908088,
+    "max_abs_train_residual": 0.7263126428412592,
+    "warnings": [],
+    "seconds": 9.85983077203855
+  },
+  {
+    "method": "bratp",
+    "task": "near_zero__103",
+    "n": 1035,
+    "p": 16,
+    "exact_standardized_mean_and_weight_norms": true,
+    "sigma2": 0.10580667780521895,
+    "training_mse_first": 9.41231651277217,
+    "training_mse_min": 0.08937517284535287,
+    "training_mse_last": 0.10570590083965725,
+    "training_mse_max": 34.840423336849064,
+    "training_mse_at_checkpoints": {
+      "1": 9.41231651277217,
+      "18": 0.09314650887592171,
+      "36": 0.11272102411541877,
+      "70": 0.10570590083965725
+    },
+    "max_abs_training_prediction_any_round": 74.85419756970292,
+    "all_tree_values_finite": true,
+    "all_training_rounds_finite": true,
+    "residual_mean": -0.001204868725840025,
+    "max_abs_train_residual": 4.711671313757696,
+    "warnings": [],
+    "seconds": 11.457861918024719
+  },
+  {
+    "method": "bratd",
+    "task": "near_constant__029",
+    "n": 9,
+    "p": 130,
+    "exact_standardized_mean_and_weight_norms": true,
+    "sigma2": 0.10664298987030293,
+    "training_mse_first": 1.8294412418954549,
+    "training_mse_min": 0.035499854375752364,
+    "training_mse_last": 0.09480437023472865,
+    "training_mse_max": 1.8294412418954549,
+    "training_mse_at_checkpoints": {
+      "1": 1.8294412418954549,
+      "176": 0.08239101328112221,
+      "351": 0.08184473459303611,
+      "700": 0.09480437023472865
+    },
+    "max_abs_training_prediction_any_round": 2.3855517208576194,
+    "all_tree_values_finite": true,
+    "all_training_rounds_finite": true,
+    "residual_mean": 0.0032559885021296153,
+    "max_abs_train_residual": 0.720243113011626,
+    "warnings": [
+      "DropoutBooster tree capacity is capped before max_leaf_nodes=64: subsample_rate and min_samples_leaf allow at most about 4 leaves per tree. Increasing max_leaf_nodes alone is unlikely to change the fit."
+    ],
+    "seconds": 0.5313313889782876
+  },
+  {
+    "method": "bratd",
+    "task": "categorical_missing__099",
+    "n": 95,
+    "p": 409,
+    "exact_standardized_mean_and_weight_norms": true,
+    "sigma2": 0.06004910133911322,
+    "training_mse_first": 1.702707225469995,
+    "training_mse_min": 0.05240084069260732,
+    "training_mse_last": 0.05956905294265886,
+    "training_mse_max": 1.702707225469995,
+    "training_mse_at_checkpoints": {
+      "1": 1.702707225469995,
+      "176": 0.05582035987479105,
+      "351": 0.05900793525444774,
+      "700": 0.05956905294265886
+    },
+    "max_abs_training_prediction_any_round": 4.176673989295958,
+    "all_tree_values_finite": true,
+    "all_training_rounds_finite": true,
+    "residual_mean": -0.012330750468454901,
+    "max_abs_train_residual": 0.6316007764397531,
+    "warnings": [
+      "DropoutBooster tree capacity is capped before max_leaf_nodes=64: subsample_rate and min_samples_leaf allow at most about 38 leaves per tree. Increasing max_leaf_nodes alone is unlikely to change the fit."
+    ],
+    "seconds": 6.136351897846907
+  },
+  {
+    "method": "bratd",
+    "task": "high_noise__053",
+    "n": 976,
+    "p": 48,
+    "exact_standardized_mean_and_weight_norms": true,
+    "sigma2": 0.2663458436039904,
+    "training_mse_first": 0.9067531791852711,
+    "training_mse_min": 0.262933984842148,
+    "training_mse_last": 0.26607300890176244,
+    "training_mse_max": 0.9067531791852711,
+    "training_mse_at_checkpoints": {
+      "1": 0.9067531791852711,
+      "176": 0.2663440673272636,
+      "351": 0.26673191668384455,
+      "700": 0.26607300890176244
+    },
+    "max_abs_training_prediction_any_round": 5.3658462977409345,
+    "all_tree_values_finite": true,
+    "all_training_rounds_finite": true,
+    "residual_mean": -0.00024623024418572747,
+    "max_abs_train_residual": 1.633373115006188,
+    "warnings": [],
+    "seconds": 14.126710963901132
+  },
+  {
+    "method": "bratd",
+    "task": "near_zero__103",
+    "n": 1035,
+    "p": 16,
+    "exact_standardized_mean_and_weight_norms": true,
+    "sigma2": 0.08448653789913169,
+    "training_mse_first": 1.3812822103817513,
+    "training_mse_min": 0.07396162458646464,
+    "training_mse_last": 0.08442472333449953,
+    "training_mse_max": 1.3812822103817513,
+    "training_mse_at_checkpoints": {
+      "1": 1.3812822103817513,
+      "176": 0.08512395222384772,
+      "351": 0.08594388252858604,
+      "700": 0.08442472333449953
+    },
+    "max_abs_training_prediction_any_round": 27.60911092122395,
+    "all_tree_values_finite": true,
+    "all_training_rounds_finite": true,
+    "residual_mean": -0.004451397598995992,
+    "max_abs_train_residual": 4.901698440433362,
+    "warnings": [],
+    "seconds": 15.097161058103666
+  }
+]

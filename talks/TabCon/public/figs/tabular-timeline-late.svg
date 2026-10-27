@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 820" width="1800" height="820" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1800" height="820" fill="#FBFCFF"/>
+  <defs>
+    <marker id="arrow-default" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#555555"/>
+    </marker>
+    <marker id="arrow-c0" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#B95136"/>
+    </marker>
+    <marker id="arrow-c1" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#A5770E"/>
+    </marker>
+    <marker id="arrow-c2" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#26798C"/>
+    </marker>
+    <marker id="arrow-c3" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#8055A0"/>
+    </marker>
+    <marker id="arrow-c4" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#607E13"/>
+    </marker>
+  </defs>
+  <rect x="45.5" y="127.5" width="845.0" height="137.0" fill="#FCF6F3" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="917.5" y="127.5" width="845.0" height="73.0" fill="#FCF6F3" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="45.5" y="345.5" width="845.0" height="145.0" fill="#F5F0FA" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="917.5" y="345.5" width="845.0" height="77.0" fill="#F5F0FA" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="45.5" y="710.5" width="845.0" height="65.0" fill="#F1F6E8" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="917.5" y="710.5" width="845.0" height="65.0" fill="#F1F6E8" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <path d="M 895.0,49.0 L 913.0,49.0" stroke="#A6B4CA" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <rect x="41.0" y="24.0" width="854.0" height="50.0" fill="#EAF0FC" stroke="#EAF0FC" stroke-width="2" rx="8"/>
+  <text x="468.0" y="60.9" font-size="34" fill="#304465" text-anchor="middle" font-weight="bold">2024</text>
+  <rect x="913.0" y="24.0" width="854.0" height="50.0" fill="#EAF0FC" stroke="#EAF0FC" stroke-width="2" rx="8"/>
+  <text x="1340.0" y="60.9" font-size="34" fill="#304465" text-anchor="middle" font-weight="bold">2025</text>
+  <rect x="52.5" y="134.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="153.8" y="158.9" font-size="27" fill="#B95136" text-anchor="middle" font-weight="bold">RealMLP</text>
+  <text x="153.8" y="187.9" font-size="24" fill="#888888" text-anchor="middle">NeurIPS 2024</text>
+  <rect x="262.0" y="134.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="363.2" y="158.9" font-size="27" fill="#B95136" text-anchor="middle" font-weight="bold">ExcelFormer</text>
+  <text x="363.2" y="187.9" font-size="24" fill="#888888" text-anchor="middle">KDD 2024</text>
+  <rect x="471.5" y="134.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="572.8" y="158.9" font-size="27" fill="#B95136" text-anchor="middle" font-weight="bold">GRANDE</text>
+  <text x="572.8" y="187.9" font-size="24" fill="#888888" text-anchor="middle">ICLR 2024</text>
+  <rect x="681.0" y="134.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="782.2" y="158.9" font-size="27" fill="#B95136" text-anchor="middle" font-weight="bold">AMFormer</text>
+  <text x="782.2" y="187.9" font-size="24" fill="#888888" text-anchor="middle">AAAI 2024</text>
+  <rect x="52.5" y="198.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="153.8" y="222.9" font-size="27" fill="#B95136" text-anchor="middle" font-weight="bold">BiSHop</text>
+  <text x="153.8" y="251.9" font-size="24" fill="#888888" text-anchor="middle">ICML 2024</text>
+  <rect x="262.0" y="198.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="363.2" y="222.9" font-size="27" fill="#A5770E" text-anchor="middle" font-weight="bold">TabR</text>
+  <text x="363.2" y="251.9" font-size="24" fill="#888888" text-anchor="middle">ICLR 2024</text>
+  <rect x="471.5" y="198.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="572.8" y="222.9" font-size="27" fill="#B95136" text-anchor="middle" font-weight="bold">SwitchTab</text>
+  <text x="572.8" y="251.9" font-size="24" fill="#888888" text-anchor="middle">AAAI 2024</text>
+  <rect x="681.0" y="198.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="782.2" y="222.9" font-size="27" fill="#26798C" text-anchor="middle" font-weight="bold">PTaRL</text>
+  <text x="782.2" y="251.9" font-size="24" fill="#888888" text-anchor="middle">ICLR 2024</text>
+  <rect x="924.5" y="134.5" width="412.0" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1130.5" y="158.9" font-size="27" fill="#B95136" text-anchor="middle" font-weight="bold">TabM</text>
+  <text x="1130.5" y="187.9" font-size="24" fill="#888888" text-anchor="middle">ICLR 2025</text>
+  <rect x="1343.5" y="134.5" width="412.0" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1549.5" y="158.9" font-size="27" fill="#A5770E" text-anchor="middle" font-weight="bold">ModernNCA</text>
+  <text x="1549.5" y="187.9" font-size="24" fill="#888888" text-anchor="middle">ICLR 2025</text>
+  <rect x="52.5" y="352.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="153.8" y="378.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">LFR</text>
+  <text x="153.8" y="407.9" font-size="24" fill="#888888" text-anchor="middle">ICLR 2024</text>
+  <rect x="262.0" y="352.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="363.2" y="378.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">LM-IGTD</text>
+  <text x="363.2" y="407.9" font-size="24" fill="#888888" text-anchor="middle">Preprint 2024</text>
+  <rect x="471.5" y="352.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="572.8" y="378.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">UniTabE</text>
+  <text x="572.8" y="407.9" font-size="24" fill="#888888" text-anchor="middle">ICLR 2024</text>
+  <rect x="681.0" y="352.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="782.2" y="378.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">CM2</text>
+  <text x="782.2" y="407.9" font-size="24" fill="#888888" text-anchor="middle">WWW 2024</text>
+  <rect x="52.5" y="420.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="153.8" y="446.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">TP-BERTa</text>
+  <text x="153.8" y="475.9" font-size="24" fill="#888888" text-anchor="middle">ICLR 2024</text>
+  <rect x="262.0" y="420.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="363.2" y="446.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">CARTE</text>
+  <text x="363.2" y="475.9" font-size="24" fill="#888888" text-anchor="middle">ICML 2024</text>
+  <rect x="471.5" y="420.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="572.8" y="446.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">FeatLLM</text>
+  <text x="572.8" y="475.9" font-size="24" fill="#888888" text-anchor="middle">ICML 2024</text>
+  <rect x="924.5" y="352.5" width="831.0" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1340.0" y="378.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">Tab2Visual</text>
+  <text x="1340.0" y="407.9" font-size="24" fill="#888888" text-anchor="middle">Preprint 2025</text>
+  <rect x="52.5" y="717.5" width="202.5" height="51.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="153.8" y="738.0" font-size="27" fill="#607E13" text-anchor="middle" font-weight="bold">HyperFast</text>
+  <text x="153.8" y="767.0" font-size="24" fill="#888888" text-anchor="middle">AAAI 2024</text>
+  <rect x="262.0" y="717.5" width="202.5" height="51.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="363.2" y="738.0" font-size="27" fill="#607E13" text-anchor="middle" font-weight="bold">TabuLa-8B</text>
+  <text x="363.2" y="767.0" font-size="24" fill="#888888" text-anchor="middle">NeurIPS 2024</text>
+  <rect x="471.5" y="717.5" width="202.5" height="51.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="572.8" y="738.0" font-size="27" fill="#607E13" text-anchor="middle" font-weight="bold">GTL</text>
+  <text x="572.8" y="767.0" font-size="24" fill="#888888" text-anchor="middle">KDD 2024</text>
+  <rect x="681.0" y="717.5" width="202.5" height="51.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="782.2" y="738.0" font-size="27" fill="#607E13" text-anchor="middle" font-weight="bold">MediTab</text>
+  <text x="782.2" y="767.0" font-size="24" fill="#888888" text-anchor="middle">IJCAI 2024</text>
+  <rect x="924.5" y="717.5" width="272.3" height="51.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="1060.7" y="738.0" font-size="27" fill="#607E13" text-anchor="middle" font-weight="bold">TabPFN v2</text>
+  <text x="1060.7" y="767.0" font-size="24" fill="#888888" text-anchor="middle">Nature 2025</text>
+  <rect x="1203.8" y="717.5" width="272.3" height="51.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="1340.0" y="738.0" font-size="27" fill="#607E13" text-anchor="middle" font-weight="bold">TabICL</text>
+  <text x="1340.0" y="767.0" font-size="24" fill="#888888" text-anchor="middle">ICML 2025</text>
+  <rect x="1483.2" y="717.5" width="272.3" height="51.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="1619.3" y="738.0" font-size="27" fill="#607E13" text-anchor="middle" font-weight="bold">MotherNet</text>
+  <text x="1619.3" y="767.0" font-size="24" fill="#888888" text-anchor="middle">ICLR 2025</text>
+  <text x="32.0" y="112.0" font-size="26" fill="#17233E" text-anchor="start">Specialized methods · fit to a target dataset</text>
+  <text x="32.0" y="330.0" font-size="26" fill="#17233E" text-anchor="start">Transferable methods · pretrain, then adapt</text>
+  <text x="32.0" y="690.0" font-size="26" fill="#17233E" text-anchor="start">General methods · reuse across datasets</text>
+</svg>

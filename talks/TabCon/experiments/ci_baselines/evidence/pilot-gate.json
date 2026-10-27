@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "time": 1793045234.1666014,
+  "boundary_pilots": [
+    {
+      "path": "runs/pilot-v3-small/grf/near_constant__029/metrics.json",
+      "method": "GRF",
+      "task": "near_constant__029",
+      "seconds": 0.6475787940435112
+    },
+    {
+      "path": "runs/pilot-v3-small/llf/near_constant__029/metrics.json",
+      "method": "Local Linear Forest",
+      "task": "near_constant__029",
+      "seconds": 0.6146496490109712
+    },
+    {
+      "path": "runs/pilot-v3-small/bde/near_constant__029/metrics.json",
+      "method": "BDE",
+      "task": "near_constant__029",
+      "seconds": 5.760038360022008
+    },
+    {
+      "path": "runs/pilot-v3-small/deeplr/near_constant__029/metrics.json",
+      "method": "DeepLR",
+      "task": "near_constant__029",
+      "seconds": 6.934621796011925
+    },
+    {
+      "path": "runs/pilot-v3-wide/llf/categorical_missing__099/metrics.json",
+      "method": "Local Linear Forest",
+      "task": "categorical_missing__099",
+      "seconds": 2.5911880789790303
+    },
+    {
+      "path": "runs/pilot-v3-wide/bde/categorical_missing__099/metrics.json",
+      "method": "BDE",
+      "task": "categorical_missing__099",
+      "seconds": 6.268096548970789
+    },
+    {
+      "path": "runs/pilot-v3-wide/deeplr/categorical_missing__099/metrics.json",
+      "method": "DeepLR",
+      "task": "categorical_missing__099",
+      "seconds": 9.199210599064827
+    }
+  ],
+  "smoke_and_representative_pilot": "passed; DeepLR pilot used two queries at full training epochs"
+}

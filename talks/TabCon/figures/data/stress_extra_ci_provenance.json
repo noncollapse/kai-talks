@@ -1,0 +1,97 @@
+{
+  "source": "stress_extra_ci_results.csv",
+  "source_sha256": "1f871e61c7ebbd51c3c6fa4aca9469dbfb4a113a980a405cc879b8f15f75cecf",
+  "methods": {
+    "RF-IJ": {
+      "method": "RF-IJ",
+      "interval_kind": "confidence",
+      "tasks": 1280,
+      "queries": 155520,
+      "prediction_manifest_sha256": "60d018a7529ebf1b3a9ca7f840c53a58ead696db386127acf193db3f11355655",
+      "mean_coverage": 0.53057861328125,
+      "mean_length": 0.7261888936328144,
+      "mean_seconds": 2.5255441011651785,
+      "manifest_sha256": "e0c6d45113f315dee8f0b8943e83710b46c57f45e81feb0f9686fcbe07dd39b3",
+      "launch_sha256": "407473894cce14207f643913fb35798cb31f80decae0996fcaa703e30ab2c393",
+      "target": "Same saved latent oracle as original plot; no estimand change",
+      "aggregation": "Equal-weight queries within tasks, tasks within stress regimes, then regimes",
+      "locally_verified": true,
+      "source_versions": {
+        "package": "ranger",
+        "version": "0.18.0",
+        "se_method": "infjack",
+        "total_seconds": 4.067,
+        "wald_ci_verified": true
+      },
+      "configuration": {
+        "method": "rfij",
+        "adapter_version": 2,
+        "nominal_coverage": 0.95,
+        "interval_kind": "confidence",
+        "preprocessing": "Frozen original context-only Wald encoding; constant columns removed",
+        "smoke": false,
+        "threads": 1,
+        "package": "ranger",
+        "num_trees": 2000,
+        "replace": true,
+        "sample_fraction": 1.0,
+        "min_node_size": 5,
+        "standard_error": "infjack",
+        "keep_inbag": true
+      }
+    },
+    "DRF": {
+      "method": "DRF",
+      "interval_kind": "confidence",
+      "tasks": 1280,
+      "queries": 155520,
+      "prediction_manifest_sha256": "ce8fd2a15cb3df06500a338ba6a931bcc7a763378d268ebf26ca6cfe49104837",
+      "mean_coverage": 0.5805023193359375,
+      "mean_length": 0.7703466374315616,
+      "mean_seconds": 27.850217714300925,
+      "manifest_sha256": "e0c6d45113f315dee8f0b8943e83710b46c57f45e81feb0f9686fcbe07dd39b3",
+      "launch_sha256": "9045fe5d641b27981f213430b95b0f1604df574145090ac6c917dc2bcd093921",
+      "target": "Same saved latent oracle as original plot; no estimand change",
+      "aggregation": "Equal-weight queries within tasks, tasks within stress regimes, then regimes",
+      "locally_verified": true,
+      "source_versions": {
+        "package": "drf",
+        "version": "1.3.1",
+        "ci_groups": 100,
+        "group_mean_matches_overall": 8.881784197001252e-15,
+        "weighted_mean_exact": true,
+        "total_seconds": 49.75,
+        "mean_ci_verified": true
+      },
+      "configuration": {
+        "method": "drf",
+        "adapter_version": 2,
+        "nominal_coverage": 0.95,
+        "interval_kind": "confidence",
+        "preprocessing": "Frozen original context-only Wald encoding; constant columns removed",
+        "smoke": false,
+        "threads": 1,
+        "package": "drf",
+        "num_trees": 6000,
+        "ci_groups": 100,
+        "min_node_size": 5,
+        "splitting_rule": "FourierMMD",
+        "num_features": 10,
+        "sample_fraction": 0.5,
+        "honesty": true,
+        "response_scaling": true,
+        "uncertainty": "Official CI-group weights; exact weighted mean; sample variance"
+      }
+    }
+  },
+  "original_plot_source_sha256": "bb70b7690ca1913eae2f3c916a782ddab4813b4e0421cad5548b3b8d644bd06f",
+  "manifest_sha256": "e0c6d45113f315dee8f0b8943e83710b46c57f45e81feb0f9686fcbe07dd39b3",
+  "target": "Same saved latent oracle as original plot; no estimand change.",
+  "protocol": "experiments/ci_baselines/PROTOCOL_EXTRA.md",
+  "excluded_methods": [],
+  "cancelled_methods": [
+    "BART",
+    "GP"
+  ],
+  "cancellation_reason": "User excluded Bayesian credible-interval baselines"
+}

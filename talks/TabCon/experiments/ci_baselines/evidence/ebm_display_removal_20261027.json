@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "displayed_methods": [
+    "Linear",
+    "RFF",
+    "PI",
+    "Bootstrap",
+    "AMP",
+    "TabCon",
+    "GRF",
+    "Local Linear Forest",
+    "BDE",
+    "RF-IJ",
+    "DRF",
+    "BRAT-P",
+    "BRAT-D",
+    "RF-U"
+  ],
+  "source_hashes_unchanged": {
+    "stress_extra_ci_results.csv": "1f871e61c7ebbd51c3c6fa4aca9469dbfb4a113a980a405cc879b8f15f75cecf",
+    "stress_additional_ci_results.csv": "e0b719ac2a0669f8eb9c2f3e3b573fe92e25b1f598612f1cb2135e165ec2c41a",
+    "stress_modern_ci_results.csv": "b8d4fcc935e1b1e1e6b7d56043522323381e7ba3a737955bdae859047e9654f5",
+    "stress_per_regime_results.csv": "bb70b7690ca1913eae2f3c916a782ddab4813b4e0421cad5548b3b8d644bd06f"
+  },
+  "ebm_diagnostic_started": false,
+  "ebm_results_preserved": true,
+  "broken_x_axis": false,
+  "preview": "http://localhost:3031/#/first-results",
+  "screenshot": "/tmp/tabcon-without-ebm-preview.png",
+  "git_commit": false,
+  "github_push": false
+}

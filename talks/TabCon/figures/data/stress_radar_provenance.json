@@ -1,0 +1,56 @@
+{
+  "coverage_axis": {
+    "maximum": 1.0,
+    "minimum": 0.55
+  },
+  "excluded_setting": "regular_control",
+  "interval_length_axis": {
+    "maximum": 20.0,
+    "minimum": 0.003,
+    "scale": "base-10 log of interval length"
+  },
+  "methods": [
+    "Linear",
+    "RFF",
+    "TabPFN",
+    "Bootstrap",
+    "AMP",
+    "TabCon"
+  ],
+  "nominal_coverage": 0.95,
+  "settings": [
+    "near_constant",
+    "bounded",
+    "quantized",
+    "discontinuous",
+    "near_zero",
+    "high_noise",
+    "heavy_tail_noise",
+    "asymmetric_extreme_outlier",
+    "heteroscedastic",
+    "categorical_missing"
+  ],
+  "source": "stress_per_regime_results.csv",
+  "source_sha256": "bb70b7690ca1913eae2f3c916a782ddab4813b4e0421cad5548b3b8d644bd06f",
+  "original_source": "TRM_codex/Tabpfn_ci_PriorV3/implementation/paper_assets/tabcon_experiments/sources/stress_per_regime_results.csv",
+  "verification": {
+    "matches_original_figure_sha256": true,
+    "all_693_metric_values_match_frozen_summary_jsons": true,
+    "wald_pairing_validation_ok": true
+  },
+  "method_mapping": {
+    "Linear": "Linear-Wald-HC3",
+    "RFF": "RFF-Wald-HC3",
+    "PI": "Native",
+    "Global": "Residual",
+    "Bootstrap": "Bootstrap",
+    "AMP": "AMP",
+    "TabCon": "Task-Embedding Top-2 CVaR Warm"
+  },
+  "notes": [
+    "Original figure data, not values digitized from an image.",
+    "The CSV also contains regular_control and Global; both are excluded to reproduce the supplied figure.",
+    "PI is the native TabPFN prediction interval, assessed here for coverage of the saved latent oracle T(Z). Code inspection does not guarantee that this oracle equals E[Y|observed X].",
+    "Six existing methods only; no unrun baseline results are synthesized."
+  ]
+}

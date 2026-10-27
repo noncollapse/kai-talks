@@ -1,0 +1,157 @@
+{
+  "scope": "All 1280 original paired DRF tasks; diagnostic regrouping only; no reruns or plot changes.",
+  "queries": 155520,
+  "by_context_size": [
+    {
+      "group": "[0, 30)",
+      "tasks": 180,
+      "coverage": 0.6102430555555556,
+      "length": 1.845786401542828,
+      "mean_task_rmse": 0.847475360291992
+    },
+    {
+      "group": "[30, 100)",
+      "tasks": 190,
+      "coverage": 0.4010279605263158,
+      "length": 0.8664358449126653,
+      "mean_task_rmse": 0.777753522578499
+    },
+    {
+      "group": "[100, 500)",
+      "tasks": 350,
+      "coverage": 0.5017745535714285,
+      "length": 0.7118949298891171,
+      "mean_task_rmse": 0.6301815600511631
+    },
+    {
+      "group": "[500, 1000)",
+      "tasks": 140,
+      "coverage": 0.6006696428571429,
+      "length": 0.2997458623916238,
+      "mean_task_rmse": 0.20344890348262903
+    },
+    {
+      "group": "[1000, 100000)",
+      "tasks": 420,
+      "coverage": 0.7078311011904762,
+      "length": 0.47155163548872664,
+      "mean_task_rmse": 0.3860077641181743
+    }
+  ],
+  "by_encoded_features": [
+    {
+      "group": "[0, 10)",
+      "tasks": 121,
+      "coverage": 0.6479209710743802,
+      "length": 1.2719042784692727,
+      "mean_task_rmse": 0.7935674597338211
+    },
+    {
+      "group": "[10, 50)",
+      "tasks": 466,
+      "coverage": 0.6964022263948498,
+      "length": 0.612795082072885,
+      "mean_task_rmse": 0.39756696861441426
+    },
+    {
+      "group": "[50, 100)",
+      "tasks": 345,
+      "coverage": 0.5141417572463768,
+      "length": 0.6618086468825587,
+      "mean_task_rmse": 0.6484051133842514
+    },
+    {
+      "group": "[100, 200)",
+      "tasks": 325,
+      "coverage": 0.48096153846153844,
+      "length": 0.9386527962944154,
+      "mean_task_rmse": 0.5952577695259983
+    },
+    {
+      "group": "[200, 10000)",
+      "tasks": 23,
+      "coverage": 0.2795516304347826,
+      "length": 0.5736794783254239,
+      "mean_task_rmse": 0.5670425374763514
+    }
+  ],
+  "by_regime": [
+    {
+      "group": "asymmetric_extreme_outlier",
+      "tasks": 128,
+      "coverage": 0.7113037109375,
+      "length": 1.6979088363644572,
+      "mean_task_rmse": 0.6372274498850602
+    },
+    {
+      "group": "bounded",
+      "tasks": 128,
+      "coverage": 0.545501708984375,
+      "length": 0.499009654360617,
+      "mean_task_rmse": 0.41589543807284185
+    },
+    {
+      "group": "categorical_missing",
+      "tasks": 128,
+      "coverage": 0.433685302734375,
+      "length": 0.6410189357110312,
+      "mean_task_rmse": 0.7229860708310853
+    },
+    {
+      "group": "discontinuous",
+      "tasks": 128,
+      "coverage": 0.60919189453125,
+      "length": 0.6846299514168347,
+      "mean_task_rmse": 0.7793218134993234
+    },
+    {
+      "group": "heavy_tail_noise",
+      "tasks": 128,
+      "coverage": 0.596649169921875,
+      "length": 0.7530729716801723,
+      "mean_task_rmse": 0.5950350246485084
+    },
+    {
+      "group": "heteroscedastic",
+      "tasks": 128,
+      "coverage": 0.59857177734375,
+      "length": 0.7922293077372577,
+      "mean_task_rmse": 0.6144117721786501
+    },
+    {
+      "group": "high_noise",
+      "tasks": 128,
+      "coverage": 0.743988037109375,
+      "length": 1.6336757213684157,
+      "mean_task_rmse": 0.8035035889349353
+    },
+    {
+      "group": "near_constant",
+      "tasks": 128,
+      "coverage": 0.545989990234375,
+      "length": 0.005639718158291496,
+      "mean_task_rmse": 0.005130226354260515
+    },
+    {
+      "group": "near_zero",
+      "tasks": 128,
+      "coverage": 0.487060546875,
+      "length": 0.4689724265978862,
+      "mean_task_rmse": 0.527914553711915
+    },
+    {
+      "group": "quantized",
+      "tasks": 128,
+      "coverage": 0.5330810546875,
+      "length": 0.5273088509206529,
+      "mean_task_rmse": 0.45707708983327694
+    }
+  ],
+  "limitations": [
+    "These are descriptive associations; sample size, dimension and task difficulty co-vary.",
+    "Single fitted estimator per task cannot separate statistical bias from variance miscalibration.",
+    "The saved latent target T(Z) is not guaranteed to equal E[Y|observed X]; mismatch magnitude has not been measured."
+  ],
+  "source_metrics_count": 1280,
+  "unchanged_prior_results_sha256": "e0b719ac2a0669f8eb9c2f3e3b573fe92e25b1f598612f1cb2135e165ec2c41a"
+}

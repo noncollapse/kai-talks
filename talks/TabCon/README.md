@@ -15,17 +15,22 @@ across problems.
 
 ## Contents
 
-1. PFNs: learning a prediction procedure across datasets
-2. From predictive distributions to prediction intervals
-3. Two questions: a future outcome and the underlying average
-4. Why confidence intervals matter, with interactive illustrations
-5. TabCon architecture: frozen embeddings, residual MLPs and task-level routing
-6. Global and specialist head training: error distributions, coverage regimes and KL anchoring
-7. Router SFT: Top-2 residual mixtures with straight-through gradients
-8. Router RL: Top-2 actions, RLOO and verifiable interval-quality rewards
-9. Trainable versus frozen parameters across the training stages
-10. Evidence: Standard ID/OOD, stress tests and semi-synthetic benchmarks
-11. Coverage, interval length, inference time and summary
+1. Opening results: 14 methods on the same ten stress settings, comparing coverage and interval length
+2. A timeline of tabular learning, followed by PFNs: learning a prediction procedure across datasets
+3. From predictive distributions to prediction intervals
+4. Two questions: a future outcome and the underlying average
+5. Why confidence intervals matter, with interactive illustrations
+6. TabCon architecture: frozen embeddings, residual MLPs and task-level routing
+7. Global and specialist head training: error distributions, coverage regimes and KL anchoring
+8. Router SFT: Top-2 residual mixtures with straight-through gradients
+9. Router RL: Top-2 actions, RLOO and verifiable interval-quality rewards
+10. Trainable versus frozen parameters across the training stages
+11. Evidence: Standard ID/OOD, stress tests and semi-synthetic benchmarks
+12. Coverage, interval length, inference time and summary
+
+## Local baseline verification
+
+[Implementation audit](experiments/ci_baselines/EXPERIMENT_AUDIT.md): official APIs, fixed configurations, adapters and remaining limitations. EBM is excluded; its original outputs remain archived.
 
 ## Paper
 

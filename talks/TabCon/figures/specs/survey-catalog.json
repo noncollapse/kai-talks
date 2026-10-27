@@ -1,0 +1,616 @@
+{
+  "source": "https://github.com/LAMDA-Tabular/Tabular-Survey/blob/main/README.md",
+  "sha": "513edcd666ddb6ae314b2ef1c1e86802f4556d66",
+  "checked": "2026-10-26",
+  "papers": [
+    {
+      "year": 2021,
+      "name": "WellTunedSimpleNets",
+      "title": "Well-tuned Simple Nets Excel on Tabular Datasets",
+      "url": "https://arxiv.org/abs/2106.11189",
+      "venue": "NeurIPS"
+    },
+    {
+      "year": 2025,
+      "name": "ModernNCA",
+      "title": "Revisiting Nearest Neighbor for Tabular Data: A Deep Tabular Baseline Two Decades Later",
+      "url": "https://openreview.net/forum?id=JytL2MrlLT",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2025,
+      "name": "TabM",
+      "title": "TabM: Advancing Tabular Deep Learning with Parameter-Efficient Ensembling",
+      "url": "https://arxiv.org/abs/2410.24210",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2024,
+      "name": "ExcelFormer",
+      "title": "Can a deep learning model be a sure bet for tabular prediction?",
+      "url": "https://dl.acm.org/doi/abs/10.1145/3637528.3671893",
+      "venue": "KDD"
+    },
+    {
+      "year": 2024,
+      "name": "AMFormer",
+      "title": "Arithmetic feature interaction is necessary for deep tabular learning",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/29033",
+      "venue": "AAAI"
+    },
+    {
+      "year": 2024,
+      "name": "GRANDE",
+      "title": "GRANDE: gradient-based decision tree ensembles for tabular data",
+      "url": "https://openreview.net/forum?id=XEFWBxi075",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2024,
+      "name": "RealMLP",
+      "title": "Better by default: Strong pre-tuned mlps and boosted trees on tabular data",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/2ee1c87245956e3eaa71aaba5f5753eb-Abstract-Conference.html",
+      "venue": "NeurIPS"
+    },
+    {
+      "year": 2024,
+      "name": "BiSHop",
+      "title": "Bishop: Bi-directional cellular learning for tabular data with generalized sparse modern hopfield model",
+      "url": "https://proceedings.mlr.press/v235/xu24l.html",
+      "venue": "ICML"
+    },
+    {
+      "year": 2024,
+      "name": "SwitchTab",
+      "title": "Switchtab: Switched autoencoders are effective tabular learners",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/29523",
+      "venue": "AAAI"
+    },
+    {
+      "year": 2024,
+      "name": "PTaRL",
+      "title": "Ptarl: Prototype-based tabular representation learning via space calibration",
+      "url": "https://openreview.net/forum?id=G32oY4Vnm8",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2024,
+      "name": "TabR",
+      "title": "Tabr: Tabular deep learning meets nearest neighbors in 2023",
+      "url": "https://openreview.net/forum?id=rhgIgTSSxW",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2023,
+      "name": "",
+      "title": "An inductive bias for tabular deep learning",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/8671b6dffc08b4fcf5b8ce26799b2bef-Abstract-Conference.html",
+      "venue": "NeurIPS"
+    },
+    {
+      "year": 2023,
+      "name": "TabRet",
+      "title": "Tabret: Pre-training transformer-based tabular models for unseen columns",
+      "url": "https://arxiv.org/abs/2303.15747",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2023,
+      "name": "Trompt",
+      "title": "Trompt: Towards a better deep neural network for tabular data",
+      "url": "https://proceedings.mlr.press/v202/chen23c.html",
+      "venue": "ICML"
+    },
+    {
+      "year": 2023,
+      "name": "TANGOS",
+      "title": "Tangos: Regularizing tabular neural networks through gradient orthogonalization and specialization",
+      "url": "https://openreview.net/forum?id=n6H86gW8u0d",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2022,
+      "name": "MLP-PLR",
+      "title": "On embeddings for numerical features in tabular deep learning",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/9e9f0ffc3d836836ca96cbf8fe14b105-Abstract-Conference.html",
+      "venue": "NeurIPS"
+    },
+    {
+      "year": 2022,
+      "name": "SAINT",
+      "title": "SAINT: Improved neural networks for tabular data via row attention and contrastive pre-training",
+      "url": "https://openreview.net/forum?id=FiyUTAy4sB8",
+      "venue": "NeurIPS WS"
+    },
+    {
+      "year": 2022,
+      "name": "DANets",
+      "title": "Danets: Deep abstract networks for tabular data classification and regression",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/20309",
+      "venue": "AAAI"
+    },
+    {
+      "year": 2022,
+      "name": "DNNR",
+      "title": "DNNR: differential nearest neighbors regression",
+      "url": "https://proceedings.mlr.press/v162/nader22a.html",
+      "venue": "ICML"
+    },
+    {
+      "year": 2022,
+      "name": "Hopular",
+      "title": "Hopular: Modern hopfield networks for tabular data",
+      "url": "https://arxiv.org/abs/2206.00664",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2021,
+      "name": "FT-Transformer",
+      "title": "Revisiting deep learning models for tabular data",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/9d86d83f925f2149e9edb0ac3b49229c-Abstract.html",
+      "venue": "NeurIPS"
+    },
+    {
+      "year": 2021,
+      "name": "TabNet",
+      "title": "Tabnet: Attentive interpretable tabular learning",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/16826",
+      "venue": "AAAI"
+    },
+    {
+      "year": 2021,
+      "name": "DCNv2",
+      "title": "DCN V2: improved deep & cross network and practical lessons for web-scale learning to rank systems",
+      "url": "https://dl.acm.org/doi/abs/10.1145/3442381.3450078",
+      "venue": "WWW"
+    },
+    {
+      "year": 2021,
+      "name": "NPT",
+      "title": "Self-attention between datapoints: Going beyond individual input-output pairs in deep learning",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/f1507aba9fc82ffa7cc7373c58f8a613-Abstract.html",
+      "venue": "NeurIPS"
+    },
+    {
+      "year": 2020,
+      "name": "TabTransformer",
+      "title": "Tabtransformer: Tabular data modeling using contextual embeddings",
+      "url": "https://arxiv.org/abs/2012.06678",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2020,
+      "name": "GrowNet",
+      "title": "Gradient boosting neural networks: Grownet",
+      "url": "https://arxiv.org/abs/2002.07971",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2020,
+      "name": "NODE",
+      "title": "Neural oblivious decision ensembles for deep learning on tabular data",
+      "url": "https://openreview.net/forum?id=r1eiu2VtwH",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2019,
+      "name": "AutoInt",
+      "title": "Autoint: Automatic feature interaction learning via self-attentive neural networks",
+      "url": "https://dl.acm.org/doi/abs/10.1145/3357384.3357925",
+      "venue": "CIKM"
+    },
+    {
+      "year": 2018,
+      "name": "RLNs",
+      "title": "Regularization learning networks: deep learning for tabular datasets",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2018/hash/500e75a036dc2d7d2fec5da1b71d36cc-Abstract.html",
+      "venue": "NeurIPS"
+    },
+    {
+      "year": 2017,
+      "name": "SNN",
+      "title": "Selfnormalizing neural networks",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2017/hash/5d44ee6f2c3f71b73125876103c8f6c4-Abstract.html",
+      "venue": "NIPS"
+    },
+    {
+      "year": 2025,
+      "name": "Tab2Visual",
+      "title": "Tab2Visual: Overcoming Limited Data in Tabular Data Classification Using Deep Learning with Visual Representations",
+      "url": "https://arxiv.org/abs/2502.07181",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2024,
+      "name": "LFR",
+      "title": "Self-supervised representation learning from random data projectors",
+      "url": "https://openreview.net/forum?id=EpYnZpDpsQ",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2024,
+      "name": "UniTabE",
+      "title": "UniTabE: A Universal Pretraining Protocol for Tabular Foundation Model in Data Science",
+      "url": "https://openreview.net/forum?id=6LLho5X6xV",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2024,
+      "name": "CM2",
+      "title": "Towards cross-table masked pretraining for web data mining",
+      "url": "https://dl.acm.org/doi/abs/10.1145/3589334.3645707",
+      "venue": "WWW"
+    },
+    {
+      "year": 2024,
+      "name": "TP-BERTa",
+      "title": "Making pre-trained language models great on tabular prediction",
+      "url": "https://openreview.net/forum?id=anzIzGZuLi",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2024,
+      "name": "CARTE",
+      "title": "CARTE: pretraining and transfer for tabular learning",
+      "url": "https://proceedings.mlr.press/v235/kim24d.html",
+      "venue": "ICML"
+    },
+    {
+      "year": 2024,
+      "name": "FeatLLM",
+      "title": "Large language models can automatically engineer features for few-shot tabular learning",
+      "url": "https://proceedings.mlr.press/v235/han24f.html",
+      "venue": "ICML"
+    },
+    {
+      "year": 2024,
+      "name": "LM-IGTD",
+      "title": "LM-IGTD: a 2d image generator for low-dimensional and mixed-type tabular data to leverage the potential of convolutional neural networks",
+      "url": "https://arxiv.org/abs/2406.14566",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2023,
+      "name": "DoRA",
+      "title": "Dora: Domain-based self-supervised learning framework for low-resource real estate appraisal",
+      "url": "https://dl.acm.org/doi/abs/10.1145/3583780.3615470",
+      "venue": "CIKM"
+    },
+    {
+      "year": 2023,
+      "name": "",
+      "title": "Transfer learning with deep tabular models",
+      "url": "https://openreview.net/forum?id=b0RuGUYo8pA",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2023,
+      "name": "ReConTab",
+      "title": "Recontab: Regularized contrastive representation learning for tabular data",
+      "url": "https://arxiv.org/abs/2310.18541",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2023,
+      "name": "TabRet",
+      "title": "Tabret: Pre-training transformer-based tabular models for unseen columns",
+      "url": "https://arxiv.org/abs/2303.15747",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2023,
+      "name": "ORCA",
+      "title": "Cross-modal fine-tuning: Align then refine",
+      "url": "https://proceedings.mlr.press/v202/shen23e.html",
+      "venue": "ICML"
+    },
+    {
+      "year": 2023,
+      "name": "TabToken",
+      "title": "Unlocking the transferability of tokens in deep models for tabular data",
+      "url": "https://arxiv.org/abs/2310.15149",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2023,
+      "name": "",
+      "title": "Transfer learning with deep tabular models",
+      "url": "https://openreview.net/forum?id=b0RuGUYo8pA",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2023,
+      "name": "Xtab",
+      "title": "Xtab: Cross-table pretraining for tabular transformers",
+      "url": "https://proceedings.mlr.press/v202/zhu23k.html",
+      "venue": "ICML"
+    },
+    {
+      "year": 2023,
+      "name": "Meta-Transformer",
+      "title": "Meta-transformer: A unified framework for multimodal learning",
+      "url": "https://arxiv.org/abs/2307.10802",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2023,
+      "name": "Binder",
+      "title": "Binding language models in symbolic languages",
+      "url": "https://openreview.net/forum?id=lH1PV42cbF",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2023,
+      "name": "CAAFE",
+      "title": "Large language models for automated data science: Introducing caafe for context-aware automated feature engineering",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/8c2df4c35cdbee764ebb9e9d0acd5197-Abstract-Conference.html",
+      "venue": "NeurIPS"
+    },
+    {
+      "year": 2023,
+      "name": "TaPTaP",
+      "title": "Generative table pre-training empowers models for tabular prediction",
+      "url": "https://openreview.net/forum?id=3gdG9upo7e",
+      "venue": "EMNLP"
+    },
+    {
+      "year": 2023,
+      "name": "TabLLM",
+      "title": "Tabllm: few-shot classification of tabular data with large language models",
+      "url": "https://proceedings.mlr.press/v206/hegselmann23a.html",
+      "venue": "AISTATS"
+    },
+    {
+      "year": 2023,
+      "name": "UniPredict",
+      "title": "Unipredict: Large language models are universal tabular predictors",
+      "url": "https://arxiv.org/abs/2310.03266",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2023,
+      "name": "TablEye",
+      "title": "Tableye: Seeing small tables through the lens of images",
+      "url": "https://arxiv.org/abs/2307.02491",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2022,
+      "name": "",
+      "title": "Revisiting pretraining objectives for tabular deep learning",
+      "url": "https://arxiv.org/abs/2207.03208",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2022,
+      "name": "SEFS",
+      "title": "Self-supervision enhanced feature selection with correlated gates",
+      "url": "https://openreview.net/forum?id=oDFvtxzPOx",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2022,
+      "name": "MET",
+      "title": "MET: masked encoding for tabular data",
+      "url": "https://arxiv.org/abs/2206.08564",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2022,
+      "name": "SAINT",
+      "title": "SAINT: Improved neural networks for tabular data via row attention and contrastive pre-training",
+      "url": "https://openreview.net/forum?id=FiyUTAy4sB8",
+      "venue": "NeurIPS WS"
+    },
+    {
+      "year": 2022,
+      "name": "SCARF",
+      "title": "Scarf: Self-supervised contrastive learning using random feature corruption",
+      "url": "https://openreview.net/forum?id=CuV_qYkmKb3",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2022,
+      "name": "Stab",
+      "title": "Stab: Self-supervised learning for tabular data",
+      "url": "https://openreview.net/forum?id=EfR55bFcrcI",
+      "venue": "NeurIPS WS"
+    },
+    {
+      "year": 2022,
+      "name": "DEN",
+      "title": "Distribution embedding networks for generalization from a diverse set of classification tasks",
+      "url": "https://openreview.net/forum?id=F2rG2CXsgO",
+      "venue": ""
+    },
+    {
+      "year": 2022,
+      "name": "TransTab",
+      "title": "Transtab: Learning transferable tabular transformers across tables",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/1377f76686d56439a2bd7a91859972f5-Abstract-Conference.html",
+      "venue": "NeurIPS"
+    },
+    {
+      "year": 2022,
+      "name": "Ptab",
+      "title": "Ptab: Using the pre-trained language model for modeling tabular data",
+      "url": "https://arxiv.org/abs/2209.08060",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2022,
+      "name": "LIFT",
+      "title": "LIFT: language-interfaced fine-tuning for non-language machine learning tasks",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/4ce7fe1d2730f53cb3857032952cd1b8-Abstract-Conference.html",
+      "venue": "NeurIPS"
+    },
+    {
+      "year": 2021,
+      "name": "SubTab",
+      "title": "Subtab: Subsetting features of tabular data for self-supervised representation learning",
+      "url": "https://proceedings.neurips.cc/paper/2021/hash/9c8661befae6dbcd08304dbf4dcaf0db-Abstract.html",
+      "venue": "NeurIPS"
+    },
+    {
+      "year": 2021,
+      "name": "DACL",
+      "title": "Towards domain-agnostic contrastive learning",
+      "url": "http://proceedings.mlr.press/v139/verma21a.html",
+      "venue": "ICML"
+    },
+    {
+      "year": 2021,
+      "name": "IGTD",
+      "title": "Converting tabular data into images for deep learning with convolutional neural networks",
+      "url": "https://www.nature.com/articles/s41598-021-90923-y",
+      "venue": "Scientific reports"
+    },
+    {
+      "year": 2020,
+      "name": "VIME",
+      "title": "VIME: extending the success of self- and semi-supervised learning to tabular domain",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2020/hash/7d97667a3e056acab9aaf653807b4a03-Abstract.html",
+      "venue": "NeurIPS"
+    },
+    {
+      "year": 2020,
+      "name": "",
+      "title": "Meta-learning from tasks with heterogeneous attribute spaces",
+      "url": "https://proceedings.neurips.cc/paper/2020/hash/438124b4c06f3a5caffab2c07863b617-Abstract.html",
+      "venue": "NeurIPS"
+    },
+    {
+      "year": 2020,
+      "name": "TAC",
+      "title": "A novel method for classification of tabular data using convolutional neural networks",
+      "url": "https://www.biorxiv.org/content/10.1101/2020.05.02.074203.abstract",
+      "venue": "Biorxiv"
+    },
+    {
+      "year": 2019,
+      "name": "Super-TML",
+      "title": "Supertml: Two-dimensional word embedding for the precognition on structured tabular data",
+      "url": "http://openaccess.thecvf.com/content_CVPRW_2019/html/Precognition/Sun_SuperTML_Two-Dimensional_Word_Embedding_for_the_Precognition_on_Structured_Tabular_CVPRW_2019_paper.html",
+      "venue": "CVPR WS"
+    },
+    {
+      "year": 2025,
+      "name": "MotherNet",
+      "title": "MotherNet: Fast Training and Inference via Hyper-Network Transformers",
+      "url": "https://openreview.net/forum?id=6H4jRWKFc3&noteId=qln8G23j4b",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2025,
+      "name": "TabPFN v2",
+      "title": "Accurate predictions on small data with a tabular foundation model",
+      "url": "https://www.nature.com/articles/s41586-024-08328-6",
+      "venue": "Nature"
+    },
+    {
+      "year": 2024,
+      "name": "HyperFast",
+      "title": "Hyperfast: Instant classification for tabular data",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/28988",
+      "venue": "AAAI"
+    },
+    {
+      "year": 2024,
+      "name": "TabuLa-8B",
+      "title": "Large scale transfer learning for tabular data via language modeling",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/4fd5cfd2e31bebbccfa5ffa354c04bdc-Abstract-Conference.html",
+      "venue": "NeurIPS"
+    },
+    {
+      "year": 2024,
+      "name": "GTL",
+      "title": "From supervised to generative: A novel paradigm for tabular deep learning with large language models",
+      "url": "https://dl.acm.org/doi/abs/10.1145/3637528.3671975",
+      "venue": "KDD"
+    },
+    {
+      "year": 2024,
+      "name": "MediTab",
+      "title": "Meditab: Scaling medical tabular data predictors via data consolidation, enrichment, and refinement",
+      "url": "https://www.ijcai.org/proceedings/2024/0670.pdf",
+      "venue": "IJCAI"
+    },
+    {
+      "year": 2023,
+      "name": "TabPTM",
+      "title": "Training-free generalization on heterogeneous tabular data via meta-representation",
+      "url": "https://arxiv.org/abs/2311.00055",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2023,
+      "name": "TabPFN",
+      "title": "Tabpfn: A transformer that solves small tabular classification problems in a second",
+      "url": "https://openreview.net/forum?id=cp5PvcI6w8_",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2025,
+      "name": "TabM",
+      "title": "TabM: Advancing Tabular Deep Learning with Parameter-Efficient Ensembling",
+      "url": "https://arxiv.org/abs/2410.24210",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2025,
+      "name": "TabPFN v2",
+      "title": "Accurate predictions on small data with a tabular foundation model",
+      "url": "https://www.nature.com/articles/s41586-024-08328-6",
+      "venue": "Nature"
+    },
+    {
+      "year": 2024,
+      "name": "HyperFast",
+      "title": "Hyperfast: Instant classification for tabular data",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/28988",
+      "venue": "AAAI"
+    },
+    {
+      "year": 2024,
+      "name": "GRANDE",
+      "title": "GRANDE: gradient-based decision tree ensembles for tabular data",
+      "url": "https://openreview.net/forum?id=XEFWBxi075",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2023,
+      "name": "TabPTM",
+      "title": "Training-free generalization on heterogeneous tabular data via meta-representation",
+      "url": "https://arxiv.org/abs/2311.00055",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2023,
+      "name": "TabPFN",
+      "title": "Tabpfn: A transformer that solves small tabular classification problems in a second",
+      "url": "https://openreview.net/forum?id=cp5PvcI6w8_",
+      "venue": "ICLR"
+    },
+    {
+      "year": 2020,
+      "name": "TabTransformer",
+      "title": "Tabtransformer: Tabular data modeling using contextual embeddings",
+      "url": "https://arxiv.org/abs/2012.06678",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2020,
+      "name": "GrowNet",
+      "title": "Gradient boosting neural networks: Grownet",
+      "url": "https://arxiv.org/abs/2002.07971",
+      "venue": "CoRR"
+    },
+    {
+      "year": 2020,
+      "name": "NODE",
+      "title": "Neural oblivious decision ensembles for deep learning on tabular data",
+      "url": "https://openreview.net/forum?id=r1eiu2VtwH",
+      "venue": "ICLR"
+    }
+  ]
+}

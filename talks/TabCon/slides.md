@@ -27,6 +27,34 @@ The central question is whether we can learn a reusable procedure for uncertaint
 -->
 
 ---
+routeAlias: first-results
+class: result-preview-slide
+---
+
+<div class="eyebrow">A first look · Stress tests</div>
+
+# TabCon: reliable coverage, shorter intervals
+
+<StressPreview />
+<div class="source">14 methods · Original paired stress tasks · Coverage against the saved latent oracle · pp = percentage points.</div>
+
+<!--
+Open with the result before explaining how it is achieved. These are the ten stress settings from the supplied paper figure; regular_control is excluded. The six original methods use the paper numeric results, verified against the original figure's source SHA256 and the frozen main/Wald summary JSONs. GRF, Local Linear Forest, BDE, RF-IJ, DRF, BRAT-P, BRAT-D, and RF-U are additional completed evaluations on the same 1,280 recovered and verified task realizations, including all 155,520 original query points. These new methods use author/package implementations with documented compatibility adaptations and fixed configurations; all eight completed all tasks with finite outputs; this numerical gate does not certify training stability. Linear means Linear-Wald-HC3; RFF means RFF-Wald-HC3. Both are custom statistical implementations, not official-package baselines. Linear applies context-only PCA when necessary; RFF uses at most 64 random features. Their HC3/z formulas are correct, but ill-conditioned designs cause numerical sensitivity and six Linear replay discrepancies are documented. Historical points are retained. AMP (CrI) denotes a paper-based approximate martingale-posterior credible interval, not an ordinary frequentist CI; its author-code endpoint returned HTTP 401 during the audit, so exact source equivalence has not been established. TabPFN (PI) is the native predictive interval, evaluated here against the saved latent oracle rather than a future noisy outcome. This is a reference baseline with a different native target, not a claim that TabCon dominates every confidence-interval procedure. Code inspection showed that the Generator V2 oracle T(Z) is not guaranteed to equal E[Y|observed X]; do not describe this stress figure as independently verified conditional-mean coverage.
+
+TabCon's unweighted average coverage across the ten settings is 0.95614013671875 (range approximately 0.9400–0.9842). Its mean interval length is 1.8581469892765767, compared with 3.209065453414952 for native TabPFN prediction intervals. The displayed 42% reduction is 1 minus the ratio of these arithmetic means, not a mean of per-setting percentage reductions. Every setting has 128 tasks, so equal-setting and equal-task weighting coincide. Short intervals alone are insufficient: Bootstrap is shorter but substantially undercovers in these results. Neither a universal coverage guarantee nor significance is asserted.
+
+This scatter preview uses arithmetic mean interval length on a log x axis and signed per-setting coverage deviations from 95% on a linear y axis, in percentage points. Each point shows one method's average deviation; no range bars are displayed. Positive means overcoverage, negative means undercoverage, and closeness to zero is desirable. TabCon's mean deviation is +0.614013671875 pp, with a range from -1.0028076171875 to +3.4161376953125 pp; four settings under-cover and six over-cover. AMP also has mixed directions (one under, nine over). These per-setting ranges are not displayed: opposite deviations can cancel in the plotted mean. The old Pareto staircase and lower-left-is-better annotation are removed because signed coverage should be close to zero rather than simply minimized. Length is averaged in the original outcome units without normalization, so high-scale settings have greater influence on mean length. The original radar remains available as stress-opening-radar.svg. figures/scripts/draw_stress_tradeoff.py regenerates this preview and its summary JSON; the original result table and hash remain unchanged.
+
+The first three additions are exported from complete per-query predictions by figures/scripts/export_additional_ci.py. Their numeric table and provenance are figures/data/stress_additional_ci_results.csv and stress_additional_ci_provenance.json. RF-IJ and DRF are exported and independently checked by figures/scripts/export_extra_ci.py, with separate stress_extra_ci_results.csv and stress_extra_ci_provenance.json. RF-IJ uses ranger 0.18.0 with 2,000 trees and native infinitesimal-jackknife standard errors. Its mean coverage is 0.53057861328125 and mean interval length is 0.7261888936328144. DRF uses the official drf 1.3.1 native uncertainty API with 6,000 honest trees, 100 CI groups, exact group-weighted means and their sample variance. Its mean coverage is 0.5805023193359375 and mean interval length is 0.7703466374315616. All 1,280 tasks and 155,520 queries passed per-query verification on Beast and locally. Its intervals are short but substantially undercover this saved target; no universal coverage conclusion is asserted. BART and GP were cancelled by the user on 27 October 2026, who excluded Bayesian credible-interval baselines. Their pilot and partial results are not plotted. DeepLR was cancelled by the user and is excluded. BDE mean length is strongly influenced by high_noise__053, whose mean interval length is about 16,948.6; one bootstrap-retrained network produced extreme predictions. This finite result is retained without trimming and flagged on the slide. The existing Bootstrap comparator is TabPFN mean predictions across bootstrap resamples of context rows, distinct from BDE's parametric bootstrap retraining. Both target uncertainty in the regression function, not future-outcome noise. The archived six-method radar is unchanged. See experiments/ci_baselines/PROTOCOL.md, PROTOCOL_EXTRA.md and PROTOCOL_MODERN.md for configurations, data pairing and limitations.
+
+The latest additions are exported by figures/scripts/export_modern_ci.py into stress_modern_ci_results.csv and stress_modern_ci_provenance.json after all saved endpoints, standard errors, task/config hashes and metrics were independently checked remotely and locally. Each method uses all 1,280 tasks / 155,520 queries without trimming. BRAT-P: mean coverage 0.1536224365234375, mean length 0.2074908501043721. BRAT-D: 0.2644775390625 and 0.2666031319457618. RF-U: 0.6453704833984375 and 0.9489549325520208. These are results of fixed author README configurations on this benchmark, not tuned optimal performance or universal comparisons.
+
+BRAT-P and BRAT-D use unmodified Boulevard 0.1.0a1, pinned commit ec0a4ede4155519b70fbca65ac73f9ece64da276. The interval mode is explicitly confidence. The package settings are not exact replications of the paper experiments: current ParallelBooster omits the paper’s sequential warm-start and the package uses histogram-cell inference rather than the paper experiment’s Nyström approximation. All context observations are retained for fitting; the documented prepare_inference() fallback estimates residual variance on the training data. The author README prefers held-out variance estimation, so optimistic training-residual estimates remain a limitation. No query outcomes or oracle residuals are used to fit or calibrate intervals. RF-U uses RLT 6.1.1, pinned commit d83a648a15591bbd4f057322dfdea7a75f056992, with the matched-sample U-statistic variance estimator. All 1,280 tasks returned finite nonnegative variance estimates at the original 10,000 trees; none triggered the wrapper retry. Audit correction: official RLT floors negative matched variances at zero before returning them, so this gate cannot detect pre-floor negatives. There are 4,040 saved zero-width intervals across 764 tasks, all retained. No claim is made that every raw variance estimate was positive.
+
+Inferable EBM was removed from this comparison at the user’s request on 27 October 2026. Its raw results are retained in the experiment archive. The plot now contains fourteen methods on a continuous log x-axis. See experiments/ci_baselines/EXPERIMENT_AUDIT.md and its three independent evidence reports for the per-method implementation audit, configuration differences and remaining limitations.
+-->
+
+---
 routeAlias: roadmap
 ---
 
@@ -44,6 +72,44 @@ routeAlias: roadmap
 
 <!--
 The first half develops the intuition. The second half connects that intuition to the learning target, model architecture and evidence. The section links are clickable.
+-->
+
+---
+routeAlias: tabular-timeline
+class: timeline-slide
+---
+
+<div class="eyebrow">Before PFNs · A development timeline</div>
+
+# How tabular learning evolved
+
+<TabularTimeline />
+<div class="source">Sources: <a href="https://doi.org/10.1109/TPAMI.2026.3657217">Jiang et al., TPAMI (2026)</a> · <a href="https://www.jmlr.org/papers/v23/21-0585.html">DRF</a> · <a href="https://doi.org/10.1073/pnas.2310151122">FIGS</a> · <a href="https://xgboost.readthedocs.io/en/stable/changes/v3.2.0.html">XGBoost 3.2</a> · <a href="https://arxiv.org/abs/2112.10510">PFNs</a> · <a href="https://github.com/PriorLabs/TabPFN/blob/main/CHANGELOG.md">TabPFN releases</a> · <a href="https://proceedings.mlr.press/v306/qu26a.html">TabICL v2</a> · <a href="https://research.google/blog/introducing-tabfm-a-zero-shot-foundation-model-for-tabular-data/">TabFM</a>.</div>
+
+<!--
+A single, fully visible timeline with four connected research directions. Solid lines group milestones within a direction. Dashed arrows show shared ideas or changes in training strategy, not direct paper-to-paper ancestry. Hovering a dashed connector or focusing it with the keyboard highlights its two related routes. These interactions do not hide content or require slide clicks.
+
+Classical ML has an expanded pre-2016 inset: linear/logistic regression, kNN, SVM, CART, AdaBoost, random forests and gradient boosting. The inset compresses early history rather than assigning precise first-publication dates to these broad families. XGBoost (2016), LightGBM/CatBoost (2017) and NGBoost (ICML 2020) sit on the modern timeline. NGBoost extends gradient boosting to probabilistic prediction; it is not an inference method for the regression mean like TabCon. After NGBoost, this route continues with PGBM (KDD 2021), which efficiently produces probabilistic predictions with one tree ensemble; Distributional Random Forests (JMLR 2022), which estimate joint conditional distributions; and FIGS (PNAS 2025), which grows interpretable sums of trees. FIGS had a 2022 preprint; this timeline uses its journal publication year, consistent with the venue-year convention elsewhere. The 2026 endpoint is explicitly a software release: XGBoost 3.2 improves multi-target tree support and GPU external-memory training. These are parallel advances in probabilistic prediction, interpretability and scalable learning, not a chain of models replacing one another. The selected milestones do not imply that years without a label had no research.
+
+The previously empty left region now contains general-ML foundations for each route: MLPs/autoencoders for learned representations; unsupervised pretraining followed by fine-tuning; and multitask/meta-learning for learning from related tasks. These are conceptual roots, not claims that all later models descend directly from a particular early method. Representative primary sources are Bengio et al. (NIPS 2006), Caruana (1997), and Hochreiter et al. (2001).
+
+The two upper bridges are concrete architectural connections: NODE makes oblivious decision-tree ensembles differentiable and trains them end to end; TabR combines a neural network with a learned nearest-neighbor retrieval component. The latter applies to TabR, not the adjacent RealMLP label. Likewise, the tree bridge refers to NODE, not TabTransformer, which shares its 2020 milestone.
+
+The two lower bridges describe changes in the unit or role of training. Neural representation learning can be used for pretraining followed by downstream adaptation. The PFN approach instead pretrains across sampled prediction tasks, learning a reusable prediction procedure. The arrow from the pretraining route to PFNs is conceptual, not a claim that PFNs derive from VIME, SubTab or any particular model shown above. The foundation-model route includes HyperFast as another approach. All model labels and nodes on this route use the same blue; green distinguishes TabCon as the focus of this talk.
+
+The timeline now extends through October 2026. In addition to the survey's original examples, it includes TabPFN 2.5 (November 6, 2025), TabPFN 2.6 (March 24, 2026), TabPFN 3 (May 12, 2026), TabPFN 3.5 (September 15, 2026), TabICL v2 (ICML 2026), and Google's TabFM (June 30, 2026). These dates were verified against official reports, release notes and proceedings on October 26, 2026. Model names follow the official release naming; the model often called TabPFN v3 is styled TabPFN-3 in its report. The green TabCon branch explicitly says "via TabPFN 3"; the other 2026 releases are parallel developments.
+
+Earlier examples retain the verified survey years. PFNs are listed by their 2022 conference year (preprint 2021); TabPFN is ICLR 2023; TabPFN v2 is Nature 2025; TabICL is ICML 2025. The full survey catalog remains in figures/specs/tabular-timeline-data.json, and the added releases and early conceptual roots are sourced in figures/specs/timeline-updates-2026.json. This remains a selection of milestones, not an exhaustive bibliography.
+
+TabCon extends the reuse question from prediction to statistical inference about the regression mean. Its position identifies the destination of this talk, not a claim that it supersedes the displayed predictive methods.
+
+New release sources: https://priorlabs.ai/technical-reports/tabpfn-3 ; https://github.com/PriorLabs/TabPFN/blob/main/CHANGELOG.md ; https://proceedings.mlr.press/v306/qu26a.html ; https://research.google/blog/introducing-tabfm-a-zero-shot-foundation-model-for-tabular-data/ .
+Early conceptual sources: https://proceedings.neurips.cc/paper/2006/hash/5da713a690c067105aeb2fae32403405-Abstract.html ; https://doi.org/10.1023/A:1007379606734 ; https://doi.org/10.1007/3-540-44668-0_13 ; https://www.bioinf.jku.at/publications/older/1504.pdf .
+
+Post-2020 classical milestones: https://arxiv.org/abs/2106.01682 ; https://www.jmlr.org/papers/v23/21-0585.html ; https://doi.org/10.1073/pnas.2310151122 ; https://xgboost.readthedocs.io/en/stable/changes/v3.2.0.html .
+
+Primary sources for the new connections and NGBoost: https://iclr.cc/virtual_2020/poster_r1eiu2VtwH.html ; https://proceedings.iclr.cc/paper_files/paper/2024/hash/4ef594af0d9a519db8fb292452c461fa-Abstract-Conference.html ; https://proceedings.mlr.press/v119/duan20a.html ; https://arxiv.org/abs/2112.10510 .
+Other sources: https://doi.org/10.1109/TPAMI.2026.3657217 ; https://github.com/LAMDA-Tabular/Tabular-Survey ; https://openreview.net/forum?id=cp5PvcI6w8_ ; https://www.nature.com/articles/s41586-024-08328-6 ; https://proceedings.mlr.press/v267/qu25d.html ; https://arxiv.org/abs/2609.33114 .
 -->
 
 ---

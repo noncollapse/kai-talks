@@ -1,0 +1,21 @@
+{
+  "status": "cancelled_by_user",
+  "time": 1793045398.5724716,
+  "reason": "User requested only faster methods",
+  "stopped_deeplr_pids": [
+    3474831,
+    3474833,
+    3474835,
+    3474836,
+    3474838,
+    3474839,
+    3474841,
+    3474842
+  ],
+  "finishing_other_pids": [
+    3533800,
+    3533938,
+    3536191,
+    3537365
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "started_at": 1793045456.3305066,
+  "pid": 3539760,
+  "methods": [
+    "grf",
+    "llf",
+    "bde"
+  ],
+  "workers": [
+    2,
+    2,
+    6
+  ],
+  "tasks": 1280,
+  "queries": 155520,
+  "device": "CPU",
+  "alignment_sha256": "c6edd32609fe370fd7168b26d5631a5f2303dced98d06ebfba4e4111321fd5bc",
+  "sources": {
+    "run_task.py": "f5f497e1d776cd5757b613fb93376c67b286ab3e31a325e836a81628e5f9ac80",
+    "forest.R": "d331bbd1f1d353ac5f0db5f405a2803464c7b26c295608c6f97f2a7c8f17d274",
+    "patch_vendor.py": "f0a777fa3eaa4b007ab92c4287986a99e07d1ddcf481c2fa026ad29d5170aa5e",
+    "upstream.json": "484934f8cff44a61d4a4252f325de04fc6d067e22fa4c014fe5f1d9648122dbd"
+  }
+}

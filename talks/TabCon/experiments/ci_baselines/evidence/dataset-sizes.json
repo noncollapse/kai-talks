@@ -1,0 +1,35 @@
+{
+  "tasks": 1280,
+  "queries": 155520,
+  "train_size_min": 9,
+  "train_size_median": 426.5,
+  "train_size_max": 2039,
+  "tasks_n_below_30": 180,
+  "tasks_n_below_100": 370,
+  "min_size_tasks": [
+    "near_constant__029",
+    "bounded__029",
+    "quantized__029",
+    "discontinuous__029",
+    "near_zero__029",
+    "high_noise__029",
+    "heavy_tail_noise__029",
+    "asymmetric_extreme_outlier__029",
+    "heteroscedastic__029",
+    "categorical_missing__029"
+  ],
+  "max_size_tasks": [
+    "near_constant__106",
+    "bounded__106",
+    "quantized__106",
+    "discontinuous__106",
+    "near_zero__106",
+    "high_noise__106",
+    "heavy_tail_noise__106",
+    "asymmetric_extreme_outlier__106",
+    "heteroscedastic__106",
+    "categorical_missing__106"
+  ],
+  "manifest_sha256": "e0c6d45113f315dee8f0b8943e83710b46c57f45e81feb0f9686fcbe07dd39b3",
+  "input_arrays_checked": 1280
+}

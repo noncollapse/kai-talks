@@ -1,0 +1,179 @@
+{
+  "nominal_coverage": 0.95,
+  "settings": 10,
+  "tasks_per_setting": 128,
+  "aggregation": "Equal-weight means across ten stress settings. Each setting contains 128 tasks.",
+  "coverage_gap_definition": "Plotted y = 100 * mean_s(coverage_95_s - 0.95), in percentage points. Negative: undercoverage; positive: overcoverage.",
+  "display": "One point per method showing its mean interval length and mean signed coverage deviation across ten stress settings. No range bars are plotted; setting-level variation is retained in the summary metrics.",
+  "coverage_target": "Saved latent oracle from the original stress evaluation; not independently verified as E[Y|observed X].",
+  "x_axis": "Arithmetic mean interval length in the original outcome units, displayed on a logarithmic axis. No scale normalization.",
+  "methods": {
+    "Linear": {
+      "mean_coverage": 0.767254638671875,
+      "mean_length": 6.92668473219972,
+      "mean_absolute_coverage_gap_pp": 18.274536132812496,
+      "mean_signed_coverage_gap_pp": -18.274536132812496,
+      "min_signed_coverage_gap_pp": -29.783935546874996,
+      "max_signed_coverage_gap_pp": -6.782836914062496,
+      "undercoverage_settings": 10,
+      "overcoverage_settings": 0
+    },
+    "RFF": {
+      "mean_coverage": 0.738092041015625,
+      "mean_length": 2.640370775084089,
+      "mean_absolute_coverage_gap_pp": 21.190795898437496,
+      "mean_signed_coverage_gap_pp": -21.190795898437496,
+      "min_signed_coverage_gap_pp": -34.90783691406249,
+      "max_signed_coverage_gap_pp": -6.260986328124996,
+      "undercoverage_settings": 10,
+      "overcoverage_settings": 0
+    },
+    "PI": {
+      "mean_coverage": 0.99017333984375,
+      "mean_length": 3.209065453414952,
+      "mean_absolute_coverage_gap_pp": 4.017333984375004,
+      "mean_signed_coverage_gap_pp": 4.017333984375004,
+      "min_signed_coverage_gap_pp": 2.8973388671875044,
+      "max_signed_coverage_gap_pp": 4.911499023437504,
+      "undercoverage_settings": 0,
+      "overcoverage_settings": 10
+    },
+    "Bootstrap": {
+      "mean_coverage": 0.69697265625,
+      "mean_length": 0.6651103196107276,
+      "mean_absolute_coverage_gap_pp": 25.302734374999996,
+      "mean_signed_coverage_gap_pp": -25.302734374999996,
+      "min_signed_coverage_gap_pp": -37.83752441406249,
+      "max_signed_coverage_gap_pp": -18.440551757812496,
+      "undercoverage_settings": 10,
+      "overcoverage_settings": 0
+    },
+    "AMP": {
+      "mean_coverage": 0.9729248046875,
+      "mean_length": 3.2663146669510157,
+      "mean_absolute_coverage_gap_pp": 2.6566162109375036,
+      "mean_signed_coverage_gap_pp": 2.2924804687500044,
+      "min_signed_coverage_gap_pp": -1.8206787109374956,
+      "max_signed_coverage_gap_pp": 4.572753906250004,
+      "undercoverage_settings": 1,
+      "overcoverage_settings": 9
+    },
+    "TabCon": {
+      "mean_coverage": 0.95614013671875,
+      "mean_length": 1.8581469892765767,
+      "mean_absolute_coverage_gap_pp": 1.1477050781250009,
+      "mean_signed_coverage_gap_pp": 0.6140136718750044,
+      "min_signed_coverage_gap_pp": -1.0028076171874956,
+      "max_signed_coverage_gap_pp": 3.4161376953125044,
+      "undercoverage_settings": 4,
+      "overcoverage_settings": 6
+    },
+    "GRF": {
+      "mean_coverage": 0.54522705078125,
+      "mean_length": 0.719386408030376,
+      "mean_absolute_coverage_gap_pp": 40.477294921875,
+      "mean_signed_coverage_gap_pp": -40.47729492187499,
+      "min_signed_coverage_gap_pp": -54.02404785156249,
+      "max_signed_coverage_gap_pp": -23.546142578124996,
+      "undercoverage_settings": 10,
+      "overcoverage_settings": 0
+    },
+    "Local Linear Forest": {
+      "mean_coverage": 0.6335113525390625,
+      "mean_length": 0.8434997707194952,
+      "mean_absolute_coverage_gap_pp": 31.648864746093746,
+      "mean_signed_coverage_gap_pp": -31.648864746093743,
+      "min_signed_coverage_gap_pp": -42.91259765624999,
+      "max_signed_coverage_gap_pp": -20.997924804687496,
+      "undercoverage_settings": 10,
+      "overcoverage_settings": 0
+    },
+    "BDE": {
+      "mean_coverage": 0.77291259765625,
+      "mean_length": 14.767485732214302,
+      "mean_absolute_coverage_gap_pp": 17.708740234374996,
+      "mean_signed_coverage_gap_pp": -17.708740234374996,
+      "min_signed_coverage_gap_pp": -24.962158203124996,
+      "max_signed_coverage_gap_pp": -9.065551757812496,
+      "undercoverage_settings": 10,
+      "overcoverage_settings": 0
+    },
+    "RF-IJ": {
+      "mean_coverage": 0.53057861328125,
+      "mean_length": 0.7261888936328145,
+      "mean_absolute_coverage_gap_pp": 41.942138671875,
+      "mean_signed_coverage_gap_pp": -41.94213867187499,
+      "min_signed_coverage_gap_pp": -55.21118164062499,
+      "max_signed_coverage_gap_pp": -25.981445312499996,
+      "undercoverage_settings": 10,
+      "overcoverage_settings": 0
+    },
+    "DRF": {
+      "mean_coverage": 0.5805023193359375,
+      "mean_length": 0.7703466374315616,
+      "mean_absolute_coverage_gap_pp": 36.94976806640625,
+      "mean_signed_coverage_gap_pp": -36.94976806640624,
+      "min_signed_coverage_gap_pp": -51.63146972656249,
+      "max_signed_coverage_gap_pp": -20.601196289062496,
+      "undercoverage_settings": 10,
+      "overcoverage_settings": 0
+    },
+    "BRAT-P": {
+      "mean_coverage": 0.1536224365234375,
+      "mean_length": 0.2074908501043721,
+      "mean_absolute_coverage_gap_pp": 79.63775634765625,
+      "mean_signed_coverage_gap_pp": -79.63775634765625,
+      "min_signed_coverage_gap_pp": -81.0565185546875,
+      "max_signed_coverage_gap_pp": -76.1737060546875,
+      "undercoverage_settings": 10,
+      "overcoverage_settings": 0
+    },
+    "BRAT-D": {
+      "mean_coverage": 0.2644775390625,
+      "mean_length": 0.26660313194576185,
+      "mean_absolute_coverage_gap_pp": 68.55224609375,
+      "mean_signed_coverage_gap_pp": -68.55224609375,
+      "min_signed_coverage_gap_pp": -72.2308349609375,
+      "max_signed_coverage_gap_pp": -61.69006347656249,
+      "undercoverage_settings": 10,
+      "overcoverage_settings": 0
+    },
+    "RF-U": {
+      "mean_coverage": 0.6453704833984375,
+      "mean_length": 0.9489549325520208,
+      "mean_absolute_coverage_gap_pp": 30.462951660156246,
+      "mean_signed_coverage_gap_pp": -30.462951660156243,
+      "min_signed_coverage_gap_pp": -44.76196289062499,
+      "max_signed_coverage_gap_pp": -13.139648437499996,
+      "undercoverage_settings": 10,
+      "overcoverage_settings": 0
+    }
+  },
+  "native_interval_kinds": {
+    "Linear": "confidence",
+    "RFF": "confidence",
+    "PI": "prediction",
+    "Bootstrap": "confidence",
+    "AMP": "credible",
+    "TabCon": "confidence",
+    "GRF": "confidence",
+    "Local Linear Forest": "confidence",
+    "BDE": "confidence",
+    "RF-IJ": "confidence",
+    "DRF": "confidence",
+    "BRAT-P": "confidence",
+    "BRAT-D": "confidence",
+    "RF-U": "confidence"
+  },
+  "tabcon_length_reduction_vs_tabpfn_pi": 0.4209694329234652,
+  "scope": "Six original methods plus completed GRF, Local Linear Forest, BDE, RF-IJ, DRF, BRAT-P, BRAT-D, RF-U evaluations on the original 1280 paired tasks. DeepLR excluded; unfinished methods not plotted.",
+  "additional_results_source_sha256": "e0b719ac2a0669f8eb9c2f3e3b573fe92e25b1f598612f1cb2135e165ec2c41a",
+  "extra_results_source_sha256": "1f871e61c7ebbd51c3c6fa4aca9469dbfb4a113a980a405cc879b8f15f75cecf",
+  "modern_results_source_sha256": "b8d4fcc935e1b1e1e6b7d56043522323381e7ba3a737955bdae859047e9654f5",
+  "bde_note": "One high-noise task has extreme bootstrap-network predictions; its original finite CI is retained.",
+  "excluded_methods": {
+    "Inferable EBM": "Removed at user request on 2026-10-27; original results retained."
+  },
+  "broken_x_axis": false,
+  "figure_sha256": "6979d621e5a4ac2de185b6d20da1f225749daad7855d17083820689c23393a71"
+}

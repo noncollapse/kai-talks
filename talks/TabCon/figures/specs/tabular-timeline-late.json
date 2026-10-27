@@ -1,0 +1,506 @@
+{
+  "title": "A timeline of tabular learning — late",
+  "canvas": {
+    "width": 1800,
+    "height": 820
+  },
+  "style": {
+    "font_family": "Arial, Helvetica, sans-serif",
+    "font_size": 22,
+    "bg_color": "#FBFCFF",
+    "palette": [
+      "#B95136",
+      "#A5770E",
+      "#26798C",
+      "#8055A0",
+      "#607E13"
+    ]
+  },
+  "nodes": [
+    {
+      "id": "year-2024",
+      "label": "2024",
+      "x": 468.0,
+      "y": 49,
+      "width": 854.0,
+      "height": 50,
+      "shape": "rounded",
+      "font_size": 34,
+      "text_color": "#304465",
+      "fill": "#EAF0FC",
+      "stroke": "#EAF0FC"
+    },
+    {
+      "id": "year-2025",
+      "label": "2025",
+      "x": 1340.0,
+      "y": 49,
+      "width": 854.0,
+      "height": 50,
+      "shape": "rounded",
+      "font_size": 34,
+      "text_color": "#304465",
+      "fill": "#EAF0FC",
+      "stroke": "#EAF0FC"
+    },
+    {
+      "id": "method-21",
+      "label": "RealMLP",
+      "x": 153.75,
+      "y": 164,
+      "width": 202.5,
+      "height": 59,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#B95136",
+      "fill": "#FCF6F3",
+      "stroke": "#FCF6F3",
+      "sublabel": "NeurIPS 2024"
+    },
+    {
+      "id": "method-22",
+      "label": "ExcelFormer",
+      "x": 363.25,
+      "y": 164,
+      "width": 202.5,
+      "height": 59,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#B95136",
+      "fill": "#FCF6F3",
+      "stroke": "#FCF6F3",
+      "sublabel": "KDD 2024"
+    },
+    {
+      "id": "method-23",
+      "label": "GRANDE",
+      "x": 572.75,
+      "y": 164,
+      "width": 202.5,
+      "height": 59,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#B95136",
+      "fill": "#FCF6F3",
+      "stroke": "#FCF6F3",
+      "sublabel": "ICLR 2024"
+    },
+    {
+      "id": "method-24",
+      "label": "AMFormer",
+      "x": 782.25,
+      "y": 164,
+      "width": 202.5,
+      "height": 59,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#B95136",
+      "fill": "#FCF6F3",
+      "stroke": "#FCF6F3",
+      "sublabel": "AAAI 2024"
+    },
+    {
+      "id": "method-25",
+      "label": "BiSHop",
+      "x": 153.75,
+      "y": 228,
+      "width": 202.5,
+      "height": 59,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#B95136",
+      "fill": "#FCF6F3",
+      "stroke": "#FCF6F3",
+      "sublabel": "ICML 2024"
+    },
+    {
+      "id": "method-26",
+      "label": "TabR",
+      "x": 363.25,
+      "y": 228,
+      "width": 202.5,
+      "height": 59,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#A5770E",
+      "fill": "#FCF6F3",
+      "stroke": "#FCF6F3",
+      "sublabel": "ICLR 2024"
+    },
+    {
+      "id": "method-27",
+      "label": "SwitchTab",
+      "x": 572.75,
+      "y": 228,
+      "width": 202.5,
+      "height": 59,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#B95136",
+      "fill": "#FCF6F3",
+      "stroke": "#FCF6F3",
+      "sublabel": "AAAI 2024"
+    },
+    {
+      "id": "method-28",
+      "label": "PTaRL",
+      "x": 782.25,
+      "y": 228,
+      "width": 202.5,
+      "height": 59,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#26798C",
+      "fill": "#FCF6F3",
+      "stroke": "#FCF6F3",
+      "sublabel": "ICLR 2024"
+    },
+    {
+      "id": "method-29",
+      "label": "TabM",
+      "x": 1130.5,
+      "y": 164,
+      "width": 412.0,
+      "height": 59,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#B95136",
+      "fill": "#FCF6F3",
+      "stroke": "#FCF6F3",
+      "sublabel": "ICLR 2025"
+    },
+    {
+      "id": "method-30",
+      "label": "ModernNCA",
+      "x": 1549.5,
+      "y": 164,
+      "width": 412.0,
+      "height": 59,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#A5770E",
+      "fill": "#FCF6F3",
+      "stroke": "#FCF6F3",
+      "sublabel": "ICLR 2025"
+    },
+    {
+      "id": "method-63",
+      "label": "LFR",
+      "x": 153.75,
+      "y": 384,
+      "width": 202.5,
+      "height": 63,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#8055A0",
+      "fill": "#F5F0FA",
+      "stroke": "#F5F0FA",
+      "sublabel": "ICLR 2024"
+    },
+    {
+      "id": "method-64",
+      "label": "LM-IGTD",
+      "x": 363.25,
+      "y": 384,
+      "width": 202.5,
+      "height": 63,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#8055A0",
+      "fill": "#F5F0FA",
+      "stroke": "#F5F0FA",
+      "sublabel": "Preprint 2024"
+    },
+    {
+      "id": "method-65",
+      "label": "UniTabE",
+      "x": 572.75,
+      "y": 384,
+      "width": 202.5,
+      "height": 63,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#8055A0",
+      "fill": "#F5F0FA",
+      "stroke": "#F5F0FA",
+      "sublabel": "ICLR 2024"
+    },
+    {
+      "id": "method-66",
+      "label": "CM2",
+      "x": 782.25,
+      "y": 384,
+      "width": 202.5,
+      "height": 63,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#8055A0",
+      "fill": "#F5F0FA",
+      "stroke": "#F5F0FA",
+      "sublabel": "WWW 2024"
+    },
+    {
+      "id": "method-67",
+      "label": "TP-BERTa",
+      "x": 153.75,
+      "y": 452,
+      "width": 202.5,
+      "height": 63,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#8055A0",
+      "fill": "#F5F0FA",
+      "stroke": "#F5F0FA",
+      "sublabel": "ICLR 2024"
+    },
+    {
+      "id": "method-68",
+      "label": "CARTE",
+      "x": 363.25,
+      "y": 452,
+      "width": 202.5,
+      "height": 63,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#8055A0",
+      "fill": "#F5F0FA",
+      "stroke": "#F5F0FA",
+      "sublabel": "ICML 2024"
+    },
+    {
+      "id": "method-69",
+      "label": "FeatLLM",
+      "x": 572.75,
+      "y": 452,
+      "width": 202.5,
+      "height": 63,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#8055A0",
+      "fill": "#F5F0FA",
+      "stroke": "#F5F0FA",
+      "sublabel": "ICML 2024"
+    },
+    {
+      "id": "method-70",
+      "label": "Tab2Visual",
+      "x": 1340.0,
+      "y": 384,
+      "width": 831.0,
+      "height": 63,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#8055A0",
+      "fill": "#F5F0FA",
+      "stroke": "#F5F0FA",
+      "sublabel": "Preprint 2025"
+    },
+    {
+      "id": "method-73",
+      "label": "HyperFast",
+      "x": 153.75,
+      "y": 743,
+      "width": 202.5,
+      "height": 51,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#607E13",
+      "fill": "#F1F6E8",
+      "stroke": "#F1F6E8",
+      "sublabel": "AAAI 2024"
+    },
+    {
+      "id": "method-74",
+      "label": "TabuLa-8B",
+      "x": 363.25,
+      "y": 743,
+      "width": 202.5,
+      "height": 51,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#607E13",
+      "fill": "#F1F6E8",
+      "stroke": "#F1F6E8",
+      "sublabel": "NeurIPS 2024"
+    },
+    {
+      "id": "method-75",
+      "label": "GTL",
+      "x": 572.75,
+      "y": 743,
+      "width": 202.5,
+      "height": 51,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#607E13",
+      "fill": "#F1F6E8",
+      "stroke": "#F1F6E8",
+      "sublabel": "KDD 2024"
+    },
+    {
+      "id": "method-76",
+      "label": "MediTab",
+      "x": 782.25,
+      "y": 743,
+      "width": 202.5,
+      "height": 51,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#607E13",
+      "fill": "#F1F6E8",
+      "stroke": "#F1F6E8",
+      "sublabel": "IJCAI 2024"
+    },
+    {
+      "id": "method-77",
+      "label": "TabPFN v2",
+      "x": 1060.6666666666667,
+      "y": 743,
+      "width": 272.3333333333333,
+      "height": 51,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#607E13",
+      "fill": "#F1F6E8",
+      "stroke": "#F1F6E8",
+      "sublabel": "Nature 2025"
+    },
+    {
+      "id": "method-78",
+      "label": "TabICL",
+      "x": 1340.0,
+      "y": 743,
+      "width": 272.3333333333333,
+      "height": 51,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#607E13",
+      "fill": "#F1F6E8",
+      "stroke": "#F1F6E8",
+      "sublabel": "ICML 2025"
+    },
+    {
+      "id": "method-79",
+      "label": "MotherNet",
+      "x": 1619.3333333333333,
+      "y": 743,
+      "width": 272.3333333333333,
+      "height": 51,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#607E13",
+      "fill": "#F1F6E8",
+      "stroke": "#F1F6E8",
+      "sublabel": "ICLR 2025"
+    }
+  ],
+  "edges": [
+    {
+      "from": "year-2024",
+      "to": "year-2025",
+      "color": "#A6B4CA",
+      "thickness": 2
+    }
+  ],
+  "groups": [
+    {
+      "id": "specialized-2024",
+      "node_ids": [
+        "method-21",
+        "method-22",
+        "method-23",
+        "method-24",
+        "method-25",
+        "method-26",
+        "method-27",
+        "method-28"
+      ],
+      "padding": 7,
+      "fill": "#FCF6F3",
+      "stroke": "#DDE4EE"
+    },
+    {
+      "id": "specialized-2025",
+      "node_ids": [
+        "method-29",
+        "method-30"
+      ],
+      "padding": 7,
+      "fill": "#FCF6F3",
+      "stroke": "#DDE4EE"
+    },
+    {
+      "id": "transfer-2024",
+      "node_ids": [
+        "method-63",
+        "method-64",
+        "method-65",
+        "method-66",
+        "method-67",
+        "method-68",
+        "method-69"
+      ],
+      "padding": 7,
+      "fill": "#F5F0FA",
+      "stroke": "#DDE4EE"
+    },
+    {
+      "id": "transfer-2025",
+      "node_ids": [
+        "method-70"
+      ],
+      "padding": 7,
+      "fill": "#F5F0FA",
+      "stroke": "#DDE4EE"
+    },
+    {
+      "id": "general-2024",
+      "node_ids": [
+        "method-73",
+        "method-74",
+        "method-75",
+        "method-76"
+      ],
+      "padding": 7,
+      "fill": "#F1F6E8",
+      "stroke": "#DDE4EE"
+    },
+    {
+      "id": "general-2025",
+      "node_ids": [
+        "method-77",
+        "method-78",
+        "method-79"
+      ],
+      "padding": 7,
+      "fill": "#F1F6E8",
+      "stroke": "#DDE4EE"
+    }
+  ],
+  "labels": [
+    {
+      "text": "Specialized methods · fit to a target dataset",
+      "x": 32,
+      "y": 112,
+      "font_size": 26,
+      "color": "#17233E",
+      "anchor": "start"
+    },
+    {
+      "text": "Transferable methods · pretrain, then adapt",
+      "x": 32,
+      "y": 330,
+      "font_size": 26,
+      "color": "#17233E",
+      "anchor": "start"
+    },
+    {
+      "text": "General methods · reuse across datasets",
+      "x": 32,
+      "y": 690,
+      "font_size": 26,
+      "color": "#17233E",
+      "anchor": "start"
+    }
+  ]
+}

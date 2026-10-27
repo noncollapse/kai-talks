@@ -1,0 +1,6 @@
+boulevard-boosting @ file:///home/kyle/Documents/lab/tabcon-ci-baselines-20261026/runtime_vendor/Boulevard-ec0a4ede4155519b70fbca65ac73f9ece64da276
+joblib==1.5.3
+numpy==1.26.4
+scikit-learn==1.8.0
+scipy==1.14.1
+threadpoolctl==3.6.0

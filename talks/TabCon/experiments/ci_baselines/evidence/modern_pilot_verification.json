@@ -1,0 +1,127 @@
+{
+  "status": "passed",
+  "pilots": 20,
+  "checks": [
+    {
+      "method": "bratp",
+      "task": "asymmetric_extreme_outlier__116",
+      "seconds": 0.41521485801786184,
+      "verified": true
+    },
+    {
+      "method": "bratp",
+      "task": "categorical_missing__099",
+      "seconds": 4.202812100062147,
+      "verified": true
+    },
+    {
+      "method": "bratp",
+      "task": "high_noise__053",
+      "seconds": 10.726550109917298,
+      "verified": true
+    },
+    {
+      "method": "bratp",
+      "task": "near_constant__029",
+      "seconds": 0.3805307410657406,
+      "verified": true
+    },
+    {
+      "method": "bratp",
+      "task": "near_constant__106",
+      "seconds": 16.049363597063348,
+      "verified": true
+    },
+    {
+      "method": "bratd",
+      "task": "asymmetric_extreme_outlier__116",
+      "seconds": 0.8260107540991157,
+      "verified": true
+    },
+    {
+      "method": "bratd",
+      "task": "categorical_missing__099",
+      "seconds": 6.962483393959701,
+      "verified": true
+    },
+    {
+      "method": "bratd",
+      "task": "high_noise__053",
+      "seconds": 14.858896073885262,
+      "verified": true
+    },
+    {
+      "method": "bratd",
+      "task": "near_constant__029",
+      "seconds": 0.6736338299233466,
+      "verified": true
+    },
+    {
+      "method": "bratd",
+      "task": "near_constant__106",
+      "seconds": 24.497578678186983,
+      "verified": true
+    },
+    {
+      "method": "rfu",
+      "task": "asymmetric_extreme_outlier__116",
+      "seconds": 0.6026865809690207,
+      "verified": true
+    },
+    {
+      "method": "rfu",
+      "task": "categorical_missing__099",
+      "seconds": 8.690147350076586,
+      "verified": true
+    },
+    {
+      "method": "rfu",
+      "task": "high_noise__053",
+      "seconds": 75.54668853920884,
+      "verified": true
+    },
+    {
+      "method": "rfu",
+      "task": "near_constant__029",
+      "seconds": 0.24959900905378163,
+      "verified": true
+    },
+    {
+      "method": "rfu",
+      "task": "near_constant__106",
+      "seconds": 127.81058064801618,
+      "verified": true
+    },
+    {
+      "method": "iebm",
+      "task": "asymmetric_extreme_outlier__116",
+      "seconds": 1.0877044210210443,
+      "verified": true
+    },
+    {
+      "method": "iebm",
+      "task": "categorical_missing__099",
+      "seconds": 5.7645406080409884,
+      "verified": true
+    },
+    {
+      "method": "iebm",
+      "task": "high_noise__053",
+      "seconds": 3.175028585130349,
+      "verified": true
+    },
+    {
+      "method": "iebm",
+      "task": "near_constant__029",
+      "seconds": 0.9165530710015446,
+      "verified": true
+    },
+    {
+      "method": "iebm",
+      "task": "near_constant__106",
+      "seconds": 1.702579058939591,
+      "verified": true
+    }
+  ],
+  "coverage_not_used_for_selection": true
+}

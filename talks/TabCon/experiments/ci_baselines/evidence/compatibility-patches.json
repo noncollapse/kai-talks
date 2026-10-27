@@ -1,0 +1,101 @@
+[
+  {
+    "path": "vendor/bde/experiment1.py",
+    "upstream_sha256": "1af80ec3f6a26933e28abfa9e5cd90da05dad99060e6ee7ea3593fb359a5b14c",
+    "runtime_sha256": "1af80ec3f6a26933e28abfa9e5cd90da05dad99060e6ee7ea3593fb359a5b14c",
+    "changes": []
+  },
+  {
+    "path": "vendor/bde/intervals.py",
+    "upstream_sha256": "d201db8111d8431d499c78dd7e920e91d73590905c9c69f1c2a8f33fa1663204",
+    "runtime_sha256": "d201db8111d8431d499c78dd7e920e91d73590905c9c69f1c2a8f33fa1663204",
+    "changes": []
+  },
+  {
+    "path": "vendor/bde/metrics.py",
+    "upstream_sha256": "149bf350620ef9ac74f555ae21ad99ab664a191244717edd4c7d62f5ebbf97ac",
+    "runtime_sha256": "149bf350620ef9ac74f555ae21ad99ab664a191244717edd4c7d62f5ebbf97ac",
+    "changes": []
+  },
+  {
+    "path": "vendor/bde/neural_networks.py",
+    "upstream_sha256": "d21396dce1bb22b5f690b7cfa44dec00f49e66cb3f93ace8be4c783f68340f5b",
+    "runtime_sha256": "7aec3f8172b4a2c4c93e813184f4982477b64a8d1be803f2714d34eb72025758",
+    "changes": [
+      {
+        "old": "from keras.layers import Lambda, Wrapper, Input, Dense, merge",
+        "new": "from keras.layers import Lambda, Wrapper, Input, Dense",
+        "count": 1
+      },
+      {
+        "old": "np.int(",
+        "new": "int(",
+        "count": 3
+      },
+      {
+        "old": "f'./savednetworks/{name}'",
+        "new": "f'./savednetworks/{name}.keras'",
+        "count": 2
+      },
+      {
+        "old": ".predict(X_test)",
+        "new": ".predict(X_test, verbose=0)",
+        "count": 16
+      }
+    ]
+  },
+  {
+    "path": "vendor/bde/utils.py",
+    "upstream_sha256": "4d4266e5b5ef87235c64f122bf6cf3c06b396b4fd8b4511bb085c71a7dbfd63b",
+    "runtime_sha256": "4d4266e5b5ef87235c64f122bf6cf3c06b396b4fd8b4511bb085c71a7dbfd63b",
+    "changes": []
+  },
+  {
+    "path": "vendor/deeplr/intervals_regression.py",
+    "upstream_sha256": "3691da75487d4e74c317ae27411fd822c4a163e23bdc0472c319d7349bc35bee",
+    "runtime_sha256": "024410ee77ccb29849a2ac2db210e437930bc5ff0b6b8fa4376e9bfd695569f6",
+    "changes": [
+      {
+        "old": "import scipy\n",
+        "new": "import scipy\nfrom scipy import stats\n",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "path": "vendor/deeplr/intervals_regression_xgboost.py",
+    "upstream_sha256": "10d4cc2cd1e8ebc25ccc41c7b9e62f7a1dd7e942e7a40837c895d31445a146d9",
+    "runtime_sha256": "10d4cc2cd1e8ebc25ccc41c7b9e62f7a1dd7e942e7a40837c895d31445a146d9",
+    "changes": []
+  },
+  {
+    "path": "vendor/deeplr/mve_network.py",
+    "upstream_sha256": "011482380e83389480ff799c64da444a114a39aac30246f7a8d77bb90da8f6db",
+    "runtime_sha256": "6d45e404b9b257fac7f18ea81b6d605d903b5ff5db0780408eb02fe5e69b9ef8",
+    "changes": [
+      {
+        "old": "N_extra = int(N * fraction)",
+        "new": "N_extra = max(1, int(N * fraction))",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "path": "vendor/deeplr/requirements.txt",
+    "upstream_sha256": "bd3229c0a0587f6f42d74584c3c0c4b8b9bacb6cddc6c74b3199e45818a163ae",
+    "runtime_sha256": "bd3229c0a0587f6f42d74584c3c0c4b8b9bacb6cddc6c74b3199e45818a163ae",
+    "changes": []
+  },
+  {
+    "path": "vendor/deeplr/toy_example_regression.py",
+    "upstream_sha256": "6dff954a2899938460ec22a0025c91a571ea0e77fb88cea8235d52dde3370412",
+    "runtime_sha256": "6dff954a2899938460ec22a0025c91a571ea0e77fb88cea8235d52dde3370412",
+    "changes": []
+  },
+  {
+    "path": "vendor/deeplr/utils.py",
+    "upstream_sha256": "c7d0624d97afc1dc4307b7109b10e02ad260e0288a658aad96b1c2543cbbd80b",
+    "runtime_sha256": "c7d0624d97afc1dc4307b7109b10e02ad260e0288a658aad96b1c2543cbbd80b",
+    "changes": []
+  }
+]

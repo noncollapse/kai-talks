@@ -1,0 +1,90 @@
+{
+  "checked_on": "2026-10-26",
+  "scope": "Additions to the selected-milestone slide; not an exhaustive 2026 literature survey.",
+  "releases": [
+    {
+      "model": "TabPFN 2.5",
+      "date": "2025-11-06",
+      "source": "https://github.com/PriorLabs/TabPFN/blob/main/CHANGELOG.md"
+    },
+    {
+      "model": "TabPFN 2.6",
+      "date": "2026-03-24",
+      "source": "https://github.com/PriorLabs/TabPFN/blob/main/CHANGELOG.md"
+    },
+    {
+      "model": "TabPFN 3",
+      "date": "2026-05-12",
+      "source": "https://priorlabs.ai/technical-reports/tabpfn-3"
+    },
+    {
+      "model": "TabPFN 3.5",
+      "date": "2026-09-15",
+      "source": "https://github.com/PriorLabs/TabPFN/blob/main/CHANGELOG.md"
+    },
+    {
+      "model": "TabICL v2",
+      "year": 2026,
+      "source": "https://proceedings.mlr.press/v306/qu26a.html"
+    },
+    {
+      "model": "TabFM",
+      "date": "2026-06-30",
+      "source": "https://research.google/blog/introducing-tabfm-a-zero-shot-foundation-model-for-tabular-data/"
+    }
+  ],
+  "early_foundations": [
+    {
+      "idea": "Neural representations and unsupervised pretraining",
+      "example_year": 2006,
+      "source": "https://proceedings.neurips.cc/paper/2006/hash/5da713a690c067105aeb2fae32403405-Abstract.html"
+    },
+    {
+      "idea": "Multitask learning",
+      "example_year": 1997,
+      "source": "https://doi.org/10.1023/A:1007379606734"
+    },
+    {
+      "idea": "Learning to learn",
+      "example_year": 2001,
+      "source": "https://doi.org/10.1007/3-540-44668-0_13",
+      "paper_url": "https://www.bioinf.jku.at/publications/older/1504.pdf"
+    }
+  ],
+  "notes": [
+    "The earlier-foundations panels identify general ML ideas, not tabular-specific model releases.",
+    "Dashed links denote shared ideas or changes in training strategy, not direct paper ancestry.",
+    "TabCon uses TabPFN 3; the new 2026 models are parallel milestones, not all TabCon backbones."
+  ],
+  "classical_after_2020": [
+    {
+      "model": "PGBM",
+      "year": 2021,
+      "venue": "KDD",
+      "contribution": "Efficient probabilistic prediction with a single tree ensemble.",
+      "source": "https://arxiv.org/abs/2106.01682"
+    },
+    {
+      "model": "Distributional Random Forests",
+      "year": 2022,
+      "venue": "JMLR",
+      "contribution": "Distribution-sensitive splits for joint conditional distribution estimation.",
+      "source": "https://www.jmlr.org/papers/v23/21-0585.html"
+    },
+    {
+      "model": "FIGS",
+      "year": 2025,
+      "venue": "PNAS",
+      "preprint_year": 2022,
+      "contribution": "Interpretable sums of jointly grown trees; positioned by journal publication year.",
+      "source": "https://doi.org/10.1073/pnas.2310151122"
+    },
+    {
+      "model": "XGBoost 3.2",
+      "date": "2026-02-09",
+      "type": "software release",
+      "contribution": "Improved multi-target tree support and GPU external-memory training.",
+      "source": "https://xgboost.readthedocs.io/en/stable/changes/v3.2.0.html"
+    }
+  ]
+}

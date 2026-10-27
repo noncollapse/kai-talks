@@ -1,0 +1,120 @@
+[
+  {
+    "alias": "bde",
+    "repository": "https://github.com/LaurensSluyterman/Bootstrapped_Deep_Ensembles",
+    "commit": "e4044b29ab80eac8036e7adbaf12ba42b42ba9c0",
+    "files": [
+      {
+        "name": "experiment1.py",
+        "git_blob_sha": "3a8ceffba1fca1365359262919a4a95c76a3466f"
+      },
+      {
+        "name": "experiment1_plotter.py",
+        "git_blob_sha": "c9bf2cf3082ce19d201bf849baa583d4ee0a096e"
+      },
+      {
+        "name": "experiment2.py",
+        "git_blob_sha": "627e646df9abbd1b88fe85fbf3d48d88d094d3db"
+      },
+      {
+        "name": "experiment3.py",
+        "git_blob_sha": "b99ea91391f4d6e7791b32a0cd14efea3d79116b"
+      },
+      {
+        "name": "experiment4.py",
+        "git_blob_sha": "d3bc691fa3a11c6a6d8bba752c1545fbc1fa8934"
+      },
+      {
+        "name": "intervals.py",
+        "git_blob_sha": "63ebb14f7d8c94dcb3c79f1371109dc4e20b3ca3"
+      },
+      {
+        "name": "metrics.py",
+        "git_blob_sha": "1c75525c11215fc9f1f538d466522e8c8de44ef6"
+      },
+      {
+        "name": "neural_networks.py",
+        "git_blob_sha": "bad419e05c675ab6fab33f17d59a7d2eefec9070"
+      },
+      {
+        "name": "target_simulation.py",
+        "git_blob_sha": "82865aeca1b3deff47083ebda9cb5002e7916e99"
+      },
+      {
+        "name": "testing.py",
+        "git_blob_sha": "d27287f643e9b59a783b20966300a7a13355cf5a"
+      },
+      {
+        "name": "utils.py",
+        "git_blob_sha": "2284f75bdeacc65b6ebe089af1bd013d417ec2f0"
+      }
+    ]
+  },
+  {
+    "alias": "deeplr",
+    "repository": "https://github.com/LaurensSluyterman/Likelihood_ratio_intervals",
+    "commit": "3aa81d23305e6f37ca5d96c2b108fd27f4881514",
+    "files": [
+      {
+        "name": "adverserial_example_generation.py",
+        "git_blob_sha": "0a1ec5a0cb91bcaf022448e95349216b12c9ef27"
+      },
+      {
+        "name": "brain_tumor_example.py",
+        "git_blob_sha": "de6e3215e137265b57e7f4838bc6698542a1ffb0"
+      },
+      {
+        "name": "brain_tumor_preprocessing.py",
+        "git_blob_sha": "bce55ad44d1768e0bd8f699881fb1368f83ee5d5"
+      },
+      {
+        "name": "cifar_example.py",
+        "git_blob_sha": "5a41049db02607910b02ef8900c11a6916b0e09c"
+      },
+      {
+        "name": "intervals_classification.py",
+        "git_blob_sha": "1ba661800b2e09206bed553c07334980eb18c25b"
+      },
+      {
+        "name": "intervals_regression.py",
+        "git_blob_sha": "d44375571795e1f41395c6dfc99684cc7da87f04"
+      },
+      {
+        "name": "intervals_regression_xgboost.py",
+        "git_blob_sha": "513be5d8a5a4b84abfe34130fc3c9cfb32aef7ea"
+      },
+      {
+        "name": "mnist_example.py",
+        "git_blob_sha": "21d5f5554146683203231583fc7cb6780aa041eb"
+      },
+      {
+        "name": "mve_network.py",
+        "git_blob_sha": "c87ff658248eb95366055f8e9a11bf4546422eb3"
+      },
+      {
+        "name": "requirements.txt",
+        "git_blob_sha": "7809057166604b29118aff515d075846194ad671"
+      },
+      {
+        "name": "toy_example_classification.py",
+        "git_blob_sha": "0002cf384bc862de5a3d595451d2c959adce4984"
+      },
+      {
+        "name": "toy_example_regression.py",
+        "git_blob_sha": "b2f01f9f058b3324dc39f44340b2677bd1276cb6"
+      },
+      {
+        "name": "two_moon_example.py",
+        "git_blob_sha": "f3d17c2dd3dcd0d81bd27225a58be55fe25ff398"
+      },
+      {
+        "name": "utils.py",
+        "git_blob_sha": "b2f598d619239dccfa428e2abfc84407889a842b"
+      },
+      {
+        "name": "xgboost_example.py",
+        "git_blob_sha": "20db79e140a07183d7e491cdfe4d02c252d49680"
+      }
+    ]
+  }
+]

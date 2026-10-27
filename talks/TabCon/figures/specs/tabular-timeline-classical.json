@@ -1,0 +1,226 @@
+{
+  "title": "A timeline of tabular learning — classical",
+  "canvas": {
+    "width": 1800,
+    "height": 820
+  },
+  "style": {
+    "font_family": "Arial, Helvetica, sans-serif",
+    "font_size": 22,
+    "bg_color": "#FBFCFF",
+    "palette": [
+      "#B95136",
+      "#A5770E",
+      "#26798C",
+      "#8055A0",
+      "#607E13"
+    ]
+  },
+  "nodes": [
+    {
+      "id": "era-0",
+      "label": "Early statistics",
+      "x": 310,
+      "y": 188,
+      "width": 510,
+      "height": 52,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#17233E",
+      "fill": "#EDF1FA",
+      "stroke": "#EDF1FA"
+    },
+    {
+      "id": "foundation-0",
+      "label": "Linear regression\nLogistic regression",
+      "x": 310,
+      "y": 298,
+      "width": 510,
+      "height": 150,
+      "shape": "rounded",
+      "font_size": 29,
+      "text_color": "#17233E",
+      "fill": "#FFFFFF",
+      "stroke": "#DEE5F1"
+    },
+    {
+      "id": "era-1",
+      "label": "1950s–1960s",
+      "x": 900,
+      "y": 188,
+      "width": 510,
+      "height": 52,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#17233E",
+      "fill": "#EDF1FA",
+      "stroke": "#EDF1FA"
+    },
+    {
+      "id": "foundation-1",
+      "label": "kNN · Perceptron / MLP\nAdaLine",
+      "x": 900,
+      "y": 298,
+      "width": 510,
+      "height": 150,
+      "shape": "rounded",
+      "font_size": 29,
+      "text_color": "#17233E",
+      "fill": "#FFFFFF",
+      "stroke": "#DEE5F1"
+    },
+    {
+      "id": "era-2",
+      "label": "1960s–1990s",
+      "x": 1490,
+      "y": 188,
+      "width": 510,
+      "height": 52,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#17233E",
+      "fill": "#EDF1FA",
+      "stroke": "#EDF1FA"
+    },
+    {
+      "id": "foundation-2",
+      "label": "SVM · Kernel SVM\nDecision trees / CART",
+      "x": 1490,
+      "y": 298,
+      "width": 510,
+      "height": 150,
+      "shape": "rounded",
+      "font_size": 29,
+      "text_color": "#17233E",
+      "fill": "#FFFFFF",
+      "stroke": "#DEE5F1"
+    },
+    {
+      "id": "era-3",
+      "label": "1990s–2000s",
+      "x": 310,
+      "y": 508,
+      "width": 510,
+      "height": 52,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#17233E",
+      "fill": "#EDF1FA",
+      "stroke": "#EDF1FA"
+    },
+    {
+      "id": "foundation-3",
+      "label": "AdaBoost · GBDT\nRandom forests (2001)",
+      "x": 310,
+      "y": 618,
+      "width": 510,
+      "height": 150,
+      "shape": "rounded",
+      "font_size": 29,
+      "text_color": "#17233E",
+      "fill": "#FFFFFF",
+      "stroke": "#DEE5F1"
+    },
+    {
+      "id": "era-4",
+      "label": "2004",
+      "x": 900,
+      "y": 508,
+      "width": 510,
+      "height": 52,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#17233E",
+      "fill": "#EDF1FA",
+      "stroke": "#EDF1FA"
+    },
+    {
+      "id": "foundation-4",
+      "label": "NCA",
+      "x": 900,
+      "y": 618,
+      "width": 510,
+      "height": 150,
+      "shape": "rounded",
+      "font_size": 29,
+      "text_color": "#17233E",
+      "fill": "#FFFFFF",
+      "stroke": "#DEE5F1"
+    },
+    {
+      "id": "era-5",
+      "label": "2016–2018",
+      "x": 1490,
+      "y": 508,
+      "width": 510,
+      "height": 52,
+      "shape": "rounded",
+      "font_size": 27,
+      "text_color": "#17233E",
+      "fill": "#EDF1FA",
+      "stroke": "#EDF1FA"
+    },
+    {
+      "id": "foundation-5",
+      "label": "XGBoost · LightGBM\nCatBoost",
+      "x": 1490,
+      "y": 618,
+      "width": 510,
+      "height": 150,
+      "shape": "rounded",
+      "font_size": 29,
+      "text_color": "#17233E",
+      "fill": "#FFFFFF",
+      "stroke": "#DEE5F1"
+    }
+  ],
+  "edges": [
+    {
+      "from": "era-0",
+      "to": "era-1",
+      "color": "#A6B4CA"
+    },
+    {
+      "from": "era-1",
+      "to": "era-2",
+      "color": "#A6B4CA"
+    },
+    {
+      "from": "era-3",
+      "to": "era-4",
+      "color": "#A6B4CA"
+    },
+    {
+      "from": "era-4",
+      "to": "era-5",
+      "color": "#A6B4CA"
+    }
+  ],
+  "groups": [],
+  "labels": [
+    {
+      "text": "The classical foundations",
+      "x": 40,
+      "y": 47,
+      "font_size": 34,
+      "color": "#17233E",
+      "anchor": "start"
+    },
+    {
+      "text": "A compact chronology of the method families in the reference figure",
+      "x": 40,
+      "y": 85,
+      "font_size": 23,
+      "color": "#64748B",
+      "anchor": "start"
+    },
+    {
+      "text": "Periods summarize broad families; they are not exact first-publication dates for every method.",
+      "x": 40,
+      "y": 780,
+      "font_size": 21,
+      "color": "#64748B",
+      "anchor": "start"
+    }
+  ]
+}

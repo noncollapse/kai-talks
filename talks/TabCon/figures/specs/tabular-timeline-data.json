@@ -1,0 +1,767 @@
+{
+  "source": "Jiang et al., Representation Learning for Tabular Data: A Comprehensive Survey, TPAMI 2026",
+  "source_url": "https://doi.org/10.1109/TPAMI.2026.3657217",
+  "checked": "2026-10-26",
+  "scope": "The supplied 2017–2025 survey figure, not an exhaustive bibliography through 2026.",
+  "methods": [
+    {
+      "id": "method-0",
+      "year": 2017,
+      "name": "SNN",
+      "venue": "NeurIPS",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2017/hash/5d44ee6f2c3f71b73125876103c8f6c4-Abstract.html"
+    },
+    {
+      "id": "method-1",
+      "year": 2018,
+      "name": "RLNs",
+      "venue": "NeurIPS",
+      "category": "objective",
+      "lane": "specialized",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2018/hash/500e75a036dc2d7d2fec5da1b71d36cc-Abstract.html"
+    },
+    {
+      "id": "method-2",
+      "year": 2019,
+      "name": "AutoInt",
+      "venue": "CIKM",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://dl.acm.org/doi/abs/10.1145/3357384.3357925"
+    },
+    {
+      "id": "method-3",
+      "year": 2019,
+      "name": "ANP",
+      "venue": "ICLR",
+      "category": "sample",
+      "lane": "specialized",
+      "url": "https://arxiv.org/abs/1901.05761"
+    },
+    {
+      "id": "method-4",
+      "year": 2020,
+      "name": "GrowNet",
+      "venue": "Preprint",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://arxiv.org/abs/2002.07971"
+    },
+    {
+      "id": "method-5",
+      "year": 2020,
+      "name": "NODE",
+      "venue": "ICLR",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://openreview.net/forum?id=r1eiu2VtwH"
+    },
+    {
+      "id": "method-6",
+      "year": 2020,
+      "name": "TabTransformer",
+      "venue": "Preprint",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://arxiv.org/abs/2012.06678"
+    },
+    {
+      "id": "method-7",
+      "year": 2021,
+      "name": "FT-Transformer",
+      "venue": "NeurIPS",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/9d86d83f925f2149e9edb0ac3b49229c-Abstract.html"
+    },
+    {
+      "id": "method-8",
+      "year": 2021,
+      "name": "TabNet",
+      "venue": "AAAI",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/16826"
+    },
+    {
+      "id": "method-9",
+      "year": 2021,
+      "name": "DCN v2",
+      "venue": "WWW",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://dl.acm.org/doi/abs/10.1145/3442381.3450078"
+    },
+    {
+      "id": "method-10",
+      "year": 2021,
+      "name": "NPT",
+      "venue": "NeurIPS",
+      "category": "sample",
+      "lane": "specialized",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/f1507aba9fc82ffa7cc7373c58f8a613-Abstract.html"
+    },
+    {
+      "id": "method-11",
+      "year": 2021,
+      "name": "Kadra et al.",
+      "venue": "NeurIPS",
+      "category": "objective",
+      "lane": "specialized",
+      "url": "https://arxiv.org/abs/2106.11189"
+    },
+    {
+      "id": "method-12",
+      "year": 2022,
+      "name": "MLP-PLR / RTDL",
+      "venue": "NeurIPS",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/9e9f0ffc3d836836ca96cbf8fe14b105-Abstract-Conference.html"
+    },
+    {
+      "id": "method-13",
+      "year": 2022,
+      "name": "DANet",
+      "venue": "AAAI",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/20309"
+    },
+    {
+      "id": "method-14",
+      "year": 2022,
+      "name": "SAINT",
+      "venue": "NeurIPS WS",
+      "category": "sample",
+      "lane": "specialized",
+      "url": "https://openreview.net/forum?id=FiyUTAy4sB8"
+    },
+    {
+      "id": "method-15",
+      "year": 2022,
+      "name": "DNNR",
+      "venue": "ICML",
+      "category": "sample",
+      "lane": "specialized",
+      "url": "https://proceedings.mlr.press/v162/nader22a.html"
+    },
+    {
+      "id": "method-16",
+      "year": 2022,
+      "name": "Hopular",
+      "venue": "Preprint",
+      "category": "sample",
+      "lane": "specialized",
+      "url": "https://arxiv.org/abs/2206.00664"
+    },
+    {
+      "id": "method-17",
+      "year": 2023,
+      "name": "TabToken",
+      "venue": "Preprint",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://arxiv.org/abs/2310.15149"
+    },
+    {
+      "id": "method-18",
+      "year": 2023,
+      "name": "Beyazit et al.",
+      "venue": "NeurIPS",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/8671b6dffc08b4fcf5b8ce26799b2bef-Abstract-Conference.html"
+    },
+    {
+      "id": "method-19",
+      "year": 2023,
+      "name": "Trompt",
+      "venue": "ICML",
+      "category": "sample",
+      "lane": "specialized",
+      "url": "https://proceedings.mlr.press/v202/chen23c.html"
+    },
+    {
+      "id": "method-20",
+      "year": 2023,
+      "name": "TANGOS",
+      "venue": "ICLR",
+      "category": "objective",
+      "lane": "specialized",
+      "url": "https://openreview.net/forum?id=n6H86gW8u0d"
+    },
+    {
+      "id": "method-21",
+      "year": 2024,
+      "name": "RealMLP",
+      "venue": "NeurIPS",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/2ee1c87245956e3eaa71aaba5f5753eb-Abstract-Conference.html"
+    },
+    {
+      "id": "method-22",
+      "year": 2024,
+      "name": "ExcelFormer",
+      "venue": "KDD",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://dl.acm.org/doi/abs/10.1145/3637528.3671893"
+    },
+    {
+      "id": "method-23",
+      "year": 2024,
+      "name": "GRANDE",
+      "venue": "ICLR",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://openreview.net/forum?id=XEFWBxi075"
+    },
+    {
+      "id": "method-24",
+      "year": 2024,
+      "name": "AMFormer",
+      "venue": "AAAI",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/29033"
+    },
+    {
+      "id": "method-25",
+      "year": 2024,
+      "name": "BiSHop",
+      "venue": "ICML",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://proceedings.mlr.press/v235/xu24l.html"
+    },
+    {
+      "id": "method-26",
+      "year": 2024,
+      "name": "TabR",
+      "venue": "ICLR",
+      "category": "sample",
+      "lane": "specialized",
+      "url": "https://openreview.net/forum?id=rhgIgTSSxW"
+    },
+    {
+      "id": "method-27",
+      "year": 2024,
+      "name": "SwitchTab",
+      "venue": "AAAI",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/29523"
+    },
+    {
+      "id": "method-28",
+      "year": 2024,
+      "name": "PTaRL",
+      "venue": "ICLR",
+      "category": "objective",
+      "lane": "specialized",
+      "url": "https://openreview.net/forum?id=G32oY4Vnm8"
+    },
+    {
+      "id": "method-29",
+      "year": 2025,
+      "name": "TabM",
+      "venue": "ICLR",
+      "category": "feature",
+      "lane": "specialized",
+      "url": "https://arxiv.org/abs/2410.24210"
+    },
+    {
+      "id": "method-30",
+      "year": 2025,
+      "name": "ModernNCA",
+      "venue": "ICLR",
+      "category": "sample",
+      "lane": "specialized",
+      "url": "https://openreview.net/forum?id=JytL2MrlLT"
+    },
+    {
+      "id": "method-31",
+      "year": 2019,
+      "name": "DeepInsight",
+      "venue": "Scientific Reports",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://www.nature.com/articles/s41598-019-47765-6"
+    },
+    {
+      "id": "method-32",
+      "year": 2019,
+      "name": "Super-TML",
+      "venue": "CVPR WS",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "http://openaccess.thecvf.com/content_CVPRW_2019/html/Precognition/Sun_SuperTML_Two-Dimensional_Word_Embedding_for_the_Precognition_on_Structured_Tabular_CVPRW_2019_paper.html"
+    },
+    {
+      "id": "method-33",
+      "year": 2020,
+      "name": "VIME",
+      "venue": "NeurIPS",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2020/hash/7d97667a3e056acab9aaf653807b4a03-Abstract.html"
+    },
+    {
+      "id": "method-34",
+      "year": 2020,
+      "name": "Iwata et al.",
+      "venue": "NeurIPS",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://proceedings.neurips.cc/paper/2020/hash/438124b4c06f3a5caffab2c07863b617-Abstract.html"
+    },
+    {
+      "id": "method-35",
+      "year": 2020,
+      "name": "REFINED",
+      "venue": "Nature Communications",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://www.nature.com/articles/s41467-020-18197-y"
+    },
+    {
+      "id": "method-36",
+      "year": 2020,
+      "name": "TAC",
+      "venue": "bioRxiv",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://www.biorxiv.org/content/10.1101/2020.05.02.074203.abstract"
+    },
+    {
+      "id": "method-37",
+      "year": 2021,
+      "name": "SubTab",
+      "venue": "NeurIPS",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://proceedings.neurips.cc/paper/2021/hash/9c8661befae6dbcd08304dbf4dcaf0db-Abstract.html"
+    },
+    {
+      "id": "method-38",
+      "year": 2021,
+      "name": "DACL+",
+      "venue": "ICML",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "http://proceedings.mlr.press/v139/verma21a.html"
+    },
+    {
+      "id": "method-39",
+      "year": 2021,
+      "name": "IGTD",
+      "venue": "Scientific Reports",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://www.nature.com/articles/s41598-021-90923-y"
+    },
+    {
+      "id": "method-40",
+      "year": 2022,
+      "name": "Revisiting pretraining",
+      "venue": "Preprint",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://arxiv.org/abs/2207.03208"
+    },
+    {
+      "id": "method-41",
+      "year": 2022,
+      "name": "SEFS",
+      "venue": "ICLR",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://openreview.net/forum?id=oDFvtxzPOx"
+    },
+    {
+      "id": "method-42",
+      "year": 2022,
+      "name": "MET",
+      "venue": "Preprint",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://arxiv.org/abs/2206.08564"
+    },
+    {
+      "id": "method-43",
+      "year": 2022,
+      "name": "SCARF",
+      "venue": "ICLR",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://openreview.net/forum?id=CuV_qYkmKb3"
+    },
+    {
+      "id": "method-44",
+      "year": 2022,
+      "name": "Stab",
+      "venue": "NeurIPS WS",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://openreview.net/forum?id=EfR55bFcrcI"
+    },
+    {
+      "id": "method-45",
+      "year": 2022,
+      "name": "DEN",
+      "venue": "TMLR",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://openreview.net/forum?id=F2rG2CXsgO"
+    },
+    {
+      "id": "method-46",
+      "year": 2022,
+      "name": "TransTab",
+      "venue": "NeurIPS",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/1377f76686d56439a2bd7a91859972f5-Abstract-Conference.html"
+    },
+    {
+      "id": "method-47",
+      "year": 2022,
+      "name": "PTab",
+      "venue": "Preprint",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://arxiv.org/abs/2209.08060"
+    },
+    {
+      "id": "method-48",
+      "year": 2022,
+      "name": "LIFT",
+      "venue": "NeurIPS",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/4ce7fe1d2730f53cb3857032952cd1b8-Abstract-Conference.html"
+    },
+    {
+      "id": "method-49",
+      "year": 2023,
+      "name": "DoRA",
+      "venue": "CIKM",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://dl.acm.org/doi/abs/10.1145/3583780.3615470"
+    },
+    {
+      "id": "method-50",
+      "year": 2023,
+      "name": "Binder",
+      "venue": "ICLR",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://openreview.net/forum?id=lH1PV42cbF"
+    },
+    {
+      "id": "method-51",
+      "year": 2023,
+      "name": "Levin et al.",
+      "venue": "ICLR",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://openreview.net/forum?id=b0RuGUYo8pA"
+    },
+    {
+      "id": "method-52",
+      "year": 2023,
+      "name": "CAAFE",
+      "venue": "NeurIPS",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/8c2df4c35cdbee764ebb9e9d0acd5197-Abstract-Conference.html"
+    },
+    {
+      "id": "method-53",
+      "year": 2023,
+      "name": "ReConTab",
+      "venue": "Preprint",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://arxiv.org/abs/2310.18541"
+    },
+    {
+      "id": "method-54",
+      "year": 2023,
+      "name": "TaPTaP",
+      "venue": "EMNLP",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://openreview.net/forum?id=3gdG9upo7e"
+    },
+    {
+      "id": "method-55",
+      "year": 2023,
+      "name": "TabRet",
+      "venue": "Preprint",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://arxiv.org/abs/2303.15747"
+    },
+    {
+      "id": "method-56",
+      "year": 2023,
+      "name": "TabLLM",
+      "venue": "AISTATS",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://proceedings.mlr.press/v206/hegselmann23a.html"
+    },
+    {
+      "id": "method-57",
+      "year": 2023,
+      "name": "ORCA",
+      "venue": "ICML",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://proceedings.mlr.press/v202/shen23e.html"
+    },
+    {
+      "id": "method-58",
+      "year": 2023,
+      "name": "UniPredict",
+      "venue": "Preprint",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://arxiv.org/abs/2310.03266"
+    },
+    {
+      "id": "method-59",
+      "year": 2023,
+      "name": "XTab",
+      "venue": "ICML",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://proceedings.mlr.press/v202/zhu23k.html"
+    },
+    {
+      "id": "method-60",
+      "year": 2023,
+      "name": "TablEye",
+      "venue": "Preprint",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://arxiv.org/abs/2307.02491"
+    },
+    {
+      "id": "method-61",
+      "year": 2023,
+      "name": "Meta-Transformer",
+      "venue": "Preprint",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://arxiv.org/abs/2307.10802"
+    },
+    {
+      "id": "method-62",
+      "year": 2023,
+      "name": "TabToken",
+      "venue": "Preprint",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://arxiv.org/abs/2310.15149"
+    },
+    {
+      "id": "method-63",
+      "year": 2024,
+      "name": "LFR",
+      "venue": "ICLR",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://openreview.net/forum?id=EpYnZpDpsQ"
+    },
+    {
+      "id": "method-64",
+      "year": 2024,
+      "name": "LM-IGTD",
+      "venue": "Preprint",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://arxiv.org/abs/2406.14566"
+    },
+    {
+      "id": "method-65",
+      "year": 2024,
+      "name": "UniTabE",
+      "venue": "ICLR",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://openreview.net/forum?id=6LLho5X6xV"
+    },
+    {
+      "id": "method-66",
+      "year": 2024,
+      "name": "CM2",
+      "venue": "WWW",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://dl.acm.org/doi/abs/10.1145/3589334.3645707"
+    },
+    {
+      "id": "method-67",
+      "year": 2024,
+      "name": "TP-BERTa",
+      "venue": "ICLR",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://openreview.net/forum?id=anzIzGZuLi"
+    },
+    {
+      "id": "method-68",
+      "year": 2024,
+      "name": "CARTE",
+      "venue": "ICML",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://proceedings.mlr.press/v235/kim24d.html"
+    },
+    {
+      "id": "method-69",
+      "year": 2024,
+      "name": "FeatLLM",
+      "venue": "ICML",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://proceedings.mlr.press/v235/han24f.html"
+    },
+    {
+      "id": "method-70",
+      "year": 2025,
+      "name": "Tab2Visual",
+      "venue": "Preprint",
+      "category": "transfer",
+      "lane": "transfer",
+      "url": "https://arxiv.org/abs/2502.07181"
+    },
+    {
+      "id": "method-71",
+      "year": 2023,
+      "name": "TabPFN",
+      "venue": "ICLR",
+      "category": "general",
+      "lane": "general",
+      "url": "https://openreview.net/forum?id=cp5PvcI6w8_"
+    },
+    {
+      "id": "method-72",
+      "year": 2023,
+      "name": "TabPTM",
+      "venue": "Preprint",
+      "category": "general",
+      "lane": "general",
+      "url": "https://arxiv.org/abs/2311.00055"
+    },
+    {
+      "id": "method-73",
+      "year": 2024,
+      "name": "HyperFast",
+      "venue": "AAAI",
+      "category": "general",
+      "lane": "general",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/28988"
+    },
+    {
+      "id": "method-74",
+      "year": 2024,
+      "name": "TabuLa-8B",
+      "venue": "NeurIPS",
+      "category": "general",
+      "lane": "general",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/4fd5cfd2e31bebbccfa5ffa354c04bdc-Abstract-Conference.html"
+    },
+    {
+      "id": "method-75",
+      "year": 2024,
+      "name": "GTL",
+      "venue": "KDD",
+      "category": "general",
+      "lane": "general",
+      "url": "https://dl.acm.org/doi/abs/10.1145/3637528.3671975"
+    },
+    {
+      "id": "method-76",
+      "year": 2024,
+      "name": "MediTab",
+      "venue": "IJCAI",
+      "category": "general",
+      "lane": "general",
+      "url": "https://www.ijcai.org/proceedings/2024/0670.pdf"
+    },
+    {
+      "id": "method-77",
+      "year": 2025,
+      "name": "TabPFN v2",
+      "venue": "Nature",
+      "category": "general",
+      "lane": "general",
+      "url": "https://www.nature.com/articles/s41586-024-08328-6"
+    },
+    {
+      "id": "method-78",
+      "year": 2025,
+      "name": "TabICL",
+      "venue": "ICML",
+      "category": "general",
+      "lane": "general",
+      "url": "https://proceedings.mlr.press/v267/qu25d.html"
+    },
+    {
+      "id": "method-79",
+      "year": 2025,
+      "name": "MotherNet",
+      "venue": "ICLR",
+      "category": "general",
+      "lane": "general",
+      "url": "https://openreview.net/forum?id=6H4jRWKFc3&noteId=qln8G23j4b"
+    }
+  ],
+  "foundations": [
+    [
+      "Early statistics",
+      "Linear regression\nLogistic regression"
+    ],
+    [
+      "1950s–1960s",
+      "kNN · Perceptron / MLP\nAdaLine"
+    ],
+    [
+      "1960s–1990s",
+      "SVM · Kernel SVM\nDecision trees / CART"
+    ],
+    [
+      "1990s–2000s",
+      "AdaBoost · GBDT\nRandom forests (2001)"
+    ],
+    [
+      "2004",
+      "NCA"
+    ],
+    [
+      "2016–2018",
+      "XGBoost · LightGBM\nCatBoost"
+    ]
+  ],
+  "editorial_notes": [
+    "RTDL and MLP-PLR are grouped as one numerical-feature-embedding family (NeurIPS 2022), rather than counted as two independent papers.",
+    "TabToken is retained in both specialized and transferable roles, as in the reference.",
+    "Random forests: 2001 original paper, not 2002.",
+    "SAINT: NeurIPS workshop; Super-TML: CVPR workshop; TANGOS: ICLR 2023; TabICL: ICML 2025.",
+    "Classical dates are broad eras except where explicitly tied to an individual paper."
+  ],
+  "additional_sources": [
+    "https://doi.org/10.1023/A:1010933404324",
+    "https://proceedings.mlr.press/v267/qu25d.html",
+    "https://openreview.net/forum?id=FiyUTAy4sB8",
+    "https://github.com/yandex-research/rtdl-num-embeddings"
+  ]
+}

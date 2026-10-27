@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 820" width="1800" height="820" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1800" height="820" fill="#FBFCFF"/>
+  <defs>
+    <marker id="arrow-default" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#555555"/>
+    </marker>
+    <marker id="arrow-c0" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#B95136"/>
+    </marker>
+    <marker id="arrow-c1" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#A5770E"/>
+    </marker>
+    <marker id="arrow-c2" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#26798C"/>
+    </marker>
+    <marker id="arrow-c3" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#8055A0"/>
+    </marker>
+    <marker id="arrow-c4" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#607E13"/>
+    </marker>
+  </defs>
+  <path d="M 565.0,188.0 L 645.0,188.0" stroke="#A6B4CA" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <path d="M 1155.0,188.0 L 1235.0,188.0" stroke="#A6B4CA" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <path d="M 565.0,508.0 L 645.0,508.0" stroke="#A6B4CA" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <path d="M 1155.0,508.0 L 1235.0,508.0" stroke="#A6B4CA" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <rect x="55.0" y="162.0" width="510.0" height="52.0" fill="#EDF1FA" stroke="#EDF1FA" stroke-width="2" rx="8"/>
+  <text x="310.0" y="197.4" font-size="27" fill="#17233E" text-anchor="middle" font-weight="bold">Early statistics</text>
+  <rect x="55.0" y="223.0" width="510.0" height="150.0" fill="#FFFFFF" stroke="#DEE5F1" stroke-width="2" rx="8"/>
+  <text x="310.0" y="292.6" font-size="29" fill="#17233E" text-anchor="middle" font-weight="bold">Linear regression</text>
+  <text x="310.0" y="323.6" font-size="29" fill="#17233E" text-anchor="middle" font-weight="bold">Logistic regression</text>
+  <rect x="645.0" y="162.0" width="510.0" height="52.0" fill="#EDF1FA" stroke="#EDF1FA" stroke-width="2" rx="8"/>
+  <text x="900.0" y="197.4" font-size="27" fill="#17233E" text-anchor="middle" font-weight="bold">1950s–1960s</text>
+  <rect x="645.0" y="223.0" width="510.0" height="150.0" fill="#FFFFFF" stroke="#DEE5F1" stroke-width="2" rx="8"/>
+  <text x="900.0" y="292.6" font-size="29" fill="#17233E" text-anchor="middle" font-weight="bold">kNN · Perceptron / MLP</text>
+  <text x="900.0" y="323.6" font-size="29" fill="#17233E" text-anchor="middle" font-weight="bold">AdaLine</text>
+  <rect x="1235.0" y="162.0" width="510.0" height="52.0" fill="#EDF1FA" stroke="#EDF1FA" stroke-width="2" rx="8"/>
+  <text x="1490.0" y="197.4" font-size="27" fill="#17233E" text-anchor="middle" font-weight="bold">1960s–1990s</text>
+  <rect x="1235.0" y="223.0" width="510.0" height="150.0" fill="#FFFFFF" stroke="#DEE5F1" stroke-width="2" rx="8"/>
+  <text x="1490.0" y="292.6" font-size="29" fill="#17233E" text-anchor="middle" font-weight="bold">SVM · Kernel SVM</text>
+  <text x="1490.0" y="323.6" font-size="29" fill="#17233E" text-anchor="middle" font-weight="bold">Decision trees / CART</text>
+  <rect x="55.0" y="482.0" width="510.0" height="52.0" fill="#EDF1FA" stroke="#EDF1FA" stroke-width="2" rx="8"/>
+  <text x="310.0" y="517.5" font-size="27" fill="#17233E" text-anchor="middle" font-weight="bold">1990s–2000s</text>
+  <rect x="55.0" y="543.0" width="510.0" height="150.0" fill="#FFFFFF" stroke="#DEE5F1" stroke-width="2" rx="8"/>
+  <text x="310.0" y="612.6" font-size="29" fill="#17233E" text-anchor="middle" font-weight="bold">AdaBoost · GBDT</text>
+  <text x="310.0" y="643.6" font-size="29" fill="#17233E" text-anchor="middle" font-weight="bold">Random forests (2001)</text>
+  <rect x="645.0" y="482.0" width="510.0" height="52.0" fill="#EDF1FA" stroke="#EDF1FA" stroke-width="2" rx="8"/>
+  <text x="900.0" y="517.5" font-size="27" fill="#17233E" text-anchor="middle" font-weight="bold">2004</text>
+  <rect x="645.0" y="543.0" width="510.0" height="150.0" fill="#FFFFFF" stroke="#DEE5F1" stroke-width="2" rx="8"/>
+  <text x="900.0" y="628.1" font-size="29" fill="#17233E" text-anchor="middle" font-weight="bold">NCA</text>
+  <rect x="1235.0" y="482.0" width="510.0" height="52.0" fill="#EDF1FA" stroke="#EDF1FA" stroke-width="2" rx="8"/>
+  <text x="1490.0" y="517.5" font-size="27" fill="#17233E" text-anchor="middle" font-weight="bold">2016–2018</text>
+  <rect x="1235.0" y="543.0" width="510.0" height="150.0" fill="#FFFFFF" stroke="#DEE5F1" stroke-width="2" rx="8"/>
+  <text x="1490.0" y="612.6" font-size="29" fill="#17233E" text-anchor="middle" font-weight="bold">XGBoost · LightGBM</text>
+  <text x="1490.0" y="643.6" font-size="29" fill="#17233E" text-anchor="middle" font-weight="bold">CatBoost</text>
+  <text x="40.0" y="47.0" font-size="34" fill="#17233E" text-anchor="start">The classical foundations</text>
+  <text x="40.0" y="85.0" font-size="23" fill="#64748B" text-anchor="start">A compact chronology of the method families in the reference figure</text>
+  <text x="40.0" y="780.0" font-size="21" fill="#64748B" text-anchor="start">Periods summarize broad families; they are not exact first-publication dates for every method.</text>
+</svg>

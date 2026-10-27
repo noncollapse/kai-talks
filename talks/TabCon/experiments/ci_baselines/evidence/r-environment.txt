@@ -1,0 +1,29 @@
+R version 4.5.3 (2026-03-11)
+Platform: x86_64-conda-linux-gnu
+Running under: Arch Linux
+
+Matrix products: default
+BLAS/LAPACK: /home/kyle/miniconda3/envs/RIAID/lib/libopenblasp-r0.3.32.so;  LAPACK version 3.12.0
+
+locale:
+[1] C
+
+time zone: Europe/London
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+[1] compiler_4.5.3
+
+grf: 2.6.1 
+$Version
+[1] "2.6.1"
+
+$Repository
+[1] "CRAN"
+
+$`Date/Publication`
+[1] "2026-03-04 06:30:43 UTC"
+

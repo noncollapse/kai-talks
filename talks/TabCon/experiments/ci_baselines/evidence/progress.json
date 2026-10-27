@@ -1,0 +1,22 @@
+{
+  "checked_date": "2026-10-26",
+  "status": "completed",
+  "methods": {
+    "grf": {
+      "finished": 1280,
+      "total": 1280,
+      "complete": true
+    },
+    "llf": {
+      "finished": 1280,
+      "total": 1280,
+      "complete": true
+    },
+    "bde": {
+      "finished": 1280,
+      "total": 1280,
+      "complete": true
+    }
+  },
+  "deeplr": "cancelled_by_user; excluded"
+}

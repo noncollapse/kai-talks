@@ -97,3 +97,15 @@ button:focus-visible, a:focus-visible { outline: 3px solid #a3b6ff; outline-offs
 .sft-flow{display:grid;grid-template-columns:210px 240px 1fr;gap:15px;margin-top:22px}.sft-flow>div{background:white;border:1px solid #dfe5f1;border-radius:12px;padding:16px}.sft-flow span{display:block;font-size:11px;color:#8190a6;margin-bottom:10px}.sft-fixed>b{font-size:25px;margin-right:25px}.sft-router{background:#eef2ff!important;border-color:#c4d0fa!important}.sft-router>b{font-size:21px;color:#4263eb}.sft-router small{display:block;color:#7c89a2;font-size:10px;margin-top:10px}.sft-mixture{display:flex;flex-direction:column;justify-content:center}.sft-mixture b{font-size:16px;line-height:1.5}.gradient-return{display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:15px 18px;background:#f2edfa;color:#7c4dce;border-radius:10px;margin-top:20px}.gradient-return span{font-size:10px}
 .reward-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px 20px;margin-top:28px}.reward-grid section{display:flex;align-items:center;gap:17px;background:white;border:1px solid #dfe5f1;border-radius:12px;padding:18px 17px}.reward-grid h3{font-size:17px;font-weight:800;margin:0 0 8px}.reward-grid p{font-size:12px;color:#718099;margin:0;line-height:1.5}.reward-sign{min-width:43px;height:39px;display:flex;justify-content:center;align-items:center;border-radius:9px;font-size:17px;font-weight:800}.reward-sign.plus{color:#0b9687;background:#e9f8f4}.reward-sign.minus{color:#7c4dce;background:#f2edfa}
 .ownership-table{width:100%;border-collapse:collapse;margin-top:26px;font-size:13px}.ownership-table th{text-align:left;color:#7d8ba3;font-size:10px;letter-spacing:.05em;text-transform:uppercase;padding:14px 13px;background:#eef1f7}.ownership-table td{padding:19px 13px;border-bottom:1px solid #e1e6f1;color:#7e8ca3}.ownership-table td:first-child{font-size:14px;font-weight:600;color:#17233e}.ownership-table .learned-cell{color:#0b9687;background:#e9f8f4;font-weight:800}.router-parameters{display:flex;align-items:center;gap:15px;font-size:10px;color:#64748b;margin-top:24px}.router-parameters b{color:#4263eb}
+
+/* Single-view development timeline. */
+.timeline-slide{padding:24px}
+.timeline-slide h1{font-size:31px;letter-spacing:-.9px;margin-bottom:8px}
+.timeline-slide .eyebrow{font-size:10px;margin-bottom:9px}
+.timeline-slide .source{left:24px;bottom:12px;font-size:9px;right:78px}
+
+/* Opening result: the plotted values and the highlights share one data source. */
+.result-preview-slide{padding:23px 32px}
+.result-preview-slide .eyebrow{font-size:10px;margin-bottom:7px}
+.result-preview-slide h1{font-size:31px;margin-bottom:5px;letter-spacing:-.9px}
+.result-preview-slide .source{left:39px;right:80px;bottom:10px;font-size:8px;line-height:1.4}

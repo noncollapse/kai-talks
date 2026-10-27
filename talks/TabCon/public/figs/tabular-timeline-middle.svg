@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 820" width="1800" height="820" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1800" height="820" fill="#FBFCFF"/>
+  <defs>
+    <marker id="arrow-default" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#555555"/>
+    </marker>
+    <marker id="arrow-c0" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#B95136"/>
+    </marker>
+    <marker id="arrow-c1" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#A5770E"/>
+    </marker>
+    <marker id="arrow-c2" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#26798C"/>
+    </marker>
+    <marker id="arrow-c3" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#8055A0"/>
+    </marker>
+    <marker id="arrow-c4" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#607E13"/>
+    </marker>
+  </defs>
+  <rect x="45.5" y="127.5" width="845.0" height="137.0" fill="#FCF6F3" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="917.5" y="127.5" width="845.0" height="73.0" fill="#FCF6F3" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="45.5" y="345.5" width="845.0" height="213.0" fill="#F5F0FA" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="917.5" y="345.5" width="845.0" height="281.0" fill="#F5F0FA" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="917.5" y="710.5" width="845.0" height="65.0" fill="#F1F6E8" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <path d="M 895.0,49.0 L 913.0,49.0" stroke="#A6B4CA" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <rect x="41.0" y="24.0" width="854.0" height="50.0" fill="#EAF0FC" stroke="#EAF0FC" stroke-width="2" rx="8"/>
+  <text x="468.0" y="60.9" font-size="34" fill="#304465" text-anchor="middle" font-weight="bold">2022</text>
+  <rect x="913.0" y="24.0" width="854.0" height="50.0" fill="#EAF0FC" stroke="#EAF0FC" stroke-width="2" rx="8"/>
+  <text x="1340.0" y="60.9" font-size="34" fill="#304465" text-anchor="middle" font-weight="bold">2023</text>
+  <rect x="52.5" y="134.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="153.8" y="159.4" font-size="24" fill="#B95136" text-anchor="middle" font-weight="bold">MLP-PLR / RTDL</text>
+  <text x="153.8" y="185.4" font-size="21" fill="#888888" text-anchor="middle">NeurIPS 2022</text>
+  <rect x="262.0" y="134.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="363.2" y="158.9" font-size="27" fill="#B95136" text-anchor="middle" font-weight="bold">DANet</text>
+  <text x="363.2" y="187.9" font-size="24" fill="#888888" text-anchor="middle">AAAI 2022</text>
+  <rect x="471.5" y="134.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="572.8" y="158.9" font-size="27" fill="#A5770E" text-anchor="middle" font-weight="bold">SAINT</text>
+  <text x="572.8" y="187.9" font-size="24" fill="#888888" text-anchor="middle">NeurIPS WS 2022</text>
+  <rect x="681.0" y="134.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="782.2" y="158.9" font-size="27" fill="#A5770E" text-anchor="middle" font-weight="bold">DNNR</text>
+  <text x="782.2" y="187.9" font-size="24" fill="#888888" text-anchor="middle">ICML 2022</text>
+  <rect x="52.5" y="198.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="153.8" y="222.9" font-size="27" fill="#A5770E" text-anchor="middle" font-weight="bold">Hopular</text>
+  <text x="153.8" y="251.9" font-size="24" fill="#888888" text-anchor="middle">Preprint 2022</text>
+  <rect x="924.5" y="134.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1025.8" y="158.9" font-size="27" fill="#B95136" text-anchor="middle" font-weight="bold">TabToken</text>
+  <text x="1025.8" y="187.9" font-size="24" fill="#888888" text-anchor="middle">Preprint 2023</text>
+  <rect x="1134.0" y="134.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1235.2" y="159.4" font-size="24" fill="#B95136" text-anchor="middle" font-weight="bold">Beyazit et al.</text>
+  <text x="1235.2" y="185.4" font-size="21" fill="#888888" text-anchor="middle">NeurIPS 2023</text>
+  <rect x="1343.5" y="134.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1444.8" y="158.9" font-size="27" fill="#A5770E" text-anchor="middle" font-weight="bold">Trompt</text>
+  <text x="1444.8" y="187.9" font-size="24" fill="#888888" text-anchor="middle">ICML 2023</text>
+  <rect x="1553.0" y="134.5" width="202.5" height="59.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1654.2" y="158.9" font-size="27" fill="#26798C" text-anchor="middle" font-weight="bold">TANGOS</text>
+  <text x="1654.2" y="187.9" font-size="24" fill="#888888" text-anchor="middle">ICLR 2023</text>
+  <rect x="52.5" y="352.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="153.8" y="380.3" font-size="18" fill="#8055A0" text-anchor="middle" font-weight="bold">Revisiting pretraining</text>
+  <text x="153.8" y="400.3" font-size="15" fill="#888888" text-anchor="middle">Preprint 2022</text>
+  <rect x="262.0" y="352.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="363.2" y="378.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">SEFS</text>
+  <text x="363.2" y="407.9" font-size="24" fill="#888888" text-anchor="middle">ICLR 2022</text>
+  <rect x="471.5" y="352.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="572.8" y="378.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">MET</text>
+  <text x="572.8" y="407.9" font-size="24" fill="#888888" text-anchor="middle">Preprint 2022</text>
+  <rect x="681.0" y="352.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="782.2" y="378.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">SCARF</text>
+  <text x="782.2" y="407.9" font-size="24" fill="#888888" text-anchor="middle">ICLR 2022</text>
+  <rect x="52.5" y="420.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="153.8" y="446.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">Stab</text>
+  <text x="153.8" y="475.9" font-size="24" fill="#888888" text-anchor="middle">NeurIPS WS 2022</text>
+  <rect x="262.0" y="420.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="363.2" y="446.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">DEN</text>
+  <text x="363.2" y="475.9" font-size="24" fill="#888888" text-anchor="middle">TMLR 2022</text>
+  <rect x="471.5" y="420.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="572.8" y="446.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">TransTab</text>
+  <text x="572.8" y="475.9" font-size="24" fill="#888888" text-anchor="middle">NeurIPS 2022</text>
+  <rect x="681.0" y="420.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="782.2" y="446.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">PTab</text>
+  <text x="782.2" y="475.9" font-size="24" fill="#888888" text-anchor="middle">Preprint 2022</text>
+  <rect x="52.5" y="488.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="153.8" y="515.0" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">LIFT</text>
+  <text x="153.8" y="544.0" font-size="24" fill="#888888" text-anchor="middle">NeurIPS 2022</text>
+  <rect x="924.5" y="352.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1025.8" y="378.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">DoRA</text>
+  <text x="1025.8" y="407.9" font-size="24" fill="#888888" text-anchor="middle">CIKM 2023</text>
+  <rect x="1134.0" y="352.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1235.2" y="378.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">Binder</text>
+  <text x="1235.2" y="407.9" font-size="24" fill="#888888" text-anchor="middle">ICLR 2023</text>
+  <rect x="1343.5" y="352.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1444.8" y="378.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">Levin et al.</text>
+  <text x="1444.8" y="407.9" font-size="24" fill="#888888" text-anchor="middle">ICLR 2023</text>
+  <rect x="1553.0" y="352.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1654.2" y="378.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">CAAFE</text>
+  <text x="1654.2" y="407.9" font-size="24" fill="#888888" text-anchor="middle">NeurIPS 2023</text>
+  <rect x="924.5" y="420.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1025.8" y="446.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">ReConTab</text>
+  <text x="1025.8" y="475.9" font-size="24" fill="#888888" text-anchor="middle">Preprint 2023</text>
+  <rect x="1134.0" y="420.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1235.2" y="446.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">TaPTaP</text>
+  <text x="1235.2" y="475.9" font-size="24" fill="#888888" text-anchor="middle">EMNLP 2023</text>
+  <rect x="1343.5" y="420.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1444.8" y="446.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">TabRet</text>
+  <text x="1444.8" y="475.9" font-size="24" fill="#888888" text-anchor="middle">Preprint 2023</text>
+  <rect x="1553.0" y="420.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1654.2" y="446.9" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">TabLLM</text>
+  <text x="1654.2" y="475.9" font-size="24" fill="#888888" text-anchor="middle">AISTATS 2023</text>
+  <rect x="924.5" y="488.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1025.8" y="515.0" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">ORCA</text>
+  <text x="1025.8" y="544.0" font-size="24" fill="#888888" text-anchor="middle">ICML 2023</text>
+  <rect x="1134.0" y="488.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1235.2" y="515.0" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">UniPredict</text>
+  <text x="1235.2" y="544.0" font-size="24" fill="#888888" text-anchor="middle">Preprint 2023</text>
+  <rect x="1343.5" y="488.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1444.8" y="515.0" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">XTab</text>
+  <text x="1444.8" y="544.0" font-size="24" fill="#888888" text-anchor="middle">ICML 2023</text>
+  <rect x="1553.0" y="488.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1654.2" y="515.0" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">TablEye</text>
+  <text x="1654.2" y="544.0" font-size="24" fill="#888888" text-anchor="middle">Preprint 2023</text>
+  <rect x="924.5" y="556.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1025.8" y="583.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">Meta-Transformer</text>
+  <text x="1025.8" y="606.9" font-size="18" fill="#888888" text-anchor="middle">Preprint 2023</text>
+  <rect x="1134.0" y="556.5" width="202.5" height="63.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1235.2" y="583.0" font-size="27" fill="#8055A0" text-anchor="middle" font-weight="bold">TabToken</text>
+  <text x="1235.2" y="612.0" font-size="24" fill="#888888" text-anchor="middle">Preprint 2023</text>
+  <rect x="924.5" y="717.5" width="412.0" height="51.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="1130.5" y="738.0" font-size="27" fill="#607E13" text-anchor="middle" font-weight="bold">TabPFN</text>
+  <text x="1130.5" y="767.0" font-size="24" fill="#888888" text-anchor="middle">ICLR 2023</text>
+  <rect x="1343.5" y="717.5" width="412.0" height="51.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="1549.5" y="738.0" font-size="27" fill="#607E13" text-anchor="middle" font-weight="bold">TabPTM</text>
+  <text x="1549.5" y="767.0" font-size="24" fill="#888888" text-anchor="middle">Preprint 2023</text>
+  <text x="32.0" y="112.0" font-size="26" fill="#17233E" text-anchor="start">Specialized methods · fit to a target dataset</text>
+  <text x="32.0" y="330.0" font-size="26" fill="#17233E" text-anchor="start">Transferable methods · pretrain, then adapt</text>
+  <text x="32.0" y="690.0" font-size="26" fill="#17233E" text-anchor="start">General methods · reuse across datasets</text>
+</svg>

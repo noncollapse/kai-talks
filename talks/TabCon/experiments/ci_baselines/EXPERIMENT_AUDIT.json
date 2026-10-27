@@ -1,0 +1,107 @@
+{
+  "date": "2026-10-27",
+  "auditor": "Three independent Codex reviewers plus local display/integration verification",
+  "overall_verdict": "warn",
+  "integrity_status": "warn",
+  "checks": {
+    "gt_provenance": {
+      "status": "pass",
+      "details": "Existing dataset-provided saved oracle preserved; not derived from evaluated predictions."
+    },
+    "score_normalization": {
+      "status": "pass",
+      "details": "Arithmetic means in original units; no division by own scores."
+    },
+    "result_existence": {
+      "status": "pass",
+      "details": "Complete retained outputs and source table values independently checked."
+    },
+    "dead_code": {
+      "status": "pass",
+      "details": "Inspected interval calls linked to saved outputs; no claimed result from uncalled path found."
+    },
+    "scope": {
+      "status": "warn",
+      "details": "Fixed official/package configurations, custom methods and incomplete historical training diagnostics; not universal exact paper replication."
+    },
+    "eval_type": "simulation_only"
+  },
+  "methods": {
+    "Linear": {
+      "status": "warn",
+      "details": "Custom HC3; numerical sensitivity; six replay discrepancies"
+    },
+    "RFF": {
+      "status": "warn",
+      "details": "Custom RFF+HC3; numerically sensitive covariance calculation"
+    },
+    "PI": {
+      "status": "pass",
+      "details": "Native official predictive interval, explicitly labelled PI"
+    },
+    "Bootstrap": {
+      "status": "pass",
+      "details": "Verified production B50/E8 paired-row mean bootstrap"
+    },
+    "AMP": {
+      "status": "warn",
+      "details": "Paper-based credible interval; author source HTTP401"
+    },
+    "TabCon": {
+      "status": "pass",
+      "details": "Inference source, Top-2, checkpoint and result lineage"
+    },
+    "GRF": {
+      "status": "pass",
+      "details": "Official API with fixed defaults"
+    },
+    "Local Linear Forest": {
+      "status": "pass",
+      "details": "Official local linear prediction; CART splits; OOB ridge tuning only"
+    },
+    "RF-IJ": {
+      "status": "pass",
+      "details": "Official ranger IJ including native correction/calibration"
+    },
+    "DRF": {
+      "status": "pass",
+      "details": "Official uncertainty weights and exact group mean variance"
+    },
+    "RF-U": {
+      "status": "warn",
+      "details": "Official RLT floor; historical raw-negative gate unverified; documentation corrected"
+    },
+    "BDE": {
+      "status": "warn",
+      "details": "Official code with patches; finite training instability and diagnostic provenance gap"
+    },
+    "BRAT-P": {
+      "status": "warn",
+      "details": "Official package, not paper-experiment reproduction; training-residual variance"
+    },
+    "BRAT-D": {
+      "status": "warn",
+      "details": "Official package, not paper-experiment reproduction; training-residual variance"
+    }
+  },
+  "exclusions": [
+    "Inferable EBM",
+    "BART",
+    "GP",
+    "DeepLR"
+  ],
+  "verified_additional_task_results": 10240,
+  "verified_additional_query_intervals": 1244160,
+  "brat_exact_replays": 8,
+  "rfu_zero_width_queries": 4040,
+  "rfu_tasks_with_zero_width": 764,
+  "bde_float32_diagnostic_archives": 17,
+  "production_results_changed": false,
+  "committed": false,
+  "pushed": false,
+  "evidence": {
+    "audit_original_methods_20261027.md": "e3dae2328cada4c1e3ff1b5d9435e19a6af1738833a63cdc5544e950f69544bf",
+    "audit_forest_methods_20261027.md": "90b34cbe19e01d4148a4781a296b1a60b4ea41c5292385705ad2551ee5bd5f7f",
+    "audit_bde_brat_20261027.md": "c97ee274b5c3478a6042b84648974ba07f1e0797b38a5654d9e2843e4c009c11"
+  }
+}

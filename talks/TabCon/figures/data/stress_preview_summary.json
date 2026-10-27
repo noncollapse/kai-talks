@@ -1,0 +1,43 @@
+{
+  "nominal_coverage": 0.95,
+  "settings": 10,
+  "tasks_per_setting": 128,
+  "aggregation": "Unweighted arithmetic means across the ten stress settings; each has 128 tasks.",
+  "methods": {
+    "Linear": {
+      "mean_coverage": 0.767254638671875,
+      "mean_length": 6.92668473219972
+    },
+    "RFF": {
+      "mean_coverage": 0.738092041015625,
+      "mean_length": 2.640370775084089
+    },
+    "PI": {
+      "mean_coverage": 0.99017333984375,
+      "mean_length": 3.209065453414952
+    },
+    "Bootstrap": {
+      "mean_coverage": 0.69697265625,
+      "mean_length": 0.6651103196107276
+    },
+    "AMP": {
+      "mean_coverage": 0.9729248046875,
+      "mean_length": 3.2663146669510157
+    },
+    "TabCon": {
+      "mean_coverage": 0.95614013671875,
+      "mean_length": 1.8581469892765767
+    }
+  },
+  "tabcon_length_reduction_vs_tabpfn_pi": 0.4209694329234652,
+  "coverage_axis": {
+    "minimum": 0.55,
+    "maximum": 1.0,
+    "scale": "linear"
+  },
+  "length_axis": {
+    "minimum": 0.003,
+    "maximum": 20,
+    "scale": "log10"
+  }
+}

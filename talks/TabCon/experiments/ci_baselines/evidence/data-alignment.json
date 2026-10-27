@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "tasks": 1280,
+  "seed": 770001,
+  "episodes_per_stress": 128,
+  "stresses": [
+    "near_constant",
+    "bounded",
+    "quantized",
+    "discontinuous",
+    "near_zero",
+    "high_noise",
+    "heavy_tail_noise",
+    "asymmetric_extreme_outlier",
+    "heteroscedastic",
+    "categorical_missing"
+  ],
+  "original_metrics_sha256": "0615e630082d7c247e8c93007f8666c217da7a6101fc72475d28b670f1a402d0",
+  "generator_sha256": "ad310101c33529299885f9beb73152fd7c24a4e0a9e68f8220d0096c6f6b17e7",
+  "validation": "All 1280 tasks: exact dimensions/seeds and saved Linear prediction RMSE; independent RFF coverage, CI width and RMSE agree within rtol=1e-6, atol=1e-8. Historical Linear and RFF aggregate results also match the current plot.",
+  "limitation": "Historical raw arrays were not found in the source evaluation directory; matching numerical results is validation, not a historical byte-hash comparison.",
+  "target": "Original saved f_query_oracle_raw; no change to latent-SCM target semantics",
+  "preprocessing": "Context-only original Wald encoder; constant columns dropped; no projection",
+  "rf_fingerprint_tasks": 1280,
+  "current_plot_sha256": "bb70b7690ca1913eae2f3c916a782ddab4813b4e0421cad5548b3b8d644bd06f",
+  "linear_width_max_absolute_difference": 0.05688837039671135,
+  "linear_coverage_mismatch_tasks": [
+    "near_zero__038",
+    "near_constant__075",
+    "quantized__075",
+    "heavy_tail_noise__075",
+    "asymmetric_extreme_outlier__127",
+    "heteroscedastic__127"
+  ]
+}

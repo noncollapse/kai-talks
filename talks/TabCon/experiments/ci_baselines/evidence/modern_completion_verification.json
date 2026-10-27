@@ -1,0 +1,162 @@
+{
+  "status": "passed",
+  "methods": {
+    "bratp": {
+      "method": "BRAT-P",
+      "interval_kind": "confidence",
+      "tasks": 1280,
+      "queries": 155520,
+      "prediction_manifest_sha256": "4ca83e491b5ed5d3dfde2d3e76c05c3792529cf82e60c7ef310d83af08903215",
+      "mean_coverage": 0.1536224365234375,
+      "mean_length": 0.2074908501043721,
+      "mean_seconds": 7.886470875787199,
+      "manifest_sha256": "e0c6d45113f315dee8f0b8943e83710b46c57f45e81feb0f9686fcbe07dd39b3",
+      "launch_sha256": "8c14d0d98d230f705b3c9e7c389344afd6a0c94849b88237dcf408d6ea700a23",
+      "target": "Same saved latent oracle as original plot; no estimand change",
+      "aggregation": "Equal-weight queries within tasks, tasks within stress regimes, then regimes",
+      "formula_checks": 1280,
+      "zero_failed_tasks": true
+    },
+    "bratd": {
+      "method": "BRAT-D",
+      "interval_kind": "confidence",
+      "tasks": 1280,
+      "queries": 155520,
+      "prediction_manifest_sha256": "5df1283ba4881261e98e51c2d28966346a9de1d4e4907f82a95549edd0a340ed",
+      "mean_coverage": 0.2644775390625,
+      "mean_length": 0.2666031319457618,
+      "mean_seconds": 10.806465400428351,
+      "manifest_sha256": "e0c6d45113f315dee8f0b8943e83710b46c57f45e81feb0f9686fcbe07dd39b3",
+      "launch_sha256": "0e1f7fd0aa411779f5a3b3cc196b64a1fa347eec303b37a6c6df30a1bcc57d74",
+      "target": "Same saved latent oracle as original plot; no estimand change",
+      "aggregation": "Equal-weight queries within tasks, tasks within stress regimes, then regimes",
+      "formula_checks": 1280,
+      "zero_failed_tasks": true
+    },
+    "rfu": {
+      "method": "RF-U",
+      "interval_kind": "confidence",
+      "tasks": 1280,
+      "queries": 155520,
+      "prediction_manifest_sha256": "39a20fab1d678fe064617c51ad1751c3a17a154ac358daca077f0e1886e5a813",
+      "mean_coverage": 0.6453704833984375,
+      "mean_length": 0.9489549325520208,
+      "mean_seconds": 42.73115784542897,
+      "manifest_sha256": "e0c6d45113f315dee8f0b8943e83710b46c57f45e81feb0f9686fcbe07dd39b3",
+      "launch_sha256": "4863f59935b09c8dfdf13072b640bafac187ac1702cfadaafee0d5fc4c016fc6",
+      "target": "Same saved latent oracle as original plot; no estimand change",
+      "aggregation": "Equal-weight queries within tasks, tasks within stress regimes, then regimes",
+      "formula_checks": 1280,
+      "zero_failed_tasks": true,
+      "actual_trees_counts": {
+        "10000": 1280
+      }
+    },
+    "iebm": {
+      "method": "Inferable EBM",
+      "interval_kind": "confidence",
+      "tasks": 1280,
+      "queries": 155520,
+      "prediction_manifest_sha256": "487d1ce79001a05465a03f804c3883b1987649a2d9d94d202baefaae5355a113",
+      "mean_coverage": 0.7926605224609375,
+      "mean_length": 76062804416326.7,
+      "mean_seconds": 3.9835253610866856,
+      "manifest_sha256": "e0c6d45113f315dee8f0b8943e83710b46c57f45e81feb0f9686fcbe07dd39b3",
+      "launch_sha256": "045d26736a837b5cb9cb4b9ba067789dad0ea27a7e087a1c0d725b6f00bb6f2f",
+      "target": "Same saved latent oracle as original plot; no estimand change",
+      "aggregation": "Equal-weight queries within tasks, tasks within stress regimes, then regimes",
+      "formula_checks": 1280,
+      "zero_failed_tasks": true,
+      "largest_length_tasks": [
+        {
+          "task": "high_noise__042",
+          "n_context": 51,
+          "encoded_features": 139,
+          "length_95": 5.538593821910623e+16,
+          "coverage_95": 1.0,
+          "mean_rmse": 2518585930655147.5
+        },
+        {
+          "task": "heteroscedastic__042",
+          "n_context": 51,
+          "encoded_features": 139,
+          "length_95": 1.4977078960539988e+16,
+          "coverage_95": 1.0,
+          "mean_rmse": 674761697337488.2
+        },
+        {
+          "task": "near_zero__042",
+          "n_context": 51,
+          "encoded_features": 139,
+          "length_95": 6877167855796271.0,
+          "coverage_95": 1.0,
+          "mean_rmse": 312494195475972.44
+        },
+        {
+          "task": "discontinuous__042",
+          "n_context": 51,
+          "encoded_features": 139,
+          "length_95": 6749485904475736.0,
+          "coverage_95": 1.0,
+          "mean_rmse": 306829259448684.06
+        },
+        {
+          "task": "heavy_tail_noise__042",
+          "n_context": 51,
+          "encoded_features": 139,
+          "length_95": 5728960642637224.0,
+          "coverage_95": 1.0,
+          "mean_rmse": 260213890154110.47
+        },
+        {
+          "task": "bounded__042",
+          "n_context": 51,
+          "encoded_features": 139,
+          "length_95": 3439733282335662.0,
+          "coverage_95": 1.0,
+          "mean_rmse": 157263714288814.25
+        },
+        {
+          "task": "quantized__042",
+          "n_context": 51,
+          "encoded_features": 139,
+          "length_95": 2914254754854654.0,
+          "coverage_95": 1.0,
+          "mean_rmse": 133562814559961.44
+        },
+        {
+          "task": "asymmetric_extreme_outlier__042",
+          "n_context": 51,
+          "encoded_features": 139,
+          "length_95": 757715680606931.5,
+          "coverage_95": 1.0,
+          "mean_rmse": 34499243144187.203
+        },
+        {
+          "task": "asymmetric_extreme_outlier__024",
+          "n_context": 443,
+          "encoded_features": 153,
+          "length_95": 76820165846704.66,
+          "coverage_95": 1.0,
+          "mean_rmse": 6268857376785.066
+        },
+        {
+          "task": "high_noise__024",
+          "n_context": 443,
+          "encoded_features": 153,
+          "length_95": 50297577441412.42,
+          "coverage_95": 1.0,
+          "mean_rmse": 4095002138288.976
+        }
+      ],
+      "tasks_with_standardized_residual_variance_above_1e6": 807,
+      "fit_instability_note": "Large standardized means and residual variances arise before interval conversion; author fixed configuration, no clipping/trimming. Experimental full-prediction CI."
+    }
+  },
+  "unchanged_sources": {
+    "stress_per_regime_results.csv": "bb70b7690ca1913eae2f3c916a782ddab4813b4e0421cad5548b3b8d644bd06f",
+    "stress_additional_ci_results.csv": "e0b719ac2a0669f8eb9c2f3e3b573fe92e25b1f598612f1cb2135e165ec2c41a",
+    "stress_extra_ci_results.csv": "1f871e61c7ebbd51c3c6fa4aca9469dbfb4a113a980a405cc879b8f15f75cecf"
+  },
+  "verification": "All saved endpoints, context response transforms, SE formulas, pair hashes and metrics; no task or query omitted."
+}

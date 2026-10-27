@@ -1,0 +1,49 @@
+{
+  "source": "stress_additional_ci_results.csv",
+  "source_sha256": "e0b719ac2a0669f8eb9c2f3e3b573fe92e25b1f598612f1cb2135e165ec2c41a",
+  "original_plot_source_sha256": "bb70b7690ca1913eae2f3c916a782ddab4813b4e0421cad5548b3b8d644bd06f",
+  "alignment_sha256": "c6edd32609fe370fd7168b26d5631a5f2303dced98d06ebfba4e4111321fd5bc",
+  "target": "Same saved latent oracle as the original plot; no estimand change.",
+  "aggregation": "Queries within each task, then equal-weight tasks and stress settings; no trimming.",
+  "methods": {
+    "GRF": {
+      "tasks": 1280,
+      "queries": 155520,
+      "prediction_manifest_sha256": "e0a68269e2dc4a27c6bbd0b6b2eb998679c24f09147eb2e94cc1c9c1fdba15db",
+      "mean_coverage": 0.54522705078125,
+      "mean_length": 0.719386408030376,
+      "largest_task": {
+        "task": "asymmetric_extreme_outlier__116",
+        "mean_length": 42.6089063636377,
+        "fraction_of_total_length": 0.04627305676754788
+      }
+    },
+    "Local Linear Forest": {
+      "tasks": 1280,
+      "queries": 155520,
+      "prediction_manifest_sha256": "26f42100eff22112e77610e188c2e5e8f0a2335c5b09e0aef872844cfc5f3217",
+      "mean_coverage": 0.6335113525390625,
+      "mean_length": 0.8434997707194951,
+      "largest_task": {
+        "task": "asymmetric_extreme_outlier__116",
+        "mean_length": 37.25394796179381,
+        "fraction_of_total_length": 0.03450462923104947
+      }
+    },
+    "BDE": {
+      "tasks": 1280,
+      "queries": 155520,
+      "prediction_manifest_sha256": "fc147de2c14b2e62a4efee3f0e42d78236a643e968eb9e11dd55382ebae613b9",
+      "mean_coverage": 0.77291259765625,
+      "mean_length": 14.767485732214302,
+      "largest_task": {
+        "task": "high_noise__053",
+        "mean_length": 16948.595721567384,
+        "fraction_of_total_length": 0.8966381039793353
+      }
+    }
+  },
+  "excluded_method": "DeepLR cancelled by user",
+  "bde_note": "One high-noise task has extreme bootstrap-network predictions; its original finite CI is retained.",
+  "protocol": "experiments/ci_baselines/PROTOCOL.md"
+}

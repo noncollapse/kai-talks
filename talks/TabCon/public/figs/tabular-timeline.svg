@@ -1,0 +1,340 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2480 1080" width="2480" height="1080" font-family="Arial, Helvetica, sans-serif">
+  <rect width="2480" height="1080" fill="#FBFCFF"/>
+  <defs>
+    <marker id="arrow-default" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#555555"/>
+    </marker>
+    <marker id="arrow-c0" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#B95136"/>
+    </marker>
+    <marker id="arrow-c1" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#A5770E"/>
+    </marker>
+    <marker id="arrow-c2" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#26798C"/>
+    </marker>
+    <marker id="arrow-c3" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#8055A0"/>
+    </marker>
+    <marker id="arrow-c4" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#607E13"/>
+    </marker>
+  </defs>
+  <rect x="303.5" y="129.0" width="99.3" height="62.0" fill="#FCF6F3" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="429.8" y="129.0" width="99.3" height="62.0" fill="#FCF6F3" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="556.1" y="129.0" width="130.9" height="115.0" fill="#FCF6F3" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="714.0" y="129.0" width="149.8" height="168.0" fill="#FCF6F3" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="890.8" y="129.0" width="200.3" height="274.0" fill="#FCF6F3" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="1118.1" y="129.0" width="301.4" height="168.0" fill="#FCF6F3" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="1446.5" y="129.0" width="364.5" height="115.0" fill="#FCF6F3" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="1838.0" y="129.0" width="339.3" height="221.0" fill="#FCF6F3" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="2204.3" y="129.0" width="238.2" height="62.0" fill="#FCF6F3" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="556.1" y="463.5" width="130.9" height="113.0" fill="#F5F0FA" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="714.0" y="463.5" width="149.8" height="217.0" fill="#F5F0FA" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="890.8" y="463.5" width="200.3" height="165.0" fill="#F5F0FA" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="1118.1" y="463.5" width="301.4" height="269.0" fill="#F5F0FA" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="1446.5" y="463.5" width="364.5" height="373.0" fill="#F5F0FA" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="1838.0" y="463.5" width="339.3" height="217.0" fill="#F5F0FA" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="2204.3" y="463.5" width="238.2" height="61.0" fill="#F5F0FA" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="1446.5" y="924.5" width="364.5" height="61.0" fill="#F1F6E8" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="1838.0" y="924.5" width="339.3" height="113.0" fill="#F1F6E8" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <rect x="2204.3" y="924.5" width="238.2" height="113.0" fill="#F1F6E8" stroke="#DDE4EE" stroke-width="1" rx="8"/>
+  <path d="M 407.3,49.0 L 425.3,49.0" stroke="#A6B4CA" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <path d="M 533.6,49.0 L 551.6,49.0" stroke="#A6B4CA" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <path d="M 691.5,49.0 L 709.5,49.0" stroke="#A6B4CA" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <path d="M 868.3,49.0 L 886.3,49.0" stroke="#A6B4CA" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <path d="M 1095.6,49.0 L 1113.6,49.0" stroke="#A6B4CA" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <path d="M 1424.0,49.0 L 1442.0,49.0" stroke="#A6B4CA" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <path d="M 1815.5,49.0 L 1833.5,49.0" stroke="#A6B4CA" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <path d="M 2181.8,49.0 L 2199.8,49.0" stroke="#A6B4CA" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <rect x="23.0" y="150.0" width="232.0" height="84.0" fill="#F0F3F9" stroke="#F0F3F9" stroke-width="2" rx="8"/>
+  <text x="139.0" y="188.3" font-size="18" fill="#17233E" text-anchor="middle" font-weight="bold">Linear regression</text>
+  <text x="139.0" y="208.3" font-size="18" fill="#17233E" text-anchor="middle" font-weight="bold">Logistic regression</text>
+  <rect x="23.0" y="292.0" width="232.0" height="84.0" fill="#F0F3F9" stroke="#F0F3F9" stroke-width="2" rx="8"/>
+  <text x="139.0" y="330.6" font-size="16" fill="#17233E" text-anchor="middle" font-weight="bold">kNN · Perceptron / MLP</text>
+  <text x="139.0" y="348.6" font-size="16" fill="#17233E" text-anchor="middle" font-weight="bold">AdaLine</text>
+  <rect x="23.0" y="434.0" width="232.0" height="84.0" fill="#F0F3F9" stroke="#F0F3F9" stroke-width="2" rx="8"/>
+  <text x="139.0" y="472.4" font-size="17" fill="#17233E" text-anchor="middle" font-weight="bold">SVM · Kernel SVM</text>
+  <text x="139.0" y="491.4" font-size="17" fill="#17233E" text-anchor="middle" font-weight="bold">Decision trees / CART</text>
+  <rect x="23.0" y="576.0" width="232.0" height="84.0" fill="#F0F3F9" stroke="#F0F3F9" stroke-width="2" rx="8"/>
+  <text x="139.0" y="614.5" font-size="17" fill="#17233E" text-anchor="middle" font-weight="bold">AdaBoost · GBDT</text>
+  <text x="139.0" y="633.5" font-size="17" fill="#17233E" text-anchor="middle" font-weight="bold">Random forests (2001)</text>
+  <rect x="23.0" y="718.0" width="232.0" height="84.0" fill="#F0F3F9" stroke="#F0F3F9" stroke-width="2" rx="8"/>
+  <text x="139.0" y="766.3" font-size="18" fill="#17233E" text-anchor="middle" font-weight="bold">NCA</text>
+  <rect x="23.0" y="860.0" width="232.0" height="84.0" fill="#F0F3F9" stroke="#F0F3F9" stroke-width="2" rx="8"/>
+  <text x="139.0" y="898.3" font-size="18" fill="#17233E" text-anchor="middle" font-weight="bold">XGBoost · LightGBM</text>
+  <text x="139.0" y="918.3" font-size="18" fill="#17233E" text-anchor="middle" font-weight="bold">CatBoost</text>
+  <rect x="299.0" y="24.0" width="108.3" height="50.0" fill="#EAF0FC" stroke="#EAF0FC" stroke-width="2" rx="8"/>
+  <text x="353.1" y="59.5" font-size="30" fill="#304465" text-anchor="middle" font-weight="bold">2017</text>
+  <rect x="425.3" y="24.0" width="108.3" height="50.0" fill="#EAF0FC" stroke="#EAF0FC" stroke-width="2" rx="8"/>
+  <text x="479.4" y="59.5" font-size="30" fill="#304465" text-anchor="middle" font-weight="bold">2018</text>
+  <rect x="551.6" y="24.0" width="139.9" height="50.0" fill="#EAF0FC" stroke="#EAF0FC" stroke-width="2" rx="8"/>
+  <text x="621.5" y="59.5" font-size="30" fill="#304465" text-anchor="middle" font-weight="bold">2019</text>
+  <rect x="709.5" y="24.0" width="158.8" height="50.0" fill="#EAF0FC" stroke="#EAF0FC" stroke-width="2" rx="8"/>
+  <text x="788.9" y="59.5" font-size="30" fill="#304465" text-anchor="middle" font-weight="bold">2020</text>
+  <rect x="886.3" y="24.0" width="209.3" height="50.0" fill="#EAF0FC" stroke="#EAF0FC" stroke-width="2" rx="8"/>
+  <text x="991.0" y="59.5" font-size="30" fill="#304465" text-anchor="middle" font-weight="bold">2021</text>
+  <rect x="1113.6" y="24.0" width="310.4" height="50.0" fill="#EAF0FC" stroke="#EAF0FC" stroke-width="2" rx="8"/>
+  <text x="1268.8" y="59.5" font-size="30" fill="#304465" text-anchor="middle" font-weight="bold">2022</text>
+  <rect x="1442.0" y="24.0" width="373.5" height="50.0" fill="#EAF0FC" stroke="#EAF0FC" stroke-width="2" rx="8"/>
+  <text x="1628.8" y="59.5" font-size="30" fill="#304465" text-anchor="middle" font-weight="bold">2023</text>
+  <rect x="1833.5" y="24.0" width="348.3" height="50.0" fill="#EAF0FC" stroke="#EAF0FC" stroke-width="2" rx="8"/>
+  <text x="2007.6" y="59.5" font-size="30" fill="#304465" text-anchor="middle" font-weight="bold">2024</text>
+  <rect x="2199.8" y="24.0" width="247.2" height="50.0" fill="#EAF0FC" stroke="#EAF0FC" stroke-width="2" rx="8"/>
+  <text x="2323.4" y="59.5" font-size="30" fill="#304465" text-anchor="middle" font-weight="bold">2025</text>
+  <rect x="310.5" y="136.0" width="85.3" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="353.1" y="156.2" font-size="19" fill="#B95136" text-anchor="middle" font-weight="bold">SNN</text>
+  <text x="353.1" y="177.2" font-size="16" fill="#888888" text-anchor="middle">NeurIPS</text>
+  <rect x="436.8" y="136.0" width="85.3" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="479.4" y="156.2" font-size="19" fill="#26798C" text-anchor="middle" font-weight="bold">RLNs</text>
+  <text x="479.4" y="177.2" font-size="16" fill="#888888" text-anchor="middle">NeurIPS</text>
+  <rect x="563.1" y="136.0" width="116.9" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="621.5" y="155.8" font-size="21" fill="#B95136" text-anchor="middle" font-weight="bold">AutoInt</text>
+  <text x="621.5" y="178.8" font-size="18" fill="#888888" text-anchor="middle">CIKM</text>
+  <rect x="563.1" y="189.0" width="116.9" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="621.5" y="208.8" font-size="21" fill="#A5770E" text-anchor="middle" font-weight="bold">ANP</text>
+  <text x="621.5" y="231.8" font-size="18" fill="#888888" text-anchor="middle">ICLR</text>
+  <rect x="721.0" y="136.0" width="135.8" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="788.9" y="155.8" font-size="21" fill="#B95136" text-anchor="middle" font-weight="bold">GrowNet</text>
+  <text x="788.9" y="178.8" font-size="18" fill="#888888" text-anchor="middle">Preprint</text>
+  <rect x="721.0" y="189.0" width="135.8" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="788.9" y="208.8" font-size="21" fill="#B95136" text-anchor="middle" font-weight="bold">NODE</text>
+  <text x="788.9" y="231.8" font-size="18" fill="#888888" text-anchor="middle">ICLR</text>
+  <rect x="721.0" y="242.0" width="135.8" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="788.9" y="262.6" font-size="16" fill="#B95136" text-anchor="middle" font-weight="bold">TabTransformer</text>
+  <text x="788.9" y="280.6" font-size="13" fill="#888888" text-anchor="middle">Preprint</text>
+  <rect x="897.8" y="136.0" width="186.3" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="991.0" y="155.8" font-size="21" fill="#B95136" text-anchor="middle" font-weight="bold">FT-Transformer</text>
+  <text x="991.0" y="178.8" font-size="18" fill="#888888" text-anchor="middle">NeurIPS</text>
+  <rect x="897.8" y="189.0" width="186.3" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="991.0" y="208.8" font-size="21" fill="#B95136" text-anchor="middle" font-weight="bold">TabNet</text>
+  <text x="991.0" y="231.8" font-size="18" fill="#888888" text-anchor="middle">AAAI</text>
+  <rect x="897.8" y="242.0" width="186.3" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="991.0" y="261.9" font-size="21" fill="#B95136" text-anchor="middle" font-weight="bold">DCN v2</text>
+  <text x="991.0" y="284.9" font-size="18" fill="#888888" text-anchor="middle">WWW</text>
+  <rect x="897.8" y="295.0" width="186.3" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="991.0" y="314.9" font-size="21" fill="#A5770E" text-anchor="middle" font-weight="bold">NPT</text>
+  <text x="991.0" y="337.9" font-size="18" fill="#888888" text-anchor="middle">NeurIPS</text>
+  <rect x="897.8" y="348.0" width="186.3" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="991.0" y="367.9" font-size="21" fill="#26798C" text-anchor="middle" font-weight="bold">Kadra et al.</text>
+  <text x="991.0" y="390.9" font-size="18" fill="#888888" text-anchor="middle">NeurIPS</text>
+  <rect x="1125.1" y="136.0" width="140.2" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1195.2" y="156.6" font-size="16" fill="#B95136" text-anchor="middle" font-weight="bold">MLP-PLR / RTDL</text>
+  <text x="1195.2" y="174.6" font-size="13" fill="#888888" text-anchor="middle">NeurIPS</text>
+  <rect x="1272.3" y="136.0" width="140.2" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1342.4" y="155.8" font-size="21" fill="#B95136" text-anchor="middle" font-weight="bold">DANet</text>
+  <text x="1342.4" y="178.8" font-size="18" fill="#888888" text-anchor="middle">AAAI</text>
+  <rect x="1125.1" y="189.0" width="140.2" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1195.2" y="208.8" font-size="21" fill="#A5770E" text-anchor="middle" font-weight="bold">SAINT</text>
+  <text x="1195.2" y="231.8" font-size="18" fill="#888888" text-anchor="middle">NeurIPS WS</text>
+  <rect x="1272.3" y="189.0" width="140.2" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1342.4" y="208.8" font-size="21" fill="#A5770E" text-anchor="middle" font-weight="bold">DNNR</text>
+  <text x="1342.4" y="231.8" font-size="18" fill="#888888" text-anchor="middle">ICML</text>
+  <rect x="1125.1" y="242.0" width="140.2" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1195.2" y="261.9" font-size="21" fill="#A5770E" text-anchor="middle" font-weight="bold">Hopular</text>
+  <text x="1195.2" y="284.9" font-size="18" fill="#888888" text-anchor="middle">Preprint</text>
+  <rect x="1453.5" y="136.0" width="171.8" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1539.4" y="155.8" font-size="21" fill="#B95136" text-anchor="middle" font-weight="bold">TabToken</text>
+  <text x="1539.4" y="178.8" font-size="18" fill="#888888" text-anchor="middle">Preprint</text>
+  <rect x="1632.3" y="136.0" width="171.8" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1718.1" y="156.0" font-size="20" fill="#B95136" text-anchor="middle" font-weight="bold">Beyazit et al.</text>
+  <text x="1718.1" y="178.0" font-size="17" fill="#888888" text-anchor="middle">NeurIPS</text>
+  <rect x="1453.5" y="189.0" width="171.8" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1539.4" y="208.8" font-size="21" fill="#A5770E" text-anchor="middle" font-weight="bold">Trompt</text>
+  <text x="1539.4" y="231.8" font-size="18" fill="#888888" text-anchor="middle">ICML</text>
+  <rect x="1632.3" y="189.0" width="171.8" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1718.1" y="208.8" font-size="21" fill="#26798C" text-anchor="middle" font-weight="bold">TANGOS</text>
+  <text x="1718.1" y="231.8" font-size="18" fill="#888888" text-anchor="middle">ICLR</text>
+  <rect x="1845.0" y="136.0" width="159.1" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1924.6" y="155.8" font-size="21" fill="#B95136" text-anchor="middle" font-weight="bold">RealMLP</text>
+  <text x="1924.6" y="178.8" font-size="18" fill="#888888" text-anchor="middle">NeurIPS</text>
+  <rect x="2011.1" y="136.0" width="159.1" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="2090.7" y="155.8" font-size="21" fill="#B95136" text-anchor="middle" font-weight="bold">ExcelFormer</text>
+  <text x="2090.7" y="178.8" font-size="18" fill="#888888" text-anchor="middle">KDD</text>
+  <rect x="1845.0" y="189.0" width="159.1" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1924.6" y="208.8" font-size="21" fill="#B95136" text-anchor="middle" font-weight="bold">GRANDE</text>
+  <text x="1924.6" y="231.8" font-size="18" fill="#888888" text-anchor="middle">ICLR</text>
+  <rect x="2011.1" y="189.0" width="159.1" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="2090.7" y="208.8" font-size="21" fill="#B95136" text-anchor="middle" font-weight="bold">AMFormer</text>
+  <text x="2090.7" y="231.8" font-size="18" fill="#888888" text-anchor="middle">AAAI</text>
+  <rect x="1845.0" y="242.0" width="159.1" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1924.6" y="261.9" font-size="21" fill="#B95136" text-anchor="middle" font-weight="bold">BiSHop</text>
+  <text x="1924.6" y="284.9" font-size="18" fill="#888888" text-anchor="middle">ICML</text>
+  <rect x="2011.1" y="242.0" width="159.1" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="2090.7" y="261.9" font-size="21" fill="#A5770E" text-anchor="middle" font-weight="bold">TabR</text>
+  <text x="2090.7" y="284.9" font-size="18" fill="#888888" text-anchor="middle">ICLR</text>
+  <rect x="1845.0" y="295.0" width="159.1" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="1924.6" y="314.9" font-size="21" fill="#B95136" text-anchor="middle" font-weight="bold">SwitchTab</text>
+  <text x="1924.6" y="337.9" font-size="18" fill="#888888" text-anchor="middle">AAAI</text>
+  <rect x="2011.1" y="295.0" width="159.1" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="2090.7" y="314.9" font-size="21" fill="#26798C" text-anchor="middle" font-weight="bold">PTaRL</text>
+  <text x="2090.7" y="337.9" font-size="18" fill="#888888" text-anchor="middle">ICLR</text>
+  <rect x="2211.3" y="136.0" width="108.6" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="2265.6" y="155.8" font-size="21" fill="#B95136" text-anchor="middle" font-weight="bold">TabM</text>
+  <text x="2265.6" y="178.8" font-size="18" fill="#888888" text-anchor="middle">ICLR</text>
+  <rect x="2326.9" y="136.0" width="108.6" height="48.0" fill="#FCF6F3" stroke="#FCF6F3" stroke-width="2" rx="8"/>
+  <text x="2381.2" y="156.2" font-size="19" fill="#A5770E" text-anchor="middle" font-weight="bold">ModernNCA</text>
+  <text x="2381.2" y="177.2" font-size="16" fill="#888888" text-anchor="middle">ICLR</text>
+  <rect x="563.1" y="470.5" width="116.9" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="621.5" y="490.4" font-size="17" fill="#8055A0" text-anchor="middle" font-weight="bold">DeepInsight</text>
+  <text x="621.5" y="509.4" font-size="14" fill="#888888" text-anchor="middle">Sci. Rep.</text>
+  <rect x="563.1" y="522.5" width="116.9" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="621.5" y="541.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">Super-TML</text>
+  <text x="621.5" y="564.9" font-size="18" fill="#888888" text-anchor="middle">CVPR WS</text>
+  <rect x="721.0" y="470.5" width="135.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="788.9" y="489.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">VIME</text>
+  <text x="788.9" y="512.9" font-size="18" fill="#888888" text-anchor="middle">NeurIPS</text>
+  <rect x="721.0" y="522.5" width="135.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="788.9" y="542.3" font-size="18" fill="#8055A0" text-anchor="middle" font-weight="bold">Iwata et al.</text>
+  <text x="788.9" y="562.3" font-size="15" fill="#888888" text-anchor="middle">NeurIPS</text>
+  <rect x="721.0" y="574.5" width="135.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="788.9" y="594.3" font-size="18" fill="#8055A0" text-anchor="middle" font-weight="bold">REFINED</text>
+  <text x="788.9" y="614.3" font-size="15" fill="#888888" text-anchor="middle">Nat. Commun.</text>
+  <rect x="721.0" y="626.5" width="135.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="788.9" y="645.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">TAC</text>
+  <text x="788.9" y="668.9" font-size="18" fill="#888888" text-anchor="middle">bioRxiv</text>
+  <rect x="897.8" y="470.5" width="186.3" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="991.0" y="489.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">SubTab</text>
+  <text x="991.0" y="512.9" font-size="18" fill="#888888" text-anchor="middle">NeurIPS</text>
+  <rect x="897.8" y="522.5" width="186.3" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="991.0" y="541.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">DACL+</text>
+  <text x="991.0" y="564.9" font-size="18" fill="#888888" text-anchor="middle">ICML</text>
+  <rect x="897.8" y="574.5" width="186.3" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="991.0" y="593.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">IGTD</text>
+  <text x="991.0" y="616.9" font-size="18" fill="#888888" text-anchor="middle">Sci. Rep.</text>
+  <rect x="1125.1" y="470.5" width="140.2" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1195.2" y="491.1" font-size="13" fill="#8055A0" text-anchor="middle" font-weight="bold">Revisiting pretraining</text>
+  <text x="1195.2" y="506.1" font-size="10" fill="#888888" text-anchor="middle">Preprint</text>
+  <rect x="1272.3" y="470.5" width="140.2" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1342.4" y="489.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">SEFS</text>
+  <text x="1342.4" y="512.9" font-size="18" fill="#888888" text-anchor="middle">ICLR</text>
+  <rect x="1125.1" y="522.5" width="140.2" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1195.2" y="541.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">MET</text>
+  <text x="1195.2" y="564.9" font-size="18" fill="#888888" text-anchor="middle">Preprint</text>
+  <rect x="1272.3" y="522.5" width="140.2" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1342.4" y="541.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">SCARF</text>
+  <text x="1342.4" y="564.9" font-size="18" fill="#888888" text-anchor="middle">ICLR</text>
+  <rect x="1125.1" y="574.5" width="140.2" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1195.2" y="593.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">Stab</text>
+  <text x="1195.2" y="616.9" font-size="18" fill="#888888" text-anchor="middle">NeurIPS WS</text>
+  <rect x="1272.3" y="574.5" width="140.2" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1342.4" y="593.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">DEN</text>
+  <text x="1342.4" y="616.9" font-size="18" fill="#888888" text-anchor="middle">TMLR</text>
+  <rect x="1125.1" y="626.5" width="140.2" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1195.2" y="645.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">TransTab</text>
+  <text x="1195.2" y="668.9" font-size="18" fill="#888888" text-anchor="middle">NeurIPS</text>
+  <rect x="1272.3" y="626.5" width="140.2" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1342.4" y="645.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">PTab</text>
+  <text x="1342.4" y="668.9" font-size="18" fill="#888888" text-anchor="middle">Preprint</text>
+  <rect x="1125.1" y="678.5" width="140.2" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1195.2" y="697.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">LIFT</text>
+  <text x="1195.2" y="720.9" font-size="18" fill="#888888" text-anchor="middle">NeurIPS</text>
+  <rect x="1453.5" y="470.5" width="171.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1539.4" y="489.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">DoRA</text>
+  <text x="1539.4" y="512.9" font-size="18" fill="#888888" text-anchor="middle">CIKM</text>
+  <rect x="1632.3" y="470.5" width="171.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1718.1" y="489.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">Binder</text>
+  <text x="1718.1" y="512.9" font-size="18" fill="#888888" text-anchor="middle">ICLR</text>
+  <rect x="1453.5" y="522.5" width="171.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1539.4" y="541.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">Levin et al.</text>
+  <text x="1539.4" y="564.9" font-size="18" fill="#888888" text-anchor="middle">ICLR</text>
+  <rect x="1632.3" y="522.5" width="171.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1718.1" y="541.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">CAAFE</text>
+  <text x="1718.1" y="564.9" font-size="18" fill="#888888" text-anchor="middle">NeurIPS</text>
+  <rect x="1453.5" y="574.5" width="171.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1539.4" y="593.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">ReConTab</text>
+  <text x="1539.4" y="616.9" font-size="18" fill="#888888" text-anchor="middle">Preprint</text>
+  <rect x="1632.3" y="574.5" width="171.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1718.1" y="593.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">TaPTaP</text>
+  <text x="1718.1" y="616.9" font-size="18" fill="#888888" text-anchor="middle">EMNLP</text>
+  <rect x="1453.5" y="626.5" width="171.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1539.4" y="645.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">TabRet</text>
+  <text x="1539.4" y="668.9" font-size="18" fill="#888888" text-anchor="middle">Preprint</text>
+  <rect x="1632.3" y="626.5" width="171.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1718.1" y="645.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">TabLLM</text>
+  <text x="1718.1" y="668.9" font-size="18" fill="#888888" text-anchor="middle">AISTATS</text>
+  <rect x="1453.5" y="678.5" width="171.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1539.4" y="697.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">ORCA</text>
+  <text x="1539.4" y="720.9" font-size="18" fill="#888888" text-anchor="middle">ICML</text>
+  <rect x="1632.3" y="678.5" width="171.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1718.1" y="697.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">UniPredict</text>
+  <text x="1718.1" y="720.9" font-size="18" fill="#888888" text-anchor="middle">Preprint</text>
+  <rect x="1453.5" y="730.5" width="171.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1539.4" y="749.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">XTab</text>
+  <text x="1539.4" y="772.9" font-size="18" fill="#888888" text-anchor="middle">ICML</text>
+  <rect x="1632.3" y="730.5" width="171.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1718.1" y="749.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">TablEye</text>
+  <text x="1718.1" y="772.9" font-size="18" fill="#888888" text-anchor="middle">Preprint</text>
+  <rect x="1453.5" y="782.5" width="171.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1539.4" y="802.5" font-size="17" fill="#8055A0" text-anchor="middle" font-weight="bold">Meta-Transformer</text>
+  <text x="1539.4" y="821.5" font-size="14" fill="#888888" text-anchor="middle">Preprint</text>
+  <rect x="1632.3" y="782.5" width="171.8" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1718.1" y="801.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">TabToken</text>
+  <text x="1718.1" y="824.9" font-size="18" fill="#888888" text-anchor="middle">Preprint</text>
+  <rect x="1845.0" y="470.5" width="159.1" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1924.6" y="489.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">LFR</text>
+  <text x="1924.6" y="512.9" font-size="18" fill="#888888" text-anchor="middle">ICLR</text>
+  <rect x="2011.1" y="470.5" width="159.1" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="2090.7" y="489.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">LM-IGTD</text>
+  <text x="2090.7" y="512.9" font-size="18" fill="#888888" text-anchor="middle">Preprint</text>
+  <rect x="1845.0" y="522.5" width="159.1" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1924.6" y="541.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">UniTabE</text>
+  <text x="1924.6" y="564.9" font-size="18" fill="#888888" text-anchor="middle">ICLR</text>
+  <rect x="2011.1" y="522.5" width="159.1" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="2090.7" y="541.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">CM2</text>
+  <text x="2090.7" y="564.9" font-size="18" fill="#888888" text-anchor="middle">WWW</text>
+  <rect x="1845.0" y="574.5" width="159.1" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1924.6" y="593.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">TP-BERTa</text>
+  <text x="1924.6" y="616.9" font-size="18" fill="#888888" text-anchor="middle">ICLR</text>
+  <rect x="2011.1" y="574.5" width="159.1" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="2090.7" y="593.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">CARTE</text>
+  <text x="2090.7" y="616.9" font-size="18" fill="#888888" text-anchor="middle">ICML</text>
+  <rect x="1845.0" y="626.5" width="159.1" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="1924.6" y="645.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">FeatLLM</text>
+  <text x="1924.6" y="668.9" font-size="18" fill="#888888" text-anchor="middle">ICML</text>
+  <rect x="2211.3" y="470.5" width="224.2" height="47.0" fill="#F5F0FA" stroke="#F5F0FA" stroke-width="2" rx="8"/>
+  <text x="2323.4" y="489.9" font-size="21" fill="#8055A0" text-anchor="middle" font-weight="bold">Tab2Visual</text>
+  <text x="2323.4" y="512.9" font-size="18" fill="#888888" text-anchor="middle">Preprint</text>
+  <rect x="1453.5" y="931.5" width="171.8" height="47.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="1539.4" y="950.9" font-size="21" fill="#607E13" text-anchor="middle" font-weight="bold">TabPFN</text>
+  <text x="1539.4" y="973.9" font-size="18" fill="#888888" text-anchor="middle">ICLR</text>
+  <rect x="1632.3" y="931.5" width="171.8" height="47.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="1718.1" y="950.9" font-size="21" fill="#607E13" text-anchor="middle" font-weight="bold">TabPTM</text>
+  <text x="1718.1" y="973.9" font-size="18" fill="#888888" text-anchor="middle">Preprint</text>
+  <rect x="1845.0" y="931.5" width="159.1" height="47.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="1924.6" y="950.9" font-size="21" fill="#607E13" text-anchor="middle" font-weight="bold">HyperFast</text>
+  <text x="1924.6" y="973.9" font-size="18" fill="#888888" text-anchor="middle">AAAI</text>
+  <rect x="2011.1" y="931.5" width="159.1" height="47.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="2090.7" y="950.9" font-size="21" fill="#607E13" text-anchor="middle" font-weight="bold">TabuLa-8B</text>
+  <text x="2090.7" y="973.9" font-size="18" fill="#888888" text-anchor="middle">NeurIPS</text>
+  <rect x="1845.0" y="983.5" width="159.1" height="47.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="1924.6" y="1002.9" font-size="21" fill="#607E13" text-anchor="middle" font-weight="bold">GTL</text>
+  <text x="1924.6" y="1025.8" font-size="18" fill="#888888" text-anchor="middle">KDD</text>
+  <rect x="2011.1" y="983.5" width="159.1" height="47.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="2090.7" y="1002.9" font-size="21" fill="#607E13" text-anchor="middle" font-weight="bold">MediTab</text>
+  <text x="2090.7" y="1025.8" font-size="18" fill="#888888" text-anchor="middle">IJCAI</text>
+  <rect x="2211.3" y="931.5" width="108.6" height="47.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="2265.6" y="951.1" font-size="19" fill="#607E13" text-anchor="middle" font-weight="bold">TabPFN v2</text>
+  <text x="2265.6" y="972.1" font-size="16" fill="#888888" text-anchor="middle">Nature</text>
+  <rect x="2326.9" y="931.5" width="108.6" height="47.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="2381.2" y="950.9" font-size="21" fill="#607E13" text-anchor="middle" font-weight="bold">TabICL</text>
+  <text x="2381.2" y="973.9" font-size="18" fill="#888888" text-anchor="middle">ICML</text>
+  <rect x="2211.3" y="983.5" width="108.6" height="47.0" fill="#F1F6E8" stroke="#F1F6E8" stroke-width="2" rx="8"/>
+  <text x="2265.6" y="1003.1" font-size="19" fill="#607E13" text-anchor="middle" font-weight="bold">MotherNet</text>
+  <text x="2265.6" y="1024.2" font-size="16" fill="#888888" text-anchor="middle">ICLR</text>
+  <text x="22.0" y="46.0" font-size="24" fill="#17233E" text-anchor="start">Traditional methods</text>
+  <text x="22.0" y="78.0" font-size="17" fill="#64748B" text-anchor="start">Foundations and ensembles</text>
+  <text x="28.0" y="140.0" font-size="19" fill="#4263EB" text-anchor="start">Early statistics</text>
+  <text x="28.0" y="282.0" font-size="19" fill="#4263EB" text-anchor="start">1950s–1960s</text>
+  <text x="28.0" y="424.0" font-size="19" fill="#4263EB" text-anchor="start">1960s–1990s</text>
+  <text x="28.0" y="566.0" font-size="19" fill="#4263EB" text-anchor="start">1990s–2000s</text>
+  <text x="28.0" y="708.0" font-size="19" fill="#4263EB" text-anchor="start">2004</text>
+  <text x="28.0" y="850.0" font-size="19" fill="#4263EB" text-anchor="start">2016–2018</text>
+  <text x="290.0" y="113.0" font-size="23" fill="#17233E" text-anchor="start">Specialized methods · fit to a target dataset</text>
+  <text x="290.0" y="447.0" font-size="23" fill="#17233E" text-anchor="start">Transferable methods · pretrain, then adapt</text>
+  <text x="290.0" y="908.0" font-size="23" fill="#17233E" text-anchor="start">General methods · reuse across datasets</text>
+  <text x="1510.0" y="113.0" font-size="19" fill="#B95136" text-anchor="start">Feature aspect</text>
+  <text x="1790.0" y="113.0" font-size="19" fill="#A5770E" text-anchor="start">Sample aspect</text>
+  <text x="2080.0" y="113.0" font-size="19" fill="#26798C" text-anchor="start">Objective aspect</text>
+  <text x="20.0" y="1062.0" font-size="18" fill="#64748B" text-anchor="start">Adapted from Jiang et al., Representation Learning for Tabular Data: A Comprehensive Survey (TPAMI, 2026).  WS = workshop.</text>
+</svg>
