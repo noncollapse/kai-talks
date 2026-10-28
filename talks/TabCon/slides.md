@@ -15,11 +15,9 @@ drawings:
 class: cover-slide
 ---
 
-<div class="eyebrow">Tabular foundation models · Statistical inference</div>
 <h1 class="cover-title">Can Tabular Foundation Models<br><span>Amortize Statistical Inference?</span></h1>
-<div class="cover-subtitle">Learning how precisely we know the average</div>
-<div class="cover-authors"><b>Kai Ye</b> · Shijin Gong · Hongyi Zhou<br>Valentina Zangirolami · Chengchun Shi</div>
-<div class="cover-bottom"><span>LSE · Stats-Powered AI</span><a href="https://arxiv.org/abs/2609.33114">arXiv:2609.33114</a></div>
+<div class="cover-authors"><b>Kai Ye</b> · Shijin Gong · Hongyi Zhou · Valentina Zangirolami · Chengchun Shi</div>
+<div class="cover-bottom"><img class="lse-logo" width="72" height="72" src="https://upload.wikimedia.org/wikipedia/commons/5/51/LSE_Logo.svg" alt="London School of Economics and Political Science logo"><a href="https://arxiv.org/abs/2609.33114">arXiv:2609.33114</a></div>
 
 
 <!--
@@ -31,21 +29,18 @@ routeAlias: first-results
 class: result-preview-slide
 ---
 
-<div class="eyebrow">A first look · Stress tests</div>
-
-# TabCon: reliable coverage, shorter intervals
+# Our Proposal: TabCon for Confidence Interval (CI) Construction
 
 <StressPreview />
-<div class="source">14 methods · Original paired stress tasks · Coverage against the saved latent oracle · pp = percentage points.</div>
 
 <!--
-Open with the result before explaining how it is achieved. These are the ten stress settings from the supplied paper figure; regular_control is excluded. The six original methods use the paper numeric results, verified against the original figure's source SHA256 and the frozen main/Wald summary JSONs. GRF, Local Linear Forest, BDE, RF-IJ, DRF, BRAT-P, BRAT-D, and RF-U are additional completed evaluations on the same 1,280 recovered and verified task realizations, including all 155,520 original query points. These new methods use author/package implementations with documented compatibility adaptations and fixed configurations; all eight completed all tasks with finite outputs; this numerical gate does not certify training stability. Linear means Linear-Wald-HC3; RFF means RFF-Wald-HC3. Both are custom statistical implementations, not official-package baselines. Linear applies context-only PCA when necessary; RFF uses at most 64 random features. Their HC3/z formulas are correct, but ill-conditioned designs cause numerical sensitivity and six Linear replay discrepancies are documented. Historical points are retained. AMP (CrI) denotes a paper-based approximate martingale-posterior credible interval, not an ordinary frequentist CI; its author-code endpoint returned HTTP 401 during the audit, so exact source equivalence has not been established. TabPFN (PI) is the native predictive interval, evaluated here against the saved latent oracle rather than a future noisy outcome. This is a reference baseline with a different native target, not a claim that TabCon dominates every confidence-interval procedure. Code inspection showed that the Generator V2 oracle T(Z) is not guaranteed to equal E[Y|observed X]; do not describe this stress figure as independently verified conditional-mean coverage.
+Open with the result before explaining how it is achieved. These are the ten stress settings from the supplied paper figure; regular_control is excluded. The six original methods use the paper numeric results, verified against the original figure's source SHA256 and the frozen main/Wald summary JSONs. GRF, Local Linear Forest, BDE, RF-IJ, DRF, BRAT-P, BRAT-D, and RF-U are additional completed evaluations on the same 1,280 recovered and verified task realizations, including all 155,520 original query points. These new methods use author/package implementations with documented compatibility adaptations and fixed configurations; all eight completed all tasks with finite outputs; this numerical gate does not certify training stability. Linear means Linear-Wald-HC3; RFF means RFF-Wald-HC3. Both are custom statistical implementations, not official-package baselines. Linear applies context-only PCA when necessary; RFF uses at most 64 random features. Their HC3/z formulas are correct, but ill-conditioned designs cause numerical sensitivity and six Linear replay discrepancies are documented. Historical points are retained. AMP denotes a paper-based approximate martingale-posterior credible interval, not an ordinary frequentist CI; its author-code endpoint returned HTTP 401 during the audit, so exact source equivalence has not been established. TabPFN (PI) is the native predictive interval, evaluated here against the saved latent oracle rather than a future noisy outcome. This is a reference baseline with a different native target, not a claim that TabCon dominates every confidence-interval procedure. Code inspection showed that the Generator V2 oracle T(Z) is not guaranteed to equal E[Y|observed X]; do not describe this stress figure as independently verified conditional-mean coverage.
 
 TabCon's unweighted average coverage across the ten settings is 0.95614013671875 (range approximately 0.9400–0.9842). Its mean interval length is 1.8581469892765767, compared with 3.209065453414952 for native TabPFN prediction intervals. The displayed 42% reduction is 1 minus the ratio of these arithmetic means, not a mean of per-setting percentage reductions. Every setting has 128 tasks, so equal-setting and equal-task weighting coincide. Short intervals alone are insufficient: Bootstrap is shorter but substantially undercovers in these results. Neither a universal coverage guarantee nor significance is asserted.
 
 This scatter preview uses arithmetic mean interval length on a log x axis and signed per-setting coverage deviations from 95% on a linear y axis, in percentage points. Each point shows one method's average deviation; no range bars are displayed. Positive means overcoverage, negative means undercoverage, and closeness to zero is desirable. TabCon's mean deviation is +0.614013671875 pp, with a range from -1.0028076171875 to +3.4161376953125 pp; four settings under-cover and six over-cover. AMP also has mixed directions (one under, nine over). These per-setting ranges are not displayed: opposite deviations can cancel in the plotted mean. The old Pareto staircase and lower-left-is-better annotation are removed because signed coverage should be close to zero rather than simply minimized. Length is averaged in the original outcome units without normalization, so high-scale settings have greater influence on mean length. The original radar remains available as stress-opening-radar.svg. figures/scripts/draw_stress_tradeoff.py regenerates this preview and its summary JSON; the original result table and hash remain unchanged.
 
-The first three additions are exported from complete per-query predictions by figures/scripts/export_additional_ci.py. Their numeric table and provenance are figures/data/stress_additional_ci_results.csv and stress_additional_ci_provenance.json. RF-IJ and DRF are exported and independently checked by figures/scripts/export_extra_ci.py, with separate stress_extra_ci_results.csv and stress_extra_ci_provenance.json. RF-IJ uses ranger 0.18.0 with 2,000 trees and native infinitesimal-jackknife standard errors. Its mean coverage is 0.53057861328125 and mean interval length is 0.7261888936328144. DRF uses the official drf 1.3.1 native uncertainty API with 6,000 honest trees, 100 CI groups, exact group-weighted means and their sample variance. Its mean coverage is 0.5805023193359375 and mean interval length is 0.7703466374315616. All 1,280 tasks and 155,520 queries passed per-query verification on Beast and locally. Its intervals are short but substantially undercover this saved target; no universal coverage conclusion is asserted. BART and GP were cancelled by the user on 27 October 2026, who excluded Bayesian credible-interval baselines. Their pilot and partial results are not plotted. DeepLR was cancelled by the user and is excluded. BDE mean length is strongly influenced by high_noise__053, whose mean interval length is about 16,948.6; one bootstrap-retrained network produced extreme predictions. This finite result is retained without trimming and flagged on the slide. The existing Bootstrap comparator is TabPFN mean predictions across bootstrap resamples of context rows, distinct from BDE's parametric bootstrap retraining. Both target uncertainty in the regression function, not future-outcome noise. The archived six-method radar is unchanged. See experiments/ci_baselines/PROTOCOL.md, PROTOCOL_EXTRA.md and PROTOCOL_MODERN.md for configurations, data pairing and limitations.
+The first three additions are exported from complete per-query predictions by figures/scripts/export_additional_ci.py. Their numeric table and provenance are figures/data/stress_additional_ci_results.csv and stress_additional_ci_provenance.json. RF-IJ and DRF are exported and independently checked by figures/scripts/export_extra_ci.py, with separate stress_extra_ci_results.csv and stress_extra_ci_provenance.json. RF-IJ uses ranger 0.18.0 with 2,000 trees and native infinitesimal-jackknife standard errors. Its mean coverage is 0.53057861328125 and mean interval length is 0.7261888936328144. DRF uses the official drf 1.3.1 native uncertainty API with 6,000 honest trees, 100 CI groups, exact group-weighted means and their sample variance. Its mean coverage is 0.5805023193359375 and mean interval length is 0.7703466374315616. All 1,280 tasks and 155,520 queries passed per-query verification on Beast and locally. Its intervals are short but substantially undercover this saved target; no universal coverage conclusion is asserted. BART and GP were cancelled by the user on 27 October 2026, who excluded Bayesian credible-interval baselines. Their pilot and partial results are not plotted. DeepLR was cancelled by the user and is excluded. BDE mean length is strongly influenced by high_noise__053, whose mean interval length is about 16,948.6; one bootstrap-retrained network produced extreme predictions. This finite result is retained without trimming; the extreme task is documented in these notes and the implementation audit. The existing Bootstrap comparator is TabPFN mean predictions across bootstrap resamples of context rows, distinct from BDE's parametric bootstrap retraining. Both target uncertainty in the regression function, not future-outcome noise. The archived six-method radar is unchanged. See experiments/ci_baselines/PROTOCOL.md, PROTOCOL_EXTRA.md and PROTOCOL_MODERN.md for configurations, data pairing and limitations.
 
 The latest additions are exported by figures/scripts/export_modern_ci.py into stress_modern_ci_results.csv and stress_modern_ci_provenance.json after all saved endpoints, standard errors, task/config hashes and metrics were independently checked remotely and locally. Each method uses all 1,280 tasks / 155,520 queries without trimming. BRAT-P: mean coverage 0.1536224365234375, mean length 0.2074908501043721. BRAT-D: 0.2644775390625 and 0.2666031319457618. RF-U: 0.6453704833984375 and 0.9489549325520208. These are results of fixed author README configurations on this benchmark, not tuned optimal performance or universal comparisons.
 
@@ -56,113 +51,246 @@ Inferable EBM was removed from this comparison at the user’s request on 27 Oct
 
 ---
 routeAlias: roadmap
+clicks: 0
+class: background-agenda
 ---
 
-<div class="eyebrow">The route</div>
+# Background
 
-# Prediction, uncertainty, then TabCon
-
-<div class="roadmap">
-<a href="#/pfn"><span>01</span><div><b>PFNs</b><p>A model that learns across datasets</p></div></a>
-<a href="#/two-questions"><span>02</span><div><b>Two kinds of uncertainty</b><p>A future outcome versus the underlying average</p></div></a>
-<a href="#/tabcon"><span>03</span><div><b>TabCon</b><p>Learning to construct confidence intervals</p></div></a>
-<a href="#/evidence"><span>04</span><div><b>The evidence</b><p>Coverage, interval length and computation</p></div></a>
-</div>
-
+<BackgroundAgenda active="ci" />
 
 <!--
-The first half develops the intuition. The second half connects that intuition to the learning target, model architecture and evidence. The section links are clickable.
+The background agenda presents CI construction first, followed by tabular foundation models. The two topics link to their corresponding sections. The interval illustration animates automatically: each repeated sample produces an estimate and an interval, while the true mean stays fixed. Two intervals cover it and one misses it; these three schematic samples do not represent a nominal coverage rate. No presentation clicks are required. The diagrams are conceptual illustrations, not experiment results.
+-->
+
+---
+routeAlias: confidence-intervals
+class: advisor-background
+---
+
+
+
+# CI Construction: A Classical Statistical Inference Problem
+
+<p class="lead">What is the average house price in London?</p>
+
+<div class="ci-example-grid">
+<div>
+<section class="panel ci-example-card ci-example-miss">
+<div class="ci-example-truth">£500k</div>
+<div class="ci-example-left">
+<div class="ci-example-track"><span style="left:0;width:100%;background:#dc3545"></span></div>
+<div class="ci-example-range" style="color:#dc3545">£460–490k</div>
+</div>
+</section>
+<div class="ci-example-verdict" style="color:#dc3545" aria-label="Cross: misses the true mean">✗</div>
+</div>
+<div>
+<section class="panel ci-example-card">
+<div class="ci-example-truth">£500k</div>
+<div class="ci-example-track"><span style="left:0;width:100%;background:#7c4dce"></span></div>
+<div class="ci-example-range violet">£440–560k</div>
+</section>
+</div>
+<div>
+<section class="panel ci-example-card ci-example-preferred">
+<div class="ci-example-truth">£500k</div>
+<div class="ci-example-fit">
+<div class="ci-example-track"><span style="left:0;width:100%;background:#0b9687"></span></div>
+<div class="ci-example-range teal">£480–520k</div>
+</div>
+</section>
+<div class="ci-example-verdict" style="color:#0b9687" aria-label="Tick: covers with a shorter interval">✓</div>
+</div>
+</div>
+
+<p class="ci-example-takeaway">Ideally, a CI covers the truth and is as short as possible to remain informative.</p>
+
+<!--
+Illustrative London house-price example, not a current market statistic. Each box shows the same hypothetical true average, £500k. The first interval misses it; the second covers it but is wide; the third covers it and is shorter. Bar lengths are schematic for readability, not drawn on a common numerical scale; the endpoints state the actual intervals. Show all three examples together. In practice the true mean is unknown: we seek procedures with reliable repeated-sampling coverage and short intervals rather than selecting a realized interval by checking unknown truth. The next slide explains coverage.
+-->
+
+---
+clicks: 1
+class: advisor-background
+---
+
+<div class="eyebrow">Given a nominal level <MathTex tex="1-\alpha" /></div>
+
+<h1>A CI should ideally cover the truth <MathTex tex="1-\alpha" /> of the time</h1>
+
+<CoverageDemo />
+<div class="source">Illustrative repeated-sampling intervals. One set of 20 need not contain exactly 19 successful intervals.</div>
+
+<!--
+Advance once to reveal the repeated-sampling intervals and then the coverage message. The underlying average stays fixed. Different datasets produce different estimates and intervals. A 95% procedure aims to cover that fixed target in about 95% of repeated experiments. This does not mean 95% of future outcomes fall in the confidence interval, and the frequentist statement is not a posterior probability assigned to the fixed target after observing one interval.
+-->
+
+---
+clicks: 0
+class: advisor-background
+---
+
+<div class="eyebrow">For decades, statisticians have been developing CI construction procedures</div>
+
+#  Resulting in a Rich Literature on Statistical Inference
+
+<div class="two mt-7 ci-paradigms">
+<div class="panel">
+<div class="eyebrow">Classical paradigm</div>
+<h3>Compute CIs anew for each data</h3>
+<ul>
+<li>Asymptotic calculations: Wald intervals <a class="ci-method-ref" href="https://doi.org/10.1090/S0002-9947-1943-0012401-3">(Wald, 1943)</a>; delta method <a class="ci-method-ref" href="https://books.google.com/books?id=_db1jwEACAAJ">(Cramér, 1946)</a>.</li>
+<li>Resampling: bootstrap <a class="ci-method-ref" href="https://doi.org/10.1214/aos/1176344552">(Efron, 1979)</a>.</li>
+<li>Bayesian inference: credible intervals <a class="ci-method-ref" href="https://doi.org/10.1098/rstl.1763.0053">(Bayes, 1763)</a>.</li>
+<li>…</li>
+</ul>
+</div>
+<div class="panel" style="background:#eef2ff;border-color:#c3cff7">
+<div class="eyebrow">Our new paradigm</div>
+<h3>Learn the computing procedure itself</h3>
+<ul>
+<li>Approximate CI construction with a single neural network.</li>
+<li>Learn its parameters through pre/post-training across simulated data.</li>
+<li>Produce CIs for a new dataset in a single forward pass.</li>
+</ul>
+</div>
+</div>
+
+<!--
+The contrast concerns where computation occurs. Conventional asymptotic, bootstrap and posterior procedures typically compute uncertainty anew for each dataset; their mathematical recipes are reusable, so we do not design a new method from scratch for each dataset. Bayesian credible intervals have a posterior-probability interpretation and are not automatically frequentist confidence intervals. Bayesian inference can also be amortized; the left box describes conventional per-dataset implementations, not an inherent limitation of these mathematical families. Our approach moves shared computation into training across tasks, then applies the learned interval procedure to a new dataset. The network still performs inference-time computation, and shared pre/post-training has a cost. At this level, the single network denotes the complete TabCon system, including its frozen foundation-model backbone and trained heads/router.
+-->
+
+---
+routeAlias: background-tfm
+clicks: 0
+class: background-agenda advisor-background
+---
+
+# Background
+
+<BackgroundAgenda active="tfm" />
+
+---
+routeAlias: foundation-models
+clicks: 0
+class: advisor-background
+---
+
+<div class="eyebrow">We have foundation models for images, language, …</div>
+
+# One Model, Many Tasks Without Retraining
+
+<FoundationModalities />
+
+<div class="callout mt-6"><b>Tabular foundation models</b> adopt the same idea, but for <b>tabular data</b>.</div>
+
+<!--
+Start from the familiar idea of a pretrained model that supports multiple downstream tasks. Vision foundation models work with images; language foundation models such as GPT work with text. The visuals are schematic examples of modalities and capabilities, not screenshots or outputs from a particular model. Tabular foundation models bring this reuse idea to rows and columns. This is an analogy, not a claim that their training data, objectives or architectures must be identical. The following slides introduce PFNs as the particular approach used by TabCon.
 -->
 
 ---
 routeAlias: tabular-timeline
-class: timeline-slide
+clicks: 0
+class: tabular-history-slide advisor-background
 ---
 
-<div class="eyebrow">Before PFNs · A development timeline</div>
+# How Learning on Tabular Data Evolved
 
-# How tabular learning evolved
-
-<TabularTimeline />
-<div class="source">Sources: <a href="https://doi.org/10.1109/TPAMI.2026.3657217">Jiang et al., TPAMI (2026)</a> · <a href="https://www.jmlr.org/papers/v23/21-0585.html">DRF</a> · <a href="https://doi.org/10.1073/pnas.2310151122">FIGS</a> · <a href="https://xgboost.readthedocs.io/en/stable/changes/v3.2.0.html">XGBoost 3.2</a> · <a href="https://arxiv.org/abs/2112.10510">PFNs</a> · <a href="https://github.com/PriorLabs/TabPFN/blob/main/CHANGELOG.md">TabPFN releases</a> · <a href="https://proceedings.mlr.press/v306/qu26a.html">TabICL v2</a> · <a href="https://research.google/blog/introducing-tabfm-a-zero-shot-foundation-model-for-tabular-data/">TabFM</a>.</div>
+<TabularEvolution />
 
 <!--
-A single, fully visible timeline with four connected research directions. Solid lines group milestones within a direction. Dashed arrows show shared ideas or changes in training strategy, not direct paper-to-paper ancestry. Hovering a dashed connector or focusing it with the keyboard highlights its two related routes. These interactions do not hide content or require slide clicks.
+Each row is an independent chronological timeline, not a shared time scale. Milestones link to representative primary sources, not necessarily the first invention of each broad method. Least squares was published by Legendre in 1805. Schoenberg's 1964 smoothing splines precede the 1972 GLM unification of linear, logistic and Poisson models; these regressions themselves are older. Cleveland's 1979 local polynomial smoother is a representative local-regression milestone, not the invention of all local polynomial methods. AdaBoost uses the 1997 journal year; its conference precursor appeared in 1995. The modern ML row begins with the 1986 backpropagation milestone for MLPs, not the invention of multilayer networks. Random forests and gradient boosting share the 2001 milestone. The separate deep-learning row is omitted for clarity.
 
-Classical ML has an expanded pre-2016 inset: linear/logistic regression, kNN, SVM, CART, AdaBoost, random forests and gradient boosting. The inset compresses early history rather than assigning precise first-publication dates to these broad families. XGBoost (2016), LightGBM/CatBoost (2017) and NGBoost (ICML 2020) sit on the modern timeline. NGBoost extends gradient boosting to probabilistic prediction; it is not an inference method for the regression mean like TabCon. After NGBoost, this route continues with PGBM (KDD 2021), which efficiently produces probabilistic predictions with one tree ensemble; Distributional Random Forests (JMLR 2022), which estimate joint conditional distributions; and FIGS (PNAS 2025), which grows interpretable sums of trees. FIGS had a 2022 preprint; this timeline uses its journal publication year, consistent with the venue-year convention elsewhere. The 2026 endpoint is explicitly a software release: XGBoost 3.2 improves multi-target tree support and GPU external-memory training. These are parallel advances in probabilistic prediction, interpretability and scalable learning, not a chain of models replacing one another. The selected milestones do not imply that years without a label had no research.
-
-The previously empty left region now contains general-ML foundations for each route: MLPs/autoencoders for learned representations; unsupervised pretraining followed by fine-tuning; and multitask/meta-learning for learning from related tasks. These are conceptual roots, not claims that all later models descend directly from a particular early method. Representative primary sources are Bengio et al. (NIPS 2006), Caruana (1997), and Hochreiter et al. (2001).
-
-The two upper bridges are concrete architectural connections: NODE makes oblivious decision-tree ensembles differentiable and trains them end to end; TabR combines a neural network with a learned nearest-neighbor retrieval component. The latter applies to TabR, not the adjacent RealMLP label. Likewise, the tree bridge refers to NODE, not TabTransformer, which shares its 2020 milestone.
-
-The two lower bridges describe changes in the unit or role of training. Neural representation learning can be used for pretraining followed by downstream adaptation. The PFN approach instead pretrains across sampled prediction tasks, learning a reusable prediction procedure. The arrow from the pretraining route to PFNs is conceptual, not a claim that PFNs derive from VIME, SubTab or any particular model shown above. The foundation-model route includes HyperFast as another approach. All model labels and nodes on this route use the same blue; green distinguishes TabCon as the focus of this talk.
-
-The timeline now extends through October 2026. In addition to the survey's original examples, it includes TabPFN 2.5 (November 6, 2025), TabPFN 2.6 (March 24, 2026), TabPFN 3 (May 12, 2026), TabPFN 3.5 (September 15, 2026), TabICL v2 (ICML 2026), and Google's TabFM (June 30, 2026). These dates were verified against official reports, release notes and proceedings on October 26, 2026. Model names follow the official release naming; the model often called TabPFN v3 is styled TabPFN-3 in its report. The green TabCon branch explicitly says "via TabPFN 3"; the other 2026 releases are parallel developments.
-
-Earlier examples retain the verified survey years. PFNs are listed by their 2022 conference year (preprint 2021); TabPFN is ICLR 2023; TabPFN v2 is Nature 2025; TabICL is ICML 2025. The full survey catalog remains in figures/specs/tabular-timeline-data.json, and the added releases and early conceptual roots are sourced in figures/specs/timeline-updates-2026.json. This remains a selection of milestones, not an exhaustive bibliography.
-
-TabCon extends the reuse question from prediction to statistical inference about the regression mean. Its position identifies the destination of this talk, not a claim that it supersedes the displayed predictive methods.
-
-New release sources: https://priorlabs.ai/technical-reports/tabpfn-3 ; https://github.com/PriorLabs/TabPFN/blob/main/CHANGELOG.md ; https://proceedings.mlr.press/v306/qu26a.html ; https://research.google/blog/introducing-tabfm-a-zero-shot-foundation-model-for-tabular-data/ .
-Early conceptual sources: https://proceedings.neurips.cc/paper/2006/hash/5da713a690c067105aeb2fae32403405-Abstract.html ; https://doi.org/10.1023/A:1007379606734 ; https://doi.org/10.1007/3-540-44668-0_13 ; https://www.bioinf.jku.at/publications/older/1504.pdf .
-
-Post-2020 classical milestones: https://arxiv.org/abs/2106.01682 ; https://www.jmlr.org/papers/v23/21-0585.html ; https://doi.org/10.1073/pnas.2310151122 ; https://xgboost.readthedocs.io/en/stable/changes/v3.2.0.html .
-
-Primary sources for the new connections and NGBoost: https://iclr.cc/virtual_2020/poster_r1eiu2VtwH.html ; https://proceedings.iclr.cc/paper_files/paper/2024/hash/4ef594af0d9a519db8fb292452c461fa-Abstract-Conference.html ; https://proceedings.mlr.press/v119/duan20a.html ; https://arxiv.org/abs/2112.10510 .
-Other sources: https://doi.org/10.1109/TPAMI.2026.3657217 ; https://github.com/LAMDA-Tabular/Tabular-Survey ; https://openreview.net/forum?id=cp5PvcI6w8_ ; https://www.nature.com/articles/s41586-024-08328-6 ; https://proceedings.mlr.press/v267/qu25d.html ; https://arxiv.org/abs/2609.33114 .
+The PFN paper is Transformers Can Do Bayesian Inference: preprint December 2021, ICLR 2022. The visible PFN date is explicitly its 2021 preprint year. This is a foundational PFN paper, not the first foundation-model paper in every sense. TabPFN follows at ICLR 2023 (2022 preprint); TabPFN v2 is Nature 2025. TabICL is ICML 2025, TabICL v2 ICML 2026: https://github.com/soda-inria/tabicl . LimiX paper: September 2025, https://arxiv.org/abs/2509.03505 . LimiX-2M is a 2-million-parameter model released November 2025, with a June 2026 paper https://arxiv.org/abs/2606.04485 ; it is distinct from LimiX-2, released September 2026, https://arxiv.org/abs/2609.17488 . Official release chronology: https://github.com/limix-ldm-ai/LimiX . TabPFN 2.5: November 2025; 2.6: March 2026; 3: May 2026; 3.5: September 2026, from official model reports and https://github.com/PriorLabs/TabPFN/blob/main/CHANGELOG.md . These are selected developments through October 2026, not an exhaustive catalog or a replacement hierarchy.
 -->
 
 ---
 routeAlias: pfn
-clicks: 2
+clicks: 0
+class: pfn-papers-slide advisor-background
 ---
 
-<div class="eyebrow">01 · PFNs</div>
+# Tabular Foundation Models
 
-# Prior-Data Fitted Networks
-
-<p class="lead">A Transformer can learn a prediction procedure across synthetic datasets.</p>
-
-<div class="two mt-8">
-<div class="panel"><div class="eyebrow">The familiar workflow</div><h3>One dataset</h3><p>Fit a model.<br>Use it to predict new rows.</p><div class="small mt-6">Learning happens on this dataset.</div></div>
-<div v-click="1" class="panel" style="border-color:#bac9ff;background:#f1f4ff"><div class="eyebrow">The PFN idea</div><h3>Many training tasks</h3><p>Learn a network that can read a new dataset and make predictions.</p><div class="small mt-6">The dataset becomes the context.</div></div>
+<div class="pfn-paper-columns">
+<section>
+<div class="paper-year"><span>2021</span></div>
+<h2>PFN</h2>
+<div class="paper-venue">ICLR 2022</div>
+<a class="paper-header-image" href="https://arxiv.org/abs/2112.10510"><img src="/figs/pfn-paper-header.png" alt="Original header of Transformers Can Do Bayesian Inference" /></a>
+<a class="paper-title" href="https://arxiv.org/abs/2112.10510">Transformers Can Do<br>Bayesian Inference</a>
+<p class="paper-focus">The general framework</p>
+</section>
+<section>
+<div class="paper-year"><span>2023</span></div>
+<h2>TabPFN</h2>
+<div class="paper-venue">ICLR 2023</div>
+<a class="paper-header-image" href="https://arxiv.org/abs/2207.01848"><img src="/figs/tabpfn-paper-header.png" alt="Original header of TabPFN: A Transformer That Solves Small Tabular Classification Problems in a Second" /></a>
+<a class="paper-title" href="https://arxiv.org/abs/2207.01848">TabPFN: A Transformer That Solves Small Tabular Classification Problems in a Second</a>
+<p class="paper-focus">Tabular classification</p>
+</section>
+<section>
+<div class="paper-year"><span>2025</span></div>
+<h2>TabPFN-v2</h2>
+<div class="paper-venue">Nature 2025</div>
+<a class="paper-header-image" href="https://doi.org/10.1038/s41586-024-08328-6"><img src="/figs/tabpfn-v2-paper-header.png" alt="Original header of Accurate predictions on small data with a tabular foundation model" /></a>
+<a class="paper-title" href="https://doi.org/10.1038/s41586-024-08328-6">Accurate predictions on small data with a tabular foundation model</a>
+<p class="paper-focus">Classification + regression</p>
+</section>
 </div>
-<div v-click="2" class="callout mt-6">Like in-context learning, with <b>rows of a table</b> as examples.</div>
-<div class="source">Müller et al., <a href="https://arxiv.org/abs/2112.10510">Transformers Can Do Bayesian Inference</a>; Hollmann et al., <a href="https://doi.org/10.1038/s41586-024-08328-6">Nature, 2025</a>.</div>
+
 
 <!--
-PFN means Prior-Data Fitted Network. The prior is a distribution over possible data-generating tasks. In the standard use we discuss, training happens across simulated tasks, and the new dataset is supplied as context rather than used for gradient updates. Fine-tuning variants exist, but they are not needed for this explanation. Sources: https://arxiv.org/abs/2112.10510 and https://doi.org/10.1038/s41586-024-08328-6
+PFN means Prior-Data Fitted Network: a general approach to learning approximate Bayesian posterior prediction under a synthetic task prior. The first paper was posted in December 2021 and published at ICLR 2022; use 2021 here to match the preceding timeline, with the conference year explicit in the citation. TabPFN is a concrete PFN trained for small tabular classification, published at ICLR 2023 (2022 preprint). TabPFN-v2 is the successor described in the 2025 Nature paper, extending the scope to classification and regression and larger, more varied datasets. PFN is the framework; TabPFN and TabPFN-v2 are successive tabular implementations, not three unrelated algorithms. The common recipe is pretraining on synthetic tasks, supplying a new dataset as context, and predicting without per-dataset gradient updates in standard in-context deployment. Later fine-tuning variants exist. Learned Bayesian prediction is relative to the training task prior; it is not an automatic frequentist CI guarantee.
+-->
+
+---
+routeAlias: prior-labs
+clicks: 0
+class: advisor-background
+---
+
+# Prior Labs: From Research to Industry
+
+<PriorLabsOverview />
+
+<!--
+Prior Labs commercializes the TabPFN family. The official product page offers TabPFN-3.5, with Python/open-source, API and enterprise deployment routes. The visual is a still from the official TabPFN-3.5 product demo, linked by the product page at https://app.vidzflow.com/v/2QLEwEEaoO ; image URL https://r2.vidzflow.com/thumbnails/2QLEwEEaoO_1789039685.jpg . Do not describe it as a screenshot of a customer deployment.
+
+Funding: Balderton's 5 February 2025 announcement confirms a €9 million pre-seed round, led by Balderton with other investors. This is a publicly announced financing round, not an assertion about audited total lifetime funding. SAP announced completion of its acquisition on 17 July 2026. Prior Labs continues to operate as an independent entity within SAP. The company is acquired rather than independently publicly listed; do not imply an announced standalone IPO. SAP itself is publicly listed. SAP committed more than €1 billion over the following four years. This is a forward investment commitment, not additional VC already raised and not the acquisition purchase price. Acquisition terms were not disclosed. Information checked on 28 October 2026 against Prior Labs, Balderton and SAP primary sources.
+-->
+
+---
+routeAlias: pfn-ecosystem
+clicks: 0
+class: ecosystem-slide advisor-background
+---
+
+# Since 2025, Over 100 Papers on PFNs Have Appeared
+
+<PFNEcosystem />
+
+<!--
+The numeric title is supplied by the speaker. An independent bibliographic count of more than 100 PFN papers published since 2025 has not been established here; do not treat the selected references as substantiation of the number. Papers, model families, checkpoints and applications are different counting units.
+
+The first category groups predictive models and architecture research. SOMTab is third as requested; it uses Mamba-based state-space mixing. TabFM is Google Research's tabular model; Kumo Tabular is NVIDIA's September 2026 release. Research-code availability does not imply all examples are commercial products with equivalent support or licenses. TabICL and LimiX version chronologies follow their official repositories.
+
+Causal effect estimation: Do-PFN (Robertson et al., NeurIPS 2025), CausalPFN (Balazadeh et al., 2025), CausalFM (Ma, Frauen, Javurek and Feuerriegel, ICLR 2026), and Learning to Fluctuate: Statistical Foundations for Causal Tabular Pretraining (Zhiheng Zhang, 2026, arXiv:2609.26290). Zhang's method is fluctuation-supervised pretraining (FSP), not another paper named CausalPFN. These methods differ in priors and identifying assumptions; none makes arbitrary observational causal effects identifiable without assumptions.
+
+UQ: The first three entries are the three works discussed at the end of Section 2 of TabCon: Nagler and Rügamer, Uncertainty Quantification for Prior-Data Fitted Networks using Martingale Posteriors (arXiv:2505.11325, first posted 2025; revised 2026, cited as 2026 in TabCon); Ng, Fong, Frazier, Knoblauch and Wei, TabMGP: Martingale Posterior with TabPFN (ICML 2026, arXiv:2510.25154); Fortini, Ng, Petrone, Rousseau and Wei, Uncertainty Decomposition for Bayes-Filtered Transformers via Bayesian Predictive Inference (2026, arXiv:2602.04596). Additional references: Melnychuk et al., Frequentist Consistency of Prior-Data Fitted Networks for Causal Inference (ICML 2026, arXiv:2603.12037), with one-step posterior correction (OSPC); Florian D. van Leeuwen, Conformal Prediction for Tabular Prior-Data Fitted Networks with Missing data (AI for Tabular Data workshop at EurIPS 2025). Conformal prediction targets predictive coverage, while martingale posteriors and OSPC address other inferential quantities; these are not interchangeable frequentist CI guarantees. Sources checked 28 October 2026.
 -->
 
 ---
 clicks: 2
+class: advisor-background
 ---
 
-<div class="eyebrow">PFN · Training</div>
+# How Do Tabular Foundation Models Work?
 
-# Practice on many possible worlds
-
-<p class="lead">Generate tables, hide outcomes, and learn to predict them.</p>
-
-<PFNFlow mode="train" />
-<div class="source">Schematic training tasks. PFN background: <a href="https://arxiv.org/abs/2112.10510">Müller et al.</a> and <a href="https://doi.org/10.1038/s41586-024-08328-6">Hollmann et al.</a></div>
-
-<!--
-Advance twice. First hide a target, then show the training signal. The formula is the prior-data negative log-likelihood: q_theta is the network's predictive distribution, D is the observed context, and (x,y) is a held-out row from the same simulated task. The expectation averages over tasks drawn from the training prior and their sampled context/query rows; in practice this is estimated using a batch of negative log-likelihood terms. The hidden y is used to compute the loss, not supplied as an input when predicting it. For continuous outcomes, q_theta denotes a predictive density. The same network sees many relationships, noise levels and dataset sizes. This is where the reusable prediction procedure is learned. The tiny datasets are explanatory sketches, not experiments. The PFN approximates Bayesian posterior prediction under its synthetic task prior, rather than an arbitrary universal predictive distribution. Source: https://arxiv.org/html/2112.10510#S3
--->
-
----
-clicks: 2
----
-
-<div class="eyebrow">PFN · Deployment</div>
-
-# A new table becomes the prompt
-
-<p class="lead">Observed rows + a query row give a distribution over the missing outcome.</p>
+<p class="lead">A training dataset (predictors &amp; labels) + test predictors → a distribution over test labels.</p>
 
 <PFNFlow mode="predict" />
-<div class="source">Illustrative house-price table, prices in £k. Standard in-context use of a pretrained PFN; no gradient updates on this dataset.</div>
 
 <!--
 Advance to send the new table into the frozen model, then reveal a predictive distribution. In regression, the output can express several plausible values of the next outcome. The values and density here are illustrative and are not outputs from a fitted TabPFN model. Source for the workflow: https://doi.org/10.1038/s41586-024-08328-6
@@ -170,122 +298,49 @@ Advance to send the new table into the frozen model, then reveal a predictive di
 
 ---
 clicks: 2
+class: advisor-background
 ---
 
-<div class="eyebrow">Predictive uncertainty</div>
+# How to Train Tabular Foundation Models
 
-# A distribution can give a prediction interval
+<p class="lead">Generate datasets, mask outcomes, and learn to predict them.</p>
 
-<PredictiveDensity />
-<div class="source">Illustrative Gaussian predictive distribution, mean £500k and standard deviation £80k. Nominal 95% mass under this distribution.</div>
+<PFNFlow mode="train" />
 
 <!--
-A distribution is not itself an interval. One way to obtain an interval is to read off its 2.5th and 97.5th percentiles. The shaded region contains 95% of this model distribution. Reliable real-world predictive coverage still depends on calibration and assumptions. This interval targets a new observed sale price and combines outcome variation with uncertainty in our knowledge.
--->
-
----
-routeAlias: two-questions
-clicks: 1
----
-
-<div class="eyebrow">02 · Two targets</div>
-
-# One house, two different questions
-
-<p class="lead">Fix its observed features: floor area, location, age, and so on.</p>
-
-<div class="two mt-8">
-<div class="panel" style="border-top:4px solid #4263eb"><span class="pill">Future outcome</span><h3>What might this house sell for?</h3><p>A range for one future transaction.</p><div class="mt-7 blue font-bold">Prediction interval</div></div>
-<div v-click="1" class="panel" style="border-top:4px solid #0b9687"><span class="pill" style="background:#e9f8f4;color:#0b9687">Underlying average</span><h3>How precisely do we know the average price?</h3><p>A range for the mean among houses with these features.</p><div class="mt-4 teal font-bold">Confidence interval</div></div>
-</div>
-<div class="source">The target in this paper is the regression mean f(x) = E[Y | X = x]. This is an association, not a causal effect.</div>
-
-<!--
-Hold the covariates fixed in both questions. Individual houses can still differ in unobserved ways. For the second question, those differences do not change the target: the average for houses with these observed features. The current paper studies this conditional mean, not a causal treatment effect. Source: https://arxiv.org/html/2609.33114v1#S3
--->
-
----
-clicks: 3
----
-
-<div class="eyebrow">Two targets · One picture</div>
-
-# The average and the individual can differ
-
-<IntervalLab mode="compare" />
-<div class="source">Simulated illustration: linear mean, independent Gaussian noise, known noise scale. These are analytical example intervals, not TabCon outputs.</div>
-
-<!--
-First show the fitted mean, then the broad predictive band, then the confidence band. At 100 square metres, the blue range concerns a new house and the green range concerns the average. Width alone does not tell us which interval is better: first choose the target. The bands are pointwise 95% intervals in a simple correctly specified Gaussian example, not simultaneous confidence bands.
+Advance twice. First hide a target, then show the training signal. The formula is the prior-data negative log-likelihood: q_theta is the network's predictive distribution, D is the observed context, and (x,y) is a held-out row from the same simulated task. The expectation averages over tasks drawn from the training prior and their sampled context/query rows; in practice this is estimated using a batch of negative log-likelihood terms. The hidden y is used to compute the loss, not supplied as an input when predicting it. For continuous outcomes, q_theta denotes a predictive density. The same network sees many relationships, noise levels and dataset sizes. This is where the reusable prediction procedure is learned. The tiny datasets are explanatory sketches, not experiments. The PFN approximates Bayesian posterior prediction under its synthetic task prior, rather than an arbitrary universal predictive distribution. Source: https://arxiv.org/html/2112.10510#S3
 -->
 
 ---
 clicks: 2
+class: advisor-background
 ---
 
-<div class="eyebrow">An interactive thought experiment</div>
+<div class="eyebrow">These models already quantify uncertainty by producing predictive distributions</div>
 
-# What changes when we collect more data?
+# Through Which Prediction Intervals (PIs) Can Be Drawn
+
+<PredictiveDensity />
+
+<!--
+Advance once to reveal the central 95% predictive mass and the PI; advance again to compare the separate CI for the mean. A distribution is not itself an interval. One way to obtain an interval is to read off its 2.5th and 97.5th percentiles. The shaded region contains 95% of this model distribution. Reliable real-world predictive coverage still depends on calibration and assumptions. This interval targets a new observed sale price and combines outcome variation with uncertainty in our knowledge. The blue PI is approximately £343k–£657k under an illustrative Gaussian predictive distribution with mean £500k and standard deviation £80k. The green CI £480k–£520k is a separate illustrative interval for the unknown mean; it is not computed by taking narrower quantiles of the same outcome distribution. Both bars use the same price scale. The example demonstrates different targets and is not a real fitted TabCon result.
+-->
+
+
+
+
+---
+clicks: 2
+class: advisor-background
+---
+
+# What Changes When We Collect More Data?
 
 <IntervalLab mode="grow" />
 <div class="source">Simulated illustration with known Gaussian noise. Advance with the arrow key or select a sample size. Bands are pointwise, not simultaneous.</div>
 
 <!--
 Advance through 20, 80 and 320 observations, or use the buttons. More data makes the average more precise in this well-specified example, while the range for a new sale retains irreducible outcome variation. This is intuition, not a general guarantee of monotone interval shrinkage for every fitted model or every realized dataset.
--->
-
----
-clicks: 2
----
-
-<div class="eyebrow">Why confidence intervals?</div>
-
-# A point estimate hides how much we know
-
-<p class="lead">Both analyses estimate the average price at £500k.</p>
-
-<div class="two mt-7">
-<div class="panel text-center"><div class="small">Less information</div><div class="big-number mt-3">£500k</div><div style="height:4px;background:#7c4dce;margin:30px 8px 14px"></div><div class="violet text-xl">£440k–£560k</div><p class="small">A broad range remains compatible.</p></div>
-<div v-click="1" class="panel text-center"><div class="small">More information</div><div class="big-number mt-3">£500k</div><div style="height:4px;background:#0b9687;margin:30px 110px 14px"></div><div class="teal text-xl">£488k–£512k</div><p class="small">The average is more tightly located.</p></div>
-</div>
-<div v-click="2" class="callout green mt-5">Confidence intervals help us report precision and judge whether more evidence is needed.</div>
-<div class="source">Hypothetical estimates and intervals, used only to illustrate precision. A confidence interval does not measure every source of uncertainty or bias.</div>
-
-<!--
-The point estimate is the same, but the scientific message is different. A narrow interval can support a precise statement about the average. A broad interval can show that further data would be valuable. Neither interval alone resolves model misspecification, unmeasured confounding or a bad sampling design. The example concerns an association, not a causal effect.
--->
-
----
-clicks: 1
----
-
-<div class="eyebrow">Confidence, intuitively</div>
-
-# What does “95% confidence” mean?
-
-<CoverageDemo />
-<div class="source">Illustrative repeated-sampling intervals. One set of 20 need not contain exactly 19 successful intervals.</div>
-
-<!--
-Advance once to reveal all 20 intervals and the coverage count. The underlying average stays fixed. Different datasets produce different estimates and intervals. A 95% procedure aims to cover that fixed target in about 95% of repeated experiments. This does not mean 95% of future outcomes fall in the confidence interval, and the frequentist statement is not a posterior probability assigned to the fixed target after observing one interval.
--->
-
----
-clicks: 1
----
-
-<div class="eyebrow">The computational question</div>
-
-# Must every new dataset start from scratch?
-
-<div class="two mt-8">
-<div class="panel"><div class="eyebrow">Resampling at deployment</div><h3>A bootstrap workflow</h3><p>Resample the dataset many times.<br>Refit the predictor each time.<br>Compare the resulting estimates.</p><div class="small mt-6">The computation repeats for each dataset.</div></div>
-<div v-click="1" class="panel" style="background:#eef2ff;border-color:#c3cff7"><div class="eyebrow">Learning across tasks</div><h3>An amortized workflow</h3><p>Learn the interval procedure beforehand.<br>Apply it to a new dataset.</p><div class="blue mt-8 font-bold">Can the PFN idea extend to inference?</div></div>
-</div>
-<div class="source">Amortization moves computation into shared training. It does not eliminate training cost. Bootstrap is one example of a dataset-specific procedure.</div>
-
-<!--
-Bootstrap is a familiar way to estimate how an estimator varies, though it requires assumptions and does not automatically work for every estimator. The question here is whether a learned procedure can avoid repeated deployment-time resampling. The computational cost of shared pretraining still exists.
 -->
 
 ---

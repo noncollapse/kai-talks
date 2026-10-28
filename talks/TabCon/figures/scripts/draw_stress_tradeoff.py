@@ -21,7 +21,7 @@ from draw_stress_preview import ROOT, OUT, SETTINGS, METHODS as ORIGINAL_METHODS
 STEM = 'stress-opening-tradeoff'
 NOMINAL = .95
 FIRST_ADDITIONS = ['GRF', 'Local Linear Forest', 'BDE']
-NAMES = {**ORIGINAL_NAMES, 'BDE': 'BDE*', 'AMP': 'AMP (CrI)'}
+NAMES = {**ORIGINAL_NAMES, 'PI': 'TabPFN (Prediction Interval)'}
 STYLES = {**ORIGINAL_STYLES,
     'GRF': ('#368267', 'P', '-'),
     'Local Linear Forest': ('#1b94a7', 'v', '-'),
@@ -173,12 +173,13 @@ def main():
         'figure.facecolor': BG, 'axes.facecolor': BG,
         'savefig.facecolor': BG, 'axes.unicode_minus': False,
     })
-    fig = plt.figure(figsize=(13.6, 5.65))
-    ax = fig.add_axes([.09, .145, .86, .79])
+    # Place direction guides inside the plot so margins can serve the data.
+    fig = plt.figure(figsize=(13.6, 5.8))
+    ax = fig.add_axes([.075, .115, .91, .82])
     summary['broken_x_axis'] = False
     ax.set_xscale('log')
     ax.set_xlim(.15, 30)
-    ax.set_ylim(-85, 11)
+    ax.set_ylim(-85, 5.5)
     ax.axhspan(0, ax.get_ylim()[1], color='#e9f5f3', alpha=.65, zorder=0)
     ax.axhspan(ax.get_ylim()[0], 0, color='#fff1ec', alpha=.38, zorder=0)
     ax.xaxis.set_major_locator(FixedLocator([.2,.5,1,2,5,10,20] if modern['methods'] else [.5,1,2,4,8,16]))
@@ -187,8 +188,8 @@ def main():
     ax.set_yticks([-80,-60,-40,-20,0,5] if modern['methods'] else [-40,-30,-20,-10,0,5])
     ax.yaxis.set_major_formatter(FuncFormatter(lambda value, _: f'{value:+g}' if value else '0'))
     ax.tick_params(axis='both', labelsize=13, length=0, pad=8, colors=MUTED)
-    ax.set_xlabel('Mean interval length  (log scale)', fontsize=16, labelpad=9)
-    ax.set_ylabel('Coverage deviation from 95%  (pp)', fontsize=16, labelpad=12)
+    ax.set_xlabel('Mean interval length (log scale)', fontsize=16, labelpad=7)
+    ax.set_ylabel('Coverage deviation from 95% (pp)', fontsize=16, labelpad=10)
     ax.grid(color=GRID, linewidth=.8)
     ax.set_axisbelow(True)
     for spine in ax.spines.values():
@@ -198,21 +199,19 @@ def main():
     # Signed deviations are minimized in distance to zero, not toward -infinity.
     # Replace the old lower-left Pareto staircase with the nominal target line.
     ax.axhline(0, color='#345b74', linewidth=1.6, linestyle=(0, (5, 3)), zorder=3)
-    ax.text(.17, 6.5, 'OVERCOVERAGE', color='#258476', fontsize=12, weight='bold')
+    ax.text(.17, 2.8, 'OVERCOVERAGE', color='#258476', fontsize=12, weight='bold', va='center')
     ax.text(.17, -6.5, 'UNDERCOVERAGE', color='#b87964', fontsize=12, weight='bold')
     ax.annotate('95% target', xy=(23, 0), xytext=(-2, -10),
                 textcoords='offset points', ha='right', va='top',
                 fontsize=12.5, color='#345b74',
                 bbox=dict(facecolor=BG, edgecolor='none', pad=1.5))
-    ax.text(.99, .94, 'Dots: means across 10 settings', transform=ax.transAxes,
-            ha='right', va='top', fontsize=11.5, color=MUTED)
 
     for method in methods:
         point(ax, method, metrics, size=100 if method in ('RF-IJ', 'PI', 'AMP') else 145)
     label(ax, 'Bootstrap', metrics, (-14, 3), ha='right')
     label(ax, 'RFF', metrics, (-12, 0), ha='right')
     label(ax, 'Linear', metrics, (13, 0))
-    label(ax, 'PI', metrics, (-12, 13), size=15.5, ha='right')
+    label(ax, 'PI', metrics, (0, 20), size=15.5, ha='center')
     label(ax, 'AMP', metrics, (12, 0), size=15.5)
     label(ax, 'TabCon', metrics, (-15, -11), size=17, ha='right', boxed=True)
     label(ax, 'BDE', metrics, (14, 0), size=16)
@@ -232,9 +231,17 @@ def main():
         if method not in cluster_labels:
             label(ax, method, metrics, (14, 0), size=15.5)
 
-    ax.annotate('Shorter intervals', xy=(1.25, -78), xytext=(2.5, -78),
-                ha='left', va='center', fontsize=12, color=MUTED,
-                arrowprops=dict(arrowstyle='->', color=MUTED, lw=1.3))
+    # Keep the horizontal guide at the bottom centre and the vertical guide
+    # at the left centre. The upward guide remains below the nominal line.
+    guide_arrow = dict(arrowstyle='->', color=MUTED, lw=1.3)
+    ax.annotate('', xy=(.38, .14), xytext=(.62, .14),
+                xycoords='axes fraction', arrowprops=guide_arrow)
+    ax.text(.50, .085, 'Shorter intervals', transform=ax.transAxes,
+            ha='center', va='center', fontsize=13.5, color=MUTED)
+    ax.annotate('', xy=(.04, .65), xytext=(.04, .38),
+                xycoords='axes fraction', arrowprops=guide_arrow)
+    ax.text(.065, .515, 'Better coverage', transform=ax.transAxes,
+            rotation=90, ha='center', va='center', fontsize=13.5, color=MUTED)
 
     for suffix in ['svg', 'pdf', 'png']:
         fig.savefig(OUT / f'{STEM}.{suffix}', dpi=220,
