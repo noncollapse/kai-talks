@@ -1,6 +1,6 @@
 # Kai’s talks
 
-Research talks and short courses by [Kai Ye](https://noncollapse.github.io/).
+Research talks and short courses by [Kai Ye](https://kaiye.noncollapse.com/).
 
 [Browse all talks](https://noncollapse.github.io/kai-talks/)
 

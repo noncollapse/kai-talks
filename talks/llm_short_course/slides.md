@@ -64,7 +64,7 @@ A Guide to Principles and Training Methods
   </div>
 
   <div class="flex items-center justify-center gap-5 mt-5">
-    <a href="https://noncollapse.github.io/" target="_blank" class="text-xl opacity-80 hover:opacity-100 transition-opacity" title="Homepage">
+    <a href="https://kaiye.noncollapse.com/" target="_blank" class="text-xl opacity-80 hover:opacity-100 transition-opacity" title="Homepage">
       🏠
     </a>
     <a href="https://scholar.google.com/citations?user=a7G8Yo8AAAAJ" target="_blank" class="text-xl opacity-80 hover:opacity-100 transition-opacity" title="Google Scholar">
@@ -4398,7 +4398,7 @@ class: text-center
 </div>
 
 <div class="abs-br m-6 flex gap-2">
-  <a href="https://noncollapse.github.io/" target="_blank" alt="GitHub"
+  <a href="https://kaiye.noncollapse.com/" target="_blank" alt="GitHub"
     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon-logo-github />
   </a>
