@@ -31,9 +31,9 @@ The main question of this paper is quite simple.
 
 We already have foundation models for prediction. But can we also use foundation models for statistical inference?
 
-And we choose confidence intervals as our first topic In particular, can we train a model to construct confidence intervals for different datasets, without running a new statistical procedure every time?
+And we choose confidence intervals as our first topic. In particular, can we train a model to construct confidence intervals for different datasets, without running a new statistical procedure every time?
 
-Today, I will first introduce some background on confidence intervals and tabular foundation models.Then, I will explain our proposed method, called TabCon.
+Today, I will first introduce some background on confidence intervals and tabular foundation models. Then, I will explain our proposed method, called TabCon.
 -->
 
 ---
@@ -54,9 +54,11 @@ When we construct confidence intervals, we care about two things. First, we want
 
 This figure shows these two things.
 
-The horizontal axis shows the average interval length. Shorter is better.
+Each point represents one method, averaged across ten stress-test settings.
 
-The vertical axis shows the difference between the actual coverage and our target of 95 percent. So, closer to zero is better.
+The horizontal axis shows the average interval length on a logarithmic scale. Shorter is better.
+
+The vertical axis shows the signed difference between the actual coverage and our target of 95 percent, in percentage points. Above zero means overcoverage; below zero means undercoverage. So, closer to zero is better.
 
 As you can see, TabCon gives a good balance between coverage and interval length.
 
@@ -64,7 +66,7 @@ Across ten different settings, its average coverage is about **95.6 percent**, w
 
 Another important advantage is speed.
 
-TabCon is about **50 times faster** than the classical bootstrap method, even when bootstrap uses only 50 samples.
+In the separate runtime benchmark that I will show later, TabCon is about **50 times faster** than bootstrap with 50 refits.
 
 So the main message here is simple: **TabCon can produce short confidence intervals while keeping coverage close to 95 percent, and it is also much faster.**
 -->
@@ -328,7 +330,7 @@ The important idea is that we do not need to train a completely new model for ev
 
 Instead, we train a large model first and then reuse it.
 
-Tabular fundation model do the similar thing but for tabular data
+Tabular foundation models adopt a similar idea, but for tabular data.
 
 Tabular data is the data we usually see in statistics.
 
@@ -418,7 +420,7 @@ Here are three important papers in the development of tabular foundation models.
 
 The first one is PFN, which stands for **Prior-Data Fitted Network**.
 
-It introduced the idea of training a transformer on many simulated datasets, so that it can learn to make predictions using a new dataset as context.
+The first PFN paper appeared in 2021 and was published at ICLR 2022. It introduced the idea of training a transformer on many simulated datasets, so that it can learn to make predictions using a new dataset as context.
 
 The second paper is TabPFN, published at ICLR 2023.
 
@@ -458,7 +460,9 @@ It allows users to work with tabular data through Python or an API.
 
 In February 2025, Prior Labs raised 9 million euros in early funding.
 
-SAP also announced a plan to invest more than one billion euros over four years.
+SAP also committed more than one billion euros over four years.
+
+As the slide notes, the acquisition was completed in July 2026, with Prior Labs continuing to operate independently.
 
 I think this is an interesting example of how quickly this research area is moving.
 
@@ -551,7 +555,7 @@ After reading the data, the model produces a predictive distribution.
 
 This is different from only predicting one number.
 
-The distribution tells us which house prices the model considers more or less likely. And we can choose median or average as our final predcit.
+The distribution tells us which house prices the model considers more or less likely. We can use its mean or median as our final point prediction.
 -->
 
 ---
@@ -623,43 +627,33 @@ class: advisor-background
 <PredictiveDensity />
 
 <!--
-## Slide 15 — Prediction Intervals Versus Confidence Intervals (1 minute 30 seconds)
+## Slide 15 — Drawing Prediction Intervals (1 minute 30 seconds)
+
+*The distribution and prediction interval are already visible; there are no reveal clicks on this slide.*
 
 Now, let's look more closely at the uncertainty produced by these models.
 
 As we have just seen, tabular foundation models can produce predictive distributions.
 
-But how can we use these distributions to measure uncertainty?
-
-Here, we have an example of a predictive distribution for house prices.
-
-The center is around 500 thousand pounds.
-
-*Click once to reveal the prediction interval.*
+Here, we have an example of a predictive distribution for house prices, centered around 500 thousand pounds.
 
 We can take the 2.5th and 97.5th percentiles of this distribution.
 
-This gives us a 95 percent prediction interval.
+The blue shaded region between these two cutoffs contains 95 percent of the predictive probability.
 
-In this example, the interval is from about 343 to 657 thousand pounds.
+This gives us a 95 percent prediction interval. In this example, it runs from about 343 to 657 thousand pounds.
 
-This interval describes the price of a **new house**.
+This interval describes the price of a **new house**, given its features and the observed data.
 
-The price of a new house may be quite different from the average, even when their features are similar, in statstics we call this noise.
+The price of an individual house can differ from the average even when the features are similar. This is outcome noise.
 
-*Click again to reveal the confidence interval.*
+But suppose we want to estimate the unknown average price, rather than predict the price of one new house.
 
-Now, suppose we are interested in the unknown average price, rather than the price of one new house.
+Then we need a confidence interval for that mean.
 
-Then we need a confidence interval.
+**Prediction intervals and confidence intervals answer different questions.**
 
-The green interval is an example. It goes from 480 to 520 thousand pounds.
-
-It is much shorter because it describes uncertainty about the mean, rather than the full range of possible outcomes.
-
-
-
-**These two intervals answer different questions.**
+On the next slide, we will compare them directly and see how they change as we collect more data.
 -->
 
 
@@ -675,7 +669,7 @@ class: advisor-background
 <IntervalLab mode="grow" />
 
 <!--
-## Slide 16 — What Changes When We Collect More Data? (1 minute 30 seconds)
+## Slide 16 — CI vs. PI: What Changes with More Data? (1 minute 30 seconds)
 
 Now, let's see what happens when we collect more data.
 
@@ -791,9 +785,9 @@ It includes three different models for estimating uncertainty, and a router that
 
 Third, we introduce a new training process.
 
-We first train these uncertainty models with supervised learning.
+We first train the residual experts, then train the router with supervised fine-tuning.
 
-Then, we use reinforcement learning to improve the router.
+Finally, we use reinforcement learning to improve the router toward our interval objectives.
 
 Finally, we evaluate our method on different synthetic and semi-synthetic datasets.
 
@@ -963,7 +957,7 @@ The basic idea is to have several experts and let a router decide which ones to 
 
 In our case, we have three residual experts.
 
-*Click to reveal the three experts.*
+*Click 1: reveal the three experts.*
 
 The first one is called the **Global Head**.
 
@@ -989,7 +983,7 @@ We do not train three separate TabPFN models.
 
 Instead, we reuse the frozen backbone and attach three smaller residual models to it.
 
-*Click to reveal the router.*
+*Click 2: reveal the router weights.*
 
 Now, how do we decide which expert to use?
 
@@ -997,13 +991,15 @@ This is the job of the router.
 
 The router reads information from the current dataset and produces weights for the three experts.
 
-*Click to show the Top-2 selection.*
+*Click 3: reveal Top-2 selection, the mixture, and quantile extraction together.*
 
 We use sparse routing, which means that only two experts are selected for each task.
 
 The third expert receives zero weight. The selected pair depends on the task; any pair of experts can be selected.
 
-We then combine the selected experts' residual distributions using their weights.
+In the example shown, we combine Global with weight 0.35 and Expansion with weight 0.65; Shrinkage has zero weight.
+
+We combine the selected experts' residual distributions using these weights.
 
 One important detail is that we combine the **distributions**, not the final confidence interval endpoints.
 
@@ -1041,9 +1037,7 @@ First, the pretrained TabPFN backbone produces an embedding for each query point
 
 These embeddings contain information about the query points and the observed dataset.
 
-We then pass these embeddings through a small trainable encoder.
-
-This gives us a set of query tokens.
+In the full implementation, a small trainable encoder transforms these embeddings into query tokens. This diagram focuses on how we pool and route those representations.
 
 But the router needs to make one decision for the whole task.
 
@@ -1051,7 +1045,7 @@ So we need to combine all the query tokens into one summary.
 
 Here, we use two methods.
 
-*Reveal the attention branch.*
+*Click 1: reveal attention pooling.*
 
 The first method is attention.
 
@@ -1065,7 +1059,7 @@ So, we get four different summary vectors.
 
 Each one can focus on different information in the query set.
 
-*Reveal the statistics branch.*
+*Click 2: reveal mean/std pooling and the combined query-set summary.*
 
 The second method is much simpler.
 
@@ -1085,7 +1079,7 @@ And one is the standard deviation.
 
 We concatenate these vectors to get a summary of the query set.
 
-*Reveal the final routing network.*
+*Click 3: reveal the feedforward network and the three softmax weights.*
 
 In the full model, we also combine information across TabPFN ensemble members.
 
@@ -1095,11 +1089,13 @@ Finally, the router produces three scores, one for each expert.
 
 We apply softmax to convert them into weights.
 
-*Click to show the Top-2 weights.*
+*Click 4: show the Top-2 weights.*
 
 Then we keep only the two largest weights and normalize them again.
 
-The result is a sparse mixture.
+In this example, Global, Expansion, and Shrinkage start at 0.28, 0.52, and 0.20. After Top-2 selection, the weights become 0.35, 0.65, and zero.
+
+The result is one sparse mixture shared by the query points in this task.
 -->
 
 ---
@@ -1156,7 +1152,7 @@ Then we calculate the estimation residual and use it to train the Global Head.
 
 In our setup, this stage uses 50 thousand synthetic datasets.
 
-*Click to reveal the specialists.*
+*Click 1: reveal the specialists.*
 
 In the second stage, we train the two specialist heads.
 
@@ -1170,7 +1166,7 @@ We use this information to train the Expansion and Shrinkage heads on different 
 
 After this stage, all three residual experts are ready.
 
-*Click to reveal router SFT.*
+*Click 2: reveal router SFT.*
 
 In the third stage, we train the router using supervised fine-tuning, or SFT.
 
@@ -1178,11 +1174,11 @@ At this point, the three experts are frozen.
 
 Only the router is trained.
 
-It learns how to combine the experts to predict the estimation residual distribution.
+It learns how to combine the experts to predict the estimation residual distribution, using 50 thousand additional datasets.
 
-*Click to reveal router RL.*
+*Click 3: reveal router RL.*
 
-Finally, in the fourth stage, we use reinforcement learning to further improve the router.
+Finally, in the fourth stage, we use reinforcement learning on 100 thousand additional datasets to further improve the router.
 
 This is important because our final goal is not only to predict residuals.
 
@@ -1250,7 +1246,7 @@ The important difference is that CRPS also takes the order of the bins into acco
 
 It compares the predicted cumulative distribution with the observed residual, accounting for how far probability mass lies from that residual.
 
-So, we combine NLL and CRPS.
+As shown in the formula, we combine NLL with 0.20 times CRPS.
 
 We minimize this loss by updating only the Global Head.
 
@@ -1282,11 +1278,9 @@ How can we know which datasets need wider intervals, and which ones need shorter
 
 To do this, we define a **coverage score**.
 
-First, we take a set of new synthetic datasets.
+First, we evaluate the trained Global Head on synthetic datasets from the DGPs we want to characterize.
 
-For each dataset, we use the trained Global Head to construct confidence intervals.
-
-So we can directly calculate the coverage of the Global Head.
+For each dataset, we construct confidence intervals and measure coverage across its query points.
 
 In our method, we measure coverage at several coverage levels and combine their differences into one score.
 
@@ -1294,15 +1288,17 @@ A negative score means the model tends to undercover.
 
 A positive score means it tends to overcover.
 
-Now, we calculate these scores across many synthetic datasets.
+We collect the coverage scores across the synthetic calibration data.
 
-This gives us a distribution of coverage scores, as shown in the figure.
+The histogram is a schematic illustration of this score distribution.
 
 We then choose two thresholds.
 
 The first threshold is the one-third quantile.
 
 The second threshold is the two-thirds quantile.
+
+These thresholds divide the score distribution into relatively low, middle, and high groups. They are not simply the boundaries between negative and positive scores.
 
 We save these two thresholds.
 
@@ -1340,30 +1336,31 @@ Then, we compare this score with the two thresholds from the previous slide.
 
 Let's consider three cases.
 
-*Show the low-score case.*
+*Initial state: Low score is already selected. The reveal order is Low → High → Middle.*
 
 In the first case, the coverage score is at or below the first threshold.
 
 This places the dataset in the lower-coverage group.
 
-So, we use this dataset to train the Expansion Head.
+So, we use NLL and CRPS to train the Expansion Head on this dataset, while also retaining its KL regularization toward Global.
 
 Its goal is to learn a residual distribution that may help improve coverage.
 
 For the other specialist, we use a KL loss to keep its output close to the Global Head.
 
-*Show the high-score case.*
+*Click 1: switch to High score.*
+
 In the second case, the coverage score is at or above the second threshold.
 
 This places the dataset in the higher-coverage group.
 
-So, we use this dataset to train the Shrinkage Head.
+So, we use NLL and CRPS to train the Shrinkage Head on this dataset, again retaining its KL regularization toward Global.
 
 Its goal is to learn a distribution that may give shorter intervals while keeping enough coverage.
 
 Again, the other specialist is kept close to Global using the KL loss.
 
-*Show the middle-score case.*
+*Click 2: switch to Middle score.*
 
 In the third case, the score is between the two thresholds.
 
@@ -1488,7 +1485,7 @@ We combine these measures into a reward.
 
 Then, we use reinforcement learning to update the router.
 
-RL starts from the SFT model and further improves the routing decisions.
+RL starts from the SFT model and further improves the routing decisions. Both stages use Top-2 routing; the three experts remain frozen. The change is the training objective.
 
 Our goal is to make the training objective closer to the actual statistical task.
 -->
@@ -1531,7 +1528,7 @@ Different choices can select different pairs of experts or different mixture wei
 
 So, we get different confidence intervals for the same dataset.
 
-Here, we have four candidate choices.
+The whole example is visible at once. The four candidates shown here are illustrative.
 
 Their rewards are 0.2, 0.8, minus 0.1, and 0.5.
 
@@ -1544,6 +1541,8 @@ We calculate an advantage.
 In RLOO, the baseline for one candidate is the average reward of all the **other** candidates.
 
 This is why it is called leave-one-out.
+
+*Candidate B is selected initially. This page uses the A–D buttons, not next-slide reveal clicks.*
 
 For example, let's consider candidate B.
 
@@ -1561,7 +1560,9 @@ We use these advantages to update the router.
 
 The basic idea is to increase the probability of routing choices with positive advantages, and decrease the probability of choices with negative advantages.
 
-The policy gradient is calculated using the log probability of the sampled router scores.
+The policy gradient is calculated using the log probability of the sampled router scores. The pi term on the slide is shorthand for this action probability.
+
+The positive advantage-weighted log-probability expression is maximized; a gradient-descent implementation minimizes its negative.
 
 In our actual training, we use 16 sampled routing choices per task.
 -->
@@ -1596,7 +1597,7 @@ If the interval misses the true value by a large amount, it receives a larger pe
 
 The second group focuses on **coverage calibration**.
 
-The coverage score penalizes intervals when their empirical coverage is too far from the target.
+The coverage score penalizes both undercoverage and overcoverage when empirical coverage deviates from the target beyond the allowed tolerance.
 
 The tail balance term checks the missed targets below and above the interval separately.
 
@@ -1643,6 +1644,8 @@ class: detail-slide ownership-slide
 This slide summarizes which parts of TabCon are trained at each stage.
 
 I think this is important because we do not train the whole model at the same time.
+
+A flame means trainable, a snowflake means frozen, and a dash means not used at that stage. The two pretraining columns correspond to Global training and specialist training, respectively.
 
 First, the pretrained TabPFN backbone and regression head are always frozen.
 
@@ -1733,7 +1736,7 @@ For the out-of-distribution setting, we use function families that were not seen
 
 This helps us test whether TabCon can generalize.
 
-The second benchmark is the **stress-test benchmark**.
+The second benchmark is the **stress-test benchmark**, which is separate from the standard ID and OOD evaluations.
 
 Here, we create more challenging data settings.
 
@@ -1780,6 +1783,8 @@ As I mentioned earlier, we need to consider coverage and interval length togethe
 
 A very short interval is not useful if it misses the true value too often.
 
+*Standard ID is selected initially. Use the four setting buttons on this slide; advancing the slide does not switch benchmarks.*
+
 Let's first look at the standard in-distribution setting.
 
 TabCon achieves about **95.5 percent coverage**.
@@ -1806,7 +1811,7 @@ This is far below our target.
 
 So, the short interval alone is not enough.
 
-*Switch to the OOD setting.*
+*Select the Standard OOD button.*
 
 Now, let's look at the out-of-distribution results.
 
@@ -1814,13 +1819,13 @@ TabCon still achieves about **95.3 percent coverage**.
 
 This suggests that the model can generalize to the unseen function families in this benchmark.
 
-*Switch to the stress-test setting.*
+*Select the Stress-test button.*
 
 In the stress-test setting, the average coverage is about **95.6 percent**.
 
 Again, this is close to the target.
 
-*Switch to the CC18 setting.*
+*Select the CC18 button.*
 
 Finally, on CC18, TabCon achieves about **96.5 percent coverage**.
 
@@ -1862,7 +1867,7 @@ For a new dataset, we only need to run the pretrained backbone, residual heads, 
 
 We do not need to train a new model or run repeated bootstrap samples.
 
-Here, we compare the inference time of different methods.
+Here, we compare the inference time of different methods on a logarithmic time axis.
 
 In this setting, TabCon takes about **0.21 seconds**.
 
@@ -1922,7 +1927,7 @@ Our method, TabCon, learns the distribution of estimation residuals and uses it 
 
 We introduce three residual experts and a sparse router.
 
-We train the experts using supervised learning, and then improve the router using reinforcement learning.
+We train the residual experts first, then train the router with supervised fine-tuning and refine it using reinforcement learning.
 
 Our experiments show that TabCon can achieve coverage close to the target, while producing relatively short intervals and reducing inference time.
 
