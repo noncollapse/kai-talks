@@ -21,7 +21,19 @@ class: cover-slide
 
 
 <!--
-The central question is whether we can learn a reusable procedure for uncertainty about an estimated average, much as a PFN learns a reusable prediction procedure. We will build the distinction visually before discussing the model. Source: https://arxiv.org/abs/2609.33114
+## Slide 1 — Title (45 seconds)
+
+Good afternoon, everyone.
+
+Today, I am going to talk about our recent work, called **“Can Tabular Foundation Models Amortize Statistical Inference?”**
+
+The main question of this paper is quite simple.
+
+We already have foundation models for prediction. But can we also use foundation models for statistical inference?
+
+And we choose confidence intervals as our first topic In particular, can we train a model to construct confidence intervals for different datasets, without running a new statistical procedure every time?
+
+Today, I will first introduce some background on confidence intervals and tabular foundation models.Then, I will explain our proposed method, called TabCon.
 -->
 
 ---
@@ -34,19 +46,27 @@ class: result-preview-slide
 <StressPreview />
 
 <!--
-Open with the result before explaining how it is achieved. These are the ten stress settings from the supplied paper figure; regular_control is excluded. The six original methods use the paper numeric results, verified against the original figure's source SHA256 and the frozen main/Wald summary JSONs. GRF, Local Linear Forest, BDE, RF-IJ, DRF, BRAT-P, BRAT-D, and RF-U are additional completed evaluations on the same 1,280 recovered and verified task realizations, including all 155,520 original query points. These new methods use author/package implementations with documented compatibility adaptations and fixed configurations; all eight completed all tasks with finite outputs; this numerical gate does not certify training stability. Linear means Linear-Wald-HC3; RFF means RFF-Wald-HC3. Both are custom statistical implementations, not official-package baselines. Linear applies context-only PCA when necessary; RFF uses at most 64 random features. Their HC3/z formulas are correct, but ill-conditioned designs cause numerical sensitivity and six Linear replay discrepancies are documented. Historical points are retained. AMP denotes a paper-based approximate martingale-posterior credible interval, not an ordinary frequentist CI; its author-code endpoint returned HTTP 401 during the audit, so exact source equivalence has not been established. TabPFN (PI) is the native predictive interval, evaluated here against the saved latent oracle rather than a future noisy outcome. This is a reference baseline with a different native target, not a claim that TabCon dominates every confidence-interval procedure. Code inspection showed that the Generator V2 oracle T(Z) is not guaranteed to equal E[Y|observed X]; do not describe this stress figure as independently verified conditional-mean coverage.
+## Slide 2 — Our Proposal: TabCon for CI Construction (1 minute 40 seconds)
 
-TabCon's unweighted average coverage across the ten settings is 0.95614013671875 (range approximately 0.9400–0.9842). Its mean interval length is 1.8581469892765767, compared with 3.209065453414952 for native TabPFN prediction intervals. The displayed 42% reduction is 1 minus the ratio of these arithmetic means, not a mean of per-setting percentage reductions. Every setting has 128 tasks, so equal-setting and equal-task weighting coincide. Short intervals alone are insufficient: Bootstrap is shorter but substantially undercovers in these results. Neither a universal coverage guarantee nor significance is asserted.
+Before going into the details, I want to show you some results from our method.
 
-This scatter preview uses arithmetic mean interval length on a log x axis and signed per-setting coverage deviations from 95% on a linear y axis, in percentage points. Each point shows one method's average deviation; no range bars are displayed. Positive means overcoverage, negative means undercoverage, and closeness to zero is desirable. TabCon's mean deviation is +0.614013671875 pp, with a range from -1.0028076171875 to +3.4161376953125 pp; four settings under-cover and six over-cover. AMP also has mixed directions (one under, nine over). These per-setting ranges are not displayed: opposite deviations can cancel in the plotted mean. The old Pareto staircase and lower-left-is-better annotation are removed because signed coverage should be close to zero rather than simply minimized. Length is averaged in the original outcome units without normalization, so high-scale settings have greater influence on mean length. The original radar remains available as stress-opening-radar.svg. figures/scripts/draw_stress_tradeoff.py regenerates this preview and its summary JSON; the original result table and hash remain unchanged.
+When we construct confidence intervals, we care about two things. First, we want the coverage to be close to our target of 95 percent. Second, we want the intervals to be as short as possible.
 
-The first three additions are exported from complete per-query predictions by figures/scripts/export_additional_ci.py. Their numeric table and provenance are figures/data/stress_additional_ci_results.csv and stress_additional_ci_provenance.json. RF-IJ and DRF are exported and independently checked by figures/scripts/export_extra_ci.py, with separate stress_extra_ci_results.csv and stress_extra_ci_provenance.json. RF-IJ uses ranger 0.18.0 with 2,000 trees and native infinitesimal-jackknife standard errors. Its mean coverage is 0.53057861328125 and mean interval length is 0.7261888936328144. DRF uses the official drf 1.3.1 native uncertainty API with 6,000 honest trees, 100 CI groups, exact group-weighted means and their sample variance. Its mean coverage is 0.5805023193359375 and mean interval length is 0.7703466374315616. All 1,280 tasks and 155,520 queries passed per-query verification on Beast and locally. Its intervals are short but substantially undercover this saved target; no universal coverage conclusion is asserted. BART and GP were cancelled by the user on 27 October 2026, who excluded Bayesian credible-interval baselines. Their pilot and partial results are not plotted. DeepLR was cancelled by the user and is excluded. BDE mean length is strongly influenced by high_noise__053, whose mean interval length is about 16,948.6; one bootstrap-retrained network produced extreme predictions. This finite result is retained without trimming; the extreme task is documented in these notes and the implementation audit. The existing Bootstrap comparator is TabPFN mean predictions across bootstrap resamples of context rows, distinct from BDE's parametric bootstrap retraining. Both target uncertainty in the regression function, not future-outcome noise. The archived six-method radar is unchanged. See experiments/ci_baselines/PROTOCOL.md, PROTOCOL_EXTRA.md and PROTOCOL_MODERN.md for configurations, data pairing and limitations.
+This figure shows these two things.
 
-The latest additions are exported by figures/scripts/export_modern_ci.py into stress_modern_ci_results.csv and stress_modern_ci_provenance.json after all saved endpoints, standard errors, task/config hashes and metrics were independently checked remotely and locally. Each method uses all 1,280 tasks / 155,520 queries without trimming. BRAT-P: mean coverage 0.1536224365234375, mean length 0.2074908501043721. BRAT-D: 0.2644775390625 and 0.2666031319457618. RF-U: 0.6453704833984375 and 0.9489549325520208. These are results of fixed author README configurations on this benchmark, not tuned optimal performance or universal comparisons.
+The horizontal axis shows the average interval length. Shorter is better.
 
-BRAT-P and BRAT-D use unmodified Boulevard 0.1.0a1, pinned commit ec0a4ede4155519b70fbca65ac73f9ece64da276. The interval mode is explicitly confidence. The package settings are not exact replications of the paper experiments: current ParallelBooster omits the paper’s sequential warm-start and the package uses histogram-cell inference rather than the paper experiment’s Nyström approximation. All context observations are retained for fitting; the documented prepare_inference() fallback estimates residual variance on the training data. The author README prefers held-out variance estimation, so optimistic training-residual estimates remain a limitation. No query outcomes or oracle residuals are used to fit or calibrate intervals. RF-U uses RLT 6.1.1, pinned commit d83a648a15591bbd4f057322dfdea7a75f056992, with the matched-sample U-statistic variance estimator. All 1,280 tasks returned finite nonnegative variance estimates at the original 10,000 trees; none triggered the wrapper retry. Audit correction: official RLT floors negative matched variances at zero before returning them, so this gate cannot detect pre-floor negatives. There are 4,040 saved zero-width intervals across 764 tasks, all retained. No claim is made that every raw variance estimate was positive.
+The vertical axis shows the difference between the actual coverage and our target of 95 percent. So, closer to zero is better.
 
-Inferable EBM was removed from this comparison at the user’s request on 27 October 2026. Its raw results are retained in the experiment archive. The plot now contains fourteen methods on a continuous log x-axis. See experiments/ci_baselines/EXPERIMENT_AUDIT.md and its three independent evidence reports for the per-method implementation audit, configuration differences and remaining limitations.
+As you can see, TabCon gives a good balance between coverage and interval length.
+
+Across ten different settings, its average coverage is about **95.6 percent**, which is very close to our target. At the same time, TabCon produces relatively short intervals. Compared with the original prediction intervals from TabPFN, our intervals are about **42 percent shorter**. Of course, these two intervals have different targets, which I will explain later.
+
+Another important advantage is speed.
+
+TabCon is about **50 times faster** than the classical bootstrap method, even when bootstrap uses only 50 samples.
+
+So the main message here is simple: **TabCon can produce short confidence intervals while keeping coverage close to 95 percent, and it is also much faster.**
 -->
 
 ---
@@ -60,7 +80,17 @@ class: background-agenda
 <BackgroundAgenda active="ci" />
 
 <!--
-The background agenda presents CI construction first, followed by tabular foundation models. The two topics link to their corresponding sections. The interval illustration animates automatically: each repeated sample produces an estimate and an interval, while the true mean stays fixed. Two intervals cover it and one misses it; these three schematic samples do not represent a nominal coverage rate. No presentation clicks are required. The diagrams are conceptual illustrations, not experiment results.
+## Slide 3 — Background (30 seconds)
+
+Before introducing TabCon, I want to cover two background topics.
+
+The first one is **confidence interval construction**, which is a classical problem in statistics.
+
+The second one is **tabular foundation models**, which are a more recent development in machine learning.
+
+I will explain both parts with simple examples.
+
+Let's start with confidence intervals.
 -->
 
 ---
@@ -107,7 +137,31 @@ class: advisor-background ci-example-slide
 <p class="ci-example-takeaway">Ideally, a CI covers the truth and is as short as possible to remain informative.</p>
 
 <!--
-Illustrative London house-price example, not a current market statistic. Each box shows the same hypothetical true average, £500k. The first interval misses it; the second covers it but is wide; the third covers it and is shorter. Bar lengths are schematic for readability, not drawn on a common numerical scale; the endpoints state the actual intervals. Show all three examples together. In practice the true mean is unknown: we seek procedures with reliable repeated-sampling coverage and short intervals rather than selecting a realized interval by checking unknown truth. The next slide explains coverage.
+## Slide 4 — CI Construction: A Classical Statistical Inference Problem (1 minute 20 seconds)
+
+Let's consider a very simple example.
+
+Suppose we want to estimate the average house price in London.
+
+Imagine that the true average price is 500 thousand pounds. Of course, in a real problem, we do not know this value.
+
+We collect some house price data and calculate an estimate.
+
+But giving only one number is often not enough. We also want to know how accurate our estimate is.
+
+This is why we use a confidence interval.
+
+Here, we have three possible intervals.
+
+The first interval is from 460 to 490 thousand pounds. This interval does not contain the true average, so it is not a successful interval in this example.
+
+The second interval is from 440 to 560 thousand pounds. It contains the true value, but it is quite wide.
+
+The third interval is from 480 to 520 thousand pounds. It also contains the true value, but it is much shorter.
+
+So ideally, we want our confidence intervals to cover the true value, while being as short as possible.
+
+But since we do not know the truth in practice, how can we tell whether a method is good?
 -->
 
 ---
@@ -123,7 +177,39 @@ class: advisor-background
 <div class="source">Illustrative repeated-sampling intervals. One set of 20 need not contain exactly 19 successful intervals.</div>
 
 <!--
-Advance once to reveal the repeated-sampling intervals and then the coverage message. The underlying average stays fixed. Different datasets produce different estimates and intervals. A 95% procedure aims to cover that fixed target in about 95% of repeated experiments. This does not mean 95% of future outcomes fall in the confidence interval, and the frequentist statement is not a posterior probability assigned to the fixed target after observing one interval.
+## Slide 5 — What Does 95% Confidence Mean? (1 minute 30 seconds)
+
+A confidence interval is usually designed to have a certain coverage level.
+
+For example, we often use 95 percent.
+
+But what does this 95 percent actually mean?
+
+Let's imagine that we can repeat the same experiment many times.
+
+Each time, we collect a new dataset, calculate a new estimate, and construct a new confidence interval.
+
+The important point is that **the true average stays fixed**.
+
+But the data, the estimate, and the confidence interval can all change.
+
+*Click once to show the repeated samples.*
+
+Here, each horizontal line represents one confidence interval from one dataset.
+
+The vertical dashed line is the true average.
+
+Some intervals cover the true value, while others miss it.
+
+If our method has 95 percent coverage, then over many repeated experiments, about 95 percent of these intervals should contain the true value.
+
+For example, on average, about 19 out of 20 intervals should cover it.
+
+This does not mean that the true value has a 95 percent probability of being inside one particular interval.
+
+Instead, 95 percent describes how often the **method works across repeated datasets**.
+
+This is the key idea behind confidence intervals.
 -->
 
 ---
@@ -158,7 +244,39 @@ class: advisor-background
 </div>
 
 <!--
-The contrast concerns where computation occurs. Conventional asymptotic, bootstrap and posterior procedures typically compute uncertainty anew for each dataset; their mathematical recipes are reusable, so we do not design a new method from scratch for each dataset. Bayesian credible intervals have a posterior-probability interpretation and are not automatically frequentist confidence intervals. Bayesian inference can also be amortized; the left box describes conventional per-dataset implementations, not an inherent limitation of these mathematical families. Our approach moves shared computation into training across tasks, then applies the learned interval procedure to a new dataset. The network still performs inference-time computation, and shared pre/post-training has a cost. At this level, the single network denotes the complete TabCon system, including its frozen foundation-model backbone and trained heads/router.
+## Slide 6 — Classical Statistical Inference and Our New Idea (1 minute 35 seconds)
+
+Statisticians have developed many different methods for constructing confidence intervals.
+
+For example, we have the Wald interval, the delta method, and bootstrap.
+
+We also have Bayesian methods, which give credible intervals. These have a different statistical meaning.
+
+The methods shown on the left have different ideas, but in their usual form, they share one feature.
+
+When we get a new dataset, we need to run the required calculations for that dataset.
+
+For example, bootstrap needs to repeatedly sample from the data and calculate new estimates.
+
+This can be expensive, especially when we have many datasets or many test points.
+
+So we ask a different question.
+
+**Instead of calculating confidence intervals from scratch for each dataset, can we learn how to calculate them?**
+
+This is our main idea.
+
+We first train a neural network using many simulated datasets.
+
+During training, the network learns how estimation errors behave under different conditions.
+
+After training, when we receive a new dataset, we can construct confidence intervals with a single forward pass.
+
+We call this **amortized statistical inference**.
+
+In simple words, we spend computation during training, and then reuse what the model has learned for many new datasets.
+
+To make this possible, we build on tabular foundation models.
 -->
 
 ---
@@ -170,6 +288,14 @@ class: background-agenda advisor-background
 # Background
 
 <BackgroundAgenda active="tfm" />
+
+<!--
+## Slide 7 — Background: Tabular Foundation Models (20 seconds)
+
+Now, let's move to the second background topic: tabular foundation models.
+
+The main idea is to train one model that can work on many different datasets.
+-->
 
 ---
 routeAlias: foundation-models
@@ -186,7 +312,31 @@ class: advisor-background
 <div class="callout mt-6"><b>Tabular foundation models</b> adopt the same idea, but for <b>tabular data</b>.</div>
 
 <!--
-Start from the familiar idea of a pretrained model that supports multiple downstream tasks. Vision foundation models work with images; language foundation models such as GPT work with text. The visuals are schematic examples of modalities and capabilities, not screenshots or outputs from a particular model. Tabular foundation models bring this reuse idea to rows and columns. This is an analogy, not a claim that their training data, objectives or architectures must be identical. The following slides introduce PFNs as the particular approach used by TabCon.
+## Slide 8 — One Model, Many Tasks Without Retraining (1 minute 15 seconds)
+
+Today, foundation models are widely used in different areas.
+
+For example, in computer vision, we have models that can work with images.
+
+They can help with image generation, image understanding, and many other tasks.
+
+For language, we have models like GPT.
+
+A single language model can answer questions, write text, translate languages, and solve many different problems.
+
+The important idea is that we do not need to train a completely new model for every new task.
+
+Instead, we train a large model first and then reuse it.
+
+Tabular fundation model do the similar thing but for tabular data
+
+Tabular data is the data we usually see in statistics.
+
+For example, a dataset may have rows for different houses, and columns for house size, number of bedrooms, and price.
+
+We train one model on many datasets, and then use it to make predictions on new datasets.
+
+This is very different from training a new regression model for every dataset.
 -->
 
 ---
@@ -200,9 +350,29 @@ class: tabular-history-slide advisor-background
 <TabularEvolution />
 
 <!--
-Each row is an independent chronological timeline, not a shared time scale. Milestones link to representative primary sources, not necessarily the first invention of each broad method. Least squares was published by Legendre in 1805. Schoenberg's 1964 smoothing splines precede the 1972 GLM unification of linear, logistic and Poisson models; these regressions themselves are older. Cleveland's 1979 local polynomial smoother is a representative local-regression milestone, not the invention of all local polynomial methods. AdaBoost uses the 1997 journal year; its conference precursor appeared in 1995. The modern ML row begins with the 1986 backpropagation milestone for MLPs, not the invention of multilayer networks. Random forests and gradient boosting share the 2001 milestone. The separate deep-learning row is omitted for clarity.
+## Slide 9 — How Learning on Tabular Data Evolved (1 minute 20 seconds)
 
-The PFN paper is Transformers Can Do Bayesian Inference: preprint December 2021, ICLR 2022. The visible PFN date is explicitly its 2021 preprint year. This is a foundational PFN paper, not the first foundation-model paper in every sense. TabPFN follows at ICLR 2023 (2022 preprint); TabPFN v2 is Nature 2025. TabICL is ICML 2025, TabICL v2 ICML 2026: https://github.com/soda-inria/tabicl . LimiX paper: September 2025, https://arxiv.org/abs/2509.03505 . LimiX-2M is a 2-million-parameter model released November 2025, with a June 2026 paper https://arxiv.org/abs/2606.04485 ; it is distinct from LimiX-2, released September 2026, https://arxiv.org/abs/2609.17488 . Official release chronology: https://github.com/limix-ldm-ai/LimiX . TabPFN 2.5: November 2025; 2.6: March 2026; 3: May 2026; 3.5: September 2026, from official model reports and https://github.com/PriorLabs/TabPFN/blob/main/CHANGELOG.md . These are selected developments through October 2026, not an exhaustive catalog or a replacement hierarchy.
+This slide shows how methods for tabular data have developed over time.
+
+At the top, we have classical statistical methods.
+
+For example, linear regression has been used for more than 200 years.
+
+Later, we developed other methods, such as generalized linear models.
+
+In the middle, we have modern machine learning methods.
+
+These include neural networks, support vector machines, random forests, and gradient boosting.
+
+Many of these methods are still widely used for tabular prediction. But in most cases, we need to train the model again when we move to a new dataset.
+
+At the bottom, we have a newer direction: tabular foundation models.
+
+Starting from PFNs in 2021, we have seen the development of TabPFN and several other model families.
+
+More recently, we have seen newer versions of TabPFN, TabICL, and LimiX.
+
+The main change is that we can learn from many datasets during pretraining, rather than learning everything from one dataset.
 -->
 
 ---
@@ -242,7 +412,25 @@ class: pfn-papers-slide advisor-background
 
 
 <!--
-PFN means Prior-Data Fitted Network: a general approach to learning approximate Bayesian posterior prediction under a synthetic task prior. The first paper was posted in December 2021 and published at ICLR 2022; use 2021 here to match the preceding timeline, with the conference year explicit in the citation. TabPFN is a concrete PFN trained for small tabular classification, published at ICLR 2023 (2022 preprint). TabPFN-v2 is the successor described in the 2025 Nature paper, extending the scope to classification and regression and larger, more varied datasets. PFN is the framework; TabPFN and TabPFN-v2 are successive tabular implementations, not three unrelated algorithms. The common recipe is pretraining on synthetic tasks, supplying a new dataset as context, and predicting without per-dataset gradient updates in standard in-context deployment. Later fine-tuning variants exist. Learned Bayesian prediction is relative to the training task prior; it is not an automatic frequentist CI guarantee.
+## Slide 10 — Tabular Foundation Models (1 minute 15 seconds)
+
+Here are three important papers in the development of tabular foundation models.
+
+The first one is PFN, which stands for **Prior-Data Fitted Network**.
+
+It introduced the idea of training a transformer on many simulated datasets, so that it can learn to make predictions using a new dataset as context.
+
+The second paper is TabPFN, published at ICLR 2023.
+
+It applied this idea to small tabular classification problems and showed that very fast predictions were possible.
+
+The third paper is TabPFN version 2, published in Nature in 2025.
+
+This version supports both classification and regression, and can work with more types of tabular data.
+
+PFN gives us the general framework, and TabPFN develops this idea for real tabular prediction tasks.
+
+Our method, TabCon, builds on this family of models, but focuses on statistical inference instead of only prediction.
 -->
 
 ---
@@ -256,9 +444,25 @@ class: advisor-background
 <PriorLabsOverview />
 
 <!--
-Prior Labs commercializes the TabPFN family. The official product page offers TabPFN-3.5, with Python/open-source, API and enterprise deployment routes. The visual is a still from the official TabPFN-3.5 product demo, linked by the product page at https://app.vidzflow.com/v/2QLEwEEaoO ; image URL https://r2.vidzflow.com/thumbnails/2QLEwEEaoO_1789039685.jpg . Do not describe it as a screenshot of a customer deployment.
+## Slide 11 — Prior Labs: From Research to Industry (1 minute 10 seconds)
 
-Funding: Balderton's 5 February 2025 announcement confirms a €9 million pre-seed round, led by Balderton with other investors. This is a publicly announced financing round, not an assertion about audited total lifetime funding. SAP announced completion of its acquisition on 17 July 2026. Prior Labs continues to operate as an independent entity within SAP. The company is acquired rather than independently publicly listed; do not imply an announced standalone IPO. SAP itself is publicly listed. SAP committed more than €1 billion over the following four years. This is a forward investment commitment, not additional VC already raised and not the acquisition purchase price. Acquisition terms were not disclosed. Information checked on 28 October 2026 against Prior Labs, Balderton and SAP primary sources.
+Tabular foundation models are not only an academic research topic.
+
+They are also getting attention from industry.
+
+One example is Prior Labs, the company behind the TabPFN family.
+
+Here, you can see their TabPFN 3.5 product.
+
+It allows users to work with tabular data through Python or an API.
+
+In February 2025, Prior Labs raised 9 million euros in early funding.
+
+SAP also announced a plan to invest more than one billion euros over four years.
+
+I think this is an interesting example of how quickly this research area is moving.
+
+A method that started as an academic paper is now being developed for practical business use.
 -->
 
 ---
@@ -272,13 +476,35 @@ class: ecosystem-slide advisor-background
 <PFNEcosystem />
 
 <!--
-The numeric title is supplied by the speaker. An independent bibliographic count of more than 100 PFN papers published since 2025 has not been established here; do not treat the selected references as substantiation of the number. Papers, model families, checkpoints and applications are different counting units.
+## Slide 12 — Recent Research on PFNs (1 minute 10 seconds)
 
-The first category groups predictive models and architecture research. SOMTab is third as requested; it uses Mamba-based state-space mixing. TabFM is Google Research's tabular model; Kumo Tabular is NVIDIA's September 2026 release. Research-code availability does not imply all examples are commercial products with equivalent support or licenses. TabICL and LimiX version chronologies follow their official repositories.
+Over the past two years, we have also seen a lot of new research on PFNs.
 
-Causal effect estimation: Do-PFN (Robertson et al., NeurIPS 2025), CausalPFN (Balazadeh et al., 2025), CausalFM (Ma, Frauen, Javurek and Feuerriegel, ICLR 2026), and Learning to Fluctuate: Statistical Foundations for Causal Tabular Pretraining (Zhiheng Zhang, 2026, arXiv:2609.26290). Zhang's method is fluctuation-supervised pretraining (FSP), not another paper named CausalPFN. These methods differ in priors and identifying assumptions; none makes arbitrary observational causal effects identifiable without assumptions.
+This slide shows some examples.
 
-UQ: The first three entries are the three works discussed at the end of Section 2 of TabCon: Nagler and Rügamer, Uncertainty Quantification for Prior-Data Fitted Networks using Martingale Posteriors (arXiv:2505.11325, first posted 2025; revised 2026, cited as 2026 in TabCon); Ng, Fong, Frazier, Knoblauch and Wei, TabMGP: Martingale Posterior with TabPFN (ICML 2026, arXiv:2510.25154); Fortini, Ng, Petrone, Rousseau and Wei, Uncertainty Decomposition for Bayes-Filtered Transformers via Bayesian Predictive Inference (2026, arXiv:2602.04596). Additional references: Melnychuk et al., Frequentist Consistency of Prior-Data Fitted Networks for Causal Inference (ICML 2026, arXiv:2603.12037), with one-step posterior correction (OSPC); Florian D. van Leeuwen, Conformal Prediction for Tabular Prior-Data Fitted Networks with Missing data (AI for Tabular Data workshop at EurIPS 2025). Conformal prediction targets predictive coverage, while martingale posteriors and OSPC address other inferential quantities; these are not interchangeable frequentist CI guarantees. Sources checked 28 October 2026.
+We can roughly divide this research into three groups.
+
+The first group focuses on better prediction models.
+
+For example, we have TabICL, LimiX, SOMTab, TabFM, and Kumo Tabular.
+
+These works try to improve prediction quality, model speed, or the range of tasks the models can handle.
+
+The second group focuses on causal inference.
+
+For example, Do-PFN and CausalPFN study how foundation models can help estimate causal effects.
+
+The third group focuses on uncertainty.
+
+These papers study how to measure uncertainty or how to separate different sources of uncertainty.
+
+Our work is most closely related to this third direction.
+
+But we focus on a more specific question:
+
+Can we use a tabular foundation model to construct **confidence intervals for an unknown regression mean**, with good coverage and short interval lengths?
+
+Before answering that, we need to understand how these models work.
 -->
 
 ---
@@ -293,7 +519,39 @@ class: advisor-background
 <PFNFlow mode="predict" />
 
 <!--
-Advance to send the new table into the frozen model, then reveal a predictive distribution. In regression, the output can express several plausible values of the next outcome. The values and density here are illustrative and are not outputs from a fitted TabPFN model. Source for the workflow: https://doi.org/10.1038/s41586-024-08328-6
+## Slide 13 — How Do Tabular Foundation Models Work? (1 minute 30 seconds)
+
+Let's look at a simple example.
+
+Suppose we have a dataset about house prices.
+
+Each row represents one house.
+
+The first column is the size of the house, the second column is the number of bedrooms, and the third column is the price.
+
+Now, suppose we have a new house.
+
+It has an area of 100 square meters and three bedrooms.
+
+But we do not know its price.
+
+Our goal is to predict that price using the existing data.
+
+*Click once to show the data entering the model.*
+
+We give the whole table to a pretrained tabular foundation model.
+
+The model uses the known rows as context, and tries to understand the relationship between the input features and the house prices.
+
+An important point is that we do not need to update the model weights for this new dataset.
+
+*Click again to show the output distribution.*
+
+After reading the data, the model produces a predictive distribution.
+
+This is different from only predicting one number.
+
+The distribution tells us which house prices the model considers more or less likely. And we can choose median or average as our final predcit.
 -->
 
 ---
@@ -308,7 +566,49 @@ class: advisor-background
 <PFNFlow mode="train" />
 
 <!--
-Advance twice. First hide a target, then show the training signal. The formula is the prior-data negative log-likelihood: q_theta is the network's predictive distribution, D is the observed context, and (x,y) is a held-out row from the same simulated task. The expectation averages over tasks drawn from the training prior and their sampled context/query rows; in practice this is estimated using a batch of negative log-likelihood terms. The hidden y is used to compute the loss, not supplied as an input when predicting it. For continuous outcomes, q_theta denotes a predictive density. The same network sees many relationships, noise levels and dataset sizes. This is where the reusable prediction procedure is learned. The tiny datasets are explanatory sketches, not experiments. The PFN approximates Bayesian posterior prediction under its synthetic task prior, rather than an arbitrary universal predictive distribution. Source: https://arxiv.org/html/2112.10510#S3
+## Slide 14 — How to Train Tabular Foundation Models (1 minute 45 seconds)
+
+The training process is actually quite simple to understand.
+
+Instead of collecting one very large real-world dataset, we can generate many simulated datasets.
+
+Each dataset follows a different data-generating process.
+
+For example, one dataset may have a simple relationship between the input and output.
+
+Another may have a curved relationship.
+
+And another may have a different level of noise.
+
+*Click once to show the hidden outcomes.*
+
+During training, we hide some output values from the model.
+
+The model can see the input features, and it can also see the other rows where the outputs are known.
+
+Then we ask it to predict the hidden values.
+
+Of course, since the datasets are simulated, we know the correct answers.
+
+*Click again to show the training loss.*
+
+We use these correct answers to calculate the training loss.
+
+Here, the formula is the negative log-likelihood.
+
+The idea is simple.
+
+If the model gives a high probability to the correct answer, the loss is small.
+
+If it gives a low probability to the correct answer, the loss is large.
+
+We update the model to reduce this loss.
+
+We repeat this process over many different simulated datasets.
+
+In this way, the model learns a general prediction procedure that can be reused across tasks.
+
+After training, we can give it a completely new dataset and make predictions without training it again.
 -->
 
 ---
@@ -323,7 +623,43 @@ class: advisor-background
 <PredictiveDensity />
 
 <!--
-Advance once to reveal the central 95% predictive mass and the PI; advance again to compare the separate CI for the mean. A distribution is not itself an interval. One way to obtain an interval is to read off its 2.5th and 97.5th percentiles. The shaded region contains 95% of this model distribution. Reliable real-world predictive coverage still depends on calibration and assumptions. This interval targets a new observed sale price and combines outcome variation with uncertainty in our knowledge. The blue PI is approximately £343k–£657k under an illustrative Gaussian predictive distribution with mean £500k and standard deviation £80k. The green CI £480k–£520k is a separate illustrative interval for the unknown mean; it is not computed by taking narrower quantiles of the same outcome distribution. Both bars use the same price scale. The example demonstrates different targets and is not a real fitted TabCon result.
+## Slide 15 — Prediction Intervals Versus Confidence Intervals (1 minute 30 seconds)
+
+Now, let's look more closely at the uncertainty produced by these models.
+
+As we have just seen, tabular foundation models can produce predictive distributions.
+
+But how can we use these distributions to measure uncertainty?
+
+Here, we have an example of a predictive distribution for house prices.
+
+The center is around 500 thousand pounds.
+
+*Click once to reveal the prediction interval.*
+
+We can take the 2.5th and 97.5th percentiles of this distribution.
+
+This gives us a 95 percent prediction interval.
+
+In this example, the interval is from about 343 to 657 thousand pounds.
+
+This interval describes the price of a **new house**.
+
+The price of a new house may be quite different from the average, even when their features are similar, in statstics we call this noise.
+
+*Click again to reveal the confidence interval.*
+
+Now, suppose we are interested in the unknown average price, rather than the price of one new house.
+
+Then we need a confidence interval.
+
+The green interval is an example. It goes from 480 to 520 thousand pounds.
+
+It is much shorter because it describes uncertainty about the mean, rather than the full range of possible outcomes.
+
+
+
+**These two intervals answer different questions.**
 -->
 
 
@@ -339,7 +675,53 @@ class: advisor-background
 <IntervalLab mode="grow" />
 
 <!--
-Advance through 20, 80 and 320 observations, or use the buttons. More data makes the average more precise in this well-specified example, while the range for a new sale retains irreducible outcome variation. This is intuition, not a general guarantee of monotone interval shrinkage for every fitted model or every realized dataset.
+## Slide 16 — What Changes When We Collect More Data? (1 minute 30 seconds)
+
+Now, let's see what happens when we collect more data.
+
+This figure shows a simple regression problem.
+
+The horizontal axis is house size, and the vertical axis is house price.
+
+The blue region is the prediction interval for a new house.
+
+The green region is the confidence interval for the average price at a given house size.
+
+Let's first look at the case with 20 observations.
+
+We only have a small amount of data, so there is still a lot of uncertainty about the average price.
+
+*Click once to show 80 observations.*
+
+Now, we have 80 observations.
+
+We can see that the green confidence band becomes narrower.
+
+This is because we have more information to estimate the average relationship.
+
+But the blue prediction band is still quite wide.
+
+*Click again to show 320 observations.*
+
+Now, we have 320 observations.
+
+The green band becomes even narrower.
+
+But the blue band does not shrink nearly as much.
+
+Why?
+
+Because even if we know the average price very well, individual house prices can still be different from that average.
+
+This is the difference between **estimation uncertainty** and **outcome noise**.
+
+And this is exactly the problem we want to address.
+
+TabPFN already gives us predictive uncertainty.
+
+But for statistical inference, we want to know how accurately we have estimated the unknown mean.
+
+So, in the next part, I will introduce TabCon and explain how we train a model to learn this estimation uncertainty directly.
 -->
 
 ---
