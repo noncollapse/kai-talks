@@ -1,11 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@font-face { font-family:'DM Sans'; font-style:normal; font-weight:400; font-display:swap; src:url('/fonts/DM-Sans-400.ttf') format('truetype'); }
+@font-face { font-family:'DM Sans'; font-style:normal; font-weight:500; font-display:swap; src:url('/fonts/DM-Sans-500.ttf') format('truetype'); }
+@font-face { font-family:'DM Sans'; font-style:normal; font-weight:600; font-display:swap; src:url('/fonts/DM-Sans-600.ttf') format('truetype'); }
+@font-face { font-family:'DM Sans'; font-style:normal; font-weight:700; font-display:swap; src:url('/fonts/DM-Sans-700.ttf') format('truetype'); }
+@font-face { font-family:'Manrope'; font-style:normal; font-weight:400; font-display:swap; src:url('/fonts/Manrope-400.ttf') format('truetype'); }
+@font-face { font-family:'Manrope'; font-style:normal; font-weight:500; font-display:swap; src:url('/fonts/Manrope-500.ttf') format('truetype'); }
+@font-face { font-family:'Manrope'; font-style:normal; font-weight:600; font-display:swap; src:url('/fonts/Manrope-600.ttf') format('truetype'); }
+@font-face { font-family:'Manrope'; font-style:normal; font-weight:700; font-display:swap; src:url('/fonts/Manrope-700.ttf') format('truetype'); }
+@font-face { font-family:'Manrope'; font-style:normal; font-weight:800; font-display:swap; src:url('/fonts/Manrope-800.ttf') format('truetype'); }
 
 :root { --ink: #17233e; --muted: #64748b; --blue: #4263eb; --violet: #7c4dce; --teal: #0b9687; }
 .slidev-layout { font-family: 'DM Sans', sans-serif; color: var(--ink); background: #fbfcff; padding: 38px 52px; }
 .slidev-layout h1, .slidev-layout h2, .slidev-layout h3 { font-family: 'Manrope', sans-serif; color: var(--ink); }
 .slidev-layout h1 { font-size: 34px; line-height: 1.22; font-weight: 800; letter-spacing: -1.15px; margin: 0 0 18px; }
 .slidev-layout p { line-height: 1.5; }
-.eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: .19em; color: var(--blue); font-weight: 800; margin-bottom: 12px; }
+.eyebrow { font-size: 18px; text-transform: none; letter-spacing: .04em; color: var(--blue); font-weight: 800; margin-bottom: 12px; }
 .lead { font-size: 20px; color: #58677e; line-height: 1.45; margin: 0 0 20px; }
 .slidev-layout h1 + p.lead { opacity: 1; }
 .blue { color: var(--blue); } .teal { color: var(--teal); } .violet { color: var(--violet); }
@@ -101,12 +109,12 @@ button:focus-visible, a:focus-visible { outline: 3px solid #a3b6ff; outline-offs
 /* Single-view development timeline. */
 .timeline-slide{padding:24px}
 .timeline-slide h1{font-size:31px;letter-spacing:-.9px;margin-bottom:8px}
-.timeline-slide .eyebrow{font-size:10px;margin-bottom:9px}
+.timeline-slide .eyebrow{font-size:18px;margin-bottom:9px}
 .timeline-slide .source{left:24px;bottom:12px;font-size:9px;right:78px}
 
 /* Opening result: the plotted values and the highlights share one data source. */
 .result-preview-slide{padding:23px 32px}
-.result-preview-slide .eyebrow{font-size:10px;margin-bottom:7px}
+.result-preview-slide .eyebrow{font-size:18px;margin-bottom:7px}
 .result-preview-slide h1{font-size:31px;margin-bottom:5px;letter-spacing:-.9px}
 .result-preview-slide .source{left:39px;right:80px;bottom:10px;font-size:8px;line-height:1.4}
 
@@ -169,3 +177,111 @@ button:focus-visible, a:focus-visible { outline: 3px solid #a3b6ff; outline-offs
 
 .ecosystem-slide { padding:28px 40px; }
 .ecosystem-slide h1 { font-size:31px; margin-bottom:14px; }
+
+.tabcon-roadmap { display:grid; grid-template-columns:1fr 1fr; column-gap:58px; row-gap:40px; margin-top:55px; }
+.tabcon-roadmap section { display:flex; align-items:flex-start; gap:22px; padding:24px 0; border-top:1px solid #dce4f2; }
+.tabcon-roadmap section > span { font-family:Manrope,sans-serif; font-size:32px; line-height:1.25; font-weight:800; color:#aabbdc; }
+.tabcon-roadmap h2 { font-size:27px; line-height:1.3; font-weight:800; margin:0; color:#17233e; }
+.tabcon-roadmap p { font-size:16px; color:#8996aa; margin:12px 0 0; line-height:1.5; }
+
+.tabcon-roadmap.main-idea-active section:first-child > span { color:#4263eb; }
+.tabcon-roadmap.main-idea-active section:first-child p { color:#53637c; }
+.tabcon-roadmap.main-idea-active section:not(:first-child) h2 { color:#a1adbf; }
+.tabcon-roadmap.main-idea-active section:not(:first-child) > span { color:#c5cedd; }
+.tabcon-roadmap.main-idea-active section:not(:first-child) p { color:#b0b9c8; }
+
+/* Computer Modern sans-serif, matching the Beamer reference's CMSS family. */
+@font-face { font-family:'GRPO Sans'; src:url('/fonts/grpo-sans-regular.woff2') format('woff2'); font-style:normal; font-weight:400; font-display:swap; }
+@font-face { font-family:'GRPO Sans'; src:url('/fonts/grpo-sans-italic.woff2') format('woff2'); font-style:italic; font-weight:400; font-display:swap; }
+.oracle-coverage-slide { padding:28px 42px; }
+.oracle-coverage-slide h1 { margin-bottom:18px; }
+.oracle-ci-definition,.oracle-quantiles,.oracle-block-heading,.oracle-block-body { font-family:'GRPO Sans',Arial,sans-serif; font-size:20px; font-weight:400; color:#111; }
+.oracle-coverage-slide .katex { font-size:1em!important; }
+.oracle-ci-definition { margin:10px 0 13px; text-align:center; }
+.oracle-quantiles { margin:0 0 19px; line-height:1.4; }
+.oracle-beamer-block { border-radius:9px; overflow:hidden; margin-top:17px; background:#ecebf6; }
+.oracle-block-heading { background:#00536d; color:#fff; padding:5px 12px; line-height:1.3; }
+.oracle-block-body { padding:13px 15px; line-height:1.45; }
+.oracle-theorem-body { font-style:italic; }
+.oracle-proof-block .oracle-block-body { padding:15px 12px; }
+.oracle-proof-block .katex-display { margin:0!important; }
+
+.oracle-proof-block .oracle-block-heading { background:#8b2635; }
+
+/* Shared typography for takeaway statements throughout the deck. */
+.slidev-layout :is(.callout, .detail-message, .ci-example-takeaway, .lab-caption, .reuse-message, .closing-line, .target-shift) {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Parameter ownership: warm cells train; cool cells stay frozen. */
+.ownership-table td.learned-cell{background:#fff0f0!important;color:#b84747}
+.ownership-table td.frozen-cell{background:#edf4ff!important;color:#4263eb}
+
+.ownership-table{max-width:780px;margin:24px auto 0}
+.ownership-table th{padding:10px 12px}
+.ownership-table td{padding:12px}
+
+.ownership-table{width:auto;max-width:100%;margin:20px auto 0;table-layout:auto}
+.ownership-table th{padding:8px 14px;white-space:nowrap}
+.ownership-table td{padding:8px 14px;text-align:center}
+.ownership-table td:first-child,.ownership-table th:first-child{text-align:left;padding-right:20px}
+
+.ownership-table thead th,.ownership-table thead th:first-child{
+  background:#fff;
+  text-align:center;
+  font-family:inherit;
+  font-size:14px;
+  font-weight:600;
+  color:#17233e;
+  text-transform:none;
+  letter-spacing:normal;
+  padding:8px 14px;
+}
+
+
+/* Rebalance the advisor revision after content was removed or expanded. */
+.slidev-layout h1 { text-wrap:balance; }
+.ci-example-slide h1 { max-width:850px; }
+
+.training-overview-slide .detail-message { margin-top:14px; }
+.global-training-slide .training-pipeline { margin-top:26px; padding:24px; }
+.global-training-slide .training-pipeline > div > span { font-size:13px; }
+.global-training-slide .training-pipeline > div > b { font-size:20px; }
+.global-training-slide .loss-display { padding:22px 20px; font-size:26px; margin-top:20px; }
+.global-training-slide .detail-pair { gap:30px; margin-top:28px; }
+.global-training-slide .detail-pair h3 { font-size:18px; line-height:1.4; margin-bottom:10px; }
+.global-training-slide .detail-pair p { font-size:16px; line-height:1.5; }
+.specialist-training-slide > .small { line-height:1.6; margin-top:4px; }
+
+.ownership-slide .ownership-table { width:100%; max-width:none; table-layout:fixed; margin:30px 0 0; }
+.ownership-slide .ownership-table th:first-child { width:28%; text-align:left; }
+.ownership-slide .ownership-table th { font-size:17px; height:48px; padding:10px 16px; }
+.ownership-slide .ownership-table td { height:52px; padding:10px 16px; font-size:23px; }
+.ownership-slide .ownership-table td:first-child { font-size:18px; }
+.ownership-slide > .small { margin-top:18px!important; font-size:14px; }
+
+/* Shared type scale and spacing for the method sequence. */
+.slidev-layout.method-slide{padding:32px 52px}
+.method-slide .eyebrow{font-family:'DM Sans',sans-serif;font-size:18px;line-height:27px;font-weight:800;letter-spacing:.04em;color:var(--blue);margin-bottom:10px}
+.slidev-layout.method-slide h1{font-family:'Manrope',sans-serif;font-size:34px;line-height:1.22;font-weight:800;letter-spacing:-1.15px;margin:0;text-wrap:balance}
+.slidev-layout.detail-slide.method-slide h1{font-size:32px}
+.method-slide h2,.method-slide h3{font-family:'Manrope',sans-serif!important;font-weight:800}
+.method-slide .detail-message{font-size:16px;line-height:1.45}
+.method-slide.specialist-training-slide>.small{margin-top:14px;font-size:15px;line-height:1.5}
+.method-slide.ownership-slide .ownership-table{margin-top:32px;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid #dce3ef;border-radius:12px;background:#fff}
+.method-slide.ownership-slide .ownership-table th{height:34px;padding:8px 12px;font-size:15px;background:#f0f3fa;font-weight:600;border:0}
+.method-slide.ownership-slide .ownership-table th[rowspan]{width:28%;padding-left:22px;font-size:17px}
+.method-slide.ownership-slide .ownership-table thead tr:first-child th:not([rowspan]){font-size:16px;border-bottom:1px solid #dce3ef}
+.method-slide.ownership-slide .ownership-table thead tr:nth-child(2) th{width:auto;font-size:14px;color:#64748b;text-align:center}
+.method-slide.ownership-slide .ownership-table td{height:49px;padding:7px 12px;font-size:16px;border-top:1px solid #e8edf5;background:#fff!important}
+.method-slide.ownership-slide .ownership-table td:first-child{padding-left:22px;font-size:17px;font-weight:500}
+.method-slide .ownership-table .status{display:inline-block;min-width:76px;padding:5px 10px;border-radius:5px;font-size:14px;font-weight:500;line-height:1.3}
+.method-slide .ownership-table .status.train{background:#e8efff;color:#3558c4;font-weight:700}
+.method-slide .ownership-table .status.frozen{background:#f2f4f8;color:#7a879c}
+.method-slide.ownership-slide>.small{margin-top:17px!important;font-size:13px}
+
+/* Keep fixed-coordinate diagrams aligned throughout each reveal. */
+.method-slide .reveal.waiting{transform:none}

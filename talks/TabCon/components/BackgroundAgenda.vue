@@ -18,12 +18,12 @@ const tableCells = [0, 1, 2, 3]
       <div class="topic-index"><span>01</span><span class="topic-progress"></span></div>
       <h2>CI construction</h2>
 
-      <svg class="topic-illustration ci-illustration" viewBox="0 0 400 205" role="img" aria-label="Repeated samples produce different confidence intervals around their estimates. The true mean stays fixed. Two illustrative intervals cover it, and one misses it.">
-        <text class="truth-label" x="250" y="19" text-anchor="middle">Fixed true mean</text>
+      <svg class="topic-illustration ci-illustration" viewBox="0 0 400 205" role="img" aria-label="Three confidence intervals surround different estimates. The ground truth stays fixed. Two illustrative intervals cover it, and one misses it.">
+        <text class="truth-label" x="250" y="19" text-anchor="middle">Ground truth</text>
         <line x1="250" y1="30" x2="250" y2="174" stroke="#64748b" stroke-width="1.5" stroke-dasharray="3 5" opacity=".6" />
 
         <g v-for="sample in ciSamples" :key="sample.id" class="ci-trial" :class="`trial-${sample.id}`" :style="{ color: sample.covers ? 'var(--topic-color)' : '#b27a46' }">
-          <text class="sample-label" x="5" :y="sample.y + 4">Sample {{ sample.id }}</text>
+          <text class="sample-label" x="5" :y="sample.y + 4">Interval {{ sample.id }}</text>
           <path :d="`M 80 ${sample.y} H 105 M 100 ${sample.y - 4} L 105 ${sample.y} L 100 ${sample.y + 4}`" fill="none" stroke="#9ba9bf" stroke-width="1.2" stroke-linecap="round" />
           <g :transform="`translate(${sample.estimate} ${sample.y})`">
             <g class="ci-span">
@@ -41,9 +41,6 @@ const tableCells = [0, 1, 2, 3]
           <text x="267" y="199" fill="#b27a46">Misses</text>
         </g>
       </svg>
-
-      <p>What should an interval guarantee?</p>
-      <div class="topic-bottom"><span>Statistical inference</span><span class="topic-arrow" aria-hidden="true">↗</span></div>
     </a>
 
 
@@ -51,8 +48,8 @@ const tableCells = [0, 1, 2, 3]
       <div class="topic-index"><span>02</span><span class="topic-progress"></span></div>
       <h2>Tabular foundation models</h2>
 
-      <svg class="topic-illustration model-illustration" viewBox="0 0 400 205" role="img" aria-label="Different tabular datasets flow through a shared model to produce predictions">
-        <g class="table" v-for="(y, i) in [19, 77, 135]" :key="y" :transform="`translate(31 ${y})`">
+      <svg class="topic-illustration model-illustration" viewBox="0 0 400 205" role="img" aria-label="A dataset flows through a model to produce predictions">
+        <g class="table" v-for="(y, i) in [77]" :key="y" :transform="`translate(31 ${y})`">
           <rect width="66" height="44" rx="6" fill="#fbfcff" stroke="currentColor" stroke-width="1.3" opacity=".65" />
           <rect x="5" y="5" width="56" height="7" rx="2" fill="currentColor" opacity=".24" />
           <g v-for="row in tableRows" :key="row">
@@ -61,15 +58,13 @@ const tableCells = [0, 1, 2, 3]
         </g>
 
         <g fill="none" stroke="currentColor" stroke-width="1.5" opacity=".3">
-          <path d="M 98 41 C 128 41 128 99 165 99" />
-          <path d="M 98 99 H 165" />
-          <path d="M 98 157 C 128 157 128 99 165 99" />
+          <path d="M 98 99 H 165 M 159 94 L 165 99 L 159 104" />
           <path d="M 258 99 H 302 M 296 94 L 302 99 L 296 104" />
         </g>
         <g class="flow-dots" fill="currentColor">
-          <circle class="flow-dot dot-one" r="3.2" />
+
           <circle class="flow-dot dot-two" r="3.2" />
-          <circle class="flow-dot dot-three" r="3.2" />
+
         </g>
 
         <rect class="model-halo" x="153" y="50" width="117" height="98" rx="25" fill="currentColor" opacity=".04" />
@@ -89,12 +84,9 @@ const tableCells = [0, 1, 2, 3]
           <path d="M 12 32 V 26 M 26 32 V 14 M 40 32 V 21" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none" />
         </g>
         <g class="illustration-key" fill="currentColor" font-family="DM Sans, sans-serif" font-size="11" text-anchor="middle">
-          <text x="64" y="198">Datasets</text><text x="211" y="198">Shared model</text><text x="341" y="198">Predictions</text>
+          <text x="64" y="198">Dataset</text><text x="211" y="198">Model</text><text x="341" y="198">Predictions</text>
         </g>
       </svg>
-
-      <p>How can learning transfer across datasets?</p>
-      <div class="topic-bottom"><span>Learning across tasks</span><span class="topic-arrow" aria-hidden="true">↗</span></div>
     </a>
 
   </nav>

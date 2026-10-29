@@ -46,8 +46,9 @@ const showCI=computed(()=>props.mode==='grow'||$clicks.value>=3)
       <div v-if="mode==='grow'" class="controls"><button v-for="v in [20,80,320]" :key="v" @click.stop="override=v" :class="{selected:n===v}" :aria-label="`Show ${v} observations`">{{v}}</button></div>
     </aside>
   </div>
-  <div class="lab-caption">{{mode==='grow'?'More data can pin down the average. Individual outcomes can still vary.':'The two intervals describe different targets at the same floor area.'}}</div>
+  <div class="lab-caption" :class="{'grow-caption':mode==='grow'}"><template v-if="mode==='grow'">CI <b>shrinks</b> as sample size grows; PI does <b>not</b>.</template><template v-else>The two intervals describe different targets at the same floor area.</template></div>
 </template>
 <style scoped>
 .lab{display:grid;grid-template-columns:650px 1fr;gap:10px;align-items:center;margin-left:-20px}.lab svg{width:650px;height:315px}.band{transition:d .7s ease,opacity .6s ease}.sample{font-size:13px;color:#64748b;margin-bottom:18px}.sample b{font-size:28px;font-family:Manrope;color:#17233e;display:block}.metric{font-size:14px;margin:18px 0;transition:opacity .6s}.metric.muted{opacity:.12}.metric strong{font-size:21px;display:block;margin:5px 0;font-variant-numeric:tabular-nums}.metric small{font-size:11px;color:#64748b}.dot{width:8px;height:8px;display:inline-block;border-radius:50%;margin-right:5px}.pi{background:#4263eb}.ci{background:#0b9687}.controls{display:flex;gap:5px}.controls button{font-size:12px;border:1px solid #d6deed;border-radius:7px;padding:5px 9px;color:#64748b;background:white}.controls button.selected{background:#4263eb;color:white;border-color:#4263eb}.lab-caption{font-size:18px;padding:14px 18px;border-left:3px solid #0b9687;background:#e9f8f4;margin-top:5px;border-radius:0 10px 10px 0}
+.lab-caption.grow-caption{margin-top:20px}
 </style>

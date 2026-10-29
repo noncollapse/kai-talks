@@ -16,7 +16,7 @@ class: cover-slide
 ---
 
 <h1 class="cover-title">Can Tabular Foundation Models<br><span>Amortize Statistical Inference?</span></h1>
-<div class="cover-authors"><b>Kai Ye</b> · Shijin Gong · Hongyi Zhou · Valentina Zangirolami · Chengchun Shi</div>
+<div class="cover-authors">Kai Ye · Shijin Gong · Hongyi Zhou · Valentina Zangirolami · Chengchun Shi</div>
 <div class="cover-bottom"><img class="lse-logo" width="72" height="72" src="https://upload.wikimedia.org/wikipedia/commons/5/51/LSE_Logo.svg" alt="London School of Economics and Political Science logo"><a href="https://arxiv.org/abs/2609.33114">arXiv:2609.33114</a></div>
 
 
@@ -65,7 +65,7 @@ The background agenda presents CI construction first, followed by tabular founda
 
 ---
 routeAlias: confidence-intervals
-class: advisor-background
+class: advisor-background ci-example-slide
 ---
 
 
@@ -312,7 +312,7 @@ Advance twice. First hide a target, then show the training signal. The formula i
 -->
 
 ---
-clicks: 2
+clicks: 0
 class: advisor-background
 ---
 
@@ -334,225 +334,214 @@ clicks: 2
 class: advisor-background
 ---
 
-# What Changes When We Collect More Data?
+# CI v.s. PI
 
 <IntervalLab mode="grow" />
-<div class="source">Simulated illustration with known Gaussian noise. Advance with the arrow key or select a sample size. Bands are pointwise, not simultaneous.</div>
 
 <!--
 Advance through 20, 80 and 320 observations, or use the buttons. More data makes the average more precise in this well-specified example, while the range for a new sale retains irreducible outcome variation. This is intuition, not a general guarantee of monotone interval shrinkage for every fitted model or every realized dataset.
 -->
 
 ---
-class: section-slide
 routeAlias: tabcon
+clicks: 0
 ---
 
-<div class="eyebrow">03 · TabCon</div>
+<div class="eyebrow">When tabular foundation models meet statistical inference</div>
 
-# Learn how the<br>estimate can be wrong
+# TabCon in One Slide
 
-<p class="lead">Training tasks reveal the true average.<br>That gives us a new learning target.</p>
-<div class="section-no">03</div>
-<div class="source" style="color:#8391ad"><a href="https://arxiv.org/abs/2609.33114">Ye et al., Can Tabular Foundation Models Amortize Statistical Inference?</a></div>
+<TabConIntro />
 
 <!--
-In a simulated training world, we know the regression function. That lets us teach the network about estimation error rather than only the next noisy outcome. Source: https://arxiv.org/html/2609.33114v1#S3
+Introduce TabCon on the same light background as the preceding slides. The dataset and network motifs echo the Background agenda. One observed dataset feeds a shared model; two branches show a point estimate of the regression mean and a confidence interval for that mean. The schematic omits the query covariates x and the frozen-backbone/residual-head implementation, which are explained later. At deployment neither output sees the oracle mean. The point estimator is reused from the frozen TabPFN predictor; TabCon learns residual distributions used to construct interval endpoints. No output values or interval widths in this diagram represent an experimental result.
 -->
 
 ---
-clicks: 2
+routeAlias: tabcon-roadmap
+clicks: 1
 ---
 
-<div class="eyebrow">From prediction to inference</div>
+# Our Contributions
 
-# TabPFN predicts outcomes. We want the mean.
-
-<div class="outcome-decomposition">
-<div><MathTex tex="Y" /><small>Observed outcome</small></div><i>=</i><div class="teal"><MathTex tex="f(x)" /><small>The mean we care about</small></div><i>+</i><div class="violet"><MathTex tex="\epsilon(x)" /><small>Outcome noise</small></div>
-</div>
-<div class="target-comparison">
-<section><span class="detail-label">TabPFN’s predictive distribution</span><div class="target-math blue"><MathTex tex="q_\theta(y\mid x,D)" /></div><p>A distribution for <b>f(x) + ε(x)</b>.<br>Its quantiles describe possible outcomes.</p></section>
-<section v-click="1" class="mean-target"><span class="detail-label">Our inferential target</span><div class="target-math teal"><MathTex tex="f(x)=\mathbb{E}[Y\mid X=x]" /></div><p>How precisely do the data<br>locate this <b>unknown mean</b>?</p></section>
-</div>
-<div v-click="2" class="target-shift">Change the learning target: <b>outcomes → estimation residuals.</b></div>
-<div class="source">E[ε(x) | X = x] = 0. Predictive uncertainty includes outcome noise and uncertainty about the mean. <a href="https://arxiv.org/html/2609.33114v1#S3">Ye et al., Section 3</a>.</div>
+<TabConContributions />
 
 <!--
-Start from the outcome decomposition Y=f(x)+epsilon(x), with zero conditional-mean noise. Epsilon(x) denotes a random outcome deviation at fixed features x; its distribution may depend on x. Standard TabPFN learns a predictive distribution for Y, which is a noisy realization of f(x), rather than a confidence distribution for the fixed regression mean itself. Its predictive spread can reflect both outcome variation and uncertainty about the estimated mean. Reveal our target f(x), then the change of learning target. We do not simply subtract a noise realization from a prediction: we train a new residual distribution for estimation error. This sets up the next slide. Source: https://arxiv.org/html/2609.33114v1#S3
+First show all four contributions together. Advance once to focus on the methodology, greying contributions 2–4 while retaining the same slide number. This second state serves as the methodology section agenda without shifting page numbers. The empirical claims summarize the reported benchmarks, not universal coverage, length or speed guarantees. Next advance moves to the residual-learning slide.
 -->
 
 ---
-clicks: 2
+routeAlias: tabcon-main-idea
+clicks: 0
 ---
 
-<div class="eyebrow">TabCon · Change what the model predicts</div>
+<div class="eyebrow">1. Amortized CI construction</div>
 
-# Learn residuals to build confidence intervals
+# Learn Residuals to Build CIs
 
-<div class="residual-learning">
-<section><span class="detail-label">Define the estimation residual</span><div class="target-math violet"><MathTex tex="r(x)=\widehat f(x)-f(x)" /></div><p>TabPFN estimate − known synthetic mean.</p></section>
-<div class="residual-arrow">→</div>
-<section v-click="1"><span class="detail-label">Learn its distribution</span><div class="target-math blue"><MathTex tex="q_\phi(r\mid x,D)" /></div><p>TabPFN features → residual heads.</p></section>
-</div>
-<div v-click="2" class="residual-to-ci">
-<div class="residual-proof-label">Confidence coverage = residual coverage</div>
-<div class="residual-proof"><MathTex tex="\begin{aligned}&\mathbb{P}_D\!\Bigl(\widehat f(x)-Q_{1-\alpha/2}(x)\leq f(x)\leq\widehat f(x)-Q_{\alpha/2}(x)\Bigr)\\[2pt]&=\mathbb{P}_D\!\Bigl(Q_{\alpha/2}(x)\leq\textcolor{#7c4dce}{\widehat f(x)-f(x)}\leq Q_{1-\alpha/2}(x)\Bigr)\\[2pt]&=1-\alpha\end{aligned}" display /></div>
-</div>
-<div class="residual-definition">Across datasets <b>D</b>, <b>f(x) stays fixed</b> and the interval changes. Set α = 0.05 for 95% coverage.</div>
-<div class="source"><a href="https://arxiv.org/html/2609.33114v1#S3">Ye et al., Section 3, Eq. 2</a>. Oracle identity for fixed x and continuous sampling errors: Q denotes true residual quantiles. TabCon learns <MathTex tex="\widehat Q" />; coverage needs calibration.</div>
+<ResidualTrainingIdea />
 
 <!--
-The key move is to reuse TabPFN's representations but change the prediction target from Y to r(x)=f-hat(x)-f(x). The residual heads predict a distribution, not only one residual value. In synthetic training tasks, f is known, so r is available as supervision. At deployment, the model sees only the observed context and query features, not the true mean. The backbone and point predictor remain frozen in the reported implementation; lightweight residual heads and the router are trained as explained next. Epsilon(x)=Y-f(x) is outcome noise, whereas r(x)=f-hat(x)-f(x) is estimation error; using the noisy residual Y-f-hat(x) would target a different distribution. The three-line display explains the interval by an equivalent event: f lies inside the confidence interval exactly when the estimation residual lies between its two quantiles. The violet term identifies that residual and matches its definition above. P_D means probability over repeated draws of the training dataset D at fixed x and fixed regression function f. The larger residual quantile determines the lower confidence endpoint. Q denotes true sampling-error quantiles, and the final equality assumes a continuous error distribution; with atoms, generalized quantiles give coverage at least 1-alpha. In practice TabCon substitutes learned quantiles Q-hat, so the oracle equality is intuition, not an automatic guarantee for learned intervals. Post-training calibrates their coverage empirically. Source: https://arxiv.org/html/2609.33114v1#S3
+Training schematic: simulate a dataset D and query features x with known conditional mean f(x). A frozen TabPFN backbone and regression head produce the point estimate f-hat(x). Compute the estimation residual r(x)=f-hat(x)-f(x), not the noisy outcome residual Y-f-hat(x). This observed synthetic error supervises the residual distribution head. The residual head is applied to query representations from the SAME frozen backbone, not to the unknown true residual at deployment. The arrow from residual to residual head denotes supervision, not a deployment input. The two model roles are not two independently trained full tabular foundation models. The regression head and backbone remain frozen; lightweight residual heads and later the router are trained. Blue/ice denotes frozen parameters, red/fire denotes trainable parameters. The full mixture architecture follows later. At deployment, only the new dataset and query predictors are observed; ground truth f(x) is not available. Learned residual quantiles construct CIs, whose coverage requires evaluation and calibration. This slide is conceptual, not a plotted experimental result.
 -->
 
 ---
+routeAlias: tabcon-oracle-coverage
+clicks: 0
+class: oracle-coverage-slide
+---
+
+<div class="eyebrow">1. Amortized CI construction</div>
+
+# Learn Residuals to Build CIs
+
+<div class="oracle-ci-definition"><MathTex tex="C_\alpha(x)=\left[\widehat f(x)-Q_{1-\alpha/2}(x),\;\widehat f(x)-Q_{\alpha/2}(x)\right]" display /></div>
+<p class="oracle-quantiles"><MathTex tex="Q_\tau(x)" />: true τ-quantile of the residual <MathTex tex="\widehat f(x)-f(x)" />.</p>
+
+<div class="oracle-beamer-block">
+<div class="oracle-block-heading">Proposition 1</div>
+<div class="oracle-block-body oracle-theorem-body">The interval <MathTex tex="C_\alpha(x)" /> covers the regression mean <MathTex tex="f(x)" /> with probability at least <MathTex tex="1-\alpha" />.</div>
+</div>
+
+<div class="oracle-beamer-block oracle-proof-block">
+<div class="oracle-block-heading">Proof</div>
+<div class="oracle-block-body"><MathTex tex="\begin{aligned}\mathbb{P}\!\left(f(x)\in C_\alpha(x)\right)&=\mathbb{P}\!\left(Q_{\alpha/2}(x)\leq\widehat f(x)-f(x)\leq Q_{1-\alpha/2}(x)\right)\\[7pt]&\geq (1-\alpha/2)-\alpha/2=1-\alpha.\end{aligned}" display /></div>
+</div>
+
+
+<!--
+Proposition 1 is an oracle statement about the true sampling distribution of the estimation error at fixed x. Define r(x)=f-hat(x)-f(x) and its true quantiles Q_tau(x). Subtracting residual quantiles from the point estimate reverses the endpoints: the upper residual quantile supplies the lower CI endpoint. The event that the CI contains f(x) is exactly the event that the residual falls between its two quantiles. Under continuity at the relevant quantiles, its probability is 1-alpha. With atoms, generalized quantiles yield coverage at least 1-alpha rather than necessarily equality. D is random; x and the regression function are fixed. TabCon substitutes learned estimates of these quantiles, so Proposition 1 does not by itself guarantee exact coverage for the learned intervals; empirical calibration and evaluation remain necessary. This proof follows the residual-coverage explanation in Kai's original slide and Appendix A of arXiv:2609.33114. This new page shifts the architecture slide and all later slides by one.
+-->
+
+---
+routeAlias: tabcon-architecture-roadmap
+clicks: 0
+---
+
+# Our Contributions
+
+<TabConContributions :active="2" />
+
+---
+class: method-slide
 clicks: 3
 ---
 
-<div class="eyebrow">TabCon · Architecture</div>
+<div class="eyebrow">2. A new architecture for tabular foundation models</div>
 
-# Three residual heads, one sparse MoE router
+# Three Residual Experts, One Sparse MoE Router
 
 <TabConFlow />
-<div class="source">Simplified from Ye et al., Figure 1 and Appendix B.1. Heads and router share frozen backbone embeddings. Top-2 mixes distributions before quantiles are extracted.</div>
 
 <!--
 This is a sparse mixture of three residual experts. The frozen TabPFN-v3 backbone supplies the same query embeddings to all three heads and to the router. Solid arrows carry representations or distributions; the dashed purple connection carries routing weights. The three heads appear together, followed by the attention-based router, then an illustrative Top-2 choice. In the implementation in Appendix C.3, each residual head is a lightweight MLP on frozen backbone query embeddings. The specialists train primarily on tasks where the global intervals under- or overcover. The top-2 router chooses task-level mixture weights. The weights here are illustrative. They mix distributions, not interval endpoints or quantiles. During router post-training, all residual heads stay frozen.
 -->
 
----
-clicks: 2
-class: detail-slide
----
 
-<div class="eyebrow">Inside TabCon · What we reuse</div>
-
-# Reuse the backbone. Change the prediction target.
-
-<TabPFNReuse />
-<div class="source">Schematic of <a href="https://arxiv.org/html/2609.33114v1#A3.SS3">TabCon, Appendix C.3</a> and the <a href="https://github.com/PriorLabs/TabPFN/blob/main/src/tabpfn/architectures/tabpfn_v3.py">TabPFN-v3 regression architecture</a>. Shared head design does not imply shared trained weights.</div>
-
-<!--
-TabPFN's feature-processing layers and in-context transformer are reused and frozen. We take their final query representations. The original regression decoder remains frozen and supplies the point estimate. Its output projection is a Linear-GELU-Linear MLP. TabCon's residual heads follow the same MLP form, with residual bins as the output target. The heads have separate trainable parameters. The paper says the specialists start from the trained Global head; it does not establish that Global is initialized from the original prediction head. The feature-encoding box groups the input/distribution embedding and feature-aggregation stages. Reveal the residual branch, then emphasize the change of prediction target.
--->
 
 ---
-clicks: 3
+clicks: 4
 routeAlias: router-details
 class: detail-slide
 ---
 
-<div class="eyebrow">Inside the router · Read the whole query set</div>
+<div class="eyebrow">2. A new architecture for tabular foundation models</div>
 
-# Attention + statistics summarize the query set
+# The Sparse MoE Router
 
 <RouterEncoder />
-<div class="source"><a href="https://arxiv.org/html/2609.33114v1#A2.SS1">Ye et al., Appendix B.1</a>. Query-set aggregation shown for one ensemble member; downstream routing is simplified. Std = standard deviation. Attention weights and expert scores are illustrative.</div>
 
 <!--
 The diagram focuses on query-set aggregation within one ensemble member. Frozen TabPFN produces query embeddings conditioned on the observed context; a shared trainable encoder produces tokens h_i. Two branches read these same tokens in parallel. Learned attention queries produce four weighted averages u_j. The other branch computes an unweighted mean and population standard deviation across query points, separately for each token coordinate. These are not statistics of raw covariates, predicted outcomes, residuals, or the u_j vectors. Standard deviation describes variation among the encoded query points; it is not itself an uncertainty estimate for f(x). The mean and standard deviation supply overall average and variation alongside the learned summaries. Including them is an architectural choice, not a mathematical requirement or a demonstrated necessity without an ablation. Concatenate all six vectors. The downstream routing network is collapsed here; the implementation then applies an estimator projection, aggregates across ensemble members using mean and standard deviation, and maps the task representation to expert scores. Parameters are shared across members, while tokens and all summaries depend on the member's input. Reveal attention, then the parallel statistics and concatenated summary, then downstream expert scores. Heatmap and expert scores are illustrative.
 -->
 
 ---
-clicks: 2
-class: detail-slide
+routeAlias: tabcon-training-roadmap
+clicks: 0
 ---
 
-<div class="eyebrow">Inside the router · From experts to an interval</div>
+# Our Contributions
 
-# Choose two experts, then mix their distributions
-
-<RouterWeights />
-<div class="source"><a href="https://arxiv.org/html/2609.33114v1#A2.SS1">Ye et al., Appendix B.1</a>. Distributions and weights are illustrative. Top-2 routing is used in SFT, RL and deployment.</div>
-
-<!--
-The router's scores are transformed into mixing weights, the two largest weights are retained, and these are renormalized to sum to one. The example selects Global and Expansion with weights 0.35 and 0.65. Global is not required to be one of the selected experts. The stacked histogram shows actual binwise mixing of two normalized illustrative distributions: blue is the weighted Global contribution and purple is the weighted Expansion contribution. On the second click, read the mixture's 2.5% and 97.5% quantiles and combine them with the fixed point estimate to construct the nominal 95% confidence interval. Quantiles are extracted after mixing; the heads' endpoints are not averaged. The same task-level weights apply to every query point, while each query has its own residual distributions. The final model uses Top-2 during both SFT and RL. In SFT, a straight-through estimator supplies a dense-softmax proxy gradient while the forward mixture stays sparse. RL samples Top-2 routing actions; deployment uses the selected pair deterministically.
--->
+<TabConContributions :active="3" />
 
 ---
 clicks: 3
 class: detail-slide
 ---
 
-<div class="eyebrow">Training · The order matters</div>
+<div class="eyebrow">3. A new training paradigm for tabular foundation models</div>
 
-# First learn the heads. Then learn to route.
+# First Pretrain the Specialists, Then Post-Train the Router
 
-<div class="training-stages">
-<section><span>01</span><h3>Global</h3><p>Learn estimation errors across the training task family.</p><b>Update θ<sub>G</sub></b><small>50,000 synthetic datasets</small></section>
-<section v-click="1"><span>02</span><h3>Specialists</h3><p>Clone Global; specialize using its coverage profile.</p><b>Update θ<sub>E</sub>, θ<sub>S</sub></b><small>Regime-based supervision</small></section>
-<section v-click="2"><span>03</span><h3>Router SFT</h3><p>Fit a Top-2 mixture with straight-through gradients.</p><b>Update ψ only</b><small>50,000 additional datasets</small></section>
-<section v-click="3"><span>04</span><h3>Router RL</h3><p>Reward sparse mixtures that produce better intervals.</p><b>Update ψ only</b><small>100,000 additional datasets</small></section>
-</div>
-<div class="detail-message">The TabPFN backbone and point predictor remain frozen throughout.</div>
-<div class="source"><a href="https://arxiv.org/html/2609.33114v1#S4">Section 4</a> and <a href="https://arxiv.org/html/2609.33114v1#A3.SS3">Appendix C.3</a>. Stages use independently generated training tasks; evaluation datasets are separate.</div>
+<TrainingStages />
+<div class="detail-message">RL post-training may be unnecessary for prediction but essential for complex scientific tasks involving statistical inference.</div>
 
 <!--
-The two specialists are trained before router SFT. SFT here names the initialization of the router, not another round of updating the heads. The residual head training is itself supervised. Do not imply that all network parameters are updated end-to-end. Once the specialists have been learned, the Global and both specialist heads are fixed throughout post-training. A separate specialist-stage task count is not specified in C.3, so no count is asserted here.
+The TabPFN backbone and point predictor remain frozen throughout. Training details: Section 4 and Appendix C.3 of https://arxiv.org/abs/2609.33114. Stages use independently generated training tasks; evaluation datasets are separate. The two specialists are trained before router SFT. SFT here names the initialization of the router, not another round of updating the heads. The residual head training is itself supervised. Do not imply that all network parameters are updated end-to-end. Once the specialists have been learned, the Global and both specialist heads are fixed throughout post-training. A separate specialist-stage task count is not specified in C.3, so no count is asserted here.
 -->
 
 ---
-clicks: 2
-class: detail-slide
+clicks: 0
+class: detail-slide global-training-slide
 ---
 
-<div class="eyebrow">Stage 01 · Global head</div>
+<div class="eyebrow">3.1. Training the Global Head</div>
 
-# Teach the head where the estimation error lands
+# Similar Training, New Target: From Outcomes to Residuals
 
-<div class="training-pipeline"><div><span>Simulate a task</span><b>True mean <MathTex tex="f(x)" /></b></div><i>→</i><div><span>Frozen predictor</span><b>Estimate <MathTex tex="\widehat f(x)" /></b></div><i>→</i><div><span>Supervised target</span><b><MathTex tex="e=\widehat f(x)-f(x)" /></b></div></div>
-<div v-click="1" class="loss-display"><MathTex tex="\mathcal{L}_{G}=\underbrace{\mathrm{NLL}}_{\text{fit the observed error}}+0.20\,\underbrace{\mathrm{CRPS}}_{\text{fit the cumulative distribution}}" /></div>
-<div v-click="2" class="two detail-pair"><section><h3 class="blue">NLL</h3><p>Put probability on the bin containing the known training error.</p></section><section><h3 class="violet">CRPS</h3><p>Respect the ordering of error values, not just which bin is correct.</p></section></div>
-<div class="parameter-line"><span class="update-tag">UPDATE · Global MLP θ<sub>G</sub></span><span class="frozen-tag">FROZEN · Backbone + point predictor</span></div>
-<div class="source"><a href="https://arxiv.org/html/2609.33114v1#S4">Section 4, Eq. 3</a>; <a href="https://arxiv.org/html/2609.33114v1#A3.SS3">Appendix C.3</a>. The target is estimation error, not <MathTex tex="Y-\widehat f(x)" />.</div>
+<div class="training-pipeline"><div><span>Simulate a dataset</span><b>Ground truth <MathTex tex="f(x)" /></b></div><i>→</i><div><span>Frozen regression head</span><b>Estimate <MathTex tex="\widehat f(x)" /></b></div><i>→</i><div><span>Supervised target</span><b><MathTex tex="r(x)=\widehat f(x)-f(x)" /></b></div></div>
+<div class="loss-display"><MathTex tex="\mathcal{L}_{G}=\mathrm{NLL}+0.20\,\mathrm{CRPS}" /></div>
+<div class="two detail-pair"><section><h3 class="blue">NLL (negative log-likelihood)</h3><p>Following TabPFN-3, we discretize all variables, making NLL minimization equivalent to cross-entropy minimization.</p></section><section><h3 class="violet">CRPS (continuous ranked probability score)</h3><p>CRPS generalizes absolute prediction error to predictive distributions.</p></section></div>
+
 
 <!--
 Each synthetic task supplies a context, query features and the oracle conditional mean. The frozen predictor produces f-hat. The head reads the frozen query embedding and predicts error-bin probabilities. NLL is cross-entropy for the realized error bin; CRPS compares the cumulative distribution to the realized error. We optimize only Global's MLP weights and biases. Eta_1 controls the contribution of CRPS relative to NLL. The task prior and discretization determine what error patterns the head can learn. Reported optimization uses AdamW, lr 3e-4, weight decay 1e-4, accumulation across eight tasks and norm clipping at 1.
 -->
 
 ---
-clicks: 2
+clicks: 0
 class: detail-slide
 ---
 
-<div class="eyebrow">Stage 02 · Calibrating the score cutoffs</div>
+<div class="eyebrow">3.2. Training the Specialists</div>
 
-# Use coverage scores to find two cutoffs
+# Define Coverage Scores to Cluster DGPs
 
 <CoverageThresholds />
-<div class="source">Coverage-score definition: <a href="https://arxiv.org/html/2609.33114v1#S4">Section 4</a>. Dataset-level calibration follows the training implementation. Histogram is illustrative.</div>
+
 
 <!--
 This slide covers threshold calibration only; specialist assignment comes next. Run the frozen Global head on many separate synthetic calibration datasets. For each dataset, C_alpha is the fraction of its query residuals inside the corresponding predicted intervals, equivalently the fraction of oracle means inside the resulting confidence intervals. Compute S by averaging signed coverage deviations over levels, with normalized weights proportional to 0.25, 0.50, 1 and 2. A negative S indicates weighted undercoverage; a positive S indicates weighted overcoverage. Gather these dataset-level scores and set s_1 and s_2 to their empirical one-third and two-thirds quantiles, as in src/tabcon/training/calibrate.py. The histogram is illustrative, with cutoffs computed from its cumulative bin counts; it is not an experimental result. Keep these two cutoffs fixed for subsequent specialist training. First reveal the score distribution, then reveal its quantile cuts and the saved thresholds. The levels are secondary configuration details, not the point of this slide. Dataset-level calibration follows the checked implementation; arXiv v1 Section 4 instead describes averaging across datasets within each DGP before partitioning DGPs. This empirical score across a query set is a training signal, not a repeated-sampling coverage guarantee from a single dataset.
 -->
 
 ---
-class: detail-slide
+clicks: 2
+class: detail-slide specialist-training-slide method-slide
 ---
 
-<div class="eyebrow">Stage 02 · Training the two specialist heads</div>
+<div class="eyebrow">3.2. Training the Specialists</div>
 
-# Use the cutoffs to assign specialist supervision
+# Use Different Data Subsets to Train Different Specialists
+
+<div class="small">For each new training DGP, compute its coverage score <MathTex tex="S" /> and compare it with the quantile thresholds <MathTex tex="s_1" /> and <MathTex tex="s_2" />. If</div>
 
 <SpecialistTraining />
-<div class="source"><a href="https://arxiv.org/html/2609.33114v1#S4">Eq. 4</a> and <a href="https://arxiv.org/html/2609.33114v1#A3.SS3">Appendix C.3</a>. KL direction: KL(p<sub>Global</sub> ‖ p<sub>specialist</sub>).</div>
+
 
 <!--
 Compute S anew for each training dataset, then compare with the fixed s_1 and s_2 from the previous slide. Select each score range to show which losses are active. For S <= s_1, Expansion gets NLL plus 0.20 CRPS plus 0.005 KL; Shrinkage gets only KL. For s_1 < S < s_2, both receive only KL. For S >= s_2, Shrinkage receives the supervised terms and Expansion receives only KL. The inclusive boundaries match calibration_bucket in the implementation, so equality is not left undefined. Both specialists start as copies of Global. These are dataset-level assignments, not fixed DGP labels, and new tasks need not fall into exact thirds. Global remains frozen. Neither specialist is a fixed multiplicative width adjustment: each predicts a full error distribution, without a guarantee that Expansion always widens or Shrinkage always narrows every interval. Numerical coefficients and optimizer details are retained in notes rather than emphasized in the diagram.
 -->
 
 ---
-clicks: 2
+clicks: 0
 class: detail-slide
 ---
 
-<div class="eyebrow">Stage 03 · Router SFT</div>
+<div class="eyebrow">3.3. SFT-based Router training</div>
 
-# SFT: Top-2 forward, straight-through backward
+# Construct the Supervised Learning Loss
 
 <RouterSFT />
-<div class="source">Final-model training implementation, verified against the selected SFT checkpoint. Weights are illustrative; the backbone and all three heads stay frozen.</div>
 
 <!--
 The final model's SFT already uses Top-2 routing. This slide follows the original training implementation, not the dense-SFT description in arXiv v1. Local verification on 2026-10-24: release_audit/20261024/lineage_recheck/sft_live_recheck.json records top_k=2 and straight_through_topk=true in the selected 40,000-step SFT checkpoint; its hash matches the initializer recorded by the final RL run. All 2,501 saved SFT training records have exactly two positive mixture weights. The historical source hashes independently match historical_source_check.json: core.py 49f259d7d5f6bdf673b099f69fe0e766d16090c9de54e0a40afecd3f4e2c3779; train.py dbf16d842d26bc4ceca398e25088f999268bef92d9b51d8c7d3ed976260b9d7c.
@@ -563,16 +552,16 @@ On click two, the return path shows the straight-through update to the router on
 -->
 
 ---
-clicks: 2
-class: detail-slide
+clicks: 0
+class: detail-slide method-slide
 ---
 
-<div class="eyebrow">Why post-training?</div>
+<div class="eyebrow">3.4. RL-based Router training</div>
 
-# Why RL after Top-2 SFT?
+# Why RL after SFT?
 
 <WhyRouterRL />
-<div class="source"><a href="https://arxiv.org/html/2609.33114v1#S4">Section 4</a>: interval-focused RL objectives. Both training stages use Top-2 in the verified final-model implementation. Diagrams are illustrative.</div>
+
 
 <!--
 SFT and RL share a Top-2 task router and the same frozen backbone and residual experts. RL continues from the SFT checkpoint; it does not introduce sparsity. SFT learns from simulated estimation errors with NLL + CRPS and a straight-through gradient estimator. These losses assess the full error distribution, but do not directly optimize the coverage probability and length of the derived confidence intervals.
@@ -581,17 +570,17 @@ On click one, reveal the RL stage: sample Top-2 routing actions, construct the r
 -->
 
 ---
-clicks: 3
+clicks: 0
 routeAlias: rl-details
-class: detail-slide
+class: detail-slide method-slide
 ---
 
-<div class="eyebrow">Stage 04 · Router RL with verifiable rewards</div>
+<div class="eyebrow">3.4. RL-based Router training</div>
 
-# RLOO: compare routes on the same task
+# RLOO: A Leave-One-Out Version of GRPO
 
 <RLOODemo />
-<div class="source">RLOO = REINFORCE Leave-One-Out · <a href="https://arxiv.org/html/2402.14740v1#S2.SS3">Ahmadian et al., §2.3</a>; <a href="https://arxiv.org/html/2609.33114v1#S4">TabCon, §4</a>. Four routes and rewards are illustrative. K = number of samples; z = sampled router scores.</div>
+
 
 <!--
 One iteration uses a single synthetic task T: the same observed data, query set, frozen embeddings and expert outputs for every candidate. Initialize the policy from the SFT router. The router produces relative logit means, then adds Gaussian exploration noise to sample scores z_i from q_psi(z | T). Apply softmax and Top-2 with renormalization to obtain candidate mixture weights. Each candidate gives a different residual mixture, confidence intervals and a scalar reward measuring their quality across the same task. First click: reveal the four example rewards. These are arbitrary demonstration values, not actual experiments.
@@ -607,9 +596,9 @@ Implementation checked in src/tabcon/training/policy.py and rl.py. The saved RL 
 class: detail-slide
 ---
 
-<div class="eyebrow">Stage 04 · What makes an interval worth rewarding?</div>
+<div class="eyebrow">3.4. RL-based Router training</div>
 
-# Six reward components, three roles
+# Six Reward Components, Three Types
 
 <RewardComponents />
 <div class="source"><a href="https://arxiv.org/html/2609.33114v1#A2.SS2">Appendix B.2 · Post-training reward function</a>.</div>
@@ -625,40 +614,47 @@ Extra safeguards: CVaR uses the same undercoverage information as CS but adds em
 -->
 
 ---
-class: detail-slide
+class: detail-slide ownership-slide
 ---
 
-<div class="eyebrow">Training · Parameter ownership</div>
+<div class="eyebrow">3. Model training (summary) </div>
 
-# Which weights move at each stage?
+# Which Model Is Optimized at Each Stage?
 
 <table class="ownership-table">
-<thead><tr><th>Module</th><th>Global fit</th><th>Specialists</th><th>Router SFT</th><th>Router RL</th></tr></thead>
+<thead><tr><th>Model</th><th>Pretraining</th><th>Pretraining</th><th>SFT</th><th>RL</th></tr></thead>
 <tbody>
-<tr><td>TabPFN backbone + point predictor</td><td>Frozen</td><td>Frozen</td><td>Frozen</td><td>Frozen</td></tr>
-<tr><td>Global residual MLP · θ<sub>G</sub></td><td class="learned-cell">Train</td><td>Frozen teacher</td><td>Frozen</td><td>Frozen</td></tr>
-<tr><td>Expansion + Shrinkage · θ<sub>E</sub>, θ<sub>S</sub></td><td>Not yet used</td><td class="learned-cell">Train</td><td>Frozen</td><td>Frozen</td></tr>
-<tr><td>Router · ψ</td><td>Not yet used</td><td>Not yet used</td><td class="learned-cell">Train</td><td class="learned-cell">Train</td></tr>
+<tr><td>Regression head</td><td class="frozen-cell" title="Frozen">❄️</td><td class="frozen-cell" title="Frozen">❄️</td><td class="frozen-cell" title="Frozen">❄️</td><td class="frozen-cell" title="Frozen">❄️</td></tr>
+<tr><td>Global head</td><td class="learned-cell" title="Trained">🔥</td><td class="frozen-cell" title="Frozen teacher">❄️</td><td class="frozen-cell" title="Frozen">❄️</td><td class="frozen-cell" title="Frozen">❄️</td></tr>
+<tr><td>Expansion</td><td title="Not used yet">—</td><td class="learned-cell" title="Trained">🔥</td><td class="frozen-cell" title="Frozen">❄️</td><td class="frozen-cell" title="Frozen">❄️</td></tr>
+<tr><td>Shrinkage</td><td title="Not used yet">—</td><td class="learned-cell" title="Trained">🔥</td><td class="frozen-cell" title="Frozen">❄️</td><td class="frozen-cell" title="Frozen">❄️</td></tr>
+<tr><td>Router</td><td title="Not used yet">—</td><td title="Not used yet">—</td><td class="learned-cell" title="Trained">🔥</td><td class="learned-cell" title="Trained">🔥</td></tr>
 </tbody>
 </table>
-<div class="router-parameters"><b>Router ψ includes</b><span>Query encoder + LayerNorm</span><span>4 attention-query vectors</span><span>Member projection</span><span>Routing MLP</span></div>
-<div class="detail-message">At deployment, every learned parameter is frozen. A new dataset changes activations and routing weights.</div>
-<div class="source"><a href="https://arxiv.org/html/2609.33114v1#A2.SS1">Appendix B.1</a> and <a href="https://arxiv.org/html/2609.33114v1#A3.SS3">C.3</a>. RL also updates reward-control multipliers / CVaR thresholds; these are separate from policy weights ψ.</div>
+<div class="small" style="text-align:center;margin-top:12px">“—” denotes not used during training.</div>
 
 <!--
 Distinguish model parameters from hyperparameters and outputs. Theta_G, theta_E and theta_S are MLP weights and biases. Psi contains the router's learned normalization, encoding, pooling-query, projection and routing parameters. The per-task vector w is an output, not a new parameter optimized on the deployment dataset. The adaptive dual variables and CVaR thresholds mentioned in the reward specification are training-control state, separate from psi. No gradient updates or oracle mean are needed at deployment. The mixture weights are computed from context and query embeddings.
 -->
 
 ---
+routeAlias: tabcon-experiments-roadmap
+clicks: 0
+---
+
+# Our Contributions
+
+<TabConContributions :active="4" />
+
+---
 routeAlias: evidence
 ---
 
-<div class="eyebrow">04 · Evidence</div>
+<div class="eyebrow">4. Strong empirical performance</div>
 
 # Three benchmarks, one known target
 
 <EvaluationDesign />
-<div class="source"><a href="https://arxiv.org/html/2609.33114v1#S5">Section 5</a> and <a href="https://arxiv.org/html/2609.33114v1#A3.SS1">Appendix C.1–C.2</a>. Standard ID, Standard OOD, Stress-test and CC18 are reported separately. All evaluation datasets are generated afresh.</div>
 
 <!--
 We need ground truth for the regression mean to score confidence intervals directly. There are three benchmark designs, yielding the four result settings on the next slide: Standard ID, Standard OOD, Stress-test and CC18. Stress-test is a separately generated and reported evaluation suite, not a subset of saved Standard ID/OOD evaluation datasets. It does share the broad ID generator and several mechanisms with the training prior. A stress condition therefore need not be out of distribution: for example, a discontinuous target is a possible draw in the broad prior, whereas its stress configuration forces that target regime while retaining Gaussian noise and clean features as the reference.
@@ -676,7 +672,6 @@ The CC18 benchmark preserves covariates from 13 real datasets but simulates resp
 # Coverage and precision belong together
 
 <BenchmarkResults />
-<div class="source"><a href="https://arxiv.org/html/2609.33114v1#S5.T1">Ye et al., Table 1</a>. Exact table values; switch settings above. Interval lengths use each benchmark's response scale.</div>
 
 <!--
 Start with standard ID. TabCon is close to the coverage target, while the bootstrap intervals are short but undercover here. PI is wider because its original target is the noisy outcome. Switch to OOD, stress-test or CC18 to show the same comparison. These are averages over datasets and query points, not a guarantee for every subgroup or individual query. The selected baselines omit Linear and RFF to keep the chart readable. Compare lengths within a benchmark rather than across benchmarks with different response scales.
@@ -691,7 +686,6 @@ Start with standard ID. TabCon is close to the coverage target, while the bootst
 
 <RuntimeChart />
 <div class="callout"><b>0.21 s</b> for TabCon versus <b>10.71 s</b> for 50 bootstrap refits in this setting.</div>
-<div class="source">Ye et al., Table 2. C = 256 context rows, Q = 256 queries. Median of 30 runs, NVIDIA RTX 6000 Ada. Deployment time excludes shared training.</div>
 
 <!--
 This is one concrete row of the runtime table, rather than an unqualified speedup claim. The horizontal axis is logarithmic. TabCon takes 0.2097 seconds, compared with 10.7106 for bootstrap, about 51 times faster here. PI takes 0.2137 and AMP 0.2772 seconds. The main point is avoiding repeated deployment-time refitting, not that all computation disappears. Source: https://arxiv.org/html/2609.33114v1#S5.T2
@@ -715,22 +709,4 @@ class: closing-slide
 
 <!--
 Return to the opening housing example. The right interval depends on the question. The contribution is to extend amortization from predicting outcomes to constructing intervals for the regression mean. Invite questions about the learning target, calibration or deployment cost.
--->
-
----
----
-
-<div class="eyebrow">Further reading</div>
-
-# Papers behind the talk
-
-<div class="reference-list">
-<div><span>PFNs</span><a href="https://arxiv.org/abs/2112.10510">Transformers Can Do Bayesian Inference</a><p>Müller et al. · ICLR 2022</p></div>
-<div><span>TabPFN</span><a href="https://doi.org/10.1038/s41586-024-08328-6">Accurate predictions on small data with a tabular foundation model</a><p>Hollmann et al. · Nature 2025</p></div>
-<div><span>TabCon</span><a href="https://arxiv.org/abs/2609.33114">Can Tabular Foundation Models Amortize Statistical Inference?</a><p>Ye, Gong, Zhou, Zangirolami and Shi · 2026</p></div>
-</div>
-
-
-<!--
-The charts before the evaluation section are didactic simulations. The coverage and runtime charts transcribe values from Tables 1 and 2 of the TabCon paper.
 -->
