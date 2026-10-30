@@ -5,13 +5,13 @@ const groups = [
     rewards: [
       {
         title: 'Interval length', code: 'WIL', icon: 'width',
-        emphasis: 'Width alone.',
-        description: 'Rewards shorter intervals relative to the Global head.',
+        emphasis: '',
+        description: 'Reward shorter intervals than those produced by Global Head.',
       },
       {
         title: 'Interval score', code: 'WIS', icon: 'score',
-        emphasis: 'Adds miss distance.',
-        description: 'Also penalizes how far targets fall outside the interval.',
+        emphasis: '',
+        description: 'Penalize how far the ground truth falls outside the interval.',
       },
     ],
   },
@@ -20,13 +20,13 @@ const groups = [
     rewards: [
       {
         title: 'Coverage', code: 'CS', icon: 'coverage',
-        emphasis: 'Total coverage.',
-        description: 'Penalizes deviations from the target beyond a tolerance.',
+        emphasis: '',
+        description: 'Penalize deviations from the nominal level.',
       },
       {
         title: 'Tail balance', icon: 'tails',
-        emphasis: 'Direction of misses.',
-        description: 'Checks each side, even when total coverage is correct.',
+        emphasis: '',
+        description: 'Penalize highly asymmetric CIs, where lower and upper endpoints correspond to unbalanced tail probabilities.',
       },
     ],
   },
@@ -34,14 +34,14 @@ const groups = [
     title: ['Extra', 'safeguards'],
     rewards: [
       {
-        title: 'Severe shortfalls', code: 'CVaR', icon: 'risk',
-        emphasis: 'Extra protection beyond CS.',
-        description: 'Emphasizes the worst undercoverage across tasks.',
+        title: 'Severe undercoverage', code: 'CVaR', icon: 'risk',
+        emphasis: '',
+        description: 'Apply a conditional value-at-risk penalty to undercoverage violations.',
       },
       {
         title: 'Excess width', icon: 'budget',
-        emphasis: 'Extra penalty beyond WIL.',
-        description: 'Activates only above a widening budget relative to Global.',
+        emphasis: '',
+        description: 'Extra penalty for intervals that are excessively long relative to Global Head.',
       },
     ],
   },
@@ -50,11 +50,7 @@ const groups = [
 
 <template>
   <div class="reward-components">
-    <section v-for="(group, index) in groups" :key="group.title[0]" class="reward-group">
-      <header class="group-heading">
-        <span class="group-number">0{{ index + 1 }}</span>
-        <h2><span v-for="line in group.title" :key="line">{{ line }}</span></h2>
-      </header>
+    <section v-for="group in groups" :key="group.title[0]" class="reward-group">
       <div class="reward-pair">
         <article v-for="reward in group.rewards" :key="reward.title" class="reward-item">
           <div class="item-heading">
@@ -67,9 +63,14 @@ const groups = [
               <g v-else><path d="M5 8H25M5 5V11M25 5V11" opacity=".3"/><path d="M25 3V29" stroke-dasharray="2 3" opacity=".4"/><path d="M5 23H36M5 19V27M36 19V27"/></g>
             </svg>
             <h3>{{ reward.title }}</h3>
-            <span v-if="reward.code" class="reward-code">{{ reward.code }}</span>
           </div>
-          <p><strong>{{ reward.emphasis }}</strong> {{ reward.description }}</p>
+          <p v-if="reward.code === 'WIL'">Reward <strong>shorter intervals</strong> than those produced by Global Head.</p>
+          <p v-else-if="reward.code === 'WIS'">Penalize how <strong>far</strong> the <strong>ground truth falls outside</strong> the interval.</p>
+          <p v-else-if="reward.code === 'CS'">Penalize <strong>deviations</strong> from the <strong>nominal level</strong>.</p>
+          <p v-else-if="reward.icon === 'tails'">Penalize <strong>highly asymmetric</strong> CIs, where lower and upper endpoints correspond to unbalanced tail probabilities.</p>
+          <p v-else-if="reward.code === 'CVaR'">Apply a <strong>conditional value-at-risk</strong> penalty to undercoverage violations.</p>
+          <p v-else-if="reward.icon === 'budget'">Extra penalty for intervals that are <strong>excessively long</strong> relative to Global Head.</p>
+          <p v-else><strong>{{ reward.emphasis }}</strong> {{ reward.description }}</p>
         </article>
       </div>
     </section>
@@ -89,4 +90,10 @@ const groups = [
 .reward-code{margin-left:auto;font-size:10px;line-height:1.2;font-weight:700;letter-spacing:.03em;color:#98a2b2}
 .reward-components p{font-size:13px;line-height:1.5;margin:0;color:#6b7a91}
 .reward-components strong{font-weight:600;color:#33415b}
+</style>
+
+<style scoped>
+.reward-components{width:820px;max-width:100%;margin:36px auto 0;gap:15px}
+.reward-group{display:block}
+.reward-pair{height:111px}
 </style>

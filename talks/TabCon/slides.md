@@ -1573,10 +1573,9 @@ class: detail-slide
 
 <div class="eyebrow">3.4. RL-based Router training</div>
 
-# Six Reward Components, Three Types
+# Six Reward Components
 
 <RewardComponents />
-<div class="source"><a href="https://arxiv.org/html/2609.33114v1#A2.SS2">Appendix B.2 · Post-training reward function</a>.</div>
 
 <!--
 *Suggested time: 1 minute 50 seconds*
@@ -1711,7 +1710,7 @@ routeAlias: evidence
 
 <div class="eyebrow">4. Strong empirical performance</div>
 
-# Three benchmarks, one known target
+# Three Synthetic and One Semi-Synthetic Datasets
 
 <EvaluationDesign />
 
@@ -1764,11 +1763,13 @@ We want intervals to be short, as long as the coverage remains close to the targ
 -->
 
 ---
+clicks: 3
+class: evidence-results
 ---
 
-<div class="eyebrow">Results · 95% nominal level</div>
+<div class="eyebrow">4. Strong empirical performance</div>
 
-# Coverage and precision belong together
+# Coverage and Interval Length
 
 <BenchmarkResults />
 
@@ -1845,14 +1846,15 @@ Our main finding is that it gives a good balance between coverage and interval l
 -->
 
 ---
+clicks: 0
+class: evidence-results
 ---
 
-<div class="eyebrow">Results · Computation</div>
+<div class="eyebrow">4. Strong empirical performance</div>
 
-# A fast interval for a new dataset
+# Computation
 
 <RuntimeChart />
-<div class="callout"><b>0.21 s</b> for TabCon versus <b>10.71 s</b> for 50 bootstrap refits in this setting.</div>
 
 <!--
 *Suggested time: 1 minute 10 seconds*
@@ -1887,51 +1889,47 @@ This is exactly the benefit of amortized statistical inference.
 -->
 
 ---
-class: closing-slide
+routeAlias: ablation
+class: evidence-results
+clicks: 0
 ---
 
-<div class="eyebrow">Summary</div>
+<div class="eyebrow">4. Strong empirical performance</div>
 
-# What do we want the interval to describe?
+# Ablation: Why Specialists and RL Matter
 
-<div class="two mt-9">
-<div><div class="text-sm blue font-bold uppercase tracking-widest">A future observation</div><h2 class="mt-4 !text-4xl">Predictive<br>uncertainty</h2><p class="text-lg text-slate-500 mt-5">PFNs learn to predict from context.</p></div>
-<div><div class="text-sm teal font-bold uppercase tracking-widest">An unknown average</div><h2 class="mt-4 !text-4xl">Estimation<br>uncertainty</h2><p class="text-lg text-slate-500 mt-5">TabCon learns to construct intervals for the mean.</p></div>
+<div class="ablation-intro">Coverage probability on six DGPs · 95% nominal level</div>
+<div class="ablation-figure">
+<div class="ablation-chart"><span class="ablation-ylabel">Coverage probability</span><img src="/figs/ablation-figure3.svg" alt="Figure 3: coverage of Global head, SFT model, and TabCon on six selected DGPs; dashed lines mark 95%." /></div>
+<div class="ablation-legend"><span><i class="global-marker"/>Global head (G)</span><span><i class="sft-marker"/>SFT model (S)</span><span><i class="tabcon-marker"/>TabCon (T)</span></div>
 </div>
-<div class="closing-line">Confidence intervals tell us how precisely the data locate the average.</div>
-<div class="mt-6 text-sm"><a href="https://arxiv.org/abs/2609.33114">Read the paper · arXiv:2609.33114</a></div>
-
+<div class="detail-message">Both specialists and RL training bring coverage closer to nominal level across DGPs.</div>
 
 <!--
-*Suggested time: 1 minute*
+Source: Figure 3, https://arxiv.org/pdf/2609.33114. Original vector artwork is retained without estimating values from the chart. Global is the global head, SFT is the specialist mixture after supervised router training, and TabCon includes RL post-training. These six selected DGPs illustrate both undercoverage and overcoverage; they do not establish a universal coverage guarantee.
+-->
 
-Finally, let me summarize this work.
+---
+class: future-research-slide
+clicks: 0
+---
 
-The main question of our paper is:
+<div class="eyebrow">Future research</div>
 
-**Can we use tabular foundation models for statistical inference, instead of only prediction?**
+# A New Era of Statistical Analysis?
 
-We focus on confidence interval construction.
+<div class="future-research-content">
+<ul class="future-questions">
+<li>Hypothesis testing?<a class="future-reference" href="https://arxiv.org/abs/2502.20925">Duong, Hoang &amp; Nguyen (2025) · Amortized Conditional Independence Testing</a></li>
+<li>Variable selection?<a class="future-reference" href="https://arxiv.org/abs/2610.21950">Luo (2026) · SelectPFN</a></li>
+<li>Clustering?<a class="future-reference" href="https://arxiv.org/abs/2601.21656">Zhao, Wang, Tan &amp; Zhang (2026) · TabClustPFN</a></li>
+<li>Demystifying PFNs?<a class="future-reference" href="https://arxiv.org/abs/2510.23254">Ma, Wang &amp; Samworth (2025) · Optimal In-context Adaptivity and Distributional Robustness of Transformers</a></li>
+</ul>
+<a class="future-paper" href="https://arxiv.org/abs/2609.33114" target="_blank" rel="noopener"><img src="/figs/tabcon-paper-qr.svg" alt="QR code linking to the TabCon paper on arXiv"/><span>Read our paper</span><small>arXiv:2609.33114</small></a>
+</div>
 
-The key difference is the type of uncertainty we want to measure.
+<div class="future-thanks">Thank you!</div>
 
-For prediction, we care about a future outcome.
-
-This includes the noise in the outcome itself.
-
-But for statistical inference, we care about how precisely we can estimate an unknown mean.
-
-These are two different targets.
-
-Our method, TabCon, learns the distribution of estimation residuals and uses it to construct confidence intervals.
-
-We introduce three residual experts and a sparse router.
-
-We train the residual experts first, then train the router with supervised fine-tuning and refine it using reinforcement learning.
-
-Our experiments show that TabCon can achieve coverage close to the target, while producing relatively short intervals and reducing inference time.
-
-More broadly, we hope this work opens up a new direction: using foundation models not only for prediction, but also for statistical inference.
-
-**Thank you for listening. I would be happy to take any questions.**
+<!--
+Future directions extend amortized statistical inference beyond confidence intervals to hypothesis testing, variable selection, and experimental design. These are open research questions. The QR code links to https://arxiv.org/abs/2609.33114.
 -->
