@@ -502,9 +502,13 @@ The third group focuses on uncertainty.
 
 These papers study how to measure uncertainty or how to separate different sources of uncertainty.
 
+For example, TabCUQ, by Yuebei Shi, Molei Liu, and Zijian Guo, perturbs the observed outcomes to quantify context variation and account for limited-context bias.
+
+Reference: [TabCUQ: Context-Uncertainty Quantification for Tabular Foundation Models](https://arxiv.org/abs/2610.39558), 2026.
+
 Our work is most closely related to this third direction.
 
-But we focus on a more specific question:
+The question driving our work is:
 
 Can we use a tabular foundation model to construct **confidence intervals for an unknown regression mean**, with good coverage and short interval lengths?
 

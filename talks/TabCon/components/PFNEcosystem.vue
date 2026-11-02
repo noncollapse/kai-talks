@@ -18,6 +18,7 @@ const categories = [
     { name:'TabMGP', citation:'Ng et al., ICML 2026', url:'https://proceedings.mlr.press/v306/ng26a.html' },
     { name:'Uncertainty decomposition', citation:'Fortini et al., 2026', url:'https://arxiv.org/abs/2602.04596' },
     { name:'Conformal PFNs with missing data', citation:'van Leeuwen, EurIPS workshop 2025', url:'https://sites.google.com/view/eurips25-ai-td' },
+    { name:'TabCUQ', citation:'Shi, Liu & Guo, 2026', url:'https://arxiv.org/abs/2610.39558' },
   ]},
 ]
 </script>
