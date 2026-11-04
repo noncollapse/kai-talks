@@ -1,6 +1,6 @@
 # VRPO: Robust Reinforcement Learning from Human Feedback for Large Language Models Fine-Tuning
 
-[Open talk slides](https://noncollapse.github.io/kai-talks/vrpo/)
+[Open talk slides](https://kaiye.noncollapse.com/kai-talks/vrpo/)
 
 ## Abstract
 

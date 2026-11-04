@@ -3,6 +3,8 @@ node_modules/
 
 # Build output
 dist/
+.cloudflare-assets/
+.wrangler/
 .slidev/
 .vite/
 

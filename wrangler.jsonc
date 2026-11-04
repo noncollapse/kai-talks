@@ -1,0 +1,13 @@
+{
+  "name": "kai-talks",
+  "account_id": "559cb2b7571bd98f21ff461008fa533e",
+  "compatibility_date": "2026-11-04",
+  "workers_dev": false,
+  "assets": {
+    "directory": "./.cloudflare-assets"
+  },
+  "routes": [
+    { "pattern": "kaiye.noncollapse.com/kai-talks", "zone_name": "noncollapse.com" },
+    { "pattern": "kaiye.noncollapse.com/kai-talks/*", "zone_name": "noncollapse.com" }
+  ]
+}

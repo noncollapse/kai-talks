@@ -7,7 +7,9 @@
     "dev": "node scripts/talks.mjs dev",
     "build": "node scripts/talks.mjs build",
     "build:index": "node scripts/talks.mjs index",
-    "export": "node scripts/talks.mjs export"
+    "export": "node scripts/talks.mjs export",
+    "build:cloudflare": "BASE_PATH=/kai-talks/ npm run build && node scripts/prepare-cloudflare.mjs",
+    "deploy:cloudflare": "npm run build:cloudflare && npx --yes wrangler@4.92.0 deploy"
   },
   "dependencies": {
     "@slidev/cli": "^0.49.0",
