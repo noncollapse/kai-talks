@@ -7,7 +7,7 @@
     "directory": "./.cloudflare-assets"
   },
   "routes": [
-    { "pattern": "kaiye.noncollapse.com/kai-talks", "zone_name": "noncollapse.com" },
-    { "pattern": "kaiye.noncollapse.com/kai-talks/*", "zone_name": "noncollapse.com" }
+    { "pattern": "https://kaiye.noncollapse.com/kai-talks", "zone_name": "noncollapse.com" },
+    { "pattern": "https://kaiye.noncollapse.com/kai-talks/*", "zone_name": "noncollapse.com" }
   ]
 }
