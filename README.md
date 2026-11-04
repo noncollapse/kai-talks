@@ -15,7 +15,16 @@ GitHub stores the source. Cloudflare Workers Static Assets publishes the archive
 `https://kaiye.noncollapse.com/kai-talks/`; GitHub Pages is disabled for this repository.
 The root GitHub Pages redirect repository retains the old URL redirects.
 
-After editing and pushing the source, deploy with a Cloudflare-authenticated account:
+Cloudflare Workers Builds watches the `main` branch. Pushing or merging to `main`
+automatically builds and deploys the site; no local deploy command is required.
+Pull requests retain the GitHub build check and do not deploy to production.
+
+Build settings: repository root `/`, Node.js from `.node-version`, build command
+`npm run build:cloudflare`, deploy command `npx --yes wrangler@4.92.0 deploy`.
+Preview builds are disabled. Check the Cloudflare `kai-talks` Worker deployment
+history for the commit and build result. A failed build keeps the current site live.
+
+For a manual recovery deployment with a Cloudflare-authenticated account:
 
 ```sh
 npm ci
