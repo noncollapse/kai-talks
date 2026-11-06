@@ -59,12 +59,11 @@ const tableCells = [0, 1, 2, 3]
 
         <g fill="none" stroke="currentColor" stroke-width="1.5" opacity=".3">
           <path d="M 98 99 H 165 M 159 94 L 165 99 L 159 104" />
-          <path d="M 258 99 H 302 M 296 94 L 302 99 L 296 104" />
+          <path d="M 258 99 H 314 M 308 94 L 314 99 L 308 104" />
         </g>
-        <g class="flow-dots" fill="currentColor">
-
-          <circle class="flow-dot dot-two" r="3.2" />
-
+        <g class="flow-dots" fill="currentColor" aria-hidden="true">
+          <circle class="flow-dot dataset-to-model" r="3.2" />
+          <circle class="flow-dot model-to-predictions" r="3.2" />
         </g>
 
         <rect class="model-halo" x="153" y="50" width="117" height="98" rx="25" fill="currentColor" opacity=".04" />
@@ -123,9 +122,8 @@ const tableCells = [0, 1, 2, 3]
 .trial-3 .ci-span{animation-name:spanThree}
 .agenda-topic:not(.selected) .ci-trial,.agenda-topic:not(.selected) .ci-span{animation:none}
 .flow-dot{opacity:0;offset-distance:0%;animation:tableFlow 5.8s linear infinite paused}
-.dot-one{offset-path:path('M 98 41 C 128 41 128 99 165 99');animation-delay:0s}
-.dot-two{offset-path:path('M 98 99 H 165');animation-delay:.8s}
-.dot-three{offset-path:path('M 98 157 C 128 157 128 99 165 99');animation-delay:1.6s}
+.dataset-to-model{offset-path:path('M 98 99 H 165');animation-delay:.8s}
+.model-to-predictions{offset-path:path('M 258 99 H 314');animation-delay:3.2s}
 .selected .flow-dot{animation-play-state:running}
 .model-halo{transform-origin:211px 99px;animation:modelPulse 5.8s ease-in-out infinite paused}
 .selected .model-halo{animation-play-state:running}
@@ -139,6 +137,6 @@ const tableCells = [0, 1, 2, 3]
 @keyframes spanThree{0%,51%{transform:scaleX(0)}60%,100%{transform:scaleX(1)}}
 @keyframes tableFlow{0%{offset-distance:0%;opacity:0}7%{opacity:.85}34%{offset-distance:100%;opacity:.85}40%,100%{offset-distance:100%;opacity:0}}
 @keyframes modelPulse{0%,35%,80%,100%{opacity:.04;transform:scale(1)}55%{opacity:.14;transform:scale(1.045)}}
-@keyframes predictionPulse{0%,45%,100%{opacity:.6}65%,80%{opacity:1}}
+@keyframes predictionPulse{0%,80%,100%{opacity:.6}89%,95%{opacity:1}}
 @media(prefers-reduced-motion:reduce){.ci-trial,.ci-span,.flow-dot,.model-halo,.prediction{animation:none!important}.flow-dot{display:none}}
 </style>
