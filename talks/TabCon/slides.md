@@ -17,7 +17,7 @@ class: cover-slide
 
 <h1 class="cover-title">Can Tabular Foundation Models<br><span>Amortize Statistical Inference?</span></h1>
 <div class="cover-authors">Kai Ye · Shijin Gong · Hongyi Zhou · Valentina Zangirolami · Chengchun Shi</div>
-<div class="cover-bottom"><img class="lse-logo" width="72" height="72" src="https://upload.wikimedia.org/wikipedia/commons/5/51/LSE_Logo.svg" alt="London School of Economics and Political Science logo"><a href="https://arxiv.org/abs/2609.33114">arXiv:2609.33114</a></div>
+<div class="cover-bottom"><img class="lse-logo" width="72" height="72" src="./assets/lse-logo.svg" alt="London School of Economics and Political Science logo"><a href="https://arxiv.org/abs/2609.33114">arXiv:2609.33114</a></div>
 
 
 <!--
