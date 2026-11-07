@@ -1926,7 +1926,7 @@ clicks: 0
 <div class="future-research-content">
 <ul class="future-questions">
 <li>Hypothesis testing?<a class="future-reference" href="https://arxiv.org/abs/2502.20925">Duong, Hoang &amp; Nguyen (2025) · Amortized Conditional Independence Testing</a></li>
-<li>Variable selection?<a class="future-reference" href="https://arxiv.org/abs/2610.21950">Luo (2026) · SelectPFN</a></li>
+<li>Variable selection?<a class="future-reference" href="https://arxiv.org/pdf/2611.04848">Zhu &amp; Zhu (2026) · MambaPFN</a></li>
 <li>Clustering?<a class="future-reference" href="https://arxiv.org/abs/2601.21656">Zhao, Wang, Tan &amp; Zhang (2026) · TabClustPFN</a></li>
 <li>Demystifying PFNs?<a class="future-reference" href="https://arxiv.org/abs/2510.23254">Ma, Wang &amp; Samworth (2025) · Optimal In-context Adaptivity and Distributional Robustness of Transformers</a></li>
 </ul>
@@ -1936,5 +1936,5 @@ clicks: 0
 <div class="future-thanks">Thank you!</div>
 
 <!--
-Future directions extend amortized statistical inference beyond confidence intervals to hypothesis testing, variable selection, and experimental design. These are open research questions. The QR code links to https://arxiv.org/abs/2609.33114.
+Future directions extend amortized statistical inference beyond confidence intervals to hypothesis testing, variable selection, and experimental design. These are open research questions. For variable selection, cite Jin Zhu and Junxian Zhu (2026), "Amortized Nonlinear Variable Selection with Prior-Data Fitted Networks": MambaPFN learns to identify the response's Markov blanket and selects relevant variables on new datasets without parameter updates. Source: https://arxiv.org/pdf/2611.04848. The QR code links to https://arxiv.org/abs/2609.33114.
 -->
