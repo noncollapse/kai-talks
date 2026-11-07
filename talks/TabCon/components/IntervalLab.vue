@@ -1,11 +1,11 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
-import { useSlideContext } from '@slidev/client'
+import { usePresentationStep } from '../utils/presentation-step'
 const props=defineProps({mode:{default:'compare'}})
-const {$clicks}=useSlideContext()
+const { step } = usePresentationStep()
 const override=ref(null)
-watch($clicks,()=>{override.value=null})
-const n=computed(()=>props.mode==='grow'?(override.value??[20,80,320][Math.min($clicks.value,2)]):40)
+watch(step,()=>{override.value=null})
+const n=computed(()=>props.mode==='grow'?(override.value??[20,80,320][Math.min(step.value,2)]):40)
 function rng(seed){return()=>{seed=(1664525*seed+1013904223)>>>0;return(seed+.5)/4294967296}}
 const points=computed(()=>{const random=rng(4581);return Array.from({length:n.value},()=>{const a=45+110*random();const z=Math.sqrt(-2*Math.log(random()))*Math.cos(2*Math.PI*random());return{x:a,y:180+3*a+65*z}})})
 const fit=computed(()=>{const data=points.value,xb=data.reduce((a,p)=>a+p.x,0)/n.value,yb=data.reduce((a,p)=>a+p.y,0)/n.value,sxx=data.reduce((a,p)=>a+(p.x-xb)**2,0),b=data.reduce((a,p)=>a+(p.x-xb)*(p.y-yb),0)/sxx;return{a:yb-b*xb,b,xb,sxx}})
@@ -20,9 +20,9 @@ const half=(x,pi)=>1.96*65*Math.sqrt((pi?1:0)+1/n.value+(x-fit.value.xb)**2/fit.
 const xs=Array.from({length:61},(_,i)=>40+i*2)
 const band=pi=>xs.map((x,i)=>`${i?'L':'M'}${sx(x)},${sy(prediction(x)+half(x,pi))}`).join(' ')+[...xs].reverse().map(x=>` L${sx(x)},${sy(prediction(x)-half(x,pi))}`).join(' ')+' Z'
 const line=computed(()=>xs.map((x,i)=>`${i?'L':'M'}${sx(x)},${sy(prediction(x))}`).join(' '))
-const showLine=computed(()=>props.mode==='grow'||$clicks.value>=1)
-const showPI=computed(()=>props.mode==='grow'||$clicks.value>=2)
-const showCI=computed(()=>props.mode==='grow'||$clicks.value>=3)
+const showLine=computed(()=>props.mode==='grow'||step.value>=1)
+const showPI=computed(()=>props.mode==='grow'||step.value>=2)
+const showCI=computed(()=>props.mode==='grow'||step.value>=3)
 </script>
 <template>
   <div class="lab">

@@ -18,24 +18,27 @@ function discoverTalks() {
       const directory = join(root, 'talks', slug)
       const metadataPath = join(directory, 'talk.json')
       const metadata = existsSync(metadataPath) ? JSON.parse(readFileSync(metadataPath, 'utf8')) : {}
-      const { title = slug, description = '', draft = false, label = 'Talk', kind = 'Research talk', topics = [], paper = '', appearances = [], order = 100 } = metadata
+      const { title = slug, description = '', draft = false, label = 'Talk', kind = 'Research talk', topics = [], paper = '', appearances = [], order = 100, flatVersion = false } = metadata
       if (typeof title !== 'string' || typeof description !== 'string' || typeof draft !== 'boolean')
         throw new Error(`Invalid title, description or draft in ${metadataPath}`)
       if (typeof label !== 'string' || typeof kind !== 'string' || !Array.isArray(topics) || topics.some(topic => typeof topic !== 'string') || typeof paper !== 'string' || !Number.isFinite(order))
         throw new Error(`Invalid archive metadata in ${metadataPath}`)
       if (paper && !/^https:\/\//.test(paper))
         throw new Error(`Use an HTTPS paper URL in ${metadataPath}`)
+      if (typeof flatVersion !== 'boolean')
+        throw new Error(`Invalid flatVersion in ${metadataPath}`)
       if (!Array.isArray(appearances) || appearances.some(event => !event || typeof event.venue !== 'string' || !event.venue.trim() || typeof event.detail !== 'string' || (event.recording !== undefined && (typeof event.recording !== 'string' || !/^https:\/\//.test(event.recording)))))
         throw new Error(`Invalid venue, detail or HTTPS recording URL in ${metadataPath}`)
-      return { slug, directory, title, description, draft, label, kind, topics, paper, appearances, order }
+      return { slug, directory, title, description, draft, label, kind, topics, paper, appearances, order, flatVersion }
     })
     .sort((a, b) => a.order - b.order || a.slug.localeCompare(b.slug))
 }
 
-function runSlidev(talk, options) {
+function runSlidev(talk, options, env = {}) {
   const result = spawnSync(process.execPath, [cli, ...options], {
     cwd: talk.directory,
     stdio: 'inherit',
+    env: { ...process.env, VITE_TABCON_FLAT: '0', ...env },
   })
   if (result.error) throw result.error
   if (result.status !== 0) process.exit(result.status ?? 1)
@@ -62,8 +65,8 @@ function writeIndex(talks, output) {
               <li><div class="appearance-copy"><span class="appearance-venue">${escapeHtml(event.venue)}</span><span class="appearance-detail">${escapeHtml(event.detail)}</span></div>${event.recording ? `<a class="recording-link" href="${escapeHtml(event.recording)}" aria-label="Watch recording: ${escapeHtml(talk.label)} at ${escapeHtml(event.venue)}"><span aria-hidden="true">▶</span> Recording <span aria-hidden="true">↗</span></a>` : ''}</li>`).join('')}
             </ul>
           </div>` : ''}
-          <div class="card-links">
-            <a class="open-talk" href="./${talk.slug}/" aria-label="Open talk slides: ${escapeHtml(talk.title)}">Open talk slides <span aria-hidden="true">↗</span></a>
+          <div class="card-links${talk.flatVersion ? ' with-flat-version' : ''}">
+            <div class="slide-links"><a class="open-talk" href="./${talk.slug}/" aria-label="Open talk slides: ${escapeHtml(talk.title)}">Open talk slides <span aria-hidden="true">↗</span></a>${talk.flatVersion ? `<a class="flat-version" href="./${talk.slug}-flat/" aria-label="Open flat version: ${escapeHtml(talk.title)}">(Flat version)</a>` : ''}</div>
             <div class="references"><a href="https://github.com/noncollapse/kai-talks/tree/main/talks/${talk.slug}" aria-label="Abstract and contents: ${escapeHtml(talk.label)}">Abstract <span aria-hidden="true">↗</span></a>${talk.paper ? `<a href="${escapeHtml(talk.paper)}" aria-label="Paper: ${escapeHtml(talk.label)}">Paper <span aria-hidden="true">↗</span></a>` : ''}</div>
           </div>
         </article>
@@ -117,6 +120,10 @@ try {
       for (const talk of targets) {
         console.log(`Building ${talk.slug}`)
         runSlidev(talk, ['build', 'slides.md', '--base', `${base}${talk.slug}/`, '--out', join(output, talk.slug), '--download', 'false'])
+        if (talk.flatVersion) {
+          console.log(`Building ${talk.slug} flat version`)
+          runSlidev(talk, ['build', 'slides.md', '--base', `${base}${talk.slug}-flat/`, '--out', join(output, `${talk.slug}-flat`), '--download', 'false'], { VITE_TABCON_FLAT: '1' })
+        }
       }
       writeIndex(targets, output)
       console.log(`Built ${targets.length} talk(s) and index in ${output}`)

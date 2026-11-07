@@ -1,6 +1,11 @@
 # Can Tabular Foundation Models Amortize Statistical Inference?
 
-[Open talk slides](https://kaiye.noncollapse.com/kai-talks/TabCon/)
+[Open talk slides](https://kaiye.noncollapse.com/kai-talks/TabCon/) ([Flat version](https://kaiye.noncollapse.com/kai-talks/TabCon-flat/))
+
+The flat version shows the final reveal state without keyboard click steps.
+Slides 14 and 22 use buttons to select their stages; existing interactive
+controls remain available. Both versions share the same source and slide numbers.
+The build generates `/TabCon/` and `/TabCon-flat/` together.
 
 ## Abstract
 

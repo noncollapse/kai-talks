@@ -2,6 +2,7 @@
   "title": "Can Tabular Foundation Models Amortize Statistical Inference?",
   "description": "From PFNs and predictive uncertainty to confidence intervals for regression functions. This talk explains TabCon's residual heads, attention-based routing, supervised training and reinforcement learning, with interactive illustrations of coverage, interval length and computation.",
   "label": "TabCon",
+  "flatVersion": true,
   "kind": "Research talk",
   "topics": ["Statistical inference", "Foundation models"],
   "paper": "https://arxiv.org/abs/2609.33114",

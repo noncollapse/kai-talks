@@ -1,10 +1,12 @@
 <script setup>
 import { computed } from 'vue'
-import { useSlideContext } from '@slidev/client'
+import { usePresentationStep } from '../utils/presentation-step'
 import MathTex from './MathTex.vue'
 const props = defineProps({ mode: { default: 'train' } })
-const { $clicks } = useSlideContext()
-const step = computed(() => $clicks.value)
+const { step, selectStep, isFlatMode } = usePresentationStep({ interactive: props.mode === 'train' })
+const stepLabels = computed(() => props.mode === 'train'
+  ? ['1. Simulate datasets', '2. Mask some outcomes', '3. Learn across data generating processes']
+  : ['1. Input the data', '2. Read the data', '3. Predict in one pass'])
 const tasks = [
   { name: 'A smooth relationship', color: '#4263eb', values: [8, 11, 16, 20, 27, 35, 43] },
   { name: 'A curved relationship', color: '#7c4dce', values: [37, 23, 14, 10, 14, 23, 37] },
@@ -13,7 +15,7 @@ const tasks = [
 const rows = [[65, 2, 370], [80, 2, 405], [105, 3, 490], [120, 3, 565]]
 </script>
 <template>
-  <div v-if="mode === 'train'" class="train-flow">
+  <div v-if="mode === 'train'" class="train-flow" :class="{'flat-mode':isFlatMode}">
     <div class="tasks">
       <div v-for="task in tasks" :key="task.name" class="task">
         <svg viewBox="0 0 150 65" role="img" :aria-label="task.name">
@@ -62,11 +64,18 @@ const rows = [[65, 2, 370], [80, 2, 405], [105, 3, 490], [120, 3, 565]]
       <b>A predictive distribution of price</b>
     </div>
   </div>
-  <div class="step-row"><span :class="{active:step===0}">{{mode==='train'?'1. Simulate datasets':'1. Input the data'}}</span><span :class="{active:step===1}">{{mode==='train'?'2. Mask some outcomes':'2. Read the data'}}</span><span :class="{active:step>=2}">{{mode==='train'?'3. Learn across data generating processes':'3. Predict in one pass'}}</span></div>
+  <div v-if="!isFlatMode || mode === 'train'" class="step-row" :role="isFlatMode ? 'group' : undefined" :aria-label="isFlatMode ? 'Training stage' : undefined">
+    <template v-if="isFlatMode"><button v-for="(label, i) in stepLabels" :key="label" type="button" :class="{active:step===i}" :aria-pressed="step===i" @click.stop="selectStep(i)">{{label}}</button></template>
+    <template v-else><span v-for="(label, i) in stepLabels" :key="label" :class="{active:Math.min(step,2)===i}">{{label}}</span></template>
+  </div>
 </template>
 <style scoped>
 .train-flow,.inference-flow { display:grid;align-items:center;height:340px;gap:14px; }
 .train-flow { grid-template-columns:210px 34px 206px 34px minmax(0,1fr); }
+.train-flow.flat-mode { height:300px; }
+.train-flow.flat-mode .task { margin:6px 0;padding:8px 13px; }
+.train-flow.flat-mode .task svg { height:60px; }
+.train-flow.flat-mode .label { margin-top:8px; }
 .inference-flow { grid-template-columns:270px 34px 206px 34px minmax(0,1fr); }
 .tasks { min-width:0; }.task { display:flex;align-items:center;background:white;border:1px solid #e0e6f0;border-radius:11px;margin:8px 0;padding:9px 13px; }.task svg { display:block;width:100%;height:72px; }.task span { font-size:12px;color:#64748b;padding-left:7px; }
 .label { font-size:15px;font-weight:700;color:#64748b;margin:11px 0 0; }.connector { font-size:42px;line-height:1;text-align:center;color:#d7dfed;transition:color .5s; }.connector.on { color:#4263eb; }
@@ -86,4 +95,7 @@ const rows = [[65, 2, 370], [80, 2, 405], [105, 3, 490], [120, 3, 565]]
 .transformer-model .front-layer{transition:box-shadow .5s,border-color .5s}.reading .front-layer{border-color:#4263eb;box-shadow:0 0 0 7px #4263eb0d}
 .step-row { margin-top:12px;gap:14px; }
 .step-row span { font-size:14px;padding:7px 14px; }
+.step-row button { font:inherit;font-size:14px;padding:7px 14px;border:1px solid #dce3ef;border-radius:20px;color:#6b7890;background:#fff;cursor:pointer;transition:background .2s,color .2s; }
+.step-row button.active { background:#4263eb;color:white;border-color:#4263eb; }
+.step-row button:focus-visible { outline:2px solid #4263eb;outline-offset:3px; }
 </style>

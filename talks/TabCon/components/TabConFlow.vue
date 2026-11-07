@@ -1,10 +1,11 @@
 <script setup>
-import { useSlideContext } from '@slidev/client'
+import { usePresentationStep } from '../utils/presentation-step'
 import MathTex from './MathTex.vue'
 import ModelSymbol from './ModelSymbol.vue'
 import ResidualMixturePlot from './ResidualMixturePlot.vue'
 
-const { $clicks } = useSlideContext()
+const { step, selectStep, isFlatMode } = usePresentationStep({ interactive: true })
+const stages = ['1. Backbone', '2. Experts', '3. Routing', '4. Mixture & CI']
 const expertHeight = 86
 const heads = [
   { name: 'Global', detail: 'Broad training tasks', key: 'G', color: '#ce7b26', weight: '0.35', y: 35, bars: [5, 12, 23, 33, 23, 12, 5] },
@@ -20,21 +21,21 @@ const expertOutputPath = (head, index) => {
 </script>
 
 <template>
-  <div class="moe-map">
+  <div class="moe-map" :class="{'flat-mode':isFlatMode}">
     <svg class="moe-links" viewBox="0 0 876 414" aria-hidden="true">
       <defs>
         <marker id="moe-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#a4b2cb" /></marker>
         <marker id="moe-gate-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#cf649a" /></marker>
         <marker v-for="head in heads" :key="`marker-${head.key}`" :id="`moe-expert-arrow-${head.key}`" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" :fill="head.color" /></marker>
       </defs>
-      <g class="reveal" :class="{ waiting: $clicks < 1 }" fill="none" stroke="#a4b2cb" stroke-width="1.7">
+      <g class="reveal" :class="{ waiting: step < 1 }" fill="none" stroke="#a4b2cb" stroke-width="1.7">
         <path :d="`M178 ${centerY(heads[1])}H215`" />
         <path :d="`M215 ${centerY(heads[0])}V${centerY(heads[2])}`" />
         <path v-for="head in heads" :key="`input-${head.key}`" :d="`M215 ${centerY(head)}H232`" marker-end="url(#moe-arrow)" />
       </g>
-      <path class="reveal" :class="{ waiting: $clicks < 2 }" d="M89 249V282" fill="none" stroke="#a4b2cb" stroke-width="1.7" marker-end="url(#moe-arrow)" />
-      <path class="reveal gate-link" :class="{ waiting: $clicks < 2 }" :d="`M190 333H202V362H480V${centerY(heads[0])}`" fill="none" stroke="#cf649a" stroke-width="1.7" stroke-dasharray="5 4" />
-      <g class="reveal" :class="{ waiting: $clicks < 3 }" fill="none" stroke-width="2" marker-end="url(#moe-arrow)">
+      <path class="reveal" :class="{ waiting: step < 2 }" d="M89 249V282" fill="none" stroke="#a4b2cb" stroke-width="1.7" marker-end="url(#moe-arrow)" />
+      <path class="reveal gate-link" :class="{ waiting: step < 2 }" :d="`M190 333H202V362H480V${centerY(heads[0])}`" fill="none" stroke="#cf649a" stroke-width="1.7" stroke-dasharray="5 4" />
+      <g class="reveal" :class="{ waiting: step < 3 }" fill="none" stroke-width="2" marker-end="url(#moe-arrow)">
         <path v-for="(head, i) in heads" :key="`output-${head.key}`" :d="expertOutputPath(head, i)" :stroke="head.color" :marker-end="`url(#moe-expert-arrow-${head.key})`" :stroke-dasharray="i === 2 ? '4 4' : undefined" :style="{ opacity: i === 2 ? 0.3 : 1 }" />
         <path d="M723 184V197" stroke="#a4b2cb" />
       </g>
@@ -44,11 +45,11 @@ const expertOutputPath = (head, index) => {
       <h3>❄ Frozen TabPFN-v3</h3>
       <div class="backbone-symbol"><ModelSymbol /></div>
     </section>
-    <span class="embedding-label reveal" :class="{ waiting: $clicks < 2 }">Query<br>embeddings</span>
+    <span class="embedding-label reveal" :class="{ waiting: step < 2 }">Query<br>embeddings</span>
 
-    <div class="expert-label reveal" :class="{ waiting: $clicks < 1 }">Three residual experts</div>
+    <div class="expert-label reveal" :class="{ waiting: step < 1 }">Three residual experts</div>
     <section v-for="(head, i) in heads" :key="head.key" class="expert reveal"
-      :class="{ waiting: $clicks < 1, inactive: $clicks >= 3 && i === 2 }"
+      :class="{ waiting: step < 1, inactive: step >= 3 && i === 2 }"
       :style="{ top: `${head.y}px`, height: `${expertHeight}px`, '--expert': head.color }">
       <div><h3>{{ head.name }}</h3><p>{{ head.detail }}</p></div>
       <div class="expert-distribution">
@@ -57,31 +58,37 @@ const expertOutputPath = (head, index) => {
       </div>
     </section>
 
-    <section class="router reveal" :class="{ waiting: $clicks < 2 }">
+    <section class="router reveal" :class="{ waiting: step < 2 }">
       <h3>Router</h3>
       <p>Score experts<br>→ Choose <span class="no-wrap">top-2 scores</span></p>
     </section>
-    <span class="routing-label reveal" :class="{ waiting: $clicks < 2 }">Routing weights</span>
+    <span class="routing-label reveal" :class="{ waiting: step < 2 }">Routing weights</span>
     <div v-for="(head, i) in heads" :key="`weight-${head.key}`" class="gate reveal"
-      :class="{ waiting: $clicks < 2, inactive: $clicks >= 3 && i === 2 }"
+      :class="{ waiting: step < 2, inactive: step >= 3 && i === 2 }"
       :style="{ top: `${centerY(head) - 14}px`, '--expert': head.color }">
-      <b v-if="$clicks >= 3">{{ head.weight }}</b>
+      <b v-if="step >= 3">{{ head.weight }}</b>
       <MathTex v-else :tex="`w_${head.key}`" />
     </div>
 
-    <section class="mixture reveal" :class="{ waiting: $clicks < 3 }">
+    <section class="mixture reveal" :class="{ waiting: step < 3 }">
       <h3>🔥 Residual head</h3>
       <div class="mixture-symbol"><ModelSymbol color="#cf4b53" /></div>
       <div class="mixture-math"><MathTex tex="p_{\mathrm{mix}}(r)=\sum_{e\,\in\,\mathrm{Top2}}w_e\,p_e(r)" /></div>
       <p><b style="color:#ce7b26">0.35 Global</b> + <b class="violet">0.65 Expansion</b></p>
     </section>
 
-    <div class="quantile-output reveal" :class="{ waiting: $clicks < 3 }"><h3>Extract its quantiles</h3><div class="quantile-math"><MathTex tex="Q_{1-\alpha/2}(x)" /> and <MathTex tex="Q_{\alpha/2}(x)" /></div><ResidualMixturePlot /></div>
+    <div class="quantile-output reveal" :class="{ waiting: step < 3 }"><h3>Extract its quantiles</h3><div class="quantile-math"><MathTex tex="Q_{1-\alpha/2}(x)" /> and <MathTex tex="Q_{\alpha/2}(x)" /></div><ResidualMixturePlot /></div>
+    <div v-if="isFlatMode" class="moe-steps" role="group" aria-label="Architecture stage"><button v-for="(label,i) in stages" :key="label" type="button" :aria-pressed="step===i" @click.stop="selectStep(i)">{{label}}</button></div>
   </div>
 </template>
 
 <style scoped>
 .moe-map{position:relative;width:876px;height:414px;margin-top:18px}
+.moe-map.flat-mode{margin-top:0}
+.moe-steps{position:absolute;left:50%;top:410px;transform:translateX(-50%);width:356px;display:flex;gap:5px}
+.moe-steps button{flex:1;white-space:nowrap;padding:3px 6px;border:1px solid #dce3ef;border-radius:5px;background:#fff;color:#64748b;font:inherit;font-size:10px;line-height:1.4;cursor:pointer;transition:background .2s,color .2s}
+.moe-steps button[aria-pressed=true]{background:#4263eb;border-color:#4263eb;color:#fff}
+.moe-steps button:focus-visible{outline:2px solid #4263eb;outline-offset:3px}
 .moe-links{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .moe-map section{position:absolute;box-sizing:border-box}
 .moe-map h3{font-size:19px;line-height:1.3;margin:0;color:#17233e}

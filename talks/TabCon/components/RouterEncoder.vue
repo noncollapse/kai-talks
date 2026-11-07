@@ -1,7 +1,7 @@
 <script setup>
-import { useSlideContext } from '@slidev/client'
+import { usePresentationStep } from '../utils/presentation-step'
 import MathTex from './MathTex.vue'
-const { $clicks } = useSlideContext()
+const { step } = usePresentationStep()
 const attention = [[.10,.15,.40,.25,.10],[.35,.30,.10,.15,.10],[.10,.10,.15,.25,.40],[.15,.35,.25,.15,.10]]
 </script>
 <template>
@@ -9,19 +9,19 @@ const attention = [[.10,.15,.40,.25,.10],[.35,.30,.10,.15,.10],[.10,.10,.15,.25,
     <svg class="attention-links" viewBox="0 0 876 400" aria-hidden="true">
       <defs><marker id="attention-arrow" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#a5b1c9"/></marker></defs>
       <g fill="none" stroke="#a5b1c9" stroke-width="1.8" marker-end="url(#attention-arrow)">
-        <path class="reveal" :class="{waiting:$clicks<1}" d="M185 207H200V155H215"/>
-        <path class="reveal" :class="{waiting:$clicks<2}" d="M200 207V332H215"/>
-        <path class="reveal" :class="{waiting:$clicks<2}" d="M565 155H573V83H590"/>
-        <path class="reveal" :class="{waiting:$clicks<2}" d="M565 332H582V111H590"/>
-        <path class="reveal" :class="{waiting:$clicks<3}" d="M733 142V190"/>
+        <path class="reveal" :class="{waiting:step<1}" d="M185 207H200V155H215"/>
+        <path class="reveal" :class="{waiting:step<2}" d="M200 207V332H215"/>
+        <path class="reveal" :class="{waiting:step<2}" d="M565 155H573V83H590"/>
+        <path class="reveal" :class="{waiting:step<2}" d="M565 332H582V111H590"/>
+        <path class="reveal" :class="{waiting:step<3}" d="M733 142V190"/>
       </g>
-      <circle class="reveal" :class="{waiting:$clicks<2}" cx="200" cy="207" r="3" fill="#a5b1c9"/>
+      <circle class="reveal" :class="{waiting:step<2}" cx="200" cy="207" r="3" fill="#a5b1c9"/>
     </svg>
     <div class="query-set">
       <h3>Query embeddings<br>from Frozen TabPFN</h3>
       <div class="embedding-rows"><div v-for="row in 5" :key="row"><MathTex :tex="`\\boldsymbol{h}_{${row}}`"/><i v-for="cell in 6" :key="cell" :style="{opacity:.25+((row*3+cell)%7)/10}"/></div></div>
     </div>
-    <div class="attention-pool pooling-group reveal" :class="{waiting:$clicks<1}">
+    <div class="attention-pool pooling-group reveal" :class="{waiting:step<1}">
       <h3 class="outside-heading">Attention pooling</h3>
       <section class="router-panel attention-panel">
         <div class="attention-grid">
@@ -34,21 +34,21 @@ const attention = [[.10,.15,.40,.25,.10],[.35,.30,.10,.15,.10],[.10,.10,.15,.25,
         </div>
       </section>
     </div>
-    <div class="query-statistics pooling-group reveal" :class="{waiting:$clicks<2}">
+    <div class="query-statistics pooling-group reveal" :class="{waiting:step<2}">
       <section class="router-panel statistics-panel"><MathTex tex="\mathbf{Mean}(\boldsymbol{h})"/><MathTex tex="\mathbf{Std}(\boldsymbol{h})"/></section>
       <h3 class="below-heading">Mean and std pooling</h3>
     </div>
-    <div class="task-summary pooling-group reveal" :class="{waiting:$clicks<2}">
+    <div class="task-summary pooling-group reveal" :class="{waiting:step<2}">
       <h3 class="outside-heading">Query-set summary</h3>
       <section class="router-panel summary-panel"><MathTex tex="\bigl[\boldsymbol{u}_1,\boldsymbol{u}_2,\boldsymbol{u}_3,\boldsymbol{u}_4,\mathbf{Mean}(\boldsymbol{h}),\mathbf{Std}(\boldsymbol{h})\bigr]"/></section>
     </div>
-    <span class="routing-mlp-label reveal" :class="{waiting:$clicks<3}"><span>Feedforward</span><span>neural net</span></span>
-    <section class="expert-scores router-panel reveal" :class="{waiting:$clicks<3}">
-      <h3>{{ $clicks >= 4 ? 'Top-2 weights' : 'Expert weights' }}</h3>
+    <span class="routing-mlp-label reveal" :class="{waiting:step<3}"><span>Feedforward</span><span>neural net</span></span>
+    <section class="expert-scores router-panel reveal" :class="{waiting:step<3}">
+      <h3>{{ step >= 4 ? 'Top-2 weights' : 'Expert weights' }}</h3>
       <div class="weight-columns">
         <div v-for="(name,i) in ['G','E','S']" :key="name" class="weight-column">
-          <span>{{ ($clicks >= 4 ? [0.35,0.65,0] : [0.28,0.52,0.20])[i].toFixed(2) }}</span>
-          <div class="weight-track"><i :style="{height:`${($clicks >= 4 ? [0.35,0.65,0] : [0.28,0.52,0.20])[i]*64}px`,background:['#ce7b26','#7c4dce','#0b9687'][i]}"/></div>
+          <span>{{ (step >= 4 ? [0.35,0.65,0] : [0.28,0.52,0.20])[i].toFixed(2) }}</span>
+          <div class="weight-track"><i :style="{height:`${(step >= 4 ? [0.35,0.65,0] : [0.28,0.52,0.20])[i]*64}px`,background:['#ce7b26','#7c4dce','#0b9687'][i]}"/></div>
           <b>{{name}}</b>
         </div>
       </div>

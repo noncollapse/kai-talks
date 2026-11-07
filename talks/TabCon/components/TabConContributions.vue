@@ -1,9 +1,9 @@
 <script setup>
 import { computed } from 'vue'
-import { useSlideContext } from '@slidev/client'
+import { usePresentationStep } from '../utils/presentation-step'
 const props = defineProps({ active: { type:Number, default:0 } })
-const { $clicks } = useSlideContext()
-const selected = computed(() => props.active || ($clicks.value >= 1 ? 1 : 0))
+const { step } = usePresentationStep()
+const selected = computed(() => props.active || (step.value >= 1 ? 1 : 0))
 </script>
 
 <template>

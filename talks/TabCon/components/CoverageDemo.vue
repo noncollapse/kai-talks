@@ -1,8 +1,8 @@
 <script setup>
 import { computed } from 'vue'
-import { useSlideContext } from '@slidev/client'
-const { $clicks } = useSlideContext()
-const count = computed(() => $clicks.value >= 1 ? 20 : 1)
+import { usePresentationStep } from '../utils/presentation-step'
+const { step } = usePresentationStep()
+const count = computed(() => step.value >= 1 ? 20 : 1)
 const offsets=[-.3,.8,-1.1,.4,1.3,-.6,0,1.6,-.9,.5,-1.5,2.4,.2,-.7,1.1,-.4,.6,-1.2,.9,-.1]
 const sx=x=>300+x*55
 </script>
@@ -17,7 +17,7 @@ const sx=x=>300+x*55
         <circle :cx="sx(o)" :cy="32+i*14" r="3" fill="#17233e"/>
       </g>
     </svg>
-    <aside><div class="eyebrow">Repeat the whole experiment</div><h3>New data.<br>New estimate.<br>New interval.</h3><p>Use <MathTex tex="1-\alpha=95\%" /> as an example.</p><span class="pill coverage-count" :style="{ opacity: $clicks >= 1 ? 1 : 0 }">On average, 19 of 20 CIs cover</span></aside>
+    <aside><div class="eyebrow">Repeat the whole experiment</div><h3>New data.<br>New estimate.<br>New interval.</h3><p>Use <MathTex tex="1-\alpha=95\%" /> as an example.</p><span class="pill coverage-count" :style="{ opacity: step >= 1 ? 1 : 0 }">On average, 19 of 20 CIs cover</span></aside>
   </div>
 </template>
 <style scoped>.coverage{display:grid;grid-template-columns:565px 1fr;align-items:center;gap:22px}.coverage svg{width:565px;height:330px}.coverage aside h3{font-size:27px;line-height:1.35;font-weight:800;margin:14px 0}.coverage aside p{font-size:17px;color:#64748b}.coverage .eyebrow{font-size:18px}.coverage .pill{font-size:13px;white-space:nowrap;line-height:1.5}.coverage-count{transition:opacity .4s .65s}</style>

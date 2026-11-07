@@ -1,9 +1,9 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
-import { useSlideContext } from '@slidev/client'
-const { $clicks } = useSlideContext()
+import { usePresentationStep } from '../utils/presentation-step'
+const { step } = usePresentationStep()
 const selected=ref(0)
-watch(() => $clicks.value, clicks => { selected.value=Math.min(clicks,3) }, {immediate:true})
+watch(() => step.value, clicks => { selected.value=Math.min(clicks,3) }, {immediate:true})
 const settings=['In-distribution','Out-of-distribution','Stress-test','CC18']
 // Table 1, arXiv:2609.33114 (95% nominal coverage).
 const methods=[

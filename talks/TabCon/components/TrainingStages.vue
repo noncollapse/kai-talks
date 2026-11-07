@@ -1,14 +1,14 @@
 <script setup>
-import { useSlideContext } from '@slidev/client'
-const { $clicks } = useSlideContext()
+import { usePresentationStep } from '../utils/presentation-step'
+const { step } = usePresentationStep()
 </script>
 <template>
   <div class="training-overview">
     <div class="training-cards">
       <section class="global-stage"><span>1</span><h3>Global</h3><p>Learn <strong>residual distribution</strong> across <strong>all</strong> datasets.</p><small>50,000 synthetic datasets</small></section>
-      <section class="specialist-stage reveal" :class="{waiting:$clicks<1}"><span>2</span><h3>Specialists</h3><p>Clone Global &amp; specialize on data subsets with <strong>undercoverage</strong> or <strong>overcoverage</strong>.</p><small>Global data subsets</small></section>
-      <section class="router-stage reveal" :class="{waiting:$clicks<2}"><span>3</span><h3>Router</h3><p><strong>Supervised fine-tuning</strong> (SFT) to learn <strong>routing weights</strong>.</p><small>50,000 additional datasets</small></section>
-      <section class="router-stage reveal" :class="{waiting:$clicks<3}"><span>4</span><h3>Router</h3><p><strong>Reinforcement learning</strong> (RL) to fine-tune <strong>routing weights</strong>.</p><small>100,000 additional datasets</small></section>
+      <section class="specialist-stage reveal" :class="{waiting:step<1}"><span>2</span><h3>Specialists</h3><p>Clone Global &amp; specialize on data subsets with <strong>undercoverage</strong> or <strong>overcoverage</strong>.</p><small>Global data subsets</small></section>
+      <section class="router-stage reveal" :class="{waiting:step<2}"><span>3</span><h3>Router</h3><p><strong>Supervised fine-tuning</strong> (SFT) to learn <strong>routing weights</strong>.</p><small>50,000 additional datasets</small></section>
+      <section class="router-stage reveal" :class="{waiting:step<3}"><span>4</span><h3>Router</h3><p><strong>Reinforcement learning</strong> (RL) to fine-tune <strong>routing weights</strong>.</p><small>100,000 additional datasets</small></section>
     </div>
     <div class="phase-labels">
       <b class="pretraining-label">Pre-training</b>

@@ -1,10 +1,10 @@
 <script setup>
 import { ref, watch } from 'vue'
-import { useSlideContext } from '@slidev/client'
+import { usePresentationStep } from '../utils/presentation-step'
 import MathTex from './MathTex.vue'
-const { $clicks } = useSlideContext()
+const { step } = usePresentationStep()
 const regime = ref('under')
-watch(() => $clicks.value, clicks => {
+watch(() => step.value, clicks => {
   regime.value = clicks >= 2 ? 'middle' : clicks >= 1 ? 'over' : 'under'
 }, { immediate: true })
 const modes = [
