@@ -10,6 +10,7 @@ routerMode: hash
 colorSchema: light
 fonts:
   provider: none
+favicon: ./favicon.svg
 drawings:
   persist: false
 class: cover-slide
