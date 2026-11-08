@@ -6,6 +6,9 @@ The flat version shows the final reveal state without keyboard click steps.
 Slides 14 and 22 use buttons to select their stages; existing interactive
 controls remain available. Both versions share the same source and slide numbers.
 The build generates `/TabCon/` and `/TabCon-flat/` together.
+Both versions use numbered slide URLs such as `#/12`. Existing named links
+continue to work and redirect to the corresponding slide number, preserving
+reveal steps and presenter mode.
 
 ## Abstract
 

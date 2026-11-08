@@ -12,6 +12,7 @@ const categories = [
     { name:'CausalPFN', citation:'Balazadeh et al., 2025', url:'https://arxiv.org/abs/2506.07918' },
     { name:'CausalFM', citation:'Ma et al., ICLR 2026', url:'https://proceedings.iclr.cc/paper_files/paper/2026/hash/7f8cabaf2de70e1a9d3eb187f02bd58c-Abstract-Conference.html' },
     { name:'Learning to Fluctuate', citation:'Zhang, 2026', url:'https://arxiv.org/abs/2609.26290' },
+    { name:'InCOPE', citation:'Yu, Li & Zhou, 2026', url:'https://arxiv.org/abs/2610.34035' },
   ]},
   { title:'Uncertainty quantification', color:'#7c4dce', papers:[
     { name:'Approximate martingale posteriors (AMP)', citation:'Nagler & Rügamer, 2026', url:'https://arxiv.org/abs/2505.11325' },

@@ -499,6 +499,10 @@ The second group focuses on causal inference.
 
 For example, Do-PFN and CausalPFN study how foundation models can help estimate causal effects.
 
+InCOPE extends this direction to off-policy evaluation: given data collected under a behavior policy and a target policy, it estimates the target policy's expected return without task-specific parameter updates.
+
+Reference: Yu, Li, and Zhou (2026), [Prior-Data Fitted Networks for In-Context Off-Policy Evaluation](https://arxiv.org/abs/2610.34035).
+
 The third group focuses on uncertainty.
 
 These papers study how to measure uncertainty or how to separate different sources of uncertainty.
